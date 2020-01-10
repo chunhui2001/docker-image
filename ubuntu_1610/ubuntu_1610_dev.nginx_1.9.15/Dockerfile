@@ -57,12 +57,15 @@ RUN rm -rf /root/nginx-work
 
 # CMD ["-g", "daemon off;"]
 
+# nginx -v 查看版本 
+# nginx -V 查看编译配置
+# nginx -t 检查配置文件
 
 
 ### run nginx
 # $ docker pull chunhui2001/ubuntu_1610_dev:nginx_1.9.15
 # $ docker run -d -p 8081:80 -v /Users/keesh/Desktop/react_lab:/usr/local/nginx/html:ro --name nginx_react chunhui2001/ubuntu_1610_dev:nginx_1.9.15
-# $ docker run -d -p 8081:80 --name nginx_react chunhui2001/ubuntu_1610_dev:nginx_1.9.15
+# $ docker run -d -p 80:80 --name nginx_server chunhui2001/ubuntu_1610_dev:nginx_1.9.15
 # $ docker run --rm --name webserver -p 80:80 -v /var/www:/usr/share/nginx/html:ro -d nginx
 
 # open port

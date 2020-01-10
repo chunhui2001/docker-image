@@ -1,0 +1,7732 @@
+-- MySQL dump 10.13  Distrib 5.7.27, for Linux (x86_64)
+--
+-- Host: localhost    Database: atlassian_jira
+-- ------------------------------------------------------
+-- Server version	5.7.27-log
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `AO_0A5972_NOTIFICATION_SETTING`
+--
+
+DROP TABLE IF EXISTS `AO_0A5972_NOTIFICATION_SETTING`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_0A5972_NOTIFICATION_SETTING` (
+  `ID` bigint(20) NOT NULL AUTO_INCREMENT,
+  `KEY` varchar(255) COLLATE utf8_bin NOT NULL,
+  `TYPE` varchar(255) COLLATE utf8_bin NOT NULL,
+  `USER_KEY` varchar(255) COLLATE utf8_bin NOT NULL,
+  `VALUE` varchar(255) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_0a5972_not187736835` (`USER_KEY`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_0A5972_NOTIFICATION_SETTING`
+--
+
+LOCK TABLES `AO_0A5972_NOTIFICATION_SETTING` WRITE;
+/*!40000 ALTER TABLE `AO_0A5972_NOTIFICATION_SETTING` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_0A5972_NOTIFICATION_SETTING` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_0A5972_PUSH_REGISTRATION`
+--
+
+DROP TABLE IF EXISTS `AO_0A5972_PUSH_REGISTRATION`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_0A5972_PUSH_REGISTRATION` (
+  `BUILD` varchar(255) COLLATE utf8_bin NOT NULL,
+  `ENDPOINT` varchar(450) COLLATE utf8_bin DEFAULT NULL,
+  `ID` varchar(255) COLLATE utf8_bin NOT NULL,
+  `OS` varchar(255) COLLATE utf8_bin NOT NULL,
+  `TOKEN` varchar(450) COLLATE utf8_bin DEFAULT NULL,
+  `USER_KEY` varchar(255) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_0a5972_pus2127422409` (`USER_KEY`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_0A5972_PUSH_REGISTRATION`
+--
+
+LOCK TABLES `AO_0A5972_PUSH_REGISTRATION` WRITE;
+/*!40000 ALTER TABLE `AO_0A5972_PUSH_REGISTRATION` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_0A5972_PUSH_REGISTRATION` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_0AC321_RECOMMENDATION_AO`
+--
+
+DROP TABLE IF EXISTS `AO_0AC321_RECOMMENDATION_AO`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_0AC321_RECOMMENDATION_AO` (
+  `CATEGORY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `CUSTOM_FIELD_ID` bigint(20) DEFAULT NULL,
+  `ID` varchar(255) COLLATE utf8_bin NOT NULL,
+  `NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `PERFORMANCE_IMPACT` double DEFAULT NULL,
+  `PROJECT_IDS` longtext COLLATE utf8_bin,
+  `RESOLVED` tinyint(1) DEFAULT NULL,
+  `TYPE` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_0AC321_RECOMMENDATION_AO`
+--
+
+LOCK TABLES `AO_0AC321_RECOMMENDATION_AO` WRITE;
+/*!40000 ALTER TABLE `AO_0AC321_RECOMMENDATION_AO` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_0AC321_RECOMMENDATION_AO` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_21D670_WHITELIST_RULES`
+--
+
+DROP TABLE IF EXISTS `AO_21D670_WHITELIST_RULES`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_21D670_WHITELIST_RULES` (
+  `ALLOWINBOUND` tinyint(1) DEFAULT NULL,
+  `EXPRESSION` longtext COLLATE utf8_bin NOT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `TYPE` varchar(255) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_21D670_WHITELIST_RULES`
+--
+
+LOCK TABLES `AO_21D670_WHITELIST_RULES` WRITE;
+/*!40000 ALTER TABLE `AO_21D670_WHITELIST_RULES` DISABLE KEYS */;
+INSERT INTO `AO_21D670_WHITELIST_RULES` VALUES (0,'http://www.atlassian.com/*',1,'WILDCARD_EXPRESSION'),(0,'http://www.atlassian.com/*',2,'WILDCARD_EXPRESSION');
+/*!40000 ALTER TABLE `AO_21D670_WHITELIST_RULES` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_21F425_MESSAGE_AO`
+--
+
+DROP TABLE IF EXISTS `AO_21F425_MESSAGE_AO`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_21F425_MESSAGE_AO` (
+  `CONTENT` longtext COLLATE utf8_bin NOT NULL,
+  `ID` varchar(255) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_21F425_MESSAGE_AO`
+--
+
+LOCK TABLES `AO_21F425_MESSAGE_AO` WRITE;
+/*!40000 ALTER TABLE `AO_21F425_MESSAGE_AO` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_21F425_MESSAGE_AO` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_21F425_MESSAGE_MAPPING_AO`
+--
+
+DROP TABLE IF EXISTS `AO_21F425_MESSAGE_MAPPING_AO`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_21F425_MESSAGE_MAPPING_AO` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `MESSAGE_ID` varchar(255) COLLATE utf8_bin NOT NULL,
+  `USER_HASH` varchar(255) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_21f425_mes1965715920` (`MESSAGE_ID`),
+  KEY `index_ao_21f425_mes223897723` (`USER_HASH`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_21F425_MESSAGE_MAPPING_AO`
+--
+
+LOCK TABLES `AO_21F425_MESSAGE_MAPPING_AO` WRITE;
+/*!40000 ALTER TABLE `AO_21F425_MESSAGE_MAPPING_AO` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_21F425_MESSAGE_MAPPING_AO` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_21F425_USER_PROPERTY_AO`
+--
+
+DROP TABLE IF EXISTS `AO_21F425_USER_PROPERTY_AO`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_21F425_USER_PROPERTY_AO` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `KEY` varchar(255) COLLATE utf8_bin NOT NULL,
+  `USER` varchar(255) COLLATE utf8_bin NOT NULL,
+  `VALUE` varchar(255) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_21f425_use1458667739` (`USER`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_21F425_USER_PROPERTY_AO`
+--
+
+LOCK TABLES `AO_21F425_USER_PROPERTY_AO` WRITE;
+/*!40000 ALTER TABLE `AO_21F425_USER_PROPERTY_AO` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_21F425_USER_PROPERTY_AO` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_38321B_CUSTOM_CONTENT_LINK`
+--
+
+DROP TABLE IF EXISTS `AO_38321B_CUSTOM_CONTENT_LINK`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_38321B_CUSTOM_CONTENT_LINK` (
+  `CONTENT_KEY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `LINK_LABEL` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `LINK_URL` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `SEQUENCE` int(11) DEFAULT '0',
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_38321b_cus1828044926` (`CONTENT_KEY`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_38321B_CUSTOM_CONTENT_LINK`
+--
+
+LOCK TABLES `AO_38321B_CUSTOM_CONTENT_LINK` WRITE;
+/*!40000 ALTER TABLE `AO_38321B_CUSTOM_CONTENT_LINK` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_38321B_CUSTOM_CONTENT_LINK` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_3B1893_LOOP_DETECTION`
+--
+
+DROP TABLE IF EXISTS `AO_3B1893_LOOP_DETECTION`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_3B1893_LOOP_DETECTION` (
+  `COUNTER` int(11) NOT NULL DEFAULT '0',
+  `EXPIRES_AT` bigint(20) NOT NULL DEFAULT '0',
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `SENDER_EMAIL` longtext COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_3B1893_LOOP_DETECTION`
+--
+
+LOCK TABLES `AO_3B1893_LOOP_DETECTION` WRITE;
+/*!40000 ALTER TABLE `AO_3B1893_LOOP_DETECTION` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_3B1893_LOOP_DETECTION` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_4789DD_HEALTH_CHECK_STATUS`
+--
+
+DROP TABLE IF EXISTS `AO_4789DD_HEALTH_CHECK_STATUS`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_4789DD_HEALTH_CHECK_STATUS` (
+  `APPLICATION_NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `COMPLETE_KEY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `DESCRIPTION` longtext COLLATE utf8_bin,
+  `FAILED_DATE` datetime DEFAULT NULL,
+  `FAILURE_REASON` longtext COLLATE utf8_bin,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `IS_HEALTHY` tinyint(1) DEFAULT NULL,
+  `IS_RESOLVED` tinyint(1) DEFAULT NULL,
+  `RESOLVED_DATE` datetime DEFAULT NULL,
+  `SEVERITY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `STATUS_NAME` varchar(255) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_4789DD_HEALTH_CHECK_STATUS`
+--
+
+LOCK TABLES `AO_4789DD_HEALTH_CHECK_STATUS` WRITE;
+/*!40000 ALTER TABLE `AO_4789DD_HEALTH_CHECK_STATUS` DISABLE KEYS */;
+INSERT INTO `AO_4789DD_HEALTH_CHECK_STATUS` VALUES ('JIRA','com.atlassian.troubleshooting.plugin-jira:gadgetFeedUrlHealthCheck','检查 Jira 是否能够通过小工具源 URL 访问自身，以确保仪表板小工具正常工作。','2020-05-27 17:28:38','Jira 不能通过小工具源 URL 访问自身。这是必要的，以便可以成功生成仪表板小工具。请验证当前的基本 URL，如果有必要，请检查您的网络配置，以便解决问题。',1,0,0,NULL,'WARNING','小工具源URL');
+/*!40000 ALTER TABLE `AO_4789DD_HEALTH_CHECK_STATUS` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_4789DD_PROPERTIES`
+--
+
+DROP TABLE IF EXISTS `AO_4789DD_PROPERTIES`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_4789DD_PROPERTIES` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `PROPERTY_NAME` varchar(255) COLLATE utf8_bin NOT NULL,
+  `PROPERTY_VALUE` varchar(255) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_4789DD_PROPERTIES`
+--
+
+LOCK TABLES `AO_4789DD_PROPERTIES` WRITE;
+/*!40000 ALTER TABLE `AO_4789DD_PROPERTIES` DISABLE KEYS */;
+INSERT INTO `AO_4789DD_PROPERTIES` VALUES (1,'last-run','1590573016089');
+/*!40000 ALTER TABLE `AO_4789DD_PROPERTIES` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_4789DD_READ_NOTIFICATIONS`
+--
+
+DROP TABLE IF EXISTS `AO_4789DD_READ_NOTIFICATIONS`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_4789DD_READ_NOTIFICATIONS` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `IS_SNOOZED` tinyint(1) DEFAULT NULL,
+  `NOTIFICATION_ID` int(11) NOT NULL,
+  `SNOOZE_COUNT` int(11) DEFAULT NULL,
+  `SNOOZE_DATE` datetime DEFAULT NULL,
+  `USER_KEY` varchar(255) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_4789DD_READ_NOTIFICATIONS`
+--
+
+LOCK TABLES `AO_4789DD_READ_NOTIFICATIONS` WRITE;
+/*!40000 ALTER TABLE `AO_4789DD_READ_NOTIFICATIONS` DISABLE KEYS */;
+INSERT INTO `AO_4789DD_READ_NOTIFICATIONS` VALUES (1,1,1,1,'2020-05-27 17:30:21','JIRAUSER10000');
+/*!40000 ALTER TABLE `AO_4789DD_READ_NOTIFICATIONS` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_4789DD_TASK_MONITOR`
+--
+
+DROP TABLE IF EXISTS `AO_4789DD_TASK_MONITOR`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_4789DD_TASK_MONITOR` (
+  `CLUSTERED_TASK_ID` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `CREATED_TIMESTAMP` bigint(20) DEFAULT '0',
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `NODE_ID` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `PROGRESS_MESSAGE` longtext COLLATE utf8_bin,
+  `PROGRESS_PERCENTAGE` int(11) DEFAULT NULL,
+  `SERIALIZED_ERRORS` longtext COLLATE utf8_bin,
+  `SERIALIZED_WARNINGS` longtext COLLATE utf8_bin,
+  `TASK_ID` varchar(255) COLLATE utf8_bin NOT NULL,
+  `TASK_MONITOR_KIND` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `TASK_STATUS` longtext COLLATE utf8_bin,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `U_AO_4789DD_TASK_MO1827547914` (`TASK_ID`),
+  KEY `index_ao_4789dd_tas42846517` (`TASK_MONITOR_KIND`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_4789DD_TASK_MONITOR`
+--
+
+LOCK TABLES `AO_4789DD_TASK_MONITOR` WRITE;
+/*!40000 ALTER TABLE `AO_4789DD_TASK_MONITOR` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_4789DD_TASK_MONITOR` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_4AEACD_WEBHOOK_DAO`
+--
+
+DROP TABLE IF EXISTS `AO_4AEACD_WEBHOOK_DAO`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_4AEACD_WEBHOOK_DAO` (
+  `ENABLED` tinyint(1) DEFAULT NULL,
+  `ENCODED_EVENTS` longtext COLLATE utf8_bin,
+  `FILTER` longtext COLLATE utf8_bin,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `JQL` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `LAST_UPDATED` datetime NOT NULL,
+  `LAST_UPDATED_USER` varchar(255) COLLATE utf8_bin NOT NULL,
+  `NAME` longtext COLLATE utf8_bin NOT NULL,
+  `REGISTRATION_METHOD` varchar(255) COLLATE utf8_bin NOT NULL,
+  `URL` longtext COLLATE utf8_bin NOT NULL,
+  `PARAMETERS` longtext COLLATE utf8_bin,
+  `EXCLUDE_ISSUE_DETAILS` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_4AEACD_WEBHOOK_DAO`
+--
+
+LOCK TABLES `AO_4AEACD_WEBHOOK_DAO` WRITE;
+/*!40000 ALTER TABLE `AO_4AEACD_WEBHOOK_DAO` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_4AEACD_WEBHOOK_DAO` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_550953_SHORTCUT`
+--
+
+DROP TABLE IF EXISTS `AO_550953_SHORTCUT`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_550953_SHORTCUT` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `PROJECT_ID` bigint(20) DEFAULT NULL,
+  `SHORTCUT_URL` longtext COLLATE utf8_bin,
+  `URL` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `ICON` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_550953_sho1778115994` (`PROJECT_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_550953_SHORTCUT`
+--
+
+LOCK TABLES `AO_550953_SHORTCUT` WRITE;
+/*!40000 ALTER TABLE `AO_550953_SHORTCUT` DISABLE KEYS */;
+INSERT INTO `AO_550953_SHORTCUT` VALUES (1,'Project management ideas',10000,'https://docs.atlassian.com/jira/jcore-docs-089/Project+management',NULL,''),(2,'Working in a project',10000,'https://docs.atlassian.com/jira/jcore-docs-089/Working+in+a+project',NULL,'');
+/*!40000 ALTER TABLE `AO_550953_SHORTCUT` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_563AEE_ACTIVITY_ENTITY`
+--
+
+DROP TABLE IF EXISTS `AO_563AEE_ACTIVITY_ENTITY`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_563AEE_ACTIVITY_ENTITY` (
+  `ACTIVITY_ID` bigint(20) NOT NULL AUTO_INCREMENT,
+  `ACTOR_ID` int(11) DEFAULT NULL,
+  `CONTENT` longtext COLLATE utf8_bin,
+  `GENERATOR_DISPLAY_NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `GENERATOR_ID` varchar(450) COLLATE utf8_bin DEFAULT NULL,
+  `ICON_ID` int(11) DEFAULT NULL,
+  `ID` varchar(450) COLLATE utf8_bin DEFAULT NULL,
+  `ISSUE_KEY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `OBJECT_ID` int(11) DEFAULT NULL,
+  `POSTER` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `PROJECT_KEY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `PUBLISHED` datetime DEFAULT NULL,
+  `TARGET_ID` int(11) DEFAULT NULL,
+  `TITLE` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `URL` varchar(450) COLLATE utf8_bin DEFAULT NULL,
+  `USERNAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `VERB` varchar(450) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ACTIVITY_ID`),
+  KEY `index_ao_563aee_act972488439` (`ICON_ID`),
+  KEY `index_ao_563aee_act1642652291` (`OBJECT_ID`),
+  KEY `index_ao_563aee_act1978295567` (`TARGET_ID`),
+  KEY `index_ao_563aee_act995325379` (`ACTOR_ID`),
+  CONSTRAINT `fk_ao_563aee_activity_entity_actor_id` FOREIGN KEY (`ACTOR_ID`) REFERENCES `AO_563AEE_ACTOR_ENTITY` (`ID`),
+  CONSTRAINT `fk_ao_563aee_activity_entity_icon_id` FOREIGN KEY (`ICON_ID`) REFERENCES `AO_563AEE_MEDIA_LINK_ENTITY` (`ID`),
+  CONSTRAINT `fk_ao_563aee_activity_entity_object_id` FOREIGN KEY (`OBJECT_ID`) REFERENCES `AO_563AEE_OBJECT_ENTITY` (`ID`),
+  CONSTRAINT `fk_ao_563aee_activity_entity_target_id` FOREIGN KEY (`TARGET_ID`) REFERENCES `AO_563AEE_TARGET_ENTITY` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_563AEE_ACTIVITY_ENTITY`
+--
+
+LOCK TABLES `AO_563AEE_ACTIVITY_ENTITY` WRITE;
+/*!40000 ALTER TABLE `AO_563AEE_ACTIVITY_ENTITY` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_563AEE_ACTIVITY_ENTITY` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_563AEE_ACTOR_ENTITY`
+--
+
+DROP TABLE IF EXISTS `AO_563AEE_ACTOR_ENTITY`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_563AEE_ACTOR_ENTITY` (
+  `FULL_NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `PROFILE_PAGE_URI` varchar(450) COLLATE utf8_bin DEFAULT NULL,
+  `PROFILE_PICTURE_URI` varchar(450) COLLATE utf8_bin DEFAULT NULL,
+  `USERNAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_563AEE_ACTOR_ENTITY`
+--
+
+LOCK TABLES `AO_563AEE_ACTOR_ENTITY` WRITE;
+/*!40000 ALTER TABLE `AO_563AEE_ACTOR_ENTITY` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_563AEE_ACTOR_ENTITY` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_563AEE_MEDIA_LINK_ENTITY`
+--
+
+DROP TABLE IF EXISTS `AO_563AEE_MEDIA_LINK_ENTITY`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_563AEE_MEDIA_LINK_ENTITY` (
+  `DURATION` int(11) DEFAULT NULL,
+  `HEIGHT` int(11) DEFAULT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `URL` varchar(450) COLLATE utf8_bin DEFAULT NULL,
+  `WIDTH` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_563AEE_MEDIA_LINK_ENTITY`
+--
+
+LOCK TABLES `AO_563AEE_MEDIA_LINK_ENTITY` WRITE;
+/*!40000 ALTER TABLE `AO_563AEE_MEDIA_LINK_ENTITY` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_563AEE_MEDIA_LINK_ENTITY` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_563AEE_OBJECT_ENTITY`
+--
+
+DROP TABLE IF EXISTS `AO_563AEE_OBJECT_ENTITY`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_563AEE_OBJECT_ENTITY` (
+  `CONTENT` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `DISPLAY_NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `IMAGE_ID` int(11) DEFAULT NULL,
+  `OBJECT_ID` varchar(450) COLLATE utf8_bin DEFAULT NULL,
+  `OBJECT_TYPE` varchar(450) COLLATE utf8_bin DEFAULT NULL,
+  `SUMMARY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `URL` varchar(450) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_563aee_obj696886343` (`IMAGE_ID`),
+  CONSTRAINT `fk_ao_563aee_object_entity_image_id` FOREIGN KEY (`IMAGE_ID`) REFERENCES `AO_563AEE_MEDIA_LINK_ENTITY` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_563AEE_OBJECT_ENTITY`
+--
+
+LOCK TABLES `AO_563AEE_OBJECT_ENTITY` WRITE;
+/*!40000 ALTER TABLE `AO_563AEE_OBJECT_ENTITY` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_563AEE_OBJECT_ENTITY` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_563AEE_TARGET_ENTITY`
+--
+
+DROP TABLE IF EXISTS `AO_563AEE_TARGET_ENTITY`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_563AEE_TARGET_ENTITY` (
+  `CONTENT` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `DISPLAY_NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `IMAGE_ID` int(11) DEFAULT NULL,
+  `OBJECT_ID` varchar(450) COLLATE utf8_bin DEFAULT NULL,
+  `OBJECT_TYPE` varchar(450) COLLATE utf8_bin DEFAULT NULL,
+  `SUMMARY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `URL` varchar(450) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_563aee_tar521440921` (`IMAGE_ID`),
+  CONSTRAINT `fk_ao_563aee_target_entity_image_id` FOREIGN KEY (`IMAGE_ID`) REFERENCES `AO_563AEE_MEDIA_LINK_ENTITY` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_563AEE_TARGET_ENTITY`
+--
+
+LOCK TABLES `AO_563AEE_TARGET_ENTITY` WRITE;
+/*!40000 ALTER TABLE `AO_563AEE_TARGET_ENTITY` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_563AEE_TARGET_ENTITY` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_575BF5_DEV_SUMMARY`
+--
+
+DROP TABLE IF EXISTS `AO_575BF5_DEV_SUMMARY`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_575BF5_DEV_SUMMARY` (
+  `CREATED` datetime NOT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `ISSUE_ID` bigint(20) NOT NULL DEFAULT '0',
+  `JSON` longtext COLLATE utf8_bin,
+  `PROVIDER_SOURCE_ID` varchar(255) COLLATE utf8_bin NOT NULL,
+  `UPDATED` datetime NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_575bf5_dev996442447` (`PROVIDER_SOURCE_ID`),
+  KEY `index_ao_575bf5_dev567785983` (`ISSUE_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_575BF5_DEV_SUMMARY`
+--
+
+LOCK TABLES `AO_575BF5_DEV_SUMMARY` WRITE;
+/*!40000 ALTER TABLE `AO_575BF5_DEV_SUMMARY` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_575BF5_DEV_SUMMARY` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_575BF5_PROCESSED_COMMITS`
+--
+
+DROP TABLE IF EXISTS `AO_575BF5_PROCESSED_COMMITS`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_575BF5_PROCESSED_COMMITS` (
+  `COMMIT_HASH` varchar(255) COLLATE utf8_bin NOT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `METADATA_HASH` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_575bf5_pro78019725` (`METADATA_HASH`),
+  KEY `index_ao_575bf5_pro1681808571` (`COMMIT_HASH`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_575BF5_PROCESSED_COMMITS`
+--
+
+LOCK TABLES `AO_575BF5_PROCESSED_COMMITS` WRITE;
+/*!40000 ALTER TABLE `AO_575BF5_PROCESSED_COMMITS` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_575BF5_PROCESSED_COMMITS` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_575BF5_PROVIDER_ISSUE`
+--
+
+DROP TABLE IF EXISTS `AO_575BF5_PROVIDER_ISSUE`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_575BF5_PROVIDER_ISSUE` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `ISSUE_ID` bigint(20) NOT NULL DEFAULT '0',
+  `PROVIDER_SOURCE_ID` varchar(255) COLLATE utf8_bin NOT NULL,
+  `STALE_AFTER` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_575bf5_pro1348521624` (`PROVIDER_SOURCE_ID`),
+  KEY `index_ao_575bf5_pro1117502689` (`STALE_AFTER`),
+  KEY `index_ao_575bf5_pro741170824` (`ISSUE_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_575BF5_PROVIDER_ISSUE`
+--
+
+LOCK TABLES `AO_575BF5_PROVIDER_ISSUE` WRITE;
+/*!40000 ALTER TABLE `AO_575BF5_PROVIDER_ISSUE` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_575BF5_PROVIDER_ISSUE` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_575BF5_PROVIDER_SEQ_NO`
+--
+
+DROP TABLE IF EXISTS `AO_575BF5_PROVIDER_SEQ_NO`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_575BF5_PROVIDER_SEQ_NO` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `PROVIDER_SOURCE_ID` varchar(255) COLLATE utf8_bin NOT NULL,
+  `SEQUENCE_NO` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_575bf5_pro996609822` (`PROVIDER_SOURCE_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_575BF5_PROVIDER_SEQ_NO`
+--
+
+LOCK TABLES `AO_575BF5_PROVIDER_SEQ_NO` WRITE;
+/*!40000 ALTER TABLE `AO_575BF5_PROVIDER_SEQ_NO` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_575BF5_PROVIDER_SEQ_NO` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_587B34_GLANCE_CONFIG`
+--
+
+DROP TABLE IF EXISTS `AO_587B34_GLANCE_CONFIG`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_587B34_GLANCE_CONFIG` (
+  `ROOM_ID` bigint(20) NOT NULL DEFAULT '0',
+  `STATE` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `SYNC_NEEDED` tinyint(1) DEFAULT NULL,
+  `JQL` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `APPLICATION_USER_KEY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ROOM_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_587B34_GLANCE_CONFIG`
+--
+
+LOCK TABLES `AO_587B34_GLANCE_CONFIG` WRITE;
+/*!40000 ALTER TABLE `AO_587B34_GLANCE_CONFIG` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_587B34_GLANCE_CONFIG` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_587B34_PROJECT_CONFIG`
+--
+
+DROP TABLE IF EXISTS `AO_587B34_PROJECT_CONFIG`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_587B34_PROJECT_CONFIG` (
+  `CONFIGURATION_GROUP_ID` varchar(255) COLLATE utf8_bin NOT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `NAME_UNIQUE_CONSTRAINT` varchar(255) COLLATE utf8_bin NOT NULL,
+  `PROJECT_ID` bigint(20) NOT NULL DEFAULT '0',
+  `ROOM_ID` bigint(20) NOT NULL DEFAULT '0',
+  `VALUE` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `U_AO_587B34_PROJECT2070954277` (`NAME_UNIQUE_CONSTRAINT`),
+  KEY `index_ao_587b34_pro2093917684` (`PROJECT_ID`),
+  KEY `index_ao_587b34_pro1732672724` (`ROOM_ID`),
+  KEY `index_ao_587b34_pro193829489` (`CONFIGURATION_GROUP_ID`),
+  KEY `index_ao_587b34_pro2115480362` (`NAME`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_587B34_PROJECT_CONFIG`
+--
+
+LOCK TABLES `AO_587B34_PROJECT_CONFIG` WRITE;
+/*!40000 ALTER TABLE `AO_587B34_PROJECT_CONFIG` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_587B34_PROJECT_CONFIG` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_5FB9D7_AOHIP_CHAT_LINK`
+--
+
+DROP TABLE IF EXISTS `AO_5FB9D7_AOHIP_CHAT_LINK`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_5FB9D7_AOHIP_CHAT_LINK` (
+  `ADDON_TOKEN_EXPIRY` datetime DEFAULT NULL,
+  `API_URL` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `CONNECT_DESCRIPTOR` longtext COLLATE utf8_bin,
+  `GROUP_ID` int(11) DEFAULT '0',
+  `GROUP_NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `OAUTH_ID` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `SECRET_KEY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `SYSTEM_PASSWORD` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `SYSTEM_TOKEN_EXPIRY` datetime DEFAULT NULL,
+  `SYSTEM_USER` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `SYSTEM_USER_TOKEN` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `TOKEN` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_5FB9D7_AOHIP_CHAT_LINK`
+--
+
+LOCK TABLES `AO_5FB9D7_AOHIP_CHAT_LINK` WRITE;
+/*!40000 ALTER TABLE `AO_5FB9D7_AOHIP_CHAT_LINK` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_5FB9D7_AOHIP_CHAT_LINK` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_5FB9D7_AOHIP_CHAT_USER`
+--
+
+DROP TABLE IF EXISTS `AO_5FB9D7_AOHIP_CHAT_USER`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_5FB9D7_AOHIP_CHAT_USER` (
+  `HIP_CHAT_LINK_ID` int(11) DEFAULT NULL,
+  `HIP_CHAT_USER_ID` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `HIP_CHAT_USER_NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `REFRESH_CODE` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `USER_KEY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `USER_SCOPES` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `USER_TOKEN` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `USER_TOKEN_EXPIRY` datetime DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_5fb9d7_aoh49772492` (`HIP_CHAT_LINK_ID`),
+  KEY `index_ao_5fb9d7_aoh1981563178` (`USER_KEY`),
+  CONSTRAINT `fk_ao_5fb9d7_aohip_chat_user_hip_chat_link_id` FOREIGN KEY (`HIP_CHAT_LINK_ID`) REFERENCES `AO_5FB9D7_AOHIP_CHAT_LINK` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_5FB9D7_AOHIP_CHAT_USER`
+--
+
+LOCK TABLES `AO_5FB9D7_AOHIP_CHAT_USER` WRITE;
+/*!40000 ALTER TABLE `AO_5FB9D7_AOHIP_CHAT_USER` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_5FB9D7_AOHIP_CHAT_USER` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_60DB71_AUDITENTRY`
+--
+
+DROP TABLE IF EXISTS `AO_60DB71_AUDITENTRY`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_60DB71_AUDITENTRY` (
+  `CATEGORY` varchar(255) COLLATE utf8_bin NOT NULL,
+  `DATA` longtext COLLATE utf8_bin NOT NULL,
+  `ENTITY_CLASS` varchar(255) COLLATE utf8_bin NOT NULL,
+  `ENTITY_ID` bigint(20) NOT NULL,
+  `ID` bigint(20) NOT NULL AUTO_INCREMENT,
+  `TIME` bigint(20) DEFAULT NULL,
+  `USER` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_60db71_aud137736645` (`ENTITY_CLASS`),
+  KEY `index_ao_60db71_aud1756477597` (`CATEGORY`),
+  KEY `index_ao_60db71_aud604788536` (`ENTITY_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_60DB71_AUDITENTRY`
+--
+
+LOCK TABLES `AO_60DB71_AUDITENTRY` WRITE;
+/*!40000 ALTER TABLE `AO_60DB71_AUDITENTRY` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_60DB71_AUDITENTRY` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_60DB71_BOARDADMINS`
+--
+
+DROP TABLE IF EXISTS `AO_60DB71_BOARDADMINS`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_60DB71_BOARDADMINS` (
+  `ID` bigint(20) NOT NULL AUTO_INCREMENT,
+  `KEY` varchar(255) COLLATE utf8_bin NOT NULL,
+  `RAPID_VIEW_ID` bigint(20) NOT NULL,
+  `TYPE` varchar(255) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_60db71_boa2110227660` (`RAPID_VIEW_ID`),
+  CONSTRAINT `fk_ao_60db71_boardadmins_rapid_view_id` FOREIGN KEY (`RAPID_VIEW_ID`) REFERENCES `AO_60DB71_RAPIDVIEW` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_60DB71_BOARDADMINS`
+--
+
+LOCK TABLES `AO_60DB71_BOARDADMINS` WRITE;
+/*!40000 ALTER TABLE `AO_60DB71_BOARDADMINS` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_60DB71_BOARDADMINS` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_60DB71_CARDCOLOR`
+--
+
+DROP TABLE IF EXISTS `AO_60DB71_CARDCOLOR`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_60DB71_CARDCOLOR` (
+  `COLOR` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `ID` bigint(20) NOT NULL AUTO_INCREMENT,
+  `POS` int(11) NOT NULL DEFAULT '0',
+  `RAPID_VIEW_ID` bigint(20) NOT NULL,
+  `STRATEGY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `VAL` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_60db71_car2031978979` (`RAPID_VIEW_ID`),
+  CONSTRAINT `fk_ao_60db71_cardcolor_rapid_view_id` FOREIGN KEY (`RAPID_VIEW_ID`) REFERENCES `AO_60DB71_RAPIDVIEW` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_60DB71_CARDCOLOR`
+--
+
+LOCK TABLES `AO_60DB71_CARDCOLOR` WRITE;
+/*!40000 ALTER TABLE `AO_60DB71_CARDCOLOR` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_60DB71_CARDCOLOR` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_60DB71_CARDLAYOUT`
+--
+
+DROP TABLE IF EXISTS `AO_60DB71_CARDLAYOUT`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_60DB71_CARDLAYOUT` (
+  `FIELD_ID` varchar(255) COLLATE utf8_bin NOT NULL,
+  `ID` bigint(20) NOT NULL AUTO_INCREMENT,
+  `MODE_NAME` varchar(255) COLLATE utf8_bin NOT NULL,
+  `POS` int(11) NOT NULL DEFAULT '0',
+  `RAPID_VIEW_ID` bigint(20) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_60db71_car149237770` (`RAPID_VIEW_ID`),
+  CONSTRAINT `fk_ao_60db71_cardlayout_rapid_view_id` FOREIGN KEY (`RAPID_VIEW_ID`) REFERENCES `AO_60DB71_RAPIDVIEW` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_60DB71_CARDLAYOUT`
+--
+
+LOCK TABLES `AO_60DB71_CARDLAYOUT` WRITE;
+/*!40000 ALTER TABLE `AO_60DB71_CARDLAYOUT` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_60DB71_CARDLAYOUT` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_60DB71_COLUMN`
+--
+
+DROP TABLE IF EXISTS `AO_60DB71_COLUMN`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_60DB71_COLUMN` (
+  `ID` bigint(20) NOT NULL AUTO_INCREMENT,
+  `MAXIM` double DEFAULT NULL,
+  `MINIM` double DEFAULT NULL,
+  `NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `POS` int(11) NOT NULL DEFAULT '0',
+  `RAPID_VIEW_ID` bigint(20) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_60db71_col2098611346` (`RAPID_VIEW_ID`),
+  CONSTRAINT `fk_ao_60db71_column_rapid_view_id` FOREIGN KEY (`RAPID_VIEW_ID`) REFERENCES `AO_60DB71_RAPIDVIEW` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_60DB71_COLUMN`
+--
+
+LOCK TABLES `AO_60DB71_COLUMN` WRITE;
+/*!40000 ALTER TABLE `AO_60DB71_COLUMN` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_60DB71_COLUMN` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_60DB71_COLUMNSTATUS`
+--
+
+DROP TABLE IF EXISTS `AO_60DB71_COLUMNSTATUS`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_60DB71_COLUMNSTATUS` (
+  `COLUMN_ID` bigint(20) NOT NULL,
+  `ID` bigint(20) NOT NULL AUTO_INCREMENT,
+  `POS` int(11) NOT NULL DEFAULT '0',
+  `STATUS_ID` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_60db71_col1856623434` (`COLUMN_ID`),
+  CONSTRAINT `fk_ao_60db71_columnstatus_column_id` FOREIGN KEY (`COLUMN_ID`) REFERENCES `AO_60DB71_COLUMN` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_60DB71_COLUMNSTATUS`
+--
+
+LOCK TABLES `AO_60DB71_COLUMNSTATUS` WRITE;
+/*!40000 ALTER TABLE `AO_60DB71_COLUMNSTATUS` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_60DB71_COLUMNSTATUS` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_60DB71_DETAILVIEWFIELD`
+--
+
+DROP TABLE IF EXISTS `AO_60DB71_DETAILVIEWFIELD`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_60DB71_DETAILVIEWFIELD` (
+  `FIELD_ID` varchar(255) COLLATE utf8_bin NOT NULL,
+  `ID` bigint(20) NOT NULL AUTO_INCREMENT,
+  `POS` int(11) NOT NULL DEFAULT '0',
+  `RAPID_VIEW_ID` bigint(20) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_60db71_det878495474` (`RAPID_VIEW_ID`),
+  CONSTRAINT `fk_ao_60db71_detailviewfield_rapid_view_id` FOREIGN KEY (`RAPID_VIEW_ID`) REFERENCES `AO_60DB71_RAPIDVIEW` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_60DB71_DETAILVIEWFIELD`
+--
+
+LOCK TABLES `AO_60DB71_DETAILVIEWFIELD` WRITE;
+/*!40000 ALTER TABLE `AO_60DB71_DETAILVIEWFIELD` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_60DB71_DETAILVIEWFIELD` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_60DB71_ESTIMATESTATISTIC`
+--
+
+DROP TABLE IF EXISTS `AO_60DB71_ESTIMATESTATISTIC`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_60DB71_ESTIMATESTATISTIC` (
+  `FIELD_ID` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `ID` bigint(20) NOT NULL AUTO_INCREMENT,
+  `RAPID_VIEW_ID` bigint(20) NOT NULL,
+  `TYPE_ID` varchar(255) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_60db71_est1680565966` (`RAPID_VIEW_ID`),
+  CONSTRAINT `fk_ao_60db71_estimatestatistic_rapid_view_id` FOREIGN KEY (`RAPID_VIEW_ID`) REFERENCES `AO_60DB71_RAPIDVIEW` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_60DB71_ESTIMATESTATISTIC`
+--
+
+LOCK TABLES `AO_60DB71_ESTIMATESTATISTIC` WRITE;
+/*!40000 ALTER TABLE `AO_60DB71_ESTIMATESTATISTIC` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_60DB71_ESTIMATESTATISTIC` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_60DB71_ISSUERANKING`
+--
+
+DROP TABLE IF EXISTS `AO_60DB71_ISSUERANKING`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_60DB71_ISSUERANKING` (
+  `CUSTOM_FIELD_ID` bigint(20) NOT NULL DEFAULT '0',
+  `ID` bigint(20) NOT NULL AUTO_INCREMENT,
+  `ISSUE_ID` bigint(20) NOT NULL DEFAULT '0',
+  `NEXT_ID` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_60db71_iss1786461035` (`CUSTOM_FIELD_ID`),
+  KEY `index_ao_60db71_iss1616896230` (`ISSUE_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_60DB71_ISSUERANKING`
+--
+
+LOCK TABLES `AO_60DB71_ISSUERANKING` WRITE;
+/*!40000 ALTER TABLE `AO_60DB71_ISSUERANKING` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_60DB71_ISSUERANKING` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_60DB71_ISSUERANKINGLOG`
+--
+
+DROP TABLE IF EXISTS `AO_60DB71_ISSUERANKINGLOG`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_60DB71_ISSUERANKINGLOG` (
+  `CUSTOM_FIELD_ID` bigint(20) DEFAULT NULL,
+  `ID` bigint(20) NOT NULL AUTO_INCREMENT,
+  `ISSUE_ID` bigint(20) DEFAULT NULL,
+  `LOG_TYPE` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `NEW_NEXT_ID` bigint(20) DEFAULT NULL,
+  `NEW_PREVIOUS_ID` bigint(20) DEFAULT NULL,
+  `OLD_NEXT_ID` bigint(20) DEFAULT NULL,
+  `OLD_PREVIOUS_ID` bigint(20) DEFAULT NULL,
+  `SANITY_CHECKED` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_60DB71_ISSUERANKINGLOG`
+--
+
+LOCK TABLES `AO_60DB71_ISSUERANKINGLOG` WRITE;
+/*!40000 ALTER TABLE `AO_60DB71_ISSUERANKINGLOG` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_60DB71_ISSUERANKINGLOG` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_60DB71_LEXORANK`
+--
+
+DROP TABLE IF EXISTS `AO_60DB71_LEXORANK`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_60DB71_LEXORANK` (
+  `BUCKET` int(11) DEFAULT '0',
+  `FIELD_ID` bigint(20) NOT NULL DEFAULT '0',
+  `ID` bigint(20) NOT NULL AUTO_INCREMENT,
+  `ISSUE_ID` bigint(20) NOT NULL DEFAULT '0',
+  `LOCK_HASH` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `LOCK_TIME` bigint(20) DEFAULT NULL,
+  `RANK` varchar(255) COLLATE utf8_bin NOT NULL,
+  `TYPE` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_60db71_lex604083109` (`ISSUE_ID`),
+  KEY `index_ao_60db71_lex1632828616` (`LOCK_HASH`),
+  KEY `index_ao_60db71_lex1569533973` (`FIELD_ID`,`RANK`),
+  KEY `index_ao_60db71_lex1694305086` (`FIELD_ID`,`BUCKET`,`RANK`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_60DB71_LEXORANK`
+--
+
+LOCK TABLES `AO_60DB71_LEXORANK` WRITE;
+/*!40000 ALTER TABLE `AO_60DB71_LEXORANK` DISABLE KEYS */;
+INSERT INTO `AO_60DB71_LEXORANK` VALUES (0,10100,7,-9223372036854775808,NULL,NULL,'0|000000:',0),(0,10100,8,9223372036854775807,NULL,NULL,'0|zzzzzz:',2),(0,10100,9,10000,NULL,NULL,'0|hzzzzz:',1),(0,10100,10,10001,NULL,NULL,'0|i00007:',1),(0,10100,11,10002,NULL,NULL,'0|i0000f:',1),(0,10100,12,10003,NULL,NULL,'0|i0000n:',1),(0,10100,13,10004,NULL,NULL,'0|i0000v:',1),(0,10100,14,10005,NULL,NULL,'0|i00013:',1);
+/*!40000 ALTER TABLE `AO_60DB71_LEXORANK` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_60DB71_LEXORANKBALANCER`
+--
+
+DROP TABLE IF EXISTS `AO_60DB71_LEXORANKBALANCER`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_60DB71_LEXORANKBALANCER` (
+  `DISABLE_RANK_OPERATIONS` tinyint(1) NOT NULL,
+  `FIELD_ID` bigint(20) NOT NULL,
+  `ID` bigint(20) NOT NULL AUTO_INCREMENT,
+  `REBALANCE_TIME` bigint(20) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_60DB71_LEXORANKBALANCER`
+--
+
+LOCK TABLES `AO_60DB71_LEXORANKBALANCER` WRITE;
+/*!40000 ALTER TABLE `AO_60DB71_LEXORANKBALANCER` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_60DB71_LEXORANKBALANCER` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_60DB71_NONWORKINGDAY`
+--
+
+DROP TABLE IF EXISTS `AO_60DB71_NONWORKINGDAY`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_60DB71_NONWORKINGDAY` (
+  `ID` bigint(20) NOT NULL AUTO_INCREMENT,
+  `ISO8601_DATE` varchar(255) COLLATE utf8_bin NOT NULL,
+  `WORKING_DAYS_ID` bigint(20) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_60db71_non1145824037` (`WORKING_DAYS_ID`),
+  CONSTRAINT `fk_ao_60db71_nonworkingday_working_days_id` FOREIGN KEY (`WORKING_DAYS_ID`) REFERENCES `AO_60DB71_WORKINGDAYS` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_60DB71_NONWORKINGDAY`
+--
+
+LOCK TABLES `AO_60DB71_NONWORKINGDAY` WRITE;
+/*!40000 ALTER TABLE `AO_60DB71_NONWORKINGDAY` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_60DB71_NONWORKINGDAY` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_60DB71_QUICKFILTER`
+--
+
+DROP TABLE IF EXISTS `AO_60DB71_QUICKFILTER`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_60DB71_QUICKFILTER` (
+  `DESCRIPTION` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `ID` bigint(20) NOT NULL AUTO_INCREMENT,
+  `LONG_QUERY` longtext COLLATE utf8_bin,
+  `NAME` varchar(255) COLLATE utf8_bin NOT NULL,
+  `POS` int(11) NOT NULL DEFAULT '0',
+  `QUERY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `RAPID_VIEW_ID` bigint(20) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_60db71_qui432573905` (`RAPID_VIEW_ID`),
+  CONSTRAINT `fk_ao_60db71_quickfilter_rapid_view_id` FOREIGN KEY (`RAPID_VIEW_ID`) REFERENCES `AO_60DB71_RAPIDVIEW` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_60DB71_QUICKFILTER`
+--
+
+LOCK TABLES `AO_60DB71_QUICKFILTER` WRITE;
+/*!40000 ALTER TABLE `AO_60DB71_QUICKFILTER` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_60DB71_QUICKFILTER` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_60DB71_RANKABLEOBJECT`
+--
+
+DROP TABLE IF EXISTS `AO_60DB71_RANKABLEOBJECT`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_60DB71_RANKABLEOBJECT` (
+  `ID` bigint(20) NOT NULL AUTO_INCREMENT,
+  `TYPE` varchar(255) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_60DB71_RANKABLEOBJECT`
+--
+
+LOCK TABLES `AO_60DB71_RANKABLEOBJECT` WRITE;
+/*!40000 ALTER TABLE `AO_60DB71_RANKABLEOBJECT` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_60DB71_RANKABLEOBJECT` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_60DB71_RAPIDVIEW`
+--
+
+DROP TABLE IF EXISTS `AO_60DB71_RAPIDVIEW`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_60DB71_RAPIDVIEW` (
+  `CARD_COLOR_STRATEGY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `ID` bigint(20) NOT NULL AUTO_INCREMENT,
+  `KAN_PLAN_ENABLED` tinyint(1) DEFAULT NULL,
+  `NAME` varchar(255) COLLATE utf8_bin NOT NULL,
+  `OLD_DONE_ISSUES_CUTOFF` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `OWNER_USER_NAME` varchar(255) COLLATE utf8_bin NOT NULL,
+  `REFINED_VELOCITY_ACTIVE` tinyint(1) DEFAULT NULL,
+  `SAVED_FILTER_ID` bigint(20) NOT NULL,
+  `SHOW_DAYS_IN_COLUMN` tinyint(1) DEFAULT NULL,
+  `SHOW_EPIC_AS_PANEL` tinyint(1) DEFAULT NULL,
+  `SPRINTS_ENABLED` tinyint(1) DEFAULT NULL,
+  `SWIMLANE_STRATEGY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_60DB71_RAPIDVIEW`
+--
+
+LOCK TABLES `AO_60DB71_RAPIDVIEW` WRITE;
+/*!40000 ALTER TABLE `AO_60DB71_RAPIDVIEW` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_60DB71_RAPIDVIEW` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_60DB71_SPRINT`
+--
+
+DROP TABLE IF EXISTS `AO_60DB71_SPRINT`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_60DB71_SPRINT` (
+  `ACTIVATED_DATE` bigint(20) DEFAULT NULL,
+  `CLOSED` tinyint(1) NOT NULL,
+  `COMPLETE_DATE` bigint(20) DEFAULT NULL,
+  `END_DATE` bigint(20) DEFAULT NULL,
+  `GOAL` longtext COLLATE utf8_bin,
+  `ID` bigint(20) NOT NULL AUTO_INCREMENT,
+  `NAME` varchar(255) COLLATE utf8_bin NOT NULL,
+  `RAPID_VIEW_ID` bigint(20) DEFAULT NULL,
+  `SEQUENCE` bigint(20) DEFAULT NULL,
+  `STARTED` tinyint(1) DEFAULT NULL,
+  `START_DATE` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_60db71_spr1457658269` (`SEQUENCE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_60DB71_SPRINT`
+--
+
+LOCK TABLES `AO_60DB71_SPRINT` WRITE;
+/*!40000 ALTER TABLE `AO_60DB71_SPRINT` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_60DB71_SPRINT` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_60DB71_STATSFIELD`
+--
+
+DROP TABLE IF EXISTS `AO_60DB71_STATSFIELD`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_60DB71_STATSFIELD` (
+  `ID` bigint(20) NOT NULL AUTO_INCREMENT,
+  `RAPID_VIEW_ID` bigint(20) NOT NULL,
+  `TYPE_ID` varchar(255) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_60db71_sta1907922871` (`RAPID_VIEW_ID`),
+  CONSTRAINT `fk_ao_60db71_statsfield_rapid_view_id` FOREIGN KEY (`RAPID_VIEW_ID`) REFERENCES `AO_60DB71_RAPIDVIEW` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_60DB71_STATSFIELD`
+--
+
+LOCK TABLES `AO_60DB71_STATSFIELD` WRITE;
+/*!40000 ALTER TABLE `AO_60DB71_STATSFIELD` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_60DB71_STATSFIELD` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_60DB71_SUBQUERY`
+--
+
+DROP TABLE IF EXISTS `AO_60DB71_SUBQUERY`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_60DB71_SUBQUERY` (
+  `ID` bigint(20) NOT NULL AUTO_INCREMENT,
+  `LONG_QUERY` longtext COLLATE utf8_bin,
+  `QUERY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `RAPID_VIEW_ID` bigint(20) DEFAULT NULL,
+  `SECTION` varchar(255) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_60db71_sub730851836` (`RAPID_VIEW_ID`),
+  CONSTRAINT `fk_ao_60db71_subquery_rapid_view_id` FOREIGN KEY (`RAPID_VIEW_ID`) REFERENCES `AO_60DB71_RAPIDVIEW` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_60DB71_SUBQUERY`
+--
+
+LOCK TABLES `AO_60DB71_SUBQUERY` WRITE;
+/*!40000 ALTER TABLE `AO_60DB71_SUBQUERY` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_60DB71_SUBQUERY` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_60DB71_SWIMLANE`
+--
+
+DROP TABLE IF EXISTS `AO_60DB71_SWIMLANE`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_60DB71_SWIMLANE` (
+  `DEFAULT_LANE` tinyint(1) NOT NULL,
+  `DESCRIPTION` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `ID` bigint(20) NOT NULL AUTO_INCREMENT,
+  `LONG_QUERY` longtext COLLATE utf8_bin,
+  `NAME` varchar(255) COLLATE utf8_bin NOT NULL,
+  `POS` int(11) NOT NULL DEFAULT '0',
+  `QUERY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `RAPID_VIEW_ID` bigint(20) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_60db71_swi1429284592` (`RAPID_VIEW_ID`),
+  CONSTRAINT `fk_ao_60db71_swimlane_rapid_view_id` FOREIGN KEY (`RAPID_VIEW_ID`) REFERENCES `AO_60DB71_RAPIDVIEW` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_60DB71_SWIMLANE`
+--
+
+LOCK TABLES `AO_60DB71_SWIMLANE` WRITE;
+/*!40000 ALTER TABLE `AO_60DB71_SWIMLANE` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_60DB71_SWIMLANE` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_60DB71_TRACKINGSTATISTIC`
+--
+
+DROP TABLE IF EXISTS `AO_60DB71_TRACKINGSTATISTIC`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_60DB71_TRACKINGSTATISTIC` (
+  `FIELD_ID` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `ID` bigint(20) NOT NULL AUTO_INCREMENT,
+  `RAPID_VIEW_ID` bigint(20) NOT NULL,
+  `TYPE_ID` varchar(255) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_60db71_tra1711190333` (`RAPID_VIEW_ID`),
+  CONSTRAINT `fk_ao_60db71_trackingstatistic_rapid_view_id` FOREIGN KEY (`RAPID_VIEW_ID`) REFERENCES `AO_60DB71_RAPIDVIEW` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_60DB71_TRACKINGSTATISTIC`
+--
+
+LOCK TABLES `AO_60DB71_TRACKINGSTATISTIC` WRITE;
+/*!40000 ALTER TABLE `AO_60DB71_TRACKINGSTATISTIC` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_60DB71_TRACKINGSTATISTIC` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_60DB71_VERSION`
+--
+
+DROP TABLE IF EXISTS `AO_60DB71_VERSION`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_60DB71_VERSION` (
+  `ID` bigint(20) NOT NULL AUTO_INCREMENT,
+  `START_DATE` bigint(20) DEFAULT NULL,
+  `VERSION_ID` bigint(20) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_60DB71_VERSION`
+--
+
+LOCK TABLES `AO_60DB71_VERSION` WRITE;
+/*!40000 ALTER TABLE `AO_60DB71_VERSION` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_60DB71_VERSION` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_60DB71_WORKINGDAYS`
+--
+
+DROP TABLE IF EXISTS `AO_60DB71_WORKINGDAYS`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_60DB71_WORKINGDAYS` (
+  `FRIDAY` tinyint(1) NOT NULL,
+  `ID` bigint(20) NOT NULL AUTO_INCREMENT,
+  `MONDAY` tinyint(1) NOT NULL,
+  `RAPID_VIEW_ID` bigint(20) NOT NULL,
+  `SATURDAY` tinyint(1) NOT NULL,
+  `SUNDAY` tinyint(1) NOT NULL,
+  `THURSDAY` tinyint(1) NOT NULL,
+  `TIMEZONE` varchar(255) COLLATE utf8_bin NOT NULL,
+  `TUESDAY` tinyint(1) NOT NULL,
+  `WEDNESDAY` tinyint(1) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_60db71_wor1205491794` (`RAPID_VIEW_ID`),
+  CONSTRAINT `fk_ao_60db71_workingdays_rapid_view_id` FOREIGN KEY (`RAPID_VIEW_ID`) REFERENCES `AO_60DB71_RAPIDVIEW` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_60DB71_WORKINGDAYS`
+--
+
+LOCK TABLES `AO_60DB71_WORKINGDAYS` WRITE;
+/*!40000 ALTER TABLE `AO_60DB71_WORKINGDAYS` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_60DB71_WORKINGDAYS` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_733371_EVENT`
+--
+
+DROP TABLE IF EXISTS `AO_733371_EVENT`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_733371_EVENT` (
+  `ACTION` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `ACTION_ID` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `CREATED` datetime NOT NULL,
+  `EVENT_BUNDLE_ID` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `EVENT_TYPE` bigint(20) NOT NULL,
+  `ID` bigint(20) NOT NULL AUTO_INCREMENT,
+  `USER_KEY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_733371_event_created` (`CREATED`),
+  KEY `index_ao_733371_eve673683319` (`EVENT_BUNDLE_ID`),
+  KEY `index_ao_733371_event_action` (`ACTION`),
+  KEY `index_ao_733371_eve902883849` (`EVENT_TYPE`),
+  KEY `index_ao_733371_event_user_key` (`USER_KEY`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_733371_EVENT`
+--
+
+LOCK TABLES `AO_733371_EVENT` WRITE;
+/*!40000 ALTER TABLE `AO_733371_EVENT` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_733371_EVENT` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_733371_EVENT_PARAMETER`
+--
+
+DROP TABLE IF EXISTS `AO_733371_EVENT_PARAMETER`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_733371_EVENT_PARAMETER` (
+  `EVENT_ID` bigint(20) NOT NULL,
+  `ID` bigint(20) NOT NULL AUTO_INCREMENT,
+  `NAME` varchar(255) COLLATE utf8_bin NOT NULL,
+  `VALUE` longtext COLLATE utf8_bin,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_733371_eve704112384` (`EVENT_ID`),
+  KEY `index_ao_733371_eve1423945899` (`NAME`),
+  CONSTRAINT `fk_ao_733371_event_parameter_event_id` FOREIGN KEY (`EVENT_ID`) REFERENCES `AO_733371_EVENT` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_733371_EVENT_PARAMETER`
+--
+
+LOCK TABLES `AO_733371_EVENT_PARAMETER` WRITE;
+/*!40000 ALTER TABLE `AO_733371_EVENT_PARAMETER` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_733371_EVENT_PARAMETER` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_733371_EVENT_RECIPIENT`
+--
+
+DROP TABLE IF EXISTS `AO_733371_EVENT_RECIPIENT`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_733371_EVENT_RECIPIENT` (
+  `CONSUMER_NAME` varchar(255) COLLATE utf8_bin NOT NULL,
+  `CREATED` datetime NOT NULL,
+  `EVENT_ID` bigint(20) NOT NULL,
+  `ID` bigint(20) NOT NULL AUTO_INCREMENT,
+  `SEND_DATE` datetime DEFAULT NULL,
+  `STATUS` varchar(255) COLLATE utf8_bin NOT NULL,
+  `UPDATED` datetime DEFAULT NULL,
+  `USER_KEY` varchar(255) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_733371_eve525098581` (`SEND_DATE`),
+  KEY `index_ao_733371_eve678699426` (`STATUS`),
+  KEY `index_ao_733371_eve1645451632` (`EVENT_ID`),
+  KEY `index_ao_733371_eve1266474620` (`CONSUMER_NAME`),
+  CONSTRAINT `fk_ao_733371_event_recipient_event_id` FOREIGN KEY (`EVENT_ID`) REFERENCES `AO_733371_EVENT` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_733371_EVENT_RECIPIENT`
+--
+
+LOCK TABLES `AO_733371_EVENT_RECIPIENT` WRITE;
+/*!40000 ALTER TABLE `AO_733371_EVENT_RECIPIENT` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_733371_EVENT_RECIPIENT` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_97EDAB_USERINVITATION`
+--
+
+DROP TABLE IF EXISTS `AO_97EDAB_USERINVITATION`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_97EDAB_USERINVITATION` (
+  `APPLICATION_KEYS` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `EMAIL_ADDRESS` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `EXPIRY` datetime DEFAULT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `REDEEMED` tinyint(1) DEFAULT NULL,
+  `SENDER_USERNAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `TOKEN` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_97EDAB_USERINVITATION`
+--
+
+LOCK TABLES `AO_97EDAB_USERINVITATION` WRITE;
+/*!40000 ALTER TABLE `AO_97EDAB_USERINVITATION` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_97EDAB_USERINVITATION` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_A0B856_WEB_HOOK_LISTENER_AO`
+--
+
+DROP TABLE IF EXISTS `AO_A0B856_WEB_HOOK_LISTENER_AO`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_A0B856_WEB_HOOK_LISTENER_AO` (
+  `DESCRIPTION` longtext COLLATE utf8_bin,
+  `ENABLED` tinyint(1) DEFAULT NULL,
+  `EVENTS` longtext COLLATE utf8_bin,
+  `EXCLUDE_BODY` tinyint(1) DEFAULT NULL,
+  `FILTERS` longtext COLLATE utf8_bin,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `LAST_UPDATED` datetime NOT NULL,
+  `LAST_UPDATED_USER` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `NAME` longtext COLLATE utf8_bin NOT NULL,
+  `PARAMETERS` longtext COLLATE utf8_bin,
+  `REGISTRATION_METHOD` varchar(255) COLLATE utf8_bin NOT NULL,
+  `URL` longtext COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_A0B856_WEB_HOOK_LISTENER_AO`
+--
+
+LOCK TABLES `AO_A0B856_WEB_HOOK_LISTENER_AO` WRITE;
+/*!40000 ALTER TABLE `AO_A0B856_WEB_HOOK_LISTENER_AO` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_A0B856_WEB_HOOK_LISTENER_AO` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_AC3877_RL_USER_COUNTER`
+--
+
+DROP TABLE IF EXISTS `AO_AC3877_RL_USER_COUNTER`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_AC3877_RL_USER_COUNTER` (
+  `ID` bigint(20) NOT NULL AUTO_INCREMENT,
+  `INTERVAL_START` datetime NOT NULL,
+  `NODE_ID` varchar(255) COLLATE utf8_bin NOT NULL,
+  `REJECT_COUNT` bigint(20) NOT NULL DEFAULT '0',
+  `USER_ID` varchar(255) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_ac3877_rl_1696242418` (`INTERVAL_START`),
+  KEY `index_ao_ac3877_rl_2023752663` (`USER_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_AC3877_RL_USER_COUNTER`
+--
+
+LOCK TABLES `AO_AC3877_RL_USER_COUNTER` WRITE;
+/*!40000 ALTER TABLE `AO_AC3877_RL_USER_COUNTER` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_AC3877_RL_USER_COUNTER` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_AC3877_SETTINGS_VERSION`
+--
+
+DROP TABLE IF EXISTS `AO_AC3877_SETTINGS_VERSION`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_AC3877_SETTINGS_VERSION` (
+  `TYPE` varchar(255) COLLATE utf8_bin NOT NULL,
+  `VERSION` bigint(20) NOT NULL,
+  PRIMARY KEY (`TYPE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_AC3877_SETTINGS_VERSION`
+--
+
+LOCK TABLES `AO_AC3877_SETTINGS_VERSION` WRITE;
+/*!40000 ALTER TABLE `AO_AC3877_SETTINGS_VERSION` DISABLE KEYS */;
+INSERT INTO `AO_AC3877_SETTINGS_VERSION` VALUES ('DEFAULT',1);
+/*!40000 ALTER TABLE `AO_AC3877_SETTINGS_VERSION` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_AC3877_SYSTEM_RL_SETTINGS`
+--
+
+DROP TABLE IF EXISTS `AO_AC3877_SYSTEM_RL_SETTINGS`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_AC3877_SYSTEM_RL_SETTINGS` (
+  `CAPACITY` int(11) NOT NULL DEFAULT '0',
+  `CLEAN_JOB_DURATION` varchar(255) COLLATE utf8_bin NOT NULL,
+  `FILL_RATE` int(11) NOT NULL DEFAULT '0',
+  `FLUSH_JOB_DURATION` varchar(255) COLLATE utf8_bin NOT NULL,
+  `INTERVAL_FREQUENCY` int(11) NOT NULL DEFAULT '0',
+  `INTERVAL_TIME_UNIT` varchar(255) COLLATE utf8_bin NOT NULL,
+  `MODE` varchar(255) COLLATE utf8_bin NOT NULL,
+  `NAME` varchar(255) COLLATE utf8_bin NOT NULL,
+  `REAPER_JOB_DURATION` varchar(255) COLLATE utf8_bin NOT NULL,
+  `RETENTION_PERIOD_DURATION` varchar(255) COLLATE utf8_bin NOT NULL,
+  `SETTINGS_RELOAD_JOB_DURATION` varchar(255) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`NAME`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_AC3877_SYSTEM_RL_SETTINGS`
+--
+
+LOCK TABLES `AO_AC3877_SYSTEM_RL_SETTINGS` WRITE;
+/*!40000 ALTER TABLE `AO_AC3877_SYSTEM_RL_SETTINGS` DISABLE KEYS */;
+INSERT INTO `AO_AC3877_SYSTEM_RL_SETTINGS` VALUES (50,'PT1M10S',10,'PT5M',1,'SECONDS','OFF','SYSTEM','PT15M','PT24H','PT1M');
+/*!40000 ALTER TABLE `AO_AC3877_SYSTEM_RL_SETTINGS` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_AC3877_USER_RL_SETTINGS`
+--
+
+DROP TABLE IF EXISTS `AO_AC3877_USER_RL_SETTINGS`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_AC3877_USER_RL_SETTINGS` (
+  `CAPACITY` int(11) NOT NULL DEFAULT '0',
+  `FILL_RATE` int(11) NOT NULL DEFAULT '0',
+  `INTERVAL_FREQUENCY` int(11) NOT NULL DEFAULT '0',
+  `INTERVAL_TIME_UNIT` varchar(255) COLLATE utf8_bin NOT NULL,
+  `USER_ID` varchar(255) COLLATE utf8_bin NOT NULL,
+  `WHITELISTED` tinyint(1) NOT NULL,
+  PRIMARY KEY (`USER_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_AC3877_USER_RL_SETTINGS`
+--
+
+LOCK TABLES `AO_AC3877_USER_RL_SETTINGS` WRITE;
+/*!40000 ALTER TABLE `AO_AC3877_USER_RL_SETTINGS` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_AC3877_USER_RL_SETTINGS` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_B9A0F0_APPLIED_TEMPLATE`
+--
+
+DROP TABLE IF EXISTS `AO_B9A0F0_APPLIED_TEMPLATE`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_B9A0F0_APPLIED_TEMPLATE` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `PROJECT_ID` bigint(20) DEFAULT '0',
+  `PROJECT_TEMPLATE_MODULE_KEY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `PROJECT_TEMPLATE_WEB_ITEM_KEY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_B9A0F0_APPLIED_TEMPLATE`
+--
+
+LOCK TABLES `AO_B9A0F0_APPLIED_TEMPLATE` WRITE;
+/*!40000 ALTER TABLE `AO_B9A0F0_APPLIED_TEMPLATE` DISABLE KEYS */;
+INSERT INTO `AO_B9A0F0_APPLIED_TEMPLATE` VALUES (1,10000,'com.atlassian.jira-core-project-templates:jira-core-project-management','com.atlassian.jira-core-project-templates:jira-core-project-management');
+/*!40000 ALTER TABLE `AO_B9A0F0_APPLIED_TEMPLATE` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_C16815_ALERT_AO`
+--
+
+DROP TABLE IF EXISTS `AO_C16815_ALERT_AO`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_C16815_ALERT_AO` (
+  `CREATED_DATE` bigint(20) DEFAULT '0',
+  `DETAILS_JSON` longtext COLLATE utf8_bin,
+  `ID` bigint(20) NOT NULL AUTO_INCREMENT,
+  `ISSUE_COMPONENT_ID` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `ISSUE_ID` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `ISSUE_SEVERITY` int(11) DEFAULT '0',
+  `NODE_NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `TRIGGER_MODULE` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `TRIGGER_PLUGIN_KEY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `TRIGGER_PLUGIN_KEY_VERSION` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `TRIGGER_PLUGIN_VERSION` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_C16815_ALERT_AO`
+--
+
+LOCK TABLES `AO_C16815_ALERT_AO` WRITE;
+/*!40000 ALTER TABLE `AO_C16815_ALERT_AO` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_C16815_ALERT_AO` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_C77861_AUDIT_ENTITY`
+--
+
+DROP TABLE IF EXISTS `AO_C77861_AUDIT_ENTITY`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_C77861_AUDIT_ENTITY` (
+  `ACTION` varchar(255) COLLATE utf8_bin NOT NULL,
+  `AREA` varchar(255) COLLATE utf8_bin NOT NULL,
+  `ATTRIBUTES` longtext COLLATE utf8_bin,
+  `CATEGORY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `CHANGE_VALUES` longtext COLLATE utf8_bin,
+  `ENTITY_TIMESTAMP` bigint(20) NOT NULL,
+  `ID` bigint(20) NOT NULL AUTO_INCREMENT,
+  `LEVEL` varchar(255) COLLATE utf8_bin NOT NULL,
+  `METHOD` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `NODE` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `PRIMARY_RESOURCE_ID` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `PRIMARY_RESOURCE_TYPE` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `RESOURCES` longtext COLLATE utf8_bin,
+  `SEARCH_STRING` longtext COLLATE utf8_bin,
+  `SECONDARY_RESOURCE_ID` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `SECONDARY_RESOURCE_TYPE` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `SOURCE` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `SYSTEM_INFO` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `USER_ID` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `USER_NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `USER_TYPE` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_c77861_aud2071685161` (`ENTITY_TIMESTAMP`,`ID`),
+  KEY `index_ao_c77861_aud470300084` (`SECONDARY_RESOURCE_ID`,`SECONDARY_RESOURCE_TYPE`,`ENTITY_TIMESTAMP`),
+  KEY `index_ao_c77861_aud237541374` (`PRIMARY_RESOURCE_ID`,`PRIMARY_RESOURCE_TYPE`,`ENTITY_TIMESTAMP`),
+  KEY `index_ao_c77861_aud1490488814` (`USER_ID`,`ENTITY_TIMESTAMP`)
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_C77861_AUDIT_ENTITY`
+--
+
+LOCK TABLES `AO_C77861_AUDIT_ENTITY` WRITE;
+/*!40000 ALTER TABLE `AO_C77861_AUDIT_ENTITY` DISABLE KEYS */;
+INSERT INTO `AO_C77861_AUDIT_ENTITY` VALUES ('Group created','USER_MANAGEMENT','[]','group management','[]',1590571560663,1,'BASE','Browser',NULL,NULL,'GROUP','[{\"name\":\"jira-software-users\",\"type\":\"GROUP\",\"uri\":null,\"id\":null}]','jira-software-users group created management anonymous 172.16.197.1',NULL,NULL,'172.16.197.1','http://localhost:8190','-2','Anonymous','user'),('Global permission added','PERMISSIONS','[]','permissions','[{\"key\":\"Permission\",\"from\":\"\",\"to\":\"Browse Users\"},{\"key\":\"Group\",\"from\":\"\",\"to\":\"jira-software-users\"}]',1590571560733,2,'BASE','Browser',NULL,NULL,'PERMISSIONS','[{\"name\":\"Global Permissions\",\"type\":\"PERMISSIONS\",\"uri\":null,\"id\":null}]','global permissions permission added anonymous 172.16.197.1',NULL,NULL,'172.16.197.1','http://localhost:8190','-2','Anonymous','user'),('Global permission added','PERMISSIONS','[]','permissions','[{\"key\":\"Permission\",\"from\":\"\",\"to\":\"Bulk Change\"},{\"key\":\"Group\",\"from\":\"\",\"to\":\"jira-software-users\"}]',1590571560738,3,'BASE','Browser',NULL,NULL,'PERMISSIONS','[{\"name\":\"Global Permissions\",\"type\":\"PERMISSIONS\",\"uri\":null,\"id\":null}]','global permissions permission added anonymous 172.16.197.1',NULL,NULL,'172.16.197.1','http://localhost:8190','-2','Anonymous','user'),('Global permission added','PERMISSIONS','[]','permissions','[{\"key\":\"Permission\",\"from\":\"\",\"to\":\"Create Shared Objects\"},{\"key\":\"Group\",\"from\":\"\",\"to\":\"jira-software-users\"}]',1590571560742,4,'BASE','Browser',NULL,NULL,'PERMISSIONS','[{\"name\":\"Global Permissions\",\"type\":\"PERMISSIONS\",\"uri\":null,\"id\":null}]','global permissions permission added anonymous 172.16.197.1',NULL,NULL,'172.16.197.1','http://localhost:8190','-2','Anonymous','user'),('Global permission added','PERMISSIONS','[]','permissions','[{\"key\":\"Permission\",\"from\":\"\",\"to\":\"Manage Group Filter Subscriptions\"},{\"key\":\"Group\",\"from\":\"\",\"to\":\"jira-software-users\"}]',1590571560746,5,'BASE','Browser',NULL,NULL,'PERMISSIONS','[{\"name\":\"Global Permissions\",\"type\":\"PERMISSIONS\",\"uri\":null,\"id\":null}]','global permissions permission added anonymous 172.16.197.1',NULL,NULL,'172.16.197.1','http://localhost:8190','-2','Anonymous','user'),('New license added','GLOBAL_CONFIG_AND_ADMINISTRATION','[]','system','[{\"key\":\"Organisation\",\"from\":null,\"to\":\"http://192.168.0.89\"},{\"key\":\"Date Purchased\",\"from\":null,\"to\":\"26/五月/20\"},{\"key\":\"License Type\",\"from\":null,\"to\":\"Unlimited license by https://zhile.io\"},{\"key\":\"Server ID\",\"from\":null,\"to\":\"BA2U-11ED-SPWK-RVV4\"},{\"key\":\"Support Entitlement Number (SEN)\",\"from\":null,\"to\":\"SEN-L1590571549695\"},{\"key\":\"User Limit\",\"from\":null,\"to\":\"无限\"},{\"key\":\"jira-software\",\"from\":null,\"to\":\"-1\"}]',1590571560756,6,'BASE','Browser',NULL,'0','LICENSE','[{\"name\":\"SEN-L1590571549695\",\"type\":\"LICENSE\",\"uri\":null,\"id\":\"0\"}]','sen-l1590571549695 new license added system anonymous 172.16.197.1',NULL,NULL,'172.16.197.1','http://localhost:8190','-2','Anonymous','user'),('User created','USER_MANAGEMENT','[]','user management','[{\"key\":\"Username\",\"from\":null,\"to\":\"keesh\"},{\"key\":\"Full name\",\"from\":null,\"to\":\"keesh\"},{\"key\":\"Email\",\"from\":null,\"to\":\"chunhui2001@gmail.com\"},{\"key\":\"Active / Inactive\",\"from\":null,\"to\":\"Active\"}]',1590571653303,7,'BASE','Browser',NULL,'JIRAUSER10000','USER','[{\"name\":\"keesh\",\"type\":\"USER\",\"uri\":null,\"id\":\"JIRAUSER10000\"}]','keesh user created management anonymous 172.16.197.1',NULL,NULL,'172.16.197.1','http://localhost:8190','-2','Anonymous','user'),('User added to group','USER_MANAGEMENT','[]','group management','[]',1590571653375,8,'BASE','Browser',NULL,NULL,'GROUP','[{\"name\":\"jira-administrators\",\"type\":\"GROUP\",\"uri\":null,\"id\":null},{\"name\":\"keesh\",\"type\":\"USER\",\"uri\":null,\"id\":\"JIRAUSER10000\"}]','jira-administrators keesh user added to group management anonymous 172.16.197.1','JIRAUSER10000','USER','172.16.197.1','http://localhost:8190','-2','Anonymous','user'),('Global permission added','PERMISSIONS','[]','permissions','[{\"key\":\"Permission\",\"from\":\"\",\"to\":\"Create Shared Objects\"},{\"key\":\"Group\",\"from\":\"\",\"to\":\"jira-administrators\"}]',1590571653430,9,'BASE','Browser',NULL,NULL,'PERMISSIONS','[{\"name\":\"Global Permissions\",\"type\":\"PERMISSIONS\",\"uri\":null,\"id\":null}]','global permissions permission added anonymous 172.16.197.1',NULL,NULL,'172.16.197.1','http://localhost:8190','-2','Anonymous','user'),('Global permission added','PERMISSIONS','[]','permissions','[{\"key\":\"Permission\",\"from\":\"\",\"to\":\"Manage Group Filter Subscriptions\"},{\"key\":\"Group\",\"from\":\"\",\"to\":\"jira-administrators\"}]',1590571653436,10,'BASE','Browser',NULL,NULL,'PERMISSIONS','[{\"name\":\"Global Permissions\",\"type\":\"PERMISSIONS\",\"uri\":null,\"id\":null}]','global permissions permission added anonymous 172.16.197.1',NULL,NULL,'172.16.197.1','http://localhost:8190','-2','Anonymous','user'),('Global permission added','PERMISSIONS','[]','permissions','[{\"key\":\"Permission\",\"from\":\"\",\"to\":\"Browse Users\"},{\"key\":\"Group\",\"from\":\"\",\"to\":\"jira-administrators\"}]',1590571653441,11,'BASE','Browser',NULL,NULL,'PERMISSIONS','[{\"name\":\"Global Permissions\",\"type\":\"PERMISSIONS\",\"uri\":null,\"id\":null}]','global permissions permission added anonymous 172.16.197.1',NULL,NULL,'172.16.197.1','http://localhost:8190','-2','Anonymous','user'),('Global permission added','PERMISSIONS','[]','permissions','[{\"key\":\"Permission\",\"from\":\"\",\"to\":\"Bulk Change\"},{\"key\":\"Group\",\"from\":\"\",\"to\":\"jira-administrators\"}]',1590571653445,12,'BASE','Browser',NULL,NULL,'PERMISSIONS','[{\"name\":\"Global Permissions\",\"type\":\"PERMISSIONS\",\"uri\":null,\"id\":null}]','global permissions permission added anonymous 172.16.197.1',NULL,NULL,'172.16.197.1','http://localhost:8190','-2','Anonymous','user'),('User added to group','USER_MANAGEMENT','[]','group management','[]',1590571653452,13,'BASE','Browser',NULL,NULL,'GROUP','[{\"name\":\"jira-software-users\",\"type\":\"GROUP\",\"uri\":null,\"id\":null},{\"name\":\"keesh\",\"type\":\"USER\",\"uri\":null,\"id\":\"JIRAUSER10000\"}]','jira-software-users keesh user added to group management anonymous 172.16.197.1','JIRAUSER10000','USER','172.16.197.1','http://localhost:8190','-2','Anonymous','user'),('Permission scheme updated','PERMISSIONS','[]','permissions','[{\"key\":\"Permission\",\"from\":\"\",\"to\":\"Manage Sprints\"},{\"key\":\"Type\",\"from\":\"\",\"to\":\"项目角色\"},{\"key\":\"Value\",\"from\":\"\",\"to\":\"Administrators\"}]',1590571658215,14,'BASE','Browser',NULL,'0','SCHEME','[{\"name\":\"Default Permission Scheme\",\"type\":\"SCHEME\",\"uri\":null,\"id\":\"0\"}]','default permission scheme updated permissions anonymous 172.16.197.1',NULL,NULL,'172.16.197.1','http://localhost:8190','-2','Anonymous','user'),('Permission scheme updated','PERMISSIONS','[]','permissions','[{\"key\":\"Permission\",\"from\":\"Manage Sprints\",\"to\":\"\"},{\"key\":\"Type\",\"from\":\"项目角色\",\"to\":\"\"},{\"key\":\"Value\",\"from\":\"Administrators\",\"to\":\"\"}]',1590571658258,15,'BASE','Browser',NULL,'0','SCHEME','[{\"name\":\"Default Permission Scheme\",\"type\":\"SCHEME\",\"uri\":null,\"id\":\"0\"}]','default permission scheme updated permissions anonymous 172.16.197.1',NULL,NULL,'172.16.197.1','http://localhost:8190','-2','Anonymous','user'),('Permission scheme updated','PERMISSIONS','[]','permissions','[{\"key\":\"Permission\",\"from\":\"\",\"to\":\"Manage Sprints\"},{\"key\":\"Type\",\"from\":\"\",\"to\":\"项目角色\"},{\"key\":\"Value\",\"from\":\"\",\"to\":\"Administrators\"}]',1590571658277,16,'BASE','Browser',NULL,'0','SCHEME','[{\"name\":\"Default Permission Scheme\",\"type\":\"SCHEME\",\"uri\":null,\"id\":\"0\"}]','default permission scheme updated permissions anonymous 172.16.197.1',NULL,NULL,'172.16.197.1','http://localhost:8190','-2','Anonymous','user'),('Custom field created','GLOBAL_CONFIG_AND_ADMINISTRATION','[]','fields','[{\"key\":\"Name\",\"from\":null,\"to\":\"等级\"},{\"key\":\"Description\",\"from\":null,\"to\":\"全局评级域仅供 Jira Software 使用。\"},{\"key\":\"Type\",\"from\":null,\"to\":\"全局评级\"}]',1590571660454,17,'BASE','Browser',NULL,'customfield_10100','CUSTOM_FIELD','[{\"name\":\"等级\",\"type\":\"CUSTOM_FIELD\",\"uri\":null,\"id\":\"customfield_10100\"}]','等级 custom field created fields anonymous 172.16.197.1',NULL,NULL,'172.16.197.1','http://localhost:8190','-2','Anonymous','user'),('Custom field created','GLOBAL_CONFIG_AND_ADMINISTRATION','[]','fields','[{\"key\":\"Name\",\"from\":null,\"to\":\"史诗链接\"},{\"key\":\"Description\",\"from\":null,\"to\":\"选择与此问题关联的Epic。\"},{\"key\":\"Type\",\"from\":null,\"to\":\"史诗链接关系\"}]',1590571660532,18,'BASE','Browser',NULL,'customfield_10101','CUSTOM_FIELD','[{\"name\":\"史诗链接\",\"type\":\"CUSTOM_FIELD\",\"uri\":null,\"id\":\"customfield_10101\"}]','史诗链接 custom field created fields anonymous 172.16.197.1',NULL,NULL,'172.16.197.1','http://localhost:8190','-2','Anonymous','user'),('Custom field created','GLOBAL_CONFIG_AND_ADMINISTRATION','[]','fields','[{\"key\":\"Name\",\"from\":null,\"to\":\"Epic状态\"},{\"key\":\"Description\",\"from\":null,\"to\":\"仅供 Jira Software 使用的 Epic 状态域。\"},{\"key\":\"Type\",\"from\":null,\"to\":\"Epic的状态\"}]',1590571660636,19,'BASE','Browser',NULL,'customfield_10102','CUSTOM_FIELD','[{\"name\":\"Epic状态\",\"type\":\"CUSTOM_FIELD\",\"uri\":null,\"id\":\"customfield_10102\"}]','epic状态 custom field created fields anonymous 172.16.197.1',NULL,NULL,'172.16.197.1','http://localhost:8190','-2','Anonymous','user'),('Custom field created','GLOBAL_CONFIG_AND_ADMINISTRATION','[]','fields','[{\"key\":\"Name\",\"from\":null,\"to\":\"史诗名称\"},{\"key\":\"Description\",\"from\":null,\"to\":\"用一个简短的名称标识此史诗。\"},{\"key\":\"Type\",\"from\":null,\"to\":\"史诗名称\"}]',1590571660689,20,'BASE','Browser',NULL,'customfield_10103','CUSTOM_FIELD','[{\"name\":\"史诗名称\",\"type\":\"CUSTOM_FIELD\",\"uri\":null,\"id\":\"customfield_10103\"}]','史诗名称 custom field created fields anonymous 172.16.197.1',NULL,NULL,'172.16.197.1','http://localhost:8190','-2','Anonymous','user'),('Custom field created','GLOBAL_CONFIG_AND_ADMINISTRATION','[]','fields','[{\"key\":\"Name\",\"from\":null,\"to\":\"Epic颜色\"},{\"key\":\"Description\",\"from\":null,\"to\":\"仅供 Jira Software 使用的 Epic 颜色域。\"},{\"key\":\"Type\",\"from\":null,\"to\":\"Epic的颜色\"}]',1590571660817,21,'BASE','Browser',NULL,'customfield_10104','CUSTOM_FIELD','[{\"name\":\"Epic颜色\",\"type\":\"CUSTOM_FIELD\",\"uri\":null,\"id\":\"customfield_10104\"}]','epic颜色 custom field created fields anonymous 172.16.197.1',NULL,NULL,'172.16.197.1','http://localhost:8190','-2','Anonymous','user'),('Custom field created','GLOBAL_CONFIG_AND_ADMINISTRATION','[]','fields','[{\"key\":\"Name\",\"from\":null,\"to\":\"Sprint\"},{\"key\":\"Description\",\"from\":null,\"to\":\"Jira Software Sprint 域\"},{\"key\":\"Type\",\"from\":null,\"to\":\"Jira Sprint 域\"}]',1590571660905,22,'BASE','Browser',NULL,'customfield_10105','CUSTOM_FIELD','[{\"name\":\"Sprint\",\"type\":\"CUSTOM_FIELD\",\"uri\":null,\"id\":\"customfield_10105\"}]','sprint custom field created fields anonymous 172.16.197.1',NULL,NULL,'172.16.197.1','http://localhost:8190','-2','Anonymous','user'),('Issue type created','GLOBAL_CONFIG_AND_ADMINISTRATION','[]','issue types','[]',1590571664840,23,'BASE','Browser',NULL,'10000','ISSUE_TYPE','[{\"name\":\"Epic\",\"type\":\"ISSUE_TYPE\",\"uri\":null,\"id\":\"10000\"}]','epic issue type created types anonymous 172.16.197.1',NULL,NULL,'172.16.197.1','http://localhost:8190','-2','Anonymous','user'),('Issue type created','GLOBAL_CONFIG_AND_ADMINISTRATION','[]','issue types','[]',1590571664923,24,'BASE','Browser',NULL,'10001','ISSUE_TYPE','[{\"name\":\"故事\",\"type\":\"ISSUE_TYPE\",\"uri\":null,\"id\":\"10001\"}]','故事 issue type created types anonymous 172.16.197.1',NULL,NULL,'172.16.197.1','http://localhost:8190','-2','Anonymous','user'),('Custom field created','GLOBAL_CONFIG_AND_ADMINISTRATION','[]','fields','[{\"key\":\"Name\",\"from\":null,\"to\":\"Story Point\"},{\"key\":\"Description\",\"from\":null,\"to\":\"用于测量需求的复杂度或大小。\"},{\"key\":\"Type\",\"from\":null,\"to\":\"数值域\"}]',1590571664959,25,'BASE','Browser',NULL,'customfield_10106','CUSTOM_FIELD','[{\"name\":\"Story Point\",\"type\":\"CUSTOM_FIELD\",\"uri\":null,\"id\":\"customfield_10106\"}]','story point custom field created fields anonymous 172.16.197.1',NULL,NULL,'172.16.197.1','http://localhost:8190','-2','Anonymous','user'),('Workflow created','GLOBAL_CONFIG_AND_ADMINISTRATION','[]','workflows','[{\"key\":\"Status\",\"from\":\"\",\"to\":\"To Do, In Progress, Done\"},{\"key\":\"Description\",\"from\":\"\",\"to\":\"\"},{\"key\":\"Transition\",\"from\":\"\",\"to\":\"Create (To Do), Start Progress (To Do -> In Progress), Done (To Do -> Done), Stop Progress (In Progress -> To Do), Done (In Progress -> Done), Reopen (Done -> To Do), Reopen and start progress (Done -> In Progress)\"},{\"key\":\"Name\",\"from\":\"\",\"to\":\"AA: 项目管理工作流\"}]',1590571812057,26,'BASE','Browser',NULL,'AA: 项目管理工作流','WORKFLOW','[{\"name\":\"AA: 项目管理工作流\",\"type\":\"WORKFLOW\",\"uri\":null,\"id\":\"AA: 项目管理工作流\"}]','aa: 项目管理工作流 workflow created workflows keesh 172.16.197.1',NULL,NULL,'172.16.197.1','http://localhost:8190','10000','keesh','ApplicationUser'),('Workflow scheme created','GLOBAL_CONFIG_AND_ADMINISTRATION','[]','workflows','[{\"key\":\"Name\",\"from\":null,\"to\":\"AA: 项目管理工作流方案\"},{\"key\":\"Description\",\"from\":null,\"to\":\"\"}]',1590571812085,27,'BASE','Browser',NULL,'10100','SCHEME','[{\"name\":\"AA: 项目管理工作流方案\",\"type\":\"SCHEME\",\"uri\":null,\"id\":\"10100\"}]','aa: 项目管理工作流方案 workflow scheme created workflows keesh 172.16.197.1',NULL,NULL,'172.16.197.1','http://localhost:8190','10000','keesh','ApplicationUser'),('Workflow scheme added to project','GLOBAL_CONFIG_AND_ADMINISTRATION','[]','workflows','[]',1590571812116,28,'BASE','Browser',NULL,'10000','PROJECT','[{\"name\":\"aa\",\"type\":\"PROJECT\",\"uri\":null,\"id\":\"10000\"},{\"name\":\"AA: 项目管理工作流方案\",\"type\":\"SCHEME\",\"uri\":null,\"id\":\"10100\"}]','aa aa: 项目管理工作流方案 workflow scheme added to project workflows keesh 172.16.197.1','10100','SCHEME','172.16.197.1','http://localhost:8190','10000','keesh','ApplicationUser'),('New resolution created','GLOBAL_CONFIG_AND_ADMINISTRATION','[{\"name\":\"Description\",\"value\":\"该问题的工作流程已完成。\"}]','workflows','[]',1590571812394,29,'BASE','Browser',NULL,'10000','RESOLUTION','[{\"name\":\"完成\",\"type\":\"RESOLUTION\",\"uri\":null,\"id\":\"10000\"}]','完成 new resolution created workflows keesh 172.16.197.1',NULL,NULL,'172.16.197.1','http://localhost:8190','10000','keesh','ApplicationUser'),('New resolution created','GLOBAL_CONFIG_AND_ADMINISTRATION','[{\"name\":\"Description\",\"value\":\"该问题不会被处理。\"}]','workflows','[]',1590571812400,30,'BASE','Browser',NULL,'10001','RESOLUTION','[{\"name\":\"被否决\",\"type\":\"RESOLUTION\",\"uri\":null,\"id\":\"10001\"}]','被否决 new resolution created workflows keesh 172.16.197.1',NULL,NULL,'172.16.197.1','http://localhost:8190','10000','keesh','ApplicationUser'),('New resolution created','GLOBAL_CONFIG_AND_ADMINISTRATION','[{\"name\":\"Description\",\"value\":\"重复提交的问题。\"}]','workflows','[]',1590571812404,31,'BASE','Browser',NULL,'10002','RESOLUTION','[{\"name\":\"重复提交\",\"type\":\"RESOLUTION\",\"uri\":null,\"id\":\"10002\"}]','重复提交 new resolution created workflows keesh 172.16.197.1',NULL,NULL,'172.16.197.1','http://localhost:8190','10000','keesh','ApplicationUser'),('Workflow updated','GLOBAL_CONFIG_AND_ADMINISTRATION','[]','workflows','[]',1590571813008,32,'BASE','Browser',NULL,'AA: 项目管理工作流','WORKFLOW','[{\"name\":\"AA: 项目管理工作流\",\"type\":\"WORKFLOW\",\"uri\":null,\"id\":\"AA: 项目管理工作流\"}]','aa: 项目管理工作流 workflow updated workflows keesh 172.16.197.1',NULL,NULL,'172.16.197.1','http://localhost:8190','10000','keesh','ApplicationUser'),('Filter created','LOCAL_CONFIG_AND_ADMINISTRATION','[]','filters','[{\"key\":\"Name\",\"from\":\"\",\"to\":\"开放和未分配 (AA)\"},{\"key\":\"Description\",\"from\":\"\",\"to\":null},{\"key\":\"Owner\",\"from\":\"\",\"to\":\"JIRAUSER10000\"},{\"key\":\"Shared With\",\"from\":\"[]\",\"to\":\"[项目: aa （查看）]\"},{\"key\":\"JQL Query\",\"from\":\"\",\"to\":\"{project = 10000} AND {statusCategory != \\\"Done\\\"} AND {assignee = EMPTY} order by priority DESC\"}]',1590571813417,33,'BASE','Browser',NULL,'10000','FILTER','[{\"name\":\"开放和未分配 (AA)\",\"type\":\"FILTER\",\"uri\":null,\"id\":\"10000\"},{\"name\":\"keesh\",\"type\":\"USER\",\"uri\":null,\"id\":\"JIRAUSER10000\"},{\"name\":\"aa\",\"type\":\"PROJECT\",\"uri\":null,\"id\":\"10000\"}]','开放和未分配 (aa) keesh aa filter created filters 172.16.197.1','JIRAUSER10000','USER','172.16.197.1','http://localhost:8190','10000','keesh','ApplicationUser'),('Filter created','LOCAL_CONFIG_AND_ADMINISTRATION','[]','filters','[{\"key\":\"Name\",\"from\":\"\",\"to\":\"本周内到期的 (AA)\"},{\"key\":\"Description\",\"from\":\"\",\"to\":null},{\"key\":\"Owner\",\"from\":\"\",\"to\":\"JIRAUSER10000\"},{\"key\":\"Shared With\",\"from\":\"[]\",\"to\":\"[项目: aa （查看）]\"},{\"key\":\"JQL Query\",\"from\":\"\",\"to\":\"{project = 10000} AND {duedate >= startOfWeek()} AND {duedate <= endOfWeek()} order by priority DESC\"}]',1590571813506,34,'BASE','Browser',NULL,'10001','FILTER','[{\"name\":\"本周内到期的 (AA)\",\"type\":\"FILTER\",\"uri\":null,\"id\":\"10001\"},{\"name\":\"keesh\",\"type\":\"USER\",\"uri\":null,\"id\":\"JIRAUSER10000\"},{\"name\":\"aa\",\"type\":\"PROJECT\",\"uri\":null,\"id\":\"10000\"}]','本周内到期的 (aa) keesh aa filter created filters 172.16.197.1','JIRAUSER10000','USER','172.16.197.1','http://localhost:8190','10000','keesh','ApplicationUser'),('Filter created','LOCAL_CONFIG_AND_ADMINISTRATION','[]','filters','[{\"key\":\"Name\",\"from\":\"\",\"to\":\"逾期的 (AA)\"},{\"key\":\"Description\",\"from\":\"\",\"to\":null},{\"key\":\"Owner\",\"from\":\"\",\"to\":\"JIRAUSER10000\"},{\"key\":\"Shared With\",\"from\":\"[]\",\"to\":\"[项目: aa （查看）]\"},{\"key\":\"JQL Query\",\"from\":\"\",\"to\":\"{project = 10000} AND {statusCategory != \\\"Done\\\"} AND {duedate < now()} order by duedate DESC\"}]',1590571813567,35,'BASE','Browser',NULL,'10002','FILTER','[{\"name\":\"逾期的 (AA)\",\"type\":\"FILTER\",\"uri\":null,\"id\":\"10002\"},{\"name\":\"keesh\",\"type\":\"USER\",\"uri\":null,\"id\":\"JIRAUSER10000\"},{\"name\":\"aa\",\"type\":\"PROJECT\",\"uri\":null,\"id\":\"10000\"}]','逾期的 (aa) keesh aa filter created filters 172.16.197.1','JIRAUSER10000','USER','172.16.197.1','http://localhost:8190','10000','keesh','ApplicationUser'),('Project created','LOCAL_CONFIG_AND_ADMINISTRATION','[]','projects','[{\"key\":\"Name\",\"from\":null,\"to\":\"aa\"},{\"key\":\"Key\",\"from\":null,\"to\":\"AA\"},{\"key\":\"Description\",\"from\":null,\"to\":\"<h3>Welcome to the administration of your demonstration project!</h3>\\n <p>This is where you can view and change how the project is configured. Use the tabs on the left to navigate to different project settings.</p>\"},{\"key\":\"Project Lead\",\"from\":null,\"to\":\"keesh\"},{\"key\":\"Default Assignee\",\"from\":null,\"to\":\"Unassigned\"}]',1590571813632,36,'BASE','Browser',NULL,'10000','PROJECT','[{\"name\":\"aa\",\"type\":\"PROJECT\",\"uri\":null,\"id\":\"10000\"},{\"name\":\"keesh\",\"type\":\"USER\",\"uri\":null,\"id\":\"JIRAUSER10000\"}]','aa keesh project created projects 172.16.197.1','JIRAUSER10000','USER','172.16.197.1','http://localhost:8190','10000','keesh','ApplicationUser'),('Project roles changed','LOCAL_CONFIG_AND_ADMINISTRATION','[]','projects','[{\"key\":\"Users\",\"from\":null,\"to\":\"JIRAUSER10000\"}]',1590571813955,37,'BASE','Browser',NULL,'10100','PROJECT_ROLE','[{\"name\":\"Developers\",\"type\":\"PROJECT_ROLE\",\"uri\":null,\"id\":\"10100\"},{\"name\":\"aa\",\"type\":\"PROJECT\",\"uri\":null,\"id\":\"10000\"}]','developers aa project roles changed projects keesh 172.16.197.1','10000','PROJECT','172.16.197.1','http://localhost:8190','10000','keesh','ApplicationUser');
+/*!40000 ALTER TABLE `AO_C77861_AUDIT_ENTITY` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_CFF990_AOTRANSITION_FAILURE`
+--
+
+DROP TABLE IF EXISTS `AO_CFF990_AOTRANSITION_FAILURE`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_CFF990_AOTRANSITION_FAILURE` (
+  `ERROR_MESSAGES` longtext COLLATE utf8_bin,
+  `FAILURE_TIME` datetime DEFAULT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `ISSUE_ID` bigint(20) DEFAULT '0',
+  `LOG_REFERRAL_HASH` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `TRANSITION_ID` bigint(20) DEFAULT '0',
+  `TRIGGER_ID` bigint(20) DEFAULT '0',
+  `USER_KEY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `WORKFLOW_ID` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_CFF990_AOTRANSITION_FAILURE`
+--
+
+LOCK TABLES `AO_CFF990_AOTRANSITION_FAILURE` WRITE;
+/*!40000 ALTER TABLE `AO_CFF990_AOTRANSITION_FAILURE` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_CFF990_AOTRANSITION_FAILURE` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_E8B6CC_BRANCH`
+--
+
+DROP TABLE IF EXISTS `AO_E8B6CC_BRANCH`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_E8B6CC_BRANCH` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `REPOSITORY_ID` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_e8b6cc_bra405461593` (`REPOSITORY_ID`),
+  CONSTRAINT `fk_ao_e8b6cc_branch_repository_id` FOREIGN KEY (`REPOSITORY_ID`) REFERENCES `AO_E8B6CC_REPOSITORY_MAPPING` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_E8B6CC_BRANCH`
+--
+
+LOCK TABLES `AO_E8B6CC_BRANCH` WRITE;
+/*!40000 ALTER TABLE `AO_E8B6CC_BRANCH` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_E8B6CC_BRANCH` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_E8B6CC_BRANCH_HEAD_MAPPING`
+--
+
+DROP TABLE IF EXISTS `AO_E8B6CC_BRANCH_HEAD_MAPPING`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_E8B6CC_BRANCH_HEAD_MAPPING` (
+  `BRANCH_NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `HEAD` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `REPOSITORY_ID` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_e8b6cc_bra1368852151` (`REPOSITORY_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_E8B6CC_BRANCH_HEAD_MAPPING`
+--
+
+LOCK TABLES `AO_E8B6CC_BRANCH_HEAD_MAPPING` WRITE;
+/*!40000 ALTER TABLE `AO_E8B6CC_BRANCH_HEAD_MAPPING` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_E8B6CC_BRANCH_HEAD_MAPPING` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_E8B6CC_CHANGESET_MAPPING`
+--
+
+DROP TABLE IF EXISTS `AO_E8B6CC_CHANGESET_MAPPING`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_E8B6CC_CHANGESET_MAPPING` (
+  `AUTHOR` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `AUTHOR_EMAIL` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `BRANCH` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `DATE` datetime DEFAULT NULL,
+  `FILES_DATA` longtext COLLATE utf8_bin,
+  `FILE_COUNT` int(11) DEFAULT '0',
+  `FILE_DETAILS_JSON` longtext COLLATE utf8_bin,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `ISSUE_KEY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `MESSAGE` longtext COLLATE utf8_bin,
+  `NODE` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `PARENTS_DATA` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `PROJECT_KEY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `RAW_AUTHOR` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `RAW_NODE` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `REPOSITORY_ID` int(11) DEFAULT '0',
+  `SMARTCOMMIT_AVAILABLE` tinyint(1) DEFAULT NULL,
+  `VERSION` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_e8b6cc_cha897886051` (`AUTHOR`),
+  KEY `index_ao_e8b6cc_cha1483243924` (`NODE`),
+  KEY `index_ao_e8b6cc_cha509722037` (`RAW_NODE`),
+  KEY `index_ao_e8b6cc_cha1086340152` (`SMARTCOMMIT_AVAILABLE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_E8B6CC_CHANGESET_MAPPING`
+--
+
+LOCK TABLES `AO_E8B6CC_CHANGESET_MAPPING` WRITE;
+/*!40000 ALTER TABLE `AO_E8B6CC_CHANGESET_MAPPING` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_E8B6CC_CHANGESET_MAPPING` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_E8B6CC_COMMIT`
+--
+
+DROP TABLE IF EXISTS `AO_E8B6CC_COMMIT`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_E8B6CC_COMMIT` (
+  `AUTHOR` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `AUTHOR_AVATAR_URL` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `DATE` datetime NOT NULL,
+  `DOMAIN_ID` int(11) NOT NULL DEFAULT '0',
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `MERGE` tinyint(1) DEFAULT NULL,
+  `MESSAGE` longtext COLLATE utf8_bin,
+  `NODE` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `RAW_AUTHOR` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_e8b6cc_commit_node` (`NODE`),
+  KEY `index_ao_e8b6cc_com1308336834` (`DOMAIN_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_E8B6CC_COMMIT`
+--
+
+LOCK TABLES `AO_E8B6CC_COMMIT` WRITE;
+/*!40000 ALTER TABLE `AO_E8B6CC_COMMIT` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_E8B6CC_COMMIT` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_E8B6CC_GIT_HUB_EVENT`
+--
+
+DROP TABLE IF EXISTS `AO_E8B6CC_GIT_HUB_EVENT`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_E8B6CC_GIT_HUB_EVENT` (
+  `CREATED_AT` datetime NOT NULL,
+  `GIT_HUB_ID` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '0',
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `REPOSITORY_ID` int(11) NOT NULL,
+  `SAVE_POINT` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_e8b6cc_git1804640320` (`REPOSITORY_ID`),
+  KEY `index_ao_e8b6cc_git1120895454` (`GIT_HUB_ID`),
+  CONSTRAINT `fk_ao_e8b6cc_git_hub_event_repository_id` FOREIGN KEY (`REPOSITORY_ID`) REFERENCES `AO_E8B6CC_REPOSITORY_MAPPING` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_E8B6CC_GIT_HUB_EVENT`
+--
+
+LOCK TABLES `AO_E8B6CC_GIT_HUB_EVENT` WRITE;
+/*!40000 ALTER TABLE `AO_E8B6CC_GIT_HUB_EVENT` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_E8B6CC_GIT_HUB_EVENT` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_E8B6CC_ISSUE_MAPPING`
+--
+
+DROP TABLE IF EXISTS `AO_E8B6CC_ISSUE_MAPPING`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_E8B6CC_ISSUE_MAPPING` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `ISSUE_ID` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `NODE` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `PROJECT_KEY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `REPOSITORY_URI` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_E8B6CC_ISSUE_MAPPING`
+--
+
+LOCK TABLES `AO_E8B6CC_ISSUE_MAPPING` WRITE;
+/*!40000 ALTER TABLE `AO_E8B6CC_ISSUE_MAPPING` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_E8B6CC_ISSUE_MAPPING` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_E8B6CC_ISSUE_MAPPING_V2`
+--
+
+DROP TABLE IF EXISTS `AO_E8B6CC_ISSUE_MAPPING_V2`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_E8B6CC_ISSUE_MAPPING_V2` (
+  `AUTHOR` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `BRANCH` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `DATE` datetime DEFAULT NULL,
+  `FILES_DATA` longtext COLLATE utf8_bin,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `ISSUE_ID` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `MESSAGE` longtext COLLATE utf8_bin,
+  `NODE` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `PARENTS_DATA` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `RAW_AUTHOR` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `RAW_NODE` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `REPOSITORY_ID` int(11) DEFAULT '0',
+  `VERSION` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_E8B6CC_ISSUE_MAPPING_V2`
+--
+
+LOCK TABLES `AO_E8B6CC_ISSUE_MAPPING_V2` WRITE;
+/*!40000 ALTER TABLE `AO_E8B6CC_ISSUE_MAPPING_V2` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_E8B6CC_ISSUE_MAPPING_V2` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_E8B6CC_ISSUE_TO_BRANCH`
+--
+
+DROP TABLE IF EXISTS `AO_E8B6CC_ISSUE_TO_BRANCH`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_E8B6CC_ISSUE_TO_BRANCH` (
+  `BRANCH_ID` int(11) DEFAULT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `ISSUE_KEY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_e8b6cc_iss353204826` (`ISSUE_KEY`),
+  KEY `index_ao_e8b6cc_iss1325927291` (`BRANCH_ID`),
+  CONSTRAINT `fk_ao_e8b6cc_issue_to_branch_branch_id` FOREIGN KEY (`BRANCH_ID`) REFERENCES `AO_E8B6CC_BRANCH` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_E8B6CC_ISSUE_TO_BRANCH`
+--
+
+LOCK TABLES `AO_E8B6CC_ISSUE_TO_BRANCH` WRITE;
+/*!40000 ALTER TABLE `AO_E8B6CC_ISSUE_TO_BRANCH` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_E8B6CC_ISSUE_TO_BRANCH` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_E8B6CC_ISSUE_TO_CHANGESET`
+--
+
+DROP TABLE IF EXISTS `AO_E8B6CC_ISSUE_TO_CHANGESET`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_E8B6CC_ISSUE_TO_CHANGESET` (
+  `CHANGESET_ID` int(11) DEFAULT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `ISSUE_KEY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `PROJECT_KEY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_e8b6cc_iss1229805759` (`CHANGESET_ID`),
+  KEY `index_ao_e8b6cc_iss417950110` (`ISSUE_KEY`),
+  KEY `index_ao_e8b6cc_iss648895902` (`PROJECT_KEY`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_E8B6CC_ISSUE_TO_CHANGESET`
+--
+
+LOCK TABLES `AO_E8B6CC_ISSUE_TO_CHANGESET` WRITE;
+/*!40000 ALTER TABLE `AO_E8B6CC_ISSUE_TO_CHANGESET` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_E8B6CC_ISSUE_TO_CHANGESET` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_E8B6CC_MESSAGE`
+--
+
+DROP TABLE IF EXISTS `AO_E8B6CC_MESSAGE`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_E8B6CC_MESSAGE` (
+  `ADDRESS` varchar(255) COLLATE utf8_bin NOT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `PAYLOAD` longtext COLLATE utf8_bin NOT NULL,
+  `PAYLOAD_TYPE` varchar(255) COLLATE utf8_bin NOT NULL,
+  `PRIORITY` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_e8b6cc_mes1247039512` (`ADDRESS`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_E8B6CC_MESSAGE`
+--
+
+LOCK TABLES `AO_E8B6CC_MESSAGE` WRITE;
+/*!40000 ALTER TABLE `AO_E8B6CC_MESSAGE` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_E8B6CC_MESSAGE` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_E8B6CC_MESSAGE_QUEUE_ITEM`
+--
+
+DROP TABLE IF EXISTS `AO_E8B6CC_MESSAGE_QUEUE_ITEM`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_E8B6CC_MESSAGE_QUEUE_ITEM` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `LAST_FAILED` datetime DEFAULT NULL,
+  `MESSAGE_ID` int(11) NOT NULL,
+  `QUEUE` varchar(255) COLLATE utf8_bin NOT NULL,
+  `RETRIES_COUNT` int(11) NOT NULL DEFAULT '0',
+  `STATE` varchar(255) COLLATE utf8_bin NOT NULL,
+  `STATE_INFO` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_e8b6cc_mes344532677` (`MESSAGE_ID`),
+  KEY `index_ao_e8b6cc_mes60959905` (`QUEUE`),
+  KEY `index_ao_e8b6cc_mes59146529` (`STATE`),
+  CONSTRAINT `fk_ao_e8b6cc_message_queue_item_message_id` FOREIGN KEY (`MESSAGE_ID`) REFERENCES `AO_E8B6CC_MESSAGE` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_E8B6CC_MESSAGE_QUEUE_ITEM`
+--
+
+LOCK TABLES `AO_E8B6CC_MESSAGE_QUEUE_ITEM` WRITE;
+/*!40000 ALTER TABLE `AO_E8B6CC_MESSAGE_QUEUE_ITEM` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_E8B6CC_MESSAGE_QUEUE_ITEM` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_E8B6CC_MESSAGE_TAG`
+--
+
+DROP TABLE IF EXISTS `AO_E8B6CC_MESSAGE_TAG`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_E8B6CC_MESSAGE_TAG` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `MESSAGE_ID` int(11) DEFAULT NULL,
+  `TAG` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_e8b6cc_mes1391090780` (`MESSAGE_ID`),
+  KEY `index_ao_e8b6cc_mes1648007831` (`TAG`),
+  CONSTRAINT `fk_ao_e8b6cc_message_tag_message_id` FOREIGN KEY (`MESSAGE_ID`) REFERENCES `AO_E8B6CC_MESSAGE` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_E8B6CC_MESSAGE_TAG`
+--
+
+LOCK TABLES `AO_E8B6CC_MESSAGE_TAG` WRITE;
+/*!40000 ALTER TABLE `AO_E8B6CC_MESSAGE_TAG` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_E8B6CC_MESSAGE_TAG` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_E8B6CC_ORGANIZATION_MAPPING`
+--
+
+DROP TABLE IF EXISTS `AO_E8B6CC_ORGANIZATION_MAPPING`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_E8B6CC_ORGANIZATION_MAPPING` (
+  `ACCESS_TOKEN` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `ADMIN_PASSWORD` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `ADMIN_USERNAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `APPROVAL_STATE` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `AUTOLINK_NEW_REPOS` tinyint(1) DEFAULT NULL,
+  `DEFAULT_GROUPS_SLUGS` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `DVCS_TYPE` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `HOST_URL` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `LAST_POLLED` bigint(20) DEFAULT NULL,
+  `NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `OAUTH_KEY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `OAUTH_SECRET` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `PRINCIPAL_ID` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `SMARTCOMMITS_FOR_NEW_REPOS` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_e8b6cc_org1513110290` (`DVCS_TYPE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_E8B6CC_ORGANIZATION_MAPPING`
+--
+
+LOCK TABLES `AO_E8B6CC_ORGANIZATION_MAPPING` WRITE;
+/*!40000 ALTER TABLE `AO_E8B6CC_ORGANIZATION_MAPPING` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_E8B6CC_ORGANIZATION_MAPPING` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_E8B6CC_ORG_TO_PROJECT`
+--
+
+DROP TABLE IF EXISTS `AO_E8B6CC_ORG_TO_PROJECT`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_E8B6CC_ORG_TO_PROJECT` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `ORGANIZATION_ID` int(11) DEFAULT NULL,
+  `PROJECT_KEY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_e8b6cc_org1899590324` (`ORGANIZATION_ID`),
+  CONSTRAINT `fk_ao_e8b6cc_org_to_project_organization_id` FOREIGN KEY (`ORGANIZATION_ID`) REFERENCES `AO_E8B6CC_ORGANIZATION_MAPPING` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_E8B6CC_ORG_TO_PROJECT`
+--
+
+LOCK TABLES `AO_E8B6CC_ORG_TO_PROJECT` WRITE;
+/*!40000 ALTER TABLE `AO_E8B6CC_ORG_TO_PROJECT` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_E8B6CC_ORG_TO_PROJECT` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_E8B6CC_PROJECT_MAPPING`
+--
+
+DROP TABLE IF EXISTS `AO_E8B6CC_PROJECT_MAPPING`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_E8B6CC_PROJECT_MAPPING` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `PASSWORD` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `PROJECT_KEY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `REPOSITORY_URI` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `USERNAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_E8B6CC_PROJECT_MAPPING`
+--
+
+LOCK TABLES `AO_E8B6CC_PROJECT_MAPPING` WRITE;
+/*!40000 ALTER TABLE `AO_E8B6CC_PROJECT_MAPPING` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_E8B6CC_PROJECT_MAPPING` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_E8B6CC_PROJECT_MAPPING_V2`
+--
+
+DROP TABLE IF EXISTS `AO_E8B6CC_PROJECT_MAPPING_V2`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_E8B6CC_PROJECT_MAPPING_V2` (
+  `ACCESS_TOKEN` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `ADMIN_PASSWORD` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `ADMIN_USERNAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `LAST_COMMIT_DATE` datetime DEFAULT NULL,
+  `PROJECT_KEY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `REPOSITORY_NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `REPOSITORY_TYPE` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `REPOSITORY_URL` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_E8B6CC_PROJECT_MAPPING_V2`
+--
+
+LOCK TABLES `AO_E8B6CC_PROJECT_MAPPING_V2` WRITE;
+/*!40000 ALTER TABLE `AO_E8B6CC_PROJECT_MAPPING_V2` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_E8B6CC_PROJECT_MAPPING_V2` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_E8B6CC_PR_ISSUE_KEY`
+--
+
+DROP TABLE IF EXISTS `AO_E8B6CC_PR_ISSUE_KEY`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_E8B6CC_PR_ISSUE_KEY` (
+  `DOMAIN_ID` int(11) NOT NULL DEFAULT '0',
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `ISSUE_KEY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `PULL_REQUEST_ID` int(11) DEFAULT '0',
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_e8b6cc_pr_1639282617` (`DOMAIN_ID`),
+  KEY `index_ao_e8b6cc_pr_2106805302` (`ISSUE_KEY`),
+  KEY `index_ao_e8b6cc_pr_281193494` (`PULL_REQUEST_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_E8B6CC_PR_ISSUE_KEY`
+--
+
+LOCK TABLES `AO_E8B6CC_PR_ISSUE_KEY` WRITE;
+/*!40000 ALTER TABLE `AO_E8B6CC_PR_ISSUE_KEY` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_E8B6CC_PR_ISSUE_KEY` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_E8B6CC_PR_PARTICIPANT`
+--
+
+DROP TABLE IF EXISTS `AO_E8B6CC_PR_PARTICIPANT`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_E8B6CC_PR_PARTICIPANT` (
+  `APPROVED` tinyint(1) DEFAULT NULL,
+  `DOMAIN_ID` int(11) NOT NULL DEFAULT '0',
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `PULL_REQUEST_ID` int(11) DEFAULT NULL,
+  `ROLE` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `USERNAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_e8b6cc_pr_1105917040` (`PULL_REQUEST_ID`),
+  KEY `index_ao_e8b6cc_pr_758084799` (`DOMAIN_ID`),
+  CONSTRAINT `fk_ao_e8b6cc_pr_participant_pull_request_id` FOREIGN KEY (`PULL_REQUEST_ID`) REFERENCES `AO_E8B6CC_PULL_REQUEST` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_E8B6CC_PR_PARTICIPANT`
+--
+
+LOCK TABLES `AO_E8B6CC_PR_PARTICIPANT` WRITE;
+/*!40000 ALTER TABLE `AO_E8B6CC_PR_PARTICIPANT` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_E8B6CC_PR_PARTICIPANT` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_E8B6CC_PR_TO_COMMIT`
+--
+
+DROP TABLE IF EXISTS `AO_E8B6CC_PR_TO_COMMIT`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_E8B6CC_PR_TO_COMMIT` (
+  `COMMIT_ID` int(11) NOT NULL,
+  `DOMAIN_ID` int(11) NOT NULL DEFAULT '0',
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `REQUEST_ID` int(11) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_e8b6cc_pr_685151049` (`DOMAIN_ID`),
+  KEY `index_ao_e8b6cc_pr_1045528152` (`REQUEST_ID`),
+  KEY `index_ao_e8b6cc_pr_1458633226` (`COMMIT_ID`),
+  CONSTRAINT `fk_ao_e8b6cc_pr_to_commit_commit_id` FOREIGN KEY (`COMMIT_ID`) REFERENCES `AO_E8B6CC_COMMIT` (`ID`),
+  CONSTRAINT `fk_ao_e8b6cc_pr_to_commit_request_id` FOREIGN KEY (`REQUEST_ID`) REFERENCES `AO_E8B6CC_PULL_REQUEST` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_E8B6CC_PR_TO_COMMIT`
+--
+
+LOCK TABLES `AO_E8B6CC_PR_TO_COMMIT` WRITE;
+/*!40000 ALTER TABLE `AO_E8B6CC_PR_TO_COMMIT` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_E8B6CC_PR_TO_COMMIT` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_E8B6CC_PULL_REQUEST`
+--
+
+DROP TABLE IF EXISTS `AO_E8B6CC_PULL_REQUEST`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_E8B6CC_PULL_REQUEST` (
+  `AUTHOR` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `COMMENT_COUNT` int(11) DEFAULT '0',
+  `CREATED_ON` datetime DEFAULT NULL,
+  `DESTINATION_BRANCH` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `DOMAIN_ID` int(11) NOT NULL DEFAULT '0',
+  `EXECUTED_BY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `LAST_STATUS` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `REMOTE_ID` bigint(20) DEFAULT NULL,
+  `SOURCE_BRANCH` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `SOURCE_REPO` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `TO_REPOSITORY_ID` int(11) DEFAULT '0',
+  `UPDATED_ON` datetime DEFAULT NULL,
+  `URL` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_e8b6cc_pul602811170` (`REMOTE_ID`),
+  KEY `index_ao_e8b6cc_pul1230717024` (`DOMAIN_ID`),
+  KEY `index_ao_e8b6cc_pul1448445182` (`TO_REPOSITORY_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_E8B6CC_PULL_REQUEST`
+--
+
+LOCK TABLES `AO_E8B6CC_PULL_REQUEST` WRITE;
+/*!40000 ALTER TABLE `AO_E8B6CC_PULL_REQUEST` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_E8B6CC_PULL_REQUEST` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_E8B6CC_REPOSITORY_MAPPING`
+--
+
+DROP TABLE IF EXISTS `AO_E8B6CC_REPOSITORY_MAPPING`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_E8B6CC_REPOSITORY_MAPPING` (
+  `ACTIVITY_LAST_SYNC` datetime DEFAULT NULL,
+  `DELETED` tinyint(1) DEFAULT NULL,
+  `FORK` tinyint(1) DEFAULT NULL,
+  `FORK_OF_NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `FORK_OF_OWNER` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `FORK_OF_SLUG` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `LAST_CHANGESET_NODE` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `LAST_COMMIT_DATE` datetime DEFAULT NULL,
+  `LINKED` tinyint(1) DEFAULT NULL,
+  `LOGO` longtext COLLATE utf8_bin,
+  `NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `ORGANIZATION_ID` int(11) DEFAULT '0',
+  `SLUG` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `SMARTCOMMITS_ENABLED` tinyint(1) DEFAULT NULL,
+  `UPDATE_LINK_AUTHORISED` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_e8b6cc_rep702725269` (`ORGANIZATION_ID`),
+  KEY `index_ao_e8b6cc_rep93578901` (`LINKED`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_E8B6CC_REPOSITORY_MAPPING`
+--
+
+LOCK TABLES `AO_E8B6CC_REPOSITORY_MAPPING` WRITE;
+/*!40000 ALTER TABLE `AO_E8B6CC_REPOSITORY_MAPPING` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_E8B6CC_REPOSITORY_MAPPING` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_E8B6CC_REPO_TO_CHANGESET`
+--
+
+DROP TABLE IF EXISTS `AO_E8B6CC_REPO_TO_CHANGESET`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_E8B6CC_REPO_TO_CHANGESET` (
+  `CHANGESET_ID` int(11) DEFAULT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `REPOSITORY_ID` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_e8b6cc_rep922992576` (`CHANGESET_ID`),
+  KEY `index_ao_e8b6cc_rep1082901832` (`REPOSITORY_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_E8B6CC_REPO_TO_CHANGESET`
+--
+
+LOCK TABLES `AO_E8B6CC_REPO_TO_CHANGESET` WRITE;
+/*!40000 ALTER TABLE `AO_E8B6CC_REPO_TO_CHANGESET` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_E8B6CC_REPO_TO_CHANGESET` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_E8B6CC_REPO_TO_PROJECT`
+--
+
+DROP TABLE IF EXISTS `AO_E8B6CC_REPO_TO_PROJECT`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_E8B6CC_REPO_TO_PROJECT` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `PROJECT_KEY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `REPOSITORY_ID` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_e8b6cc_rep1928770529` (`REPOSITORY_ID`),
+  CONSTRAINT `fk_ao_e8b6cc_repo_to_project_repository_id` FOREIGN KEY (`REPOSITORY_ID`) REFERENCES `AO_E8B6CC_REPOSITORY_MAPPING` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_E8B6CC_REPO_TO_PROJECT`
+--
+
+LOCK TABLES `AO_E8B6CC_REPO_TO_PROJECT` WRITE;
+/*!40000 ALTER TABLE `AO_E8B6CC_REPO_TO_PROJECT` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_E8B6CC_REPO_TO_PROJECT` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_E8B6CC_SYNC_AUDIT_LOG`
+--
+
+DROP TABLE IF EXISTS `AO_E8B6CC_SYNC_AUDIT_LOG`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_E8B6CC_SYNC_AUDIT_LOG` (
+  `END_DATE` datetime DEFAULT NULL,
+  `EXC_TRACE` longtext COLLATE utf8_bin,
+  `FIRST_REQUEST_DATE` datetime DEFAULT NULL,
+  `FLIGHT_TIME_MS` int(11) DEFAULT '0',
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `NUM_REQUESTS` int(11) DEFAULT '0',
+  `REPO_ID` int(11) DEFAULT '0',
+  `START_DATE` datetime DEFAULT NULL,
+  `SYNC_STATUS` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `SYNC_TYPE` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `TOTAL_ERRORS` int(11) DEFAULT '0',
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_e8b6cc_syn203792807` (`REPO_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_E8B6CC_SYNC_AUDIT_LOG`
+--
+
+LOCK TABLES `AO_E8B6CC_SYNC_AUDIT_LOG` WRITE;
+/*!40000 ALTER TABLE `AO_E8B6CC_SYNC_AUDIT_LOG` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_E8B6CC_SYNC_AUDIT_LOG` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_E8B6CC_SYNC_EVENT`
+--
+
+DROP TABLE IF EXISTS `AO_E8B6CC_SYNC_EVENT`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_E8B6CC_SYNC_EVENT` (
+  `EVENT_CLASS` longtext COLLATE utf8_bin NOT NULL,
+  `EVENT_DATE` datetime NOT NULL,
+  `EVENT_JSON` longtext COLLATE utf8_bin NOT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `REPO_ID` int(11) NOT NULL DEFAULT '0',
+  `SCHEDULED_SYNC` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `index_ao_e8b6cc_syn493078035` (`REPO_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_E8B6CC_SYNC_EVENT`
+--
+
+LOCK TABLES `AO_E8B6CC_SYNC_EVENT` WRITE;
+/*!40000 ALTER TABLE `AO_E8B6CC_SYNC_EVENT` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_E8B6CC_SYNC_EVENT` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AO_ED669C_SEEN_ASSERTIONS`
+--
+
+DROP TABLE IF EXISTS `AO_ED669C_SEEN_ASSERTIONS`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AO_ED669C_SEEN_ASSERTIONS` (
+  `ASSERTION_ID` varchar(255) COLLATE utf8_bin NOT NULL,
+  `EXPIRY_TIMESTAMP` bigint(20) NOT NULL DEFAULT '0',
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `U_AO_ED669C_SEEN_AS1055534769` (`ASSERTION_ID`),
+  KEY `index_ao_ed669c_see20117222` (`EXPIRY_TIMESTAMP`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AO_ED669C_SEEN_ASSERTIONS`
+--
+
+LOCK TABLES `AO_ED669C_SEEN_ASSERTIONS` WRITE;
+/*!40000 ALTER TABLE `AO_ED669C_SEEN_ASSERTIONS` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AO_ED669C_SEEN_ASSERTIONS` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `JQUARTZ_BLOB_TRIGGERS`
+--
+
+DROP TABLE IF EXISTS `JQUARTZ_BLOB_TRIGGERS`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `JQUARTZ_BLOB_TRIGGERS` (
+  `SCHED_NAME` varchar(120) COLLATE utf8_bin DEFAULT NULL,
+  `TRIGGER_NAME` varchar(200) COLLATE utf8_bin NOT NULL,
+  `TRIGGER_GROUP` varchar(200) COLLATE utf8_bin NOT NULL,
+  `BLOB_DATA` blob,
+  PRIMARY KEY (`TRIGGER_NAME`,`TRIGGER_GROUP`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `JQUARTZ_BLOB_TRIGGERS`
+--
+
+LOCK TABLES `JQUARTZ_BLOB_TRIGGERS` WRITE;
+/*!40000 ALTER TABLE `JQUARTZ_BLOB_TRIGGERS` DISABLE KEYS */;
+/*!40000 ALTER TABLE `JQUARTZ_BLOB_TRIGGERS` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `JQUARTZ_CALENDARS`
+--
+
+DROP TABLE IF EXISTS `JQUARTZ_CALENDARS`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `JQUARTZ_CALENDARS` (
+  `SCHED_NAME` varchar(120) COLLATE utf8_bin DEFAULT NULL,
+  `CALENDAR_NAME` varchar(200) COLLATE utf8_bin NOT NULL,
+  `CALENDAR` blob,
+  PRIMARY KEY (`CALENDAR_NAME`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `JQUARTZ_CALENDARS`
+--
+
+LOCK TABLES `JQUARTZ_CALENDARS` WRITE;
+/*!40000 ALTER TABLE `JQUARTZ_CALENDARS` DISABLE KEYS */;
+/*!40000 ALTER TABLE `JQUARTZ_CALENDARS` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `JQUARTZ_CRON_TRIGGERS`
+--
+
+DROP TABLE IF EXISTS `JQUARTZ_CRON_TRIGGERS`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `JQUARTZ_CRON_TRIGGERS` (
+  `SCHED_NAME` varchar(120) COLLATE utf8_bin DEFAULT NULL,
+  `TRIGGER_NAME` varchar(200) COLLATE utf8_bin NOT NULL,
+  `TRIGGER_GROUP` varchar(200) COLLATE utf8_bin NOT NULL,
+  `CRON_EXPRESSION` varchar(120) COLLATE utf8_bin DEFAULT NULL,
+  `TIME_ZONE_ID` varchar(80) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`TRIGGER_NAME`,`TRIGGER_GROUP`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `JQUARTZ_CRON_TRIGGERS`
+--
+
+LOCK TABLES `JQUARTZ_CRON_TRIGGERS` WRITE;
+/*!40000 ALTER TABLE `JQUARTZ_CRON_TRIGGERS` DISABLE KEYS */;
+/*!40000 ALTER TABLE `JQUARTZ_CRON_TRIGGERS` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `JQUARTZ_FIRED_TRIGGERS`
+--
+
+DROP TABLE IF EXISTS `JQUARTZ_FIRED_TRIGGERS`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `JQUARTZ_FIRED_TRIGGERS` (
+  `SCHED_NAME` varchar(120) COLLATE utf8_bin DEFAULT NULL,
+  `ENTRY_ID` varchar(95) COLLATE utf8_bin NOT NULL,
+  `TRIGGER_NAME` varchar(200) COLLATE utf8_bin DEFAULT NULL,
+  `TRIGGER_GROUP` varchar(200) COLLATE utf8_bin DEFAULT NULL,
+  `IS_VOLATILE` varchar(1) COLLATE utf8_bin DEFAULT NULL,
+  `INSTANCE_NAME` varchar(200) COLLATE utf8_bin DEFAULT NULL,
+  `FIRED_TIME` bigint(20) DEFAULT NULL,
+  `SCHED_TIME` bigint(20) DEFAULT NULL,
+  `PRIORITY` int(11) DEFAULT NULL,
+  `STATE` varchar(16) COLLATE utf8_bin DEFAULT NULL,
+  `JOB_NAME` varchar(200) COLLATE utf8_bin DEFAULT NULL,
+  `JOB_GROUP` varchar(200) COLLATE utf8_bin DEFAULT NULL,
+  `IS_STATEFUL` varchar(1) COLLATE utf8_bin DEFAULT NULL,
+  `IS_NONCONCURRENT` varchar(1) COLLATE utf8_bin DEFAULT NULL,
+  `IS_UPDATE_DATA` varchar(1) COLLATE utf8_bin DEFAULT NULL,
+  `REQUESTS_RECOVERY` varchar(1) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ENTRY_ID`),
+  KEY `idx_qrtz_ft_trig_inst_name` (`SCHED_NAME`,`INSTANCE_NAME`),
+  KEY `idx_qrtz_ft_inst_job_req_rcvry` (`SCHED_NAME`,`INSTANCE_NAME`,`REQUESTS_RECOVERY`),
+  KEY `idx_qrtz_ft_j_g` (`SCHED_NAME`,`JOB_NAME`,`JOB_GROUP`),
+  KEY `idx_qrtz_ft_jg` (`SCHED_NAME`,`JOB_GROUP`),
+  KEY `idx_qrtz_ft_t_g` (`SCHED_NAME`,`TRIGGER_NAME`,`TRIGGER_GROUP`),
+  KEY `idx_qrtz_ft_tg` (`SCHED_NAME`,`TRIGGER_GROUP`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `JQUARTZ_FIRED_TRIGGERS`
+--
+
+LOCK TABLES `JQUARTZ_FIRED_TRIGGERS` WRITE;
+/*!40000 ALTER TABLE `JQUARTZ_FIRED_TRIGGERS` DISABLE KEYS */;
+/*!40000 ALTER TABLE `JQUARTZ_FIRED_TRIGGERS` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `JQUARTZ_JOB_DETAILS`
+--
+
+DROP TABLE IF EXISTS `JQUARTZ_JOB_DETAILS`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `JQUARTZ_JOB_DETAILS` (
+  `SCHED_NAME` varchar(120) COLLATE utf8_bin DEFAULT NULL,
+  `JOB_NAME` varchar(200) COLLATE utf8_bin NOT NULL,
+  `JOB_GROUP` varchar(200) COLLATE utf8_bin NOT NULL,
+  `DESCRIPTION` varchar(250) COLLATE utf8_bin DEFAULT NULL,
+  `JOB_CLASS_NAME` varchar(250) COLLATE utf8_bin DEFAULT NULL,
+  `IS_DURABLE` varchar(1) COLLATE utf8_bin DEFAULT NULL,
+  `IS_VOLATILE` varchar(1) COLLATE utf8_bin DEFAULT NULL,
+  `IS_STATEFUL` varchar(1) COLLATE utf8_bin DEFAULT NULL,
+  `IS_NONCONCURRENT` varchar(1) COLLATE utf8_bin DEFAULT NULL,
+  `IS_UPDATE_DATA` varchar(1) COLLATE utf8_bin DEFAULT NULL,
+  `REQUESTS_RECOVERY` varchar(1) COLLATE utf8_bin DEFAULT NULL,
+  `JOB_DATA` blob,
+  PRIMARY KEY (`JOB_NAME`,`JOB_GROUP`),
+  KEY `idx_qrtz_j_req_recovery` (`SCHED_NAME`,`REQUESTS_RECOVERY`),
+  KEY `idx_qrtz_j_grp` (`SCHED_NAME`,`JOB_GROUP`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `JQUARTZ_JOB_DETAILS`
+--
+
+LOCK TABLES `JQUARTZ_JOB_DETAILS` WRITE;
+/*!40000 ALTER TABLE `JQUARTZ_JOB_DETAILS` DISABLE KEYS */;
+/*!40000 ALTER TABLE `JQUARTZ_JOB_DETAILS` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `JQUARTZ_JOB_LISTENERS`
+--
+
+DROP TABLE IF EXISTS `JQUARTZ_JOB_LISTENERS`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `JQUARTZ_JOB_LISTENERS` (
+  `JOB_NAME` varchar(200) COLLATE utf8_bin NOT NULL,
+  `JOB_GROUP` varchar(200) COLLATE utf8_bin NOT NULL,
+  `JOB_LISTENER` varchar(200) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`JOB_NAME`,`JOB_GROUP`,`JOB_LISTENER`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `JQUARTZ_JOB_LISTENERS`
+--
+
+LOCK TABLES `JQUARTZ_JOB_LISTENERS` WRITE;
+/*!40000 ALTER TABLE `JQUARTZ_JOB_LISTENERS` DISABLE KEYS */;
+/*!40000 ALTER TABLE `JQUARTZ_JOB_LISTENERS` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `JQUARTZ_LOCKS`
+--
+
+DROP TABLE IF EXISTS `JQUARTZ_LOCKS`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `JQUARTZ_LOCKS` (
+  `SCHED_NAME` varchar(120) COLLATE utf8_bin DEFAULT NULL,
+  `LOCK_NAME` varchar(40) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`LOCK_NAME`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `JQUARTZ_LOCKS`
+--
+
+LOCK TABLES `JQUARTZ_LOCKS` WRITE;
+/*!40000 ALTER TABLE `JQUARTZ_LOCKS` DISABLE KEYS */;
+INSERT INTO `JQUARTZ_LOCKS` VALUES (NULL,'CALENDAR_ACCESS'),(NULL,'JOB_ACCESS'),(NULL,'MISFIRE_ACCESS'),(NULL,'STATE_ACCESS'),(NULL,'TRIGGER_ACCESS');
+/*!40000 ALTER TABLE `JQUARTZ_LOCKS` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `JQUARTZ_PAUSED_TRIGGER_GRPS`
+--
+
+DROP TABLE IF EXISTS `JQUARTZ_PAUSED_TRIGGER_GRPS`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `JQUARTZ_PAUSED_TRIGGER_GRPS` (
+  `SCHED_NAME` varchar(120) COLLATE utf8_bin DEFAULT NULL,
+  `TRIGGER_GROUP` varchar(200) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`TRIGGER_GROUP`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `JQUARTZ_PAUSED_TRIGGER_GRPS`
+--
+
+LOCK TABLES `JQUARTZ_PAUSED_TRIGGER_GRPS` WRITE;
+/*!40000 ALTER TABLE `JQUARTZ_PAUSED_TRIGGER_GRPS` DISABLE KEYS */;
+/*!40000 ALTER TABLE `JQUARTZ_PAUSED_TRIGGER_GRPS` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `JQUARTZ_SCHEDULER_STATE`
+--
+
+DROP TABLE IF EXISTS `JQUARTZ_SCHEDULER_STATE`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `JQUARTZ_SCHEDULER_STATE` (
+  `SCHED_NAME` varchar(120) COLLATE utf8_bin DEFAULT NULL,
+  `INSTANCE_NAME` varchar(200) COLLATE utf8_bin NOT NULL,
+  `LAST_CHECKIN_TIME` bigint(20) DEFAULT NULL,
+  `CHECKIN_INTERVAL` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`INSTANCE_NAME`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `JQUARTZ_SCHEDULER_STATE`
+--
+
+LOCK TABLES `JQUARTZ_SCHEDULER_STATE` WRITE;
+/*!40000 ALTER TABLE `JQUARTZ_SCHEDULER_STATE` DISABLE KEYS */;
+/*!40000 ALTER TABLE `JQUARTZ_SCHEDULER_STATE` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `JQUARTZ_SIMPLE_TRIGGERS`
+--
+
+DROP TABLE IF EXISTS `JQUARTZ_SIMPLE_TRIGGERS`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `JQUARTZ_SIMPLE_TRIGGERS` (
+  `SCHED_NAME` varchar(120) COLLATE utf8_bin DEFAULT NULL,
+  `TRIGGER_NAME` varchar(200) COLLATE utf8_bin NOT NULL,
+  `TRIGGER_GROUP` varchar(200) COLLATE utf8_bin NOT NULL,
+  `REPEAT_COUNT` bigint(20) DEFAULT NULL,
+  `REPEAT_INTERVAL` bigint(20) DEFAULT NULL,
+  `TIMES_TRIGGERED` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`TRIGGER_NAME`,`TRIGGER_GROUP`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `JQUARTZ_SIMPLE_TRIGGERS`
+--
+
+LOCK TABLES `JQUARTZ_SIMPLE_TRIGGERS` WRITE;
+/*!40000 ALTER TABLE `JQUARTZ_SIMPLE_TRIGGERS` DISABLE KEYS */;
+/*!40000 ALTER TABLE `JQUARTZ_SIMPLE_TRIGGERS` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `JQUARTZ_SIMPROP_TRIGGERS`
+--
+
+DROP TABLE IF EXISTS `JQUARTZ_SIMPROP_TRIGGERS`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `JQUARTZ_SIMPROP_TRIGGERS` (
+  `SCHED_NAME` varchar(120) COLLATE utf8_bin DEFAULT NULL,
+  `TRIGGER_NAME` varchar(200) COLLATE utf8_bin NOT NULL,
+  `TRIGGER_GROUP` varchar(200) COLLATE utf8_bin NOT NULL,
+  `STR_PROP_1` varchar(512) COLLATE utf8_bin DEFAULT NULL,
+  `STR_PROP_2` varchar(512) COLLATE utf8_bin DEFAULT NULL,
+  `STR_PROP_3` varchar(512) COLLATE utf8_bin DEFAULT NULL,
+  `INT_PROP_1` int(11) DEFAULT NULL,
+  `INT_PROP_2` int(11) DEFAULT NULL,
+  `LONG_PROP_1` bigint(20) DEFAULT NULL,
+  `LONG_PROP_2` bigint(20) DEFAULT NULL,
+  `DEC_PROP_1` decimal(13,4) DEFAULT NULL,
+  `DEC_PROP_2` decimal(13,4) DEFAULT NULL,
+  `BOOL_PROP_1` varchar(1) COLLATE utf8_bin DEFAULT NULL,
+  `BOOL_PROP_2` varchar(1) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`TRIGGER_NAME`,`TRIGGER_GROUP`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `JQUARTZ_SIMPROP_TRIGGERS`
+--
+
+LOCK TABLES `JQUARTZ_SIMPROP_TRIGGERS` WRITE;
+/*!40000 ALTER TABLE `JQUARTZ_SIMPROP_TRIGGERS` DISABLE KEYS */;
+/*!40000 ALTER TABLE `JQUARTZ_SIMPROP_TRIGGERS` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `JQUARTZ_TRIGGERS`
+--
+
+DROP TABLE IF EXISTS `JQUARTZ_TRIGGERS`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `JQUARTZ_TRIGGERS` (
+  `SCHED_NAME` varchar(120) COLLATE utf8_bin DEFAULT NULL,
+  `TRIGGER_NAME` varchar(200) COLLATE utf8_bin NOT NULL,
+  `TRIGGER_GROUP` varchar(200) COLLATE utf8_bin NOT NULL,
+  `JOB_NAME` varchar(200) COLLATE utf8_bin DEFAULT NULL,
+  `JOB_GROUP` varchar(200) COLLATE utf8_bin DEFAULT NULL,
+  `IS_VOLATILE` varchar(1) COLLATE utf8_bin DEFAULT NULL,
+  `DESCRIPTION` varchar(250) COLLATE utf8_bin DEFAULT NULL,
+  `NEXT_FIRE_TIME` bigint(20) DEFAULT NULL,
+  `PREV_FIRE_TIME` bigint(20) DEFAULT NULL,
+  `PRIORITY` int(11) DEFAULT NULL,
+  `TRIGGER_STATE` varchar(16) COLLATE utf8_bin DEFAULT NULL,
+  `TRIGGER_TYPE` varchar(8) COLLATE utf8_bin DEFAULT NULL,
+  `START_TIME` bigint(20) DEFAULT NULL,
+  `END_TIME` bigint(20) DEFAULT NULL,
+  `CALENDAR_NAME` varchar(200) COLLATE utf8_bin DEFAULT NULL,
+  `MISFIRE_INSTR` smallint(5) DEFAULT NULL,
+  `JOB_DATA` blob,
+  PRIMARY KEY (`TRIGGER_NAME`,`TRIGGER_GROUP`),
+  KEY `idx_qrtz_t_j` (`SCHED_NAME`,`JOB_NAME`,`JOB_GROUP`),
+  KEY `idx_qrtz_t_jg` (`SCHED_NAME`,`JOB_GROUP`),
+  KEY `idx_qrtz_t_c` (`SCHED_NAME`,`CALENDAR_NAME`),
+  KEY `idx_qrtz_j_g` (`SCHED_NAME`,`TRIGGER_GROUP`),
+  KEY `idx_qrtz_j_state` (`SCHED_NAME`,`TRIGGER_STATE`),
+  KEY `idx_qrtz_t_n_state` (`SCHED_NAME`,`TRIGGER_NAME`,`TRIGGER_GROUP`,`TRIGGER_STATE`),
+  KEY `idx_qrtz_t_n_g_state` (`SCHED_NAME`,`TRIGGER_GROUP`,`TRIGGER_STATE`),
+  KEY `idx_qrtz_t_next_fire_time` (`SCHED_NAME`,`NEXT_FIRE_TIME`),
+  KEY `idx_qrtz_t_nft_st` (`SCHED_NAME`,`TRIGGER_STATE`,`NEXT_FIRE_TIME`),
+  KEY `idx_qrtz_t_nft_misfire` (`SCHED_NAME`,`MISFIRE_INSTR`,`NEXT_FIRE_TIME`),
+  KEY `idx_qrtz_t_nft_st_misfire` (`SCHED_NAME`,`MISFIRE_INSTR`,`NEXT_FIRE_TIME`,`TRIGGER_STATE`),
+  KEY `idx_qrtz_t_nft_st_misfire_grp` (`SCHED_NAME`,`MISFIRE_INSTR`,`NEXT_FIRE_TIME`,`TRIGGER_GROUP`,`TRIGGER_STATE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `JQUARTZ_TRIGGERS`
+--
+
+LOCK TABLES `JQUARTZ_TRIGGERS` WRITE;
+/*!40000 ALTER TABLE `JQUARTZ_TRIGGERS` DISABLE KEYS */;
+/*!40000 ALTER TABLE `JQUARTZ_TRIGGERS` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `JQUARTZ_TRIGGER_LISTENERS`
+--
+
+DROP TABLE IF EXISTS `JQUARTZ_TRIGGER_LISTENERS`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `JQUARTZ_TRIGGER_LISTENERS` (
+  `TRIGGER_NAME` varchar(200) COLLATE utf8_bin DEFAULT NULL,
+  `TRIGGER_GROUP` varchar(200) COLLATE utf8_bin NOT NULL,
+  `TRIGGER_LISTENER` varchar(200) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`TRIGGER_GROUP`,`TRIGGER_LISTENER`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `JQUARTZ_TRIGGER_LISTENERS`
+--
+
+LOCK TABLES `JQUARTZ_TRIGGER_LISTENERS` WRITE;
+/*!40000 ALTER TABLE `JQUARTZ_TRIGGER_LISTENERS` DISABLE KEYS */;
+/*!40000 ALTER TABLE `JQUARTZ_TRIGGER_LISTENERS` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `OS_CURRENTSTEP`
+--
+
+DROP TABLE IF EXISTS `OS_CURRENTSTEP`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `OS_CURRENTSTEP` (
+  `ID` decimal(18,0) NOT NULL,
+  `ENTRY_ID` decimal(18,0) DEFAULT NULL,
+  `STEP_ID` decimal(9,0) DEFAULT NULL,
+  `ACTION_ID` decimal(9,0) DEFAULT NULL,
+  `OWNER` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `START_DATE` datetime DEFAULT NULL,
+  `DUE_DATE` datetime DEFAULT NULL,
+  `FINISH_DATE` datetime DEFAULT NULL,
+  `STATUS` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `CALLER` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `wf_entryid` (`ENTRY_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `OS_CURRENTSTEP`
+--
+
+LOCK TABLES `OS_CURRENTSTEP` WRITE;
+/*!40000 ALTER TABLE `OS_CURRENTSTEP` DISABLE KEYS */;
+INSERT INTO `OS_CURRENTSTEP` VALUES (10000,10000,1,0,'','2020-05-27 17:30:14',NULL,NULL,'open',NULL),(10001,10001,1,0,'','2020-05-27 17:30:15',NULL,NULL,'open',NULL),(10002,10002,1,0,'','2020-05-27 17:30:15',NULL,NULL,'open',NULL),(10003,10003,1,0,'','2020-05-27 17:30:15',NULL,NULL,'open',NULL),(10004,10004,1,0,'','2020-05-27 17:30:16',NULL,NULL,'open',NULL),(10005,10005,1,0,'','2020-05-27 17:30:16',NULL,NULL,'open',NULL);
+/*!40000 ALTER TABLE `OS_CURRENTSTEP` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `OS_CURRENTSTEP_PREV`
+--
+
+DROP TABLE IF EXISTS `OS_CURRENTSTEP_PREV`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `OS_CURRENTSTEP_PREV` (
+  `ID` decimal(18,0) NOT NULL,
+  `PREVIOUS_ID` decimal(18,0) NOT NULL,
+  PRIMARY KEY (`ID`,`PREVIOUS_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `OS_CURRENTSTEP_PREV`
+--
+
+LOCK TABLES `OS_CURRENTSTEP_PREV` WRITE;
+/*!40000 ALTER TABLE `OS_CURRENTSTEP_PREV` DISABLE KEYS */;
+/*!40000 ALTER TABLE `OS_CURRENTSTEP_PREV` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `OS_HISTORYSTEP`
+--
+
+DROP TABLE IF EXISTS `OS_HISTORYSTEP`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `OS_HISTORYSTEP` (
+  `ID` decimal(18,0) NOT NULL,
+  `ENTRY_ID` decimal(18,0) DEFAULT NULL,
+  `STEP_ID` decimal(9,0) DEFAULT NULL,
+  `ACTION_ID` decimal(9,0) DEFAULT NULL,
+  `OWNER` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `START_DATE` datetime DEFAULT NULL,
+  `DUE_DATE` datetime DEFAULT NULL,
+  `FINISH_DATE` datetime DEFAULT NULL,
+  `STATUS` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `CALLER` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `historystep_entryid` (`ENTRY_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `OS_HISTORYSTEP`
+--
+
+LOCK TABLES `OS_HISTORYSTEP` WRITE;
+/*!40000 ALTER TABLE `OS_HISTORYSTEP` DISABLE KEYS */;
+/*!40000 ALTER TABLE `OS_HISTORYSTEP` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `OS_HISTORYSTEP_PREV`
+--
+
+DROP TABLE IF EXISTS `OS_HISTORYSTEP_PREV`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `OS_HISTORYSTEP_PREV` (
+  `ID` decimal(18,0) NOT NULL,
+  `PREVIOUS_ID` decimal(18,0) NOT NULL,
+  PRIMARY KEY (`ID`,`PREVIOUS_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `OS_HISTORYSTEP_PREV`
+--
+
+LOCK TABLES `OS_HISTORYSTEP_PREV` WRITE;
+/*!40000 ALTER TABLE `OS_HISTORYSTEP_PREV` DISABLE KEYS */;
+/*!40000 ALTER TABLE `OS_HISTORYSTEP_PREV` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `OS_WFENTRY`
+--
+
+DROP TABLE IF EXISTS `OS_WFENTRY`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `OS_WFENTRY` (
+  `ID` decimal(18,0) NOT NULL,
+  `NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `INITIALIZED` decimal(9,0) DEFAULT NULL,
+  `STATE` decimal(9,0) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `OS_WFENTRY`
+--
+
+LOCK TABLES `OS_WFENTRY` WRITE;
+/*!40000 ALTER TABLE `OS_WFENTRY` DISABLE KEYS */;
+INSERT INTO `OS_WFENTRY` VALUES (10000,'AA: 项目管理工作流',NULL,1),(10001,'AA: 项目管理工作流',NULL,1),(10002,'AA: 项目管理工作流',NULL,1),(10003,'AA: 项目管理工作流',NULL,1),(10004,'AA: 项目管理工作流',NULL,1),(10005,'AA: 项目管理工作流',NULL,1);
+/*!40000 ALTER TABLE `OS_WFENTRY` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `SEQUENCE_VALUE_ITEM`
+--
+
+DROP TABLE IF EXISTS `SEQUENCE_VALUE_ITEM`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `SEQUENCE_VALUE_ITEM` (
+  `SEQ_NAME` varchar(60) COLLATE utf8_bin NOT NULL,
+  `SEQ_ID` decimal(18,0) DEFAULT NULL,
+  PRIMARY KEY (`SEQ_NAME`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `SEQUENCE_VALUE_ITEM`
+--
+
+LOCK TABLES `SEQUENCE_VALUE_ITEM` WRITE;
+/*!40000 ALTER TABLE `SEQUENCE_VALUE_ITEM` DISABLE KEYS */;
+INSERT INTO `SEQUENCE_VALUE_ITEM` VALUES ('Action',10100),('ApplicationUser',10100),('Avatar',10600),('ClusteredJob',10400),('ColumnLayout',10100),('ColumnLayoutItem',10100),('ConfigurationContext',10300),('CustomField',10200),('CustomFieldOption',10100),('DraftWorkflow',10100),('EntityProperty',10100),('EntityPropertyIndexDocument',10100),('EventType',10000),('Feature',10200),('FieldConfigScheme',10300),('FieldConfigSchemeIssueType',10400),('FieldConfiguration',10300),('FieldLayout',10100),('FieldLayoutItem',10200),('FieldScreen',10100),('FieldScreenLayoutItem',10300),('FieldScreenScheme',10100),('FieldScreenSchemeItem',10200),('FieldScreenTab',10200),('FileAttachment',10100),('GadgetUserPreference',10100),('GenericConfiguration',10300),('GlobalPermissionEntry',10200),('Group',10110),('Issue',10100),('IssueLinkType',10300),('IssueType',10100),('IssueTypeScreenScheme',10100),('IssueTypeScreenSchemeEntity',10200),('Label',10100),('LicenseRoleDefault',10100),('LicenseRoleGroup',10100),('ListenerConfig',10300),('ManagedConfigurationItem',10200),('Membership',10100),('Notification',10300),('NotificationScheme',10100),('OAuthConsumer',10200),('OSCurrentStep',10100),('OSPropertyEntry',10500),('OSWorkflowEntry',10100),('OptionConfiguration',10400),('PluginVersion',10300),('PortalPage',10100),('PortletConfiguration',10100),('Priority',10000),('ProductLicense',10100),('Project',10100),('ProjectKey',10100),('ProjectRole',10200),('ProjectRoleActor',10200),('ReindexComponent',10200),('ReindexRequest',10100),('Resolution',10100),('RunDetails',10600),('SchemePermissions',10500),('SearchRequest',10100),('ServiceConfig',10300),('SharePermissions',10200),('Status',10100),('TaskIdSequence',10100),('UpgradeHistory',10200),('UpgradeTaskHistory',10100),('UpgradeTaskHistoryAuditLog',10100),('UpgradeVersionHistory',10100),('User',10100),('UserAttribute',10300),('UserHistoryItem',10100),('Workflow',10200),('WorkflowScheme',10200),('WorkflowSchemeEntity',10200);
+/*!40000 ALTER TABLE `SEQUENCE_VALUE_ITEM` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `app_user`
+--
+
+DROP TABLE IF EXISTS `app_user`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `app_user` (
+  `ID` decimal(18,0) NOT NULL,
+  `user_key` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `lower_user_name` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `uk_user_key` (`user_key`),
+  UNIQUE KEY `uk_lower_user_name` (`lower_user_name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `app_user`
+--
+
+LOCK TABLES `app_user` WRITE;
+/*!40000 ALTER TABLE `app_user` DISABLE KEYS */;
+INSERT INTO `app_user` VALUES (10000,'JIRAUSER10000','keesh');
+/*!40000 ALTER TABLE `app_user` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `audit_changed_value`
+--
+
+DROP TABLE IF EXISTS `audit_changed_value`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `audit_changed_value` (
+  `ID` decimal(18,0) NOT NULL,
+  `LOG_ID` decimal(18,0) DEFAULT NULL,
+  `NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `DELTA_FROM` longtext COLLATE utf8_bin,
+  `DELTA_TO` longtext COLLATE utf8_bin,
+  PRIMARY KEY (`ID`),
+  KEY `idx_changed_value_log_id` (`LOG_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `audit_changed_value`
+--
+
+LOCK TABLES `audit_changed_value` WRITE;
+/*!40000 ALTER TABLE `audit_changed_value` DISABLE KEYS */;
+/*!40000 ALTER TABLE `audit_changed_value` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `audit_item`
+--
+
+DROP TABLE IF EXISTS `audit_item`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `audit_item` (
+  `ID` decimal(18,0) NOT NULL,
+  `LOG_ID` decimal(18,0) DEFAULT NULL,
+  `OBJECT_TYPE` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `OBJECT_ID` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `OBJECT_NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `OBJECT_PARENT_ID` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `OBJECT_PARENT_NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `idx_audit_item_log_id2` (`LOG_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `audit_item`
+--
+
+LOCK TABLES `audit_item` WRITE;
+/*!40000 ALTER TABLE `audit_item` DISABLE KEYS */;
+/*!40000 ALTER TABLE `audit_item` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `audit_log`
+--
+
+DROP TABLE IF EXISTS `audit_log`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `audit_log` (
+  `ID` decimal(18,0) NOT NULL,
+  `REMOTE_ADDRESS` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `CREATED` datetime DEFAULT NULL,
+  `AUTHOR_KEY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `SUMMARY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `CATEGORY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `OBJECT_TYPE` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `OBJECT_ID` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `OBJECT_NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `OBJECT_PARENT_ID` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `OBJECT_PARENT_NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `AUTHOR_TYPE` decimal(9,0) DEFAULT NULL,
+  `EVENT_SOURCE_NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `DESCRIPTION` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `LONG_DESCRIPTION` longtext COLLATE utf8_bin,
+  `SEARCH_FIELD` longtext COLLATE utf8_bin,
+  PRIMARY KEY (`ID`),
+  KEY `idx_audit_log_created` (`CREATED`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `audit_log`
+--
+
+LOCK TABLES `audit_log` WRITE;
+/*!40000 ALTER TABLE `audit_log` DISABLE KEYS */;
+/*!40000 ALTER TABLE `audit_log` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `avatar`
+--
+
+DROP TABLE IF EXISTS `avatar`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `avatar` (
+  `ID` decimal(18,0) NOT NULL,
+  `filename` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `contenttype` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `avatartype` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `owner` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `systemavatar` decimal(9,0) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `avatar_index` (`avatartype`,`owner`),
+  KEY `avatar_filename_index` (`filename`,`avatartype`,`systemavatar`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `avatar`
+--
+
+LOCK TABLES `avatar` WRITE;
+/*!40000 ALTER TABLE `avatar` DISABLE KEYS */;
+INSERT INTO `avatar` VALUES (10000,'codegeist.png','image/png','project',NULL,1),(10001,'bird.svg','image/svg+xml','project',NULL,1),(10002,'jm_black.png','image/png','project',NULL,1),(10003,'jm_brown.png','image/png','project',NULL,1),(10004,'jm_orange.png','image/png','project',NULL,1),(10005,'jm_red.png','image/png','project',NULL,1),(10006,'jm_white.png','image/png','project',NULL,1),(10007,'jm_yellow.png','image/png','project',NULL,1),(10008,'monster.png','image/png','project',NULL,1),(10009,'nature.svg','image/svg+xml','project',NULL,1),(10010,'koala.svg','image/svg+xml','project',NULL,1),(10011,'rocket.svg','image/svg+xml','project',NULL,1),(10100,'Avatar-1.png','image/png','user',NULL,1),(10101,'Avatar-2.png','image/png','user',NULL,1),(10102,'Avatar-3.png','image/png','user',NULL,1),(10103,'Avatar-4.png','image/png','user',NULL,1),(10104,'Avatar-5.png','image/png','user',NULL,1),(10105,'Avatar-6.png','image/png','user',NULL,1),(10106,'Avatar-7.png','image/png','user',NULL,1),(10107,'Avatar-8.png','image/png','user',NULL,1),(10108,'Avatar-9.png','image/png','user',NULL,1),(10109,'Avatar-10.png','image/png','user',NULL,1),(10110,'Avatar-11.png','image/png','user',NULL,1),(10111,'Avatar-12.png','image/png','user',NULL,1),(10112,'Avatar-13.png','image/png','user',NULL,1),(10113,'Avatar-14.png','image/png','user',NULL,1),(10114,'Avatar-15.png','image/png','user',NULL,1),(10115,'Avatar-16.png','image/png','user',NULL,1),(10116,'Avatar-17.png','image/png','user',NULL,1),(10117,'Avatar-18.png','image/png','user',NULL,1),(10118,'Avatar-19.png','image/png','user',NULL,1),(10119,'Avatar-20.png','image/png','user',NULL,1),(10120,'Avatar-21.png','image/png','user',NULL,1),(10121,'Avatar-22.png','image/png','user',NULL,1),(10122,'Avatar-default.svg','image/svg+xml','user',NULL,1),(10123,'Avatar-unknown.png','image/png','user',NULL,1),(10200,'cloud.svg','image/svg+xml','project',NULL,1),(10201,'spanner.svg','image/svg+xml','project',NULL,1),(10202,'cd.svg','image/svg+xml','project',NULL,1),(10203,'money.svg','image/svg+xml','project',NULL,1),(10204,'mouse-hand.svg','image/svg+xml','project',NULL,1),(10205,'yeti.svg','image/svg+xml','project',NULL,1),(10206,'power.svg','image/svg+xml','project',NULL,1),(10207,'refresh.svg','image/svg+xml','project',NULL,1),(10208,'phone.svg','image/svg+xml','project',NULL,1),(10209,'settings.svg','image/svg+xml','project',NULL,1),(10210,'storm.svg','image/svg+xml','project',NULL,1),(10211,'plane.svg','image/svg+xml','project',NULL,1),(10300,'genericissue.svg','image/svg+xml','issuetype',NULL,1),(10303,'bug.svg','image/svg+xml','issuetype',NULL,1),(10304,'defect.svg','image/svg+xml','issuetype',NULL,1),(10306,'documentation.svg','image/svg+xml','issuetype',NULL,1),(10307,'epic.svg','image/svg+xml','issuetype',NULL,1),(10308,'exclamation.svg','image/svg+xml','issuetype',NULL,1),(10309,'design_task.svg','image/svg+xml','issuetype',NULL,1),(10310,'improvement.svg','image/svg+xml','issuetype',NULL,1),(10311,'newfeature.svg','image/svg+xml','issuetype',NULL,1),(10312,'remove_feature.svg','image/svg+xml','issuetype',NULL,1),(10313,'requirement.svg','image/svg+xml','issuetype',NULL,1),(10314,'sales.svg','image/svg+xml','issuetype',NULL,1),(10315,'story.svg','image/svg+xml','issuetype',NULL,1),(10316,'subtask.svg','image/svg+xml','issuetype',NULL,1),(10318,'task.svg','image/svg+xml','issuetype',NULL,1),(10320,'question.svg','image/svg+xml','issuetype',NULL,1),(10321,'development_task.svg','image/svg+xml','issuetype',NULL,1),(10322,'feedback.svg','image/svg+xml','issuetype',NULL,1),(10323,'request_access.svg','image/svg+xml','issuetype',NULL,1),(10324,'default.svg','image/svg+xml','project',NULL,1),(10325,'code.svg','image/svg+xml','project',NULL,1),(10326,'coffee.svg','image/svg+xml','project',NULL,1),(10327,'design.svg','image/svg+xml','project',NULL,1),(10328,'drill.svg','image/svg+xml','project',NULL,1),(10329,'food.svg','image/svg+xml','project',NULL,1),(10330,'notes.svg','image/svg+xml','project',NULL,1),(10331,'red-flag.svg','image/svg+xml','project',NULL,1),(10332,'science.svg','image/svg+xml','project',NULL,1),(10333,'support.svg','image/svg+xml','project',NULL,1),(10334,'bull.svg','image/svg+xml','user',NULL,1),(10335,'cat.svg','image/svg+xml','user',NULL,1),(10336,'dog.svg','image/svg+xml','user',NULL,1),(10337,'female_1.svg','image/svg+xml','user',NULL,1),(10338,'female_2.svg','image/svg+xml','user',NULL,1),(10339,'female_3.svg','image/svg+xml','user',NULL,1),(10340,'female_4.svg','image/svg+xml','user',NULL,1),(10341,'ghost.svg','image/svg+xml','user',NULL,1),(10342,'male_1.svg','image/svg+xml','user',NULL,1),(10343,'male_2.svg','image/svg+xml','user',NULL,1),(10344,'male_3.svg','image/svg+xml','user',NULL,1),(10345,'male_4.svg','image/svg+xml','user',NULL,1),(10346,'male_5.svg','image/svg+xml','user',NULL,1),(10347,'male_6.svg','image/svg+xml','user',NULL,1),(10348,'male_8.svg','image/svg+xml','user',NULL,1),(10349,'owl.svg','image/svg+xml','user',NULL,1),(10350,'pirate.svg','image/svg+xml','user',NULL,1),(10351,'robot.svg','image/svg+xml','user',NULL,1),(10352,'vampire.svg','image/svg+xml','user',NULL,1),(10500,'female_5.svg','image/svg+xml','user',NULL,1),(10501,'female_6.svg','image/svg+xml','user',NULL,1),(10502,'female_7.svg','image/svg+xml','user',NULL,1),(10503,'female_8.svg','image/svg+xml','user',NULL,1),(10504,'female_9.svg','image/svg+xml','user',NULL,1),(10505,'male_7.svg','image/svg+xml','user',NULL,1),(10506,'male_9.svg','image/svg+xml','user',NULL,1),(10507,'pirate_female.svg','image/svg+xml','user',NULL,1),(10508,'princess.svg','image/svg+xml','user',NULL,1),(10509,'spectrum.svg','image/svg+xml','project',NULL,1);
+/*!40000 ALTER TABLE `avatar` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `board`
+--
+
+DROP TABLE IF EXISTS `board`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `board` (
+  `ID` decimal(18,0) NOT NULL,
+  `JQL` longtext COLLATE utf8_bin,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `board`
+--
+
+LOCK TABLES `board` WRITE;
+/*!40000 ALTER TABLE `board` DISABLE KEYS */;
+/*!40000 ALTER TABLE `board` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `boardproject`
+--
+
+DROP TABLE IF EXISTS `boardproject`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `boardproject` (
+  `BOARD_ID` decimal(18,0) NOT NULL,
+  `PROJECT_ID` decimal(18,0) NOT NULL,
+  PRIMARY KEY (`BOARD_ID`,`PROJECT_ID`),
+  KEY `idx_board_project_ids` (`PROJECT_ID`),
+  KEY `idx_board_board_ids` (`BOARD_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `boardproject`
+--
+
+LOCK TABLES `boardproject` WRITE;
+/*!40000 ALTER TABLE `boardproject` DISABLE KEYS */;
+/*!40000 ALTER TABLE `boardproject` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `changegroup`
+--
+
+DROP TABLE IF EXISTS `changegroup`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `changegroup` (
+  `ID` decimal(18,0) NOT NULL,
+  `issueid` decimal(18,0) DEFAULT NULL,
+  `AUTHOR` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `CREATED` datetime DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `chggroup_author_created` (`AUTHOR`,`CREATED`),
+  KEY `chggroup_issue_id` (`issueid`,`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `changegroup`
+--
+
+LOCK TABLES `changegroup` WRITE;
+/*!40000 ALTER TABLE `changegroup` DISABLE KEYS */;
+/*!40000 ALTER TABLE `changegroup` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `changeitem`
+--
+
+DROP TABLE IF EXISTS `changeitem`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `changeitem` (
+  `ID` decimal(18,0) NOT NULL,
+  `groupid` decimal(18,0) DEFAULT NULL,
+  `FIELDTYPE` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `FIELD` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `OLDVALUE` longtext COLLATE utf8_bin,
+  `OLDSTRING` longtext COLLATE utf8_bin,
+  `NEWVALUE` longtext COLLATE utf8_bin,
+  `NEWSTRING` longtext COLLATE utf8_bin,
+  PRIMARY KEY (`ID`),
+  KEY `chgitem_group_field` (`groupid`,`FIELD`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `changeitem`
+--
+
+LOCK TABLES `changeitem` WRITE;
+/*!40000 ALTER TABLE `changeitem` DISABLE KEYS */;
+/*!40000 ALTER TABLE `changeitem` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `clusteredjob`
+--
+
+DROP TABLE IF EXISTS `clusteredjob`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `clusteredjob` (
+  `ID` decimal(18,0) NOT NULL,
+  `JOB_ID` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `JOB_RUNNER_KEY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `SCHED_TYPE` char(1) COLLATE utf8_bin DEFAULT NULL,
+  `INTERVAL_MILLIS` decimal(18,0) DEFAULT NULL,
+  `FIRST_RUN` decimal(18,0) DEFAULT NULL,
+  `CRON_EXPRESSION` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `TIME_ZONE` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `NEXT_RUN` decimal(18,0) DEFAULT NULL,
+  `VERSION` decimal(18,0) DEFAULT NULL,
+  `PARAMETERS` blob,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `clusteredjob_jobid_idx` (`JOB_ID`),
+  KEY `clusteredjob_jrk_idx` (`JOB_RUNNER_KEY`),
+  KEY `clusteredjob_nextrun_idx` (`NEXT_RUN`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `clusteredjob`
+--
+
+LOCK TABLES `clusteredjob` WRITE;
+/*!40000 ALTER TABLE `clusteredjob` DISABLE KEYS */;
+INSERT INTO `clusteredjob` VALUES (10011,'com.atlassian.jira.service.JiraService:10001','com.atlassian.jira.service.DefaultServiceManager','C',NULL,NULL,'0 0 8/12 * * ?',NULL,1590580800000,1,_binary '�\�\0sr\07com.google.common.collect.ImmutableBiMap$SerializedForm\0\0\0\0\0\0\0\0\0\0xr\05com.google.common.collect.ImmutableMap$SerializedForm\0\0\0\0\0\0\0\0\0[\0keyst\0[Ljava/lang/Object;[\0valuesq\0~\0xpur\0[Ljava.lang.Object;�\�X�s)l\0\0xp\0\0\0t\03com.atlassian.jira.service.ServiceManager:serviceIduq\0~\0\0\0\0sr\0java.lang.Long;�\�̏#\�\0J\0valuexr\0java.lang.Number����\��\0\0xp\0\0\0\0\0\0\''),(10012,'com.atlassian.jira.service.JiraService:10002','com.atlassian.jira.service.DefaultServiceManager','C',NULL,NULL,'0 0 8 * * ?',NULL,1590624000000,1,_binary '�\�\0sr\07com.google.common.collect.ImmutableBiMap$SerializedForm\0\0\0\0\0\0\0\0\0\0xr\05com.google.common.collect.ImmutableMap$SerializedForm\0\0\0\0\0\0\0\0\0[\0keyst\0[Ljava/lang/Object;[\0valuesq\0~\0xpur\0[Ljava.lang.Object;�\�X�s)l\0\0xp\0\0\0t\03com.atlassian.jira.service.ServiceManager:serviceIduq\0~\0\0\0\0sr\0java.lang.Long;�\�̏#\�\0J\0valuexr\0java.lang.Number����\��\0\0xp\0\0\0\0\0\0\''),(10112,'com.atlassian.jira.service.JiraService:10200','com.atlassian.jira.service.DefaultServiceManager','C',NULL,NULL,'0 15 5/12 * * ?',NULL,1590614100000,1,_binary '�\�\0sr\07com.google.common.collect.ImmutableBiMap$SerializedForm\0\0\0\0\0\0\0\0\0\0xr\05com.google.common.collect.ImmutableMap$SerializedForm\0\0\0\0\0\0\0\0\0[\0keyst\0[Ljava/lang/Object;[\0valuesq\0~\0xpur\0[Ljava.lang.Object;�\�X�s)l\0\0xp\0\0\0t\03com.atlassian.jira.service.ServiceManager:serviceIduq\0~\0\0\0\0sr\0java.lang.Long;�\�̏#\�\0J\0valuexr\0java.lang.Number����\��\0\0xp\0\0\0\0\0\0\'\�'),(10204,'com.atlassian.jira.plugins.dvcs.scheduler.DvcsScheduler:job','com.atlassian.jira.plugins.dvcs.scheduler.DvcsScheduler','I',3600000,1590573723200,NULL,NULL,1590573723200,1,NULL),(10207,'CompatibilityPluginScheduler.JobId.LEXO_RANK_SCHEDULER_JOB','CompatibilityPluginScheduler.JobRunnerKey.com.atlassian.greenhopper.service.lexorank.balance.LexoRankBalancePluginJob','I',60000,1590571663554,NULL,NULL,1590573260097,27,NULL),(10210,'LocalPluginLicenseNotificationJob-job','LocalPluginLicenseNotificationJob-runner','I',86400000,1590571665375,NULL,NULL,1590658065380,2,NULL),(10211,'PluginRequestCheckJob-job','PluginRequestCheckJob-runner','I',3600000,1590571665380,NULL,NULL,1590575265395,2,NULL),(10212,'PluginUpdateCheckJob-job','PluginUpdateCheckJob-runner','I',86400000,1590599586560,NULL,NULL,1590599586560,1,NULL),(10213,'InstanceTopologyJob-job','InstanceTopologyJob-runner','I',86400000,1590594226906,NULL,NULL,1590594226906,1,NULL),(10300,'analytics-collection','com.atlassian.plugins.authentication.impl.analytics.StatisticsCollectionService','C',NULL,NULL,'0 0 23 * * ?',NULL,1590591600000,1,NULL),(10301,'assertionId-cleanup','com.atlassian.plugins.authentication.impl.web.saml.SamlAssertionValidationService','I',3600000,1590576534294,NULL,NULL,1590576534294,1,NULL),(10302,'OidcDiscoveryRefresh','com.atlassian.plugins.authentication.impl.web.oidc.OidcDiscoveryRefreshJob-refresh','C',NULL,NULL,'0 0 1 * * ?',NULL,1590598800000,1,NULL),(10303,'data-provider-poll','com.atlassian.jira.plugin.devstatus.provider.DevSummaryUpdateJob','I',300000,1590572940969,NULL,NULL,1590573260068,2,NULL),(10304,'data-provider-cleanup','com.atlassian.jira.plugin.devstatus.provider.DataProviderCleanupJob','I',1800000,1590572941202,NULL,NULL,1590574760090,2,NULL),(10305,'com.atlassian.audit.retention.RetentionJobRunner','com.atlassian.audit.retention.RetentionJobRunner','C',NULL,NULL,'0 0 0 1/1 * ? *',NULL,1590595200000,1,NULL),(10306,'com.atlassian.audit.schedule.db.limit.DbLimiterJobRunner','com.atlassian.audit.schedule.db.limit.DbLimiterJobRunner','I',3600000,1590576545918,NULL,NULL,1590576545918,1,NULL),(10307,'com.atlassian.diagnostics.internal.analytics.DailyAlertAnalyticsJob','DailyAlertAnalyticsJob','C',NULL,NULL,'0 19 * * * ?',NULL,1590574740000,1,NULL),(10308,'HistoryFlushJob','com.atlassian.ratelimiting.internal.history.HistoryFlushJob','I',300000,1590573251049,NULL,NULL,1590573251049,1,NULL),(10309,'HistoryCleanupJob','com.atlassian.ratelimiting.internal.history.HistoryCleanupJob','I',86400000,1590573021069,NULL,NULL,1590659421069,2,NULL),(10310,'com.atlassian.jira.web.action.issue.DefaultTemporaryWebAttachmentsMonitor','com.atlassian.jira.web.action.issue.DefaultTemporaryWebAttachmentsMonitor','I',3600000,1590576552348,NULL,NULL,1590576552348,1,NULL),(10311,'com.atlassian.jira.versioning.VersioningCleanupService','com.atlassian.jira.versioning.VersioningCleanupService','I',86400000,1590573252498,NULL,NULL,1590573252498,1,NULL),(10314,'com.atlassian.jira.analytics.scheduler.AnalyticsScheduler','com.atlassian.jira.analytics.scheduler.AnalyticsScheduler','I',604800000,1590659355356,NULL,NULL,1590659355356,1,NULL),(10315,'com.atlassian.jira.plugins.inform.events.cleanup.CleanupJobScheduler','com.atlassian.jira.plugins.inform.events.cleanup.CleanupJobScheduler','C',NULL,NULL,'0 0 0 1/1 * ? *',NULL,1590595200000,1,NULL),(10317,'com.atlassian.whisper.plugin.fetch.FetchJob','com.atlassian.whisper.plugin.fetch.FetchJob','I',21600000,1590576555389,NULL,NULL,1590576555389,1,NULL),(10318,'Service Provider Session Remover','com.atlassian.oauth.serviceprovider.internal.ExpiredSessionRemover','I',28800000,1590601755434,NULL,NULL,1590601755434,1,NULL),(10319,'com.atlassian.jira.plugins.inform.batching.cron.BatchNotificationJobSchedulerImpl','com.atlassian.jira.plugins.inform.batching.cron.BatchNotificationJobSchedulerImpl','I',300000,1590573255602,NULL,NULL,1590573255602,1,_binary '�\�\0sr\05com.google.common.collect.ImmutableMap$SerializedForm\0\0\0\0\0\0\0\0\0[\0keyst\0[Ljava/lang/Object;[\0valuesq\0~\0xpur\0[Ljava.lang.Object;�\�X�s)l\0\0xp\0\0\0t\0eventConsumerNamet\0\rclusterLockIduq\0~\0\0\0\0t\0mailEventConsumert\0Ycom.atlassian.jira.plugins.inform.batching.cron.OncePerClusterJobRunner.mailEventConsumer'),(10320,'com.atlassian.jira.plugins.inform.batching.cron.BatchNotificationJobSchedulerImpl.mentions','com.atlassian.jira.plugins.inform.batching.cron.BatchNotificationJobSchedulerImpl','I',60000,1590573015625,NULL,NULL,1590573255626,5,_binary '�\�\0sr\05com.google.common.collect.ImmutableMap$SerializedForm\0\0\0\0\0\0\0\0\0[\0keyst\0[Ljava/lang/Object;[\0valuesq\0~\0xpur\0[Ljava.lang.Object;�\�X�s)l\0\0xp\0\0\0t\0eventConsumerNamet\0\rclusterLockIduq\0~\0\0\0\0t\0mailMentionEventConsumert\0`com.atlassian.jira.plugins.inform.batching.cron.OncePerClusterJobRunner.mailMentionEventConsumer'),(10321,'com.atlassian.jira.plugin.ext.bamboo.service.PlanStatusUpdateJob-job','com.atlassian.jira.plugin.ext.bamboo.service.PlanStatusUpdateJob','I',60000,1590572955742,NULL,NULL,1590573260231,6,NULL),(10322,'CompatibilityPluginScheduler.JobId.hipchatUpdateGlancesDataJob','CompatibilityPluginScheduler.JobRunnerKey.com.atlassian.jira.plugins.hipchat.service.connect.UpdateGlancesDataJobHandler','I',60000,1590572984609,NULL,NULL,1590573284613,6,NULL),(10323,'CompatibilityPluginScheduler.JobId.hipchatInstallGlancesJob','CompatibilityPluginScheduler.JobRunnerKey.com.atlassian.jira.plugins.hipchat.service.connect.InstallGlancesJobHandler','I',3600000,1590572977650,NULL,NULL,1590576577650,2,NULL),(10324,'CompatibilityPluginScheduler.JobId.hipchatRefreshConnectionStatusJob','CompatibilityPluginScheduler.JobRunnerKey.com.atlassian.jira.plugins.hipchat.service.ping.RefreshConnectionStatusJobHandler','I',3600000,1590572982078,NULL,NULL,1590576582078,2,NULL),(10325,'applink-status-analytics-job','com.atlassian.applinks.analytics.ApplinkStatusJob','I',86400000,NULL,NULL,NULL,1590659360247,2,NULL),(10326,'TruncateAlertsJobRunner','com.atlassian.diagnostics.internal.DefaultMonitoringService$TruncateAlertsJobRunner','I',86400000,1590659359862,NULL,NULL,1590659359862,1,NULL);
+/*!40000 ALTER TABLE `clusteredjob` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `clusterlockstatus`
+--
+
+DROP TABLE IF EXISTS `clusterlockstatus`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `clusterlockstatus` (
+  `ID` decimal(18,0) NOT NULL,
+  `LOCK_NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `LOCKED_BY_NODE` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `UPDATE_TIME` decimal(18,0) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `cluster_lock_name_idx` (`LOCK_NAME`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `clusterlockstatus`
+--
+
+LOCK TABLES `clusterlockstatus` WRITE;
+/*!40000 ALTER TABLE `clusterlockstatus` DISABLE KEYS */;
+/*!40000 ALTER TABLE `clusterlockstatus` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `clustermessage`
+--
+
+DROP TABLE IF EXISTS `clustermessage`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `clustermessage` (
+  `ID` decimal(18,0) NOT NULL,
+  `SOURCE_NODE` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `DESTINATION_NODE` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `CLAIMED_BY_NODE` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `MESSAGE` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `MESSAGE_TIME` datetime DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `source_destination_node_idx` (`SOURCE_NODE`,`DESTINATION_NODE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `clustermessage`
+--
+
+LOCK TABLES `clustermessage` WRITE;
+/*!40000 ALTER TABLE `clustermessage` DISABLE KEYS */;
+/*!40000 ALTER TABLE `clustermessage` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `clusternode`
+--
+
+DROP TABLE IF EXISTS `clusternode`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `clusternode` (
+  `NODE_ID` varchar(60) COLLATE utf8_bin NOT NULL,
+  `NODE_STATE` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `TIMESTAMP` decimal(18,0) DEFAULT NULL,
+  `IP` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `CACHE_LISTENER_PORT` decimal(18,0) DEFAULT NULL,
+  `NODE_BUILD_NUMBER` decimal(18,0) DEFAULT NULL,
+  `NODE_VERSION` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`NODE_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `clusternode`
+--
+
+LOCK TABLES `clusternode` WRITE;
+/*!40000 ALTER TABLE `clusternode` DISABLE KEYS */;
+/*!40000 ALTER TABLE `clusternode` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `clusternodeheartbeat`
+--
+
+DROP TABLE IF EXISTS `clusternodeheartbeat`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `clusternodeheartbeat` (
+  `NODE_ID` varchar(60) COLLATE utf8_bin NOT NULL,
+  `HEARTBEAT_TIME` decimal(18,0) DEFAULT NULL,
+  `DATABASE_TIME` decimal(18,0) DEFAULT NULL,
+  PRIMARY KEY (`NODE_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `clusternodeheartbeat`
+--
+
+LOCK TABLES `clusternodeheartbeat` WRITE;
+/*!40000 ALTER TABLE `clusternodeheartbeat` DISABLE KEYS */;
+/*!40000 ALTER TABLE `clusternodeheartbeat` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `clusterupgradestate`
+--
+
+DROP TABLE IF EXISTS `clusterupgradestate`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `clusterupgradestate` (
+  `ID` decimal(18,0) NOT NULL,
+  `DATABASE_TIME` decimal(18,0) DEFAULT NULL,
+  `CLUSTER_BUILD_NUMBER` decimal(18,0) DEFAULT NULL,
+  `CLUSTER_VERSION` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `STATE` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `ORDER_NUMBER` decimal(18,0) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `ordernumber_idx` (`ORDER_NUMBER`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `clusterupgradestate`
+--
+
+LOCK TABLES `clusterupgradestate` WRITE;
+/*!40000 ALTER TABLE `clusterupgradestate` DISABLE KEYS */;
+/*!40000 ALTER TABLE `clusterupgradestate` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `columnlayout`
+--
+
+DROP TABLE IF EXISTS `columnlayout`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `columnlayout` (
+  `ID` decimal(18,0) NOT NULL,
+  `USERNAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `SEARCHREQUEST` decimal(18,0) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `cl_searchrequest` (`SEARCHREQUEST`),
+  KEY `cl_username` (`USERNAME`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `columnlayout`
+--
+
+LOCK TABLES `columnlayout` WRITE;
+/*!40000 ALTER TABLE `columnlayout` DISABLE KEYS */;
+INSERT INTO `columnlayout` VALUES (10000,NULL,NULL);
+/*!40000 ALTER TABLE `columnlayout` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `columnlayoutitem`
+--
+
+DROP TABLE IF EXISTS `columnlayoutitem`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `columnlayoutitem` (
+  `ID` decimal(18,0) NOT NULL,
+  `COLUMNLAYOUT` decimal(18,0) DEFAULT NULL,
+  `FIELDIDENTIFIER` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `HORIZONTALPOSITION` decimal(18,0) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `idx_cli_fieldidentifier` (`FIELDIDENTIFIER`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `columnlayoutitem`
+--
+
+LOCK TABLES `columnlayoutitem` WRITE;
+/*!40000 ALTER TABLE `columnlayoutitem` DISABLE KEYS */;
+INSERT INTO `columnlayoutitem` VALUES (10000,10000,'issuekey',0),(10001,10000,'status',1),(10002,10000,'created',2),(10003,10000,'updated',3),(10004,10000,'customfield_10000',4);
+/*!40000 ALTER TABLE `columnlayoutitem` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `comment_version`
+--
+
+DROP TABLE IF EXISTS `comment_version`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `comment_version` (
+  `COMMENT_ID` decimal(18,0) NOT NULL,
+  `PARENT_ISSUE_ID` decimal(18,0) DEFAULT NULL,
+  `UPDATE_TIME` datetime DEFAULT NULL,
+  `INDEX_VERSION` decimal(18,0) DEFAULT NULL,
+  `DELETED` char(1) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`COMMENT_ID`),
+  KEY `cv_deleted_update_time_idx` (`DELETED`,`UPDATE_TIME`),
+  KEY `cv_parent_id` (`PARENT_ISSUE_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `comment_version`
+--
+
+LOCK TABLES `comment_version` WRITE;
+/*!40000 ALTER TABLE `comment_version` DISABLE KEYS */;
+/*!40000 ALTER TABLE `comment_version` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `component`
+--
+
+DROP TABLE IF EXISTS `component`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `component` (
+  `ID` decimal(18,0) NOT NULL,
+  `PROJECT` decimal(18,0) DEFAULT NULL,
+  `cname` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `description` text COLLATE utf8_bin,
+  `URL` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `LEAD` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `ASSIGNEETYPE` decimal(18,0) DEFAULT NULL,
+  `ARCHIVED` varchar(10) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `idx_component_project` (`PROJECT`),
+  KEY `idx_component_name` (`cname`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `component`
+--
+
+LOCK TABLES `component` WRITE;
+/*!40000 ALTER TABLE `component` DISABLE KEYS */;
+/*!40000 ALTER TABLE `component` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `configurationcontext`
+--
+
+DROP TABLE IF EXISTS `configurationcontext`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `configurationcontext` (
+  `ID` decimal(18,0) NOT NULL,
+  `PROJECTCATEGORY` decimal(18,0) DEFAULT NULL,
+  `PROJECT` decimal(18,0) DEFAULT NULL,
+  `customfield` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `FIELDCONFIGSCHEME` decimal(18,0) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `confcontextkey` (`customfield`),
+  KEY `confcontext` (`PROJECTCATEGORY`,`PROJECT`,`customfield`),
+  KEY `confcontextprojectkey` (`PROJECT`,`customfield`),
+  KEY `confcontextfieldconfigscheme` (`FIELDCONFIGSCHEME`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `configurationcontext`
+--
+
+LOCK TABLES `configurationcontext` WRITE;
+/*!40000 ALTER TABLE `configurationcontext` DISABLE KEYS */;
+INSERT INTO `configurationcontext` VALUES (10000,NULL,NULL,'issuetype',10000),(10100,NULL,NULL,'customfield_10000',10100),(10101,NULL,NULL,'priority',10101),(10200,NULL,NULL,'customfield_10100',10200),(10201,NULL,NULL,'customfield_10101',10201),(10202,NULL,NULL,'customfield_10105',10202),(10203,NULL,NULL,'customfield_10103',10203),(10204,NULL,NULL,'customfield_10102',10204),(10205,NULL,NULL,'customfield_10104',10205),(10206,NULL,NULL,'customfield_10106',10206),(10207,NULL,10000,'issuetype',10207);
+/*!40000 ALTER TABLE `configurationcontext` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `customfield`
+--
+
+DROP TABLE IF EXISTS `customfield`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `customfield` (
+  `ID` decimal(18,0) NOT NULL,
+  `cfkey` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `CUSTOMFIELDTYPEKEY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `CUSTOMFIELDSEARCHERKEY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `cfname` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `DESCRIPTION` text COLLATE utf8_bin,
+  `defaultvalue` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `FIELDTYPE` decimal(18,0) DEFAULT NULL,
+  `PROJECT` decimal(18,0) DEFAULT NULL,
+  `ISSUETYPE` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `customfield`
+--
+
+LOCK TABLES `customfield` WRITE;
+/*!40000 ALTER TABLE `customfield` DISABLE KEYS */;
+INSERT INTO `customfield` VALUES (10000,NULL,'com.atlassian.jira.plugins.jira-development-integration-plugin:devsummary','com.atlassian.jira.plugins.jira-development-integration-plugin:devsummarysearcher','开发','开发摘要域只用于Jira软件。',NULL,NULL,NULL,NULL),(10100,NULL,'com.pyxis.greenhopper.jira:gh-lexo-rank','com.pyxis.greenhopper.jira:gh-lexo-rank-searcher','等级','全局评级域仅供 Jira Software 使用。',NULL,NULL,NULL,NULL),(10101,NULL,'com.pyxis.greenhopper.jira:gh-epic-link','com.pyxis.greenhopper.jira:gh-epic-link-searcher','史诗链接','选择与此问题关联的Epic。',NULL,NULL,NULL,NULL),(10102,NULL,'com.pyxis.greenhopper.jira:gh-epic-status','com.pyxis.greenhopper.jira:gh-epic-status-searcher','Epic状态','仅供 Jira Software 使用的 Epic 状态域。',NULL,NULL,NULL,NULL),(10103,NULL,'com.pyxis.greenhopper.jira:gh-epic-label','com.pyxis.greenhopper.jira:gh-epic-label-searcher','史诗名称','用一个简短的名称标识此史诗。',NULL,NULL,NULL,NULL),(10104,NULL,'com.pyxis.greenhopper.jira:gh-epic-color','com.pyxis.greenhopper.jira:gh-epic-color-searcher','Epic颜色','仅供 Jira Software 使用的 Epic 颜色域。',NULL,NULL,NULL,NULL),(10105,NULL,'com.pyxis.greenhopper.jira:gh-sprint','com.pyxis.greenhopper.jira:gh-sprint-searcher','Sprint','Jira Software Sprint 域',NULL,NULL,NULL,NULL),(10106,NULL,'com.atlassian.jira.plugin.system.customfieldtypes:float','com.atlassian.jira.plugin.system.customfieldtypes:exactnumber','Story Point','用于测量需求的复杂度或大小。',NULL,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `customfield` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `customfieldoption`
+--
+
+DROP TABLE IF EXISTS `customfieldoption`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `customfieldoption` (
+  `ID` decimal(18,0) NOT NULL,
+  `CUSTOMFIELD` decimal(18,0) DEFAULT NULL,
+  `CUSTOMFIELDCONFIG` decimal(18,0) DEFAULT NULL,
+  `PARENTOPTIONID` decimal(18,0) DEFAULT NULL,
+  `SEQUENCE` decimal(18,0) DEFAULT NULL,
+  `customvalue` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `optiontype` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `disabled` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `cf_cfoption` (`CUSTOMFIELD`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `customfieldoption`
+--
+
+LOCK TABLES `customfieldoption` WRITE;
+/*!40000 ALTER TABLE `customfieldoption` DISABLE KEYS */;
+INSERT INTO `customfieldoption` VALUES (10000,10102,10204,NULL,0,'待办',NULL,'N'),(10001,10102,10204,NULL,1,'处理中',NULL,'N'),(10002,10102,10204,NULL,2,'完成',NULL,'N');
+/*!40000 ALTER TABLE `customfieldoption` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `customfieldvalue`
+--
+
+DROP TABLE IF EXISTS `customfieldvalue`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `customfieldvalue` (
+  `ID` decimal(18,0) NOT NULL,
+  `ISSUE` decimal(18,0) DEFAULT NULL,
+  `CUSTOMFIELD` decimal(18,0) DEFAULT NULL,
+  `UPDATED` decimal(18,0) DEFAULT NULL,
+  `PARENTKEY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `STRINGVALUE` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `NUMBERVALUE` decimal(18,6) DEFAULT NULL,
+  `TEXTVALUE` longtext COLLATE utf8_bin,
+  `DATEVALUE` datetime DEFAULT NULL,
+  `VALUETYPE` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `cfvalue_issue` (`ISSUE`,`CUSTOMFIELD`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `customfieldvalue`
+--
+
+LOCK TABLES `customfieldvalue` WRITE;
+/*!40000 ALTER TABLE `customfieldvalue` DISABLE KEYS */;
+/*!40000 ALTER TABLE `customfieldvalue` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cwd_application`
+--
+
+DROP TABLE IF EXISTS `cwd_application`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cwd_application` (
+  `ID` decimal(18,0) NOT NULL,
+  `application_name` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `lower_application_name` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `created_date` datetime DEFAULT NULL,
+  `updated_date` datetime DEFAULT NULL,
+  `active` decimal(9,0) DEFAULT NULL,
+  `description` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `application_type` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `credential` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `uk_application_name` (`lower_application_name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cwd_application`
+--
+
+LOCK TABLES `cwd_application` WRITE;
+/*!40000 ALTER TABLE `cwd_application` DISABLE KEYS */;
+INSERT INTO `cwd_application` VALUES (1,'crowd-embedded','crowd-embedded','2013-02-28 11:57:51','2013-02-28 11:57:51',1,'','CROWD','X');
+/*!40000 ALTER TABLE `cwd_application` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cwd_application_address`
+--
+
+DROP TABLE IF EXISTS `cwd_application_address`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cwd_application_address` (
+  `application_id` decimal(18,0) NOT NULL,
+  `remote_address` varchar(255) COLLATE utf8_bin NOT NULL,
+  `encoded_address_binary` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `remote_address_mask` decimal(9,0) DEFAULT NULL,
+  PRIMARY KEY (`application_id`,`remote_address`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cwd_application_address`
+--
+
+LOCK TABLES `cwd_application_address` WRITE;
+/*!40000 ALTER TABLE `cwd_application_address` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cwd_application_address` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cwd_directory`
+--
+
+DROP TABLE IF EXISTS `cwd_directory`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cwd_directory` (
+  `ID` decimal(18,0) NOT NULL,
+  `directory_name` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `lower_directory_name` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `created_date` datetime DEFAULT NULL,
+  `updated_date` datetime DEFAULT NULL,
+  `active` decimal(9,0) DEFAULT NULL,
+  `description` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `impl_class` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `lower_impl_class` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `directory_type` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `directory_position` decimal(18,0) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `uk_directory_name` (`lower_directory_name`),
+  KEY `idx_directory_active` (`active`),
+  KEY `idx_directory_impl` (`lower_impl_class`),
+  KEY `idx_directory_type` (`directory_type`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cwd_directory`
+--
+
+LOCK TABLES `cwd_directory` WRITE;
+/*!40000 ALTER TABLE `cwd_directory` DISABLE KEYS */;
+INSERT INTO `cwd_directory` VALUES (1,'Jira Internal Directory','jira internal directory','2013-02-28 11:57:51','2013-02-28 11:57:51',1,'Jira default internal directory','com.atlassian.crowd.directory.InternalDirectory','com.atlassian.crowd.directory.internaldirectory','INTERNAL',0);
+/*!40000 ALTER TABLE `cwd_directory` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cwd_directory_attribute`
+--
+
+DROP TABLE IF EXISTS `cwd_directory_attribute`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cwd_directory_attribute` (
+  `directory_id` decimal(18,0) NOT NULL,
+  `attribute_name` varchar(255) COLLATE utf8_bin NOT NULL,
+  `attribute_value` varchar(4000) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`directory_id`,`attribute_name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cwd_directory_attribute`
+--
+
+LOCK TABLES `cwd_directory_attribute` WRITE;
+/*!40000 ALTER TABLE `cwd_directory_attribute` DISABLE KEYS */;
+INSERT INTO `cwd_directory_attribute` VALUES (1,'user_encryption_method','atlassian-security');
+/*!40000 ALTER TABLE `cwd_directory_attribute` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cwd_directory_operation`
+--
+
+DROP TABLE IF EXISTS `cwd_directory_operation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cwd_directory_operation` (
+  `directory_id` decimal(18,0) NOT NULL,
+  `operation_type` varchar(60) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`directory_id`,`operation_type`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cwd_directory_operation`
+--
+
+LOCK TABLES `cwd_directory_operation` WRITE;
+/*!40000 ALTER TABLE `cwd_directory_operation` DISABLE KEYS */;
+INSERT INTO `cwd_directory_operation` VALUES (1,'CREATE_GROUP'),(1,'CREATE_ROLE'),(1,'CREATE_USER'),(1,'DELETE_GROUP'),(1,'DELETE_ROLE'),(1,'DELETE_USER'),(1,'UPDATE_GROUP'),(1,'UPDATE_GROUP_ATTRIBUTE'),(1,'UPDATE_ROLE'),(1,'UPDATE_ROLE_ATTRIBUTE'),(1,'UPDATE_USER'),(1,'UPDATE_USER_ATTRIBUTE');
+/*!40000 ALTER TABLE `cwd_directory_operation` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cwd_group`
+--
+
+DROP TABLE IF EXISTS `cwd_group`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cwd_group` (
+  `ID` decimal(18,0) NOT NULL,
+  `group_name` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `lower_group_name` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `active` decimal(9,0) DEFAULT NULL,
+  `local` decimal(9,0) DEFAULT NULL,
+  `created_date` datetime DEFAULT NULL,
+  `updated_date` datetime DEFAULT NULL,
+  `description` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `lower_description` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `group_type` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `directory_id` decimal(18,0) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `uk_group_name_dir_id` (`lower_group_name`,`directory_id`),
+  KEY `idx_group_active` (`lower_group_name`,`active`),
+  KEY `idx_group_dir_id` (`directory_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cwd_group`
+--
+
+LOCK TABLES `cwd_group` WRITE;
+/*!40000 ALTER TABLE `cwd_group` DISABLE KEYS */;
+INSERT INTO `cwd_group` VALUES (10000,'jira-administrators','jira-administrators',1,0,'2013-02-28 11:57:51','2013-02-28 11:57:51','',NULL,'GROUP',1),(10010,'jira-software-users','jira-software-users',1,0,'2020-05-27 17:26:01','2020-05-27 17:26:01',NULL,NULL,'GROUP',1);
+/*!40000 ALTER TABLE `cwd_group` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cwd_group_attributes`
+--
+
+DROP TABLE IF EXISTS `cwd_group_attributes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cwd_group_attributes` (
+  `ID` decimal(18,0) NOT NULL,
+  `group_id` decimal(18,0) DEFAULT NULL,
+  `directory_id` decimal(18,0) DEFAULT NULL,
+  `attribute_name` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `attribute_value` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `lower_attribute_value` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `uk_group_attr_name_lval` (`group_id`,`attribute_name`,`lower_attribute_value`),
+  KEY `idx_group_attr_dir_name_lval` (`directory_id`,`attribute_name`,`lower_attribute_value`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cwd_group_attributes`
+--
+
+LOCK TABLES `cwd_group_attributes` WRITE;
+/*!40000 ALTER TABLE `cwd_group_attributes` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cwd_group_attributes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cwd_membership`
+--
+
+DROP TABLE IF EXISTS `cwd_membership`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cwd_membership` (
+  `ID` decimal(18,0) NOT NULL,
+  `parent_id` decimal(18,0) DEFAULT NULL,
+  `child_id` decimal(18,0) DEFAULT NULL,
+  `membership_type` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `group_type` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `parent_name` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `lower_parent_name` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `child_name` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `lower_child_name` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `directory_id` decimal(18,0) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `uk_mem_parent_child_type` (`parent_id`,`child_id`,`membership_type`),
+  KEY `idx_mem_dir_parent_child` (`lower_parent_name`,`lower_child_name`,`membership_type`,`directory_id`),
+  KEY `idx_mem_dir_parent` (`lower_parent_name`,`membership_type`,`directory_id`),
+  KEY `idx_mem_dir_child` (`lower_child_name`,`membership_type`,`directory_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cwd_membership`
+--
+
+LOCK TABLES `cwd_membership` WRITE;
+/*!40000 ALTER TABLE `cwd_membership` DISABLE KEYS */;
+INSERT INTO `cwd_membership` VALUES (10000,10000,10000,'GROUP_USER',NULL,'jira-administrators','jira-administrators','keesh','keesh',1),(10001,10010,10000,'GROUP_USER',NULL,'jira-software-users','jira-software-users','keesh','keesh',1);
+/*!40000 ALTER TABLE `cwd_membership` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cwd_user`
+--
+
+DROP TABLE IF EXISTS `cwd_user`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cwd_user` (
+  `ID` decimal(18,0) NOT NULL,
+  `directory_id` decimal(18,0) DEFAULT NULL,
+  `user_name` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `lower_user_name` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `active` decimal(9,0) DEFAULT NULL,
+  `created_date` datetime DEFAULT NULL,
+  `updated_date` datetime DEFAULT NULL,
+  `first_name` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `lower_first_name` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `last_name` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `lower_last_name` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `display_name` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `lower_display_name` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `email_address` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `lower_email_address` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `CREDENTIAL` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `deleted_externally` decimal(9,0) DEFAULT NULL,
+  `EXTERNAL_ID` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `uk_user_name_dir_id` (`lower_user_name`,`directory_id`),
+  KEY `uk_user_externalid_dir_id` (`EXTERNAL_ID`,`directory_id`),
+  KEY `idx_first_name` (`lower_first_name`),
+  KEY `idx_last_name` (`lower_last_name`),
+  KEY `idx_display_name` (`lower_display_name`),
+  KEY `idx_email_address` (`lower_email_address`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cwd_user`
+--
+
+LOCK TABLES `cwd_user` WRITE;
+/*!40000 ALTER TABLE `cwd_user` DISABLE KEYS */;
+INSERT INTO `cwd_user` VALUES (10000,1,'keesh','keesh',1,'2020-05-27 17:27:33','2020-05-27 17:27:33','','','keesh','keesh','keesh','keesh','chunhui2001@gmail.com','chunhui2001@gmail.com','{PKCS5S2}1VPOQVZ/bsrgf148TOqMvU4xHVrJ9GO9J7mfVhGn0VJxn+A0cQWTVjSBuC4FGLH7',NULL,'1e355edd-8bf6-47fa-930d-60a67203814b');
+/*!40000 ALTER TABLE `cwd_user` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cwd_user_attributes`
+--
+
+DROP TABLE IF EXISTS `cwd_user_attributes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cwd_user_attributes` (
+  `ID` decimal(18,0) NOT NULL,
+  `user_id` decimal(18,0) DEFAULT NULL,
+  `directory_id` decimal(18,0) DEFAULT NULL,
+  `attribute_name` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `attribute_value` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `lower_attribute_value` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `idx_user_attr_dir_name_lval` (`directory_id`,`attribute_name`,`lower_attribute_value`),
+  KEY `uk_user_attr_name_lval` (`user_id`,`attribute_name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cwd_user_attributes`
+--
+
+LOCK TABLES `cwd_user_attributes` WRITE;
+/*!40000 ALTER TABLE `cwd_user_attributes` DISABLE KEYS */;
+INSERT INTO `cwd_user_attributes` VALUES (10000,10000,1,'requiresPasswordChange','false','false'),(10001,10000,1,'invalidPasswordAttempts','0','0'),(10002,10000,1,'passwordLastChanged','1590571652902','1590571652902'),(10003,10000,1,'password.reset.request.expiry','1590658053326','1590658053326'),(10004,10000,1,'password.reset.request.token','b124ce9da653429f81d58daa5486075bd2f1bb95','b124ce9da653429f81d58daa5486075bd2f1bb95'),(10100,10000,1,'login.currentFailedCount','0','0'),(10101,10000,1,'login.lastLoginMillis','1590572981546','1590572981546'),(10102,10000,1,'login.count','3','3'),(10200,10000,1,'lastAuthenticated','1590572981533','1590572981533'),(10201,10000,1,'login.previousLoginMillis','1590572973428','1590572973428');
+/*!40000 ALTER TABLE `cwd_user_attributes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `deadletter`
+--
+
+DROP TABLE IF EXISTS `deadletter`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `deadletter` (
+  `ID` decimal(18,0) NOT NULL,
+  `MESSAGE_ID` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `LAST_SEEN` decimal(18,0) DEFAULT NULL,
+  `MAIL_SERVER_ID` decimal(18,0) DEFAULT NULL,
+  `FOLDER_NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `deadletter_msg_server_folder` (`MESSAGE_ID`,`MAIL_SERVER_ID`,`FOLDER_NAME`),
+  KEY `deadletter_lastSeen` (`LAST_SEEN`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `deadletter`
+--
+
+LOCK TABLES `deadletter` WRITE;
+/*!40000 ALTER TABLE `deadletter` DISABLE KEYS */;
+/*!40000 ALTER TABLE `deadletter` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `draftworkflowscheme`
+--
+
+DROP TABLE IF EXISTS `draftworkflowscheme`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `draftworkflowscheme` (
+  `ID` decimal(18,0) NOT NULL,
+  `NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `DESCRIPTION` text COLLATE utf8_bin,
+  `WORKFLOW_SCHEME_ID` decimal(18,0) DEFAULT NULL,
+  `LAST_MODIFIED_DATE` datetime DEFAULT NULL,
+  `LAST_MODIFIED_USER` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `draft_workflow_scheme_parent` (`WORKFLOW_SCHEME_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `draftworkflowscheme`
+--
+
+LOCK TABLES `draftworkflowscheme` WRITE;
+/*!40000 ALTER TABLE `draftworkflowscheme` DISABLE KEYS */;
+/*!40000 ALTER TABLE `draftworkflowscheme` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `draftworkflowschemeentity`
+--
+
+DROP TABLE IF EXISTS `draftworkflowschemeentity`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `draftworkflowschemeentity` (
+  `ID` decimal(18,0) NOT NULL,
+  `SCHEME` decimal(18,0) DEFAULT NULL,
+  `WORKFLOW` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `issuetype` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `draft_workflow_scheme` (`SCHEME`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `draftworkflowschemeentity`
+--
+
+LOCK TABLES `draftworkflowschemeentity` WRITE;
+/*!40000 ALTER TABLE `draftworkflowschemeentity` DISABLE KEYS */;
+/*!40000 ALTER TABLE `draftworkflowschemeentity` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `entity_property`
+--
+
+DROP TABLE IF EXISTS `entity_property`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `entity_property` (
+  `ID` decimal(18,0) NOT NULL,
+  `ENTITY_NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `ENTITY_ID` decimal(18,0) DEFAULT NULL,
+  `PROPERTY_KEY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `CREATED` datetime DEFAULT NULL,
+  `UPDATED` datetime DEFAULT NULL,
+  `json_value` longtext COLLATE utf8_bin,
+  PRIMARY KEY (`ID`),
+  KEY `entityproperty_id_name_key` (`ENTITY_ID`,`ENTITY_NAME`,`PROPERTY_KEY`),
+  KEY `entityproperty_key_name` (`PROPERTY_KEY`,`ENTITY_NAME`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `entity_property`
+--
+
+LOCK TABLES `entity_property` WRITE;
+/*!40000 ALTER TABLE `entity_property` DISABLE KEYS */;
+INSERT INTO `entity_property` VALUES (10000,'ProjectProperty',10000,'searchRequests','2020-05-27 17:30:14','2020-05-27 17:30:14','{\"ids\":[10000,10001,10002]}');
+/*!40000 ALTER TABLE `entity_property` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `entity_property_index_document`
+--
+
+DROP TABLE IF EXISTS `entity_property_index_document`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `entity_property_index_document` (
+  `ID` decimal(18,0) NOT NULL,
+  `PLUGIN_KEY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `MODULE_KEY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `ENTITY_KEY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `UPDATED` datetime DEFAULT NULL,
+  `DOCUMENT` longtext COLLATE utf8_bin,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `entpropindexdoc_module` (`PLUGIN_KEY`,`MODULE_KEY`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `entity_property_index_document`
+--
+
+LOCK TABLES `entity_property_index_document` WRITE;
+/*!40000 ALTER TABLE `entity_property_index_document` DISABLE KEYS */;
+INSERT INTO `entity_property_index_document` VALUES (10000,'com.atlassian.jira.plugins.jira-development-integration-plugin','jira-issue-fusion-jql','IssueProperty','2020-05-27 17:18:54','<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<index-document-configuration entity-key=\"IssueProperty\"><key property-key=\"development\"><extract path=\"totalBuilds\" type=\"NUMBER\"/><extract path=\"failingbuilds\" type=\"NUMBER\"/><extract path=\"passedbuilds\" type=\"NUMBER\"/><extract path=\"buildstatus\" type=\"STRING\"/><extract path=\"openprs\" type=\"NUMBER\"/><extract path=\"mergedprs\" type=\"NUMBER\"/><extract path=\"declinedprs\" type=\"NUMBER\"/><extract path=\"prs\" type=\"NUMBER\"/><extract path=\"prstatus\" type=\"STRING\"/><extract path=\"reviews\" type=\"NUMBER\"/><extract path=\"openreviews\" type=\"NUMBER\"/><extract path=\"commits\" type=\"NUMBER\"/><extract path=\"totalDeployments\" type=\"NUMBER\"/><extract path=\"deployed\" type=\"NUMBER\"/><extract path=\"notDeployed\" type=\"NUMBER\"/><extract path=\"environment\" type=\"STRING\"/><extract path=\"totalBranches\" type=\"NUMBER\"/></key></index-document-configuration>');
+/*!40000 ALTER TABLE `entity_property_index_document` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `entity_translation`
+--
+
+DROP TABLE IF EXISTS `entity_translation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `entity_translation` (
+  `ID` decimal(18,0) NOT NULL,
+  `ENTITY_NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `ENTITY_ID` decimal(18,0) DEFAULT NULL,
+  `LOCALE` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `TRANS_NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `TRANS_DESC` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `uk_entitytranslation` (`ENTITY_NAME`,`ENTITY_ID`,`LOCALE`),
+  KEY `entitytranslation_locale` (`LOCALE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `entity_translation`
+--
+
+LOCK TABLES `entity_translation` WRITE;
+/*!40000 ALTER TABLE `entity_translation` DISABLE KEYS */;
+/*!40000 ALTER TABLE `entity_translation` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `external_entities`
+--
+
+DROP TABLE IF EXISTS `external_entities`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `external_entities` (
+  `ID` decimal(18,0) NOT NULL,
+  `NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `entitytype` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `ext_entity_name` (`NAME`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `external_entities`
+--
+
+LOCK TABLES `external_entities` WRITE;
+/*!40000 ALTER TABLE `external_entities` DISABLE KEYS */;
+/*!40000 ALTER TABLE `external_entities` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `externalgadget`
+--
+
+DROP TABLE IF EXISTS `externalgadget`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `externalgadget` (
+  `ID` decimal(18,0) NOT NULL,
+  `GADGET_XML` text COLLATE utf8_bin,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `externalgadget`
+--
+
+LOCK TABLES `externalgadget` WRITE;
+/*!40000 ALTER TABLE `externalgadget` DISABLE KEYS */;
+/*!40000 ALTER TABLE `externalgadget` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `favouriteassociations`
+--
+
+DROP TABLE IF EXISTS `favouriteassociations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `favouriteassociations` (
+  `ID` decimal(18,0) NOT NULL,
+  `USERNAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `entitytype` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `entityid` decimal(18,0) DEFAULT NULL,
+  `SEQUENCE` decimal(18,0) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `favourite_index` (`USERNAME`,`entitytype`,`entityid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `favouriteassociations`
+--
+
+LOCK TABLES `favouriteassociations` WRITE;
+/*!40000 ALTER TABLE `favouriteassociations` DISABLE KEYS */;
+/*!40000 ALTER TABLE `favouriteassociations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `feature`
+--
+
+DROP TABLE IF EXISTS `feature`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `feature` (
+  `ID` decimal(18,0) NOT NULL,
+  `FEATURE_NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `FEATURE_TYPE` varchar(10) COLLATE utf8_bin DEFAULT NULL,
+  `USER_KEY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `feature_id_userkey` (`ID`,`USER_KEY`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `feature`
+--
+
+LOCK TABLES `feature` WRITE;
+/*!40000 ALTER TABLE `feature` DISABLE KEYS */;
+INSERT INTO `feature` VALUES (10000,'com.atlassian.jira.projects.ProjectCentricNavigation.Switch','site',''),(10001,'com.atlassian.jira.projects.issuenavigator','site',''),(10100,'mail.batching.enabled','site',NULL),(10101,'com.atlassian.jira.agile.darkfeature.kanplan.enabled','site',''),(10102,'com.atlassian.jira.agile.darkfeature.kanplan.epics.and.versions.enabled','site',''),(10103,'com.atlassian.jira.agile.darkfeature.sprint.goal.enabled','site',''),(10104,'com.atlassian.jira.agile.darkfeature.edit.closed.sprint.enabled','site',''),(10105,'com.atlassian.jira.agile.darkfeature.splitissue','site','');
+/*!40000 ALTER TABLE `feature` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `fieldconfigscheme`
+--
+
+DROP TABLE IF EXISTS `fieldconfigscheme`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `fieldconfigscheme` (
+  `ID` decimal(18,0) NOT NULL,
+  `configname` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `DESCRIPTION` text COLLATE utf8_bin,
+  `FIELDID` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `CUSTOMFIELD` decimal(18,0) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `fcs_fieldid` (`FIELDID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `fieldconfigscheme`
+--
+
+LOCK TABLES `fieldconfigscheme` WRITE;
+/*!40000 ALTER TABLE `fieldconfigscheme` DISABLE KEYS */;
+INSERT INTO `fieldconfigscheme` VALUES (10000,'Default Issue Type Scheme','Default issue type scheme is the list of global issue types. All newly created issue types will automatically be added to this scheme.','issuetype',NULL),(10100,'Default Configuration Scheme for 开发','Default configuration scheme generated by Jira','customfield_10000',NULL),(10101,'Default priority scheme','This is default priority scheme used by all projects without any other scheme assigned','priority',NULL),(10200,'等级的默认配置方案','Jira生成的默认配置方案','customfield_10100',NULL),(10201,'史诗链接的默认配置方案','Jira生成的默认配置方案','customfield_10101',NULL),(10202,'Sprint的默认配置方案','Jira生成的默认配置方案','customfield_10105',NULL),(10203,'史诗名称的默认配置方案','Jira生成的默认配置方案','customfield_10103',NULL),(10204,'Epic状态的默认配置方案','Jira生成的默认配置方案','customfield_10102',NULL),(10205,'Epic颜色的默认配置方案','Jira生成的默认配置方案','customfield_10104',NULL),(10206,'Story Point的默认配置方案','Jira生成的默认配置方案','customfield_10106',NULL),(10207,'AA: 项目管理问题类型方案',NULL,'issuetype',NULL);
+/*!40000 ALTER TABLE `fieldconfigscheme` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `fieldconfigschemeissuetype`
+--
+
+DROP TABLE IF EXISTS `fieldconfigschemeissuetype`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `fieldconfigschemeissuetype` (
+  `ID` decimal(18,0) NOT NULL,
+  `ISSUETYPE` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `FIELDCONFIGSCHEME` decimal(18,0) DEFAULT NULL,
+  `FIELDCONFIGURATION` decimal(18,0) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `fcs_issuetype` (`ISSUETYPE`),
+  KEY `fcs_scheme` (`FIELDCONFIGSCHEME`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `fieldconfigschemeissuetype`
+--
+
+LOCK TABLES `fieldconfigschemeissuetype` WRITE;
+/*!40000 ALTER TABLE `fieldconfigschemeissuetype` DISABLE KEYS */;
+INSERT INTO `fieldconfigschemeissuetype` VALUES (10100,NULL,10000,10000),(10200,NULL,10100,10100),(10201,NULL,10101,10101),(10300,NULL,10200,10200),(10301,NULL,10201,10201),(10302,NULL,10202,10202),(10303,'10000',10203,10203),(10304,'10000',10204,10204),(10305,'10000',10205,10205),(10306,'10000',10206,10206),(10307,'10001',10206,10206),(10309,NULL,10207,10207);
+/*!40000 ALTER TABLE `fieldconfigschemeissuetype` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `fieldconfiguration`
+--
+
+DROP TABLE IF EXISTS `fieldconfiguration`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `fieldconfiguration` (
+  `ID` decimal(18,0) NOT NULL,
+  `configname` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `DESCRIPTION` text COLLATE utf8_bin,
+  `FIELDID` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `CUSTOMFIELD` decimal(18,0) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `fc_fieldid` (`FIELDID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `fieldconfiguration`
+--
+
+LOCK TABLES `fieldconfiguration` WRITE;
+/*!40000 ALTER TABLE `fieldconfiguration` DISABLE KEYS */;
+INSERT INTO `fieldconfiguration` VALUES (10000,'Default Configuration for Issue Type','Default configuration generated by Jira','issuetype',NULL),(10100,'Default Configuration for 开发','Default configuration generated by Jira','customfield_10000',NULL),(10101,'Default configuration for priority','Default configuration generated by Jira','priority',NULL),(10200,'Default Configuration for 等级','Default configuration generated by JIRA','customfield_10100',NULL),(10201,'Default Configuration for 史诗链接','Default configuration generated by JIRA','customfield_10101',NULL),(10202,'Default Configuration for Sprint','Default configuration generated by JIRA','customfield_10105',NULL),(10203,'Default Configuration for 史诗名称','Default configuration generated by JIRA','customfield_10103',NULL),(10204,'Default Configuration for Epic状态','Default configuration generated by JIRA','customfield_10102',NULL),(10205,'Default Configuration for Epic颜色','Default configuration generated by JIRA','customfield_10104',NULL),(10206,'Default Configuration for Story Point','Default configuration generated by JIRA','customfield_10106',NULL),(10207,'Default Configuration for 问题类型','Default configuration generated by JIRA','issuetype',NULL);
+/*!40000 ALTER TABLE `fieldconfiguration` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `fieldlayout`
+--
+
+DROP TABLE IF EXISTS `fieldlayout`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `fieldlayout` (
+  `ID` decimal(18,0) NOT NULL,
+  `NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `DESCRIPTION` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `layout_type` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `LAYOUTSCHEME` decimal(18,0) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `fieldlayout`
+--
+
+LOCK TABLES `fieldlayout` WRITE;
+/*!40000 ALTER TABLE `fieldlayout` DISABLE KEYS */;
+INSERT INTO `fieldlayout` VALUES (10000,'Default Field Configuration','The default field configuration','default',NULL);
+/*!40000 ALTER TABLE `fieldlayout` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `fieldlayoutitem`
+--
+
+DROP TABLE IF EXISTS `fieldlayoutitem`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `fieldlayoutitem` (
+  `ID` decimal(18,0) NOT NULL,
+  `FIELDLAYOUT` decimal(18,0) DEFAULT NULL,
+  `FIELDIDENTIFIER` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `DESCRIPTION` text COLLATE utf8_bin,
+  `VERTICALPOSITION` decimal(18,0) DEFAULT NULL,
+  `ISHIDDEN` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `ISREQUIRED` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `RENDERERTYPE` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `idx_fli_fieldidentifier` (`FIELDIDENTIFIER`),
+  KEY `idx_fli_fieldlayout` (`FIELDLAYOUT`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `fieldlayoutitem`
+--
+
+LOCK TABLES `fieldlayoutitem` WRITE;
+/*!40000 ALTER TABLE `fieldlayoutitem` DISABLE KEYS */;
+INSERT INTO `fieldlayoutitem` VALUES (10122,10000,'summary',NULL,NULL,'false','true','jira-text-renderer'),(10123,10000,'issuetype',NULL,NULL,'false','true','jira-text-renderer'),(10124,10000,'security',NULL,NULL,'false','false','jira-text-renderer'),(10125,10000,'priority',NULL,NULL,'false','false','jira-text-renderer'),(10126,10000,'duedate',NULL,NULL,'false','false','jira-text-renderer'),(10127,10000,'components',NULL,NULL,'false','false','frother-control-renderer'),(10128,10000,'versions',NULL,NULL,'false','false','frother-control-renderer'),(10129,10000,'fixVersions',NULL,NULL,'false','false','frother-control-renderer'),(10130,10000,'assignee',NULL,NULL,'false','false','jira-text-renderer'),(10131,10000,'reporter',NULL,NULL,'false','true','jira-text-renderer'),(10132,10000,'environment','For example operating system, software platform and/or hardware specifications (include as appropriate for the issue).',NULL,'false','false','atlassian-wiki-renderer'),(10133,10000,'description',NULL,NULL,'false','false','atlassian-wiki-renderer'),(10134,10000,'timetracking','An estimate of how much work remains until this issue will be resolved.<br>The format of this is \' *w *d *h *m \' (representing weeks, days, hours and minutes - where * can be any number)<br>Examples: 4d, 5h 30m, 60m and 3w.<br>',NULL,'false','false','jira-text-renderer'),(10135,10000,'resolution',NULL,NULL,'false','false','jira-text-renderer'),(10136,10000,'attachment',NULL,NULL,'false','false','jira-text-renderer'),(10137,10000,'comment',NULL,NULL,'false','false','atlassian-wiki-renderer'),(10138,10000,'labels',NULL,NULL,'false','false','jira-text-renderer'),(10139,10000,'worklog','Allows work to be logged whilst creating, editing or transitioning issues.',NULL,'false','false','atlassian-wiki-renderer'),(10140,10000,'issuelinks',NULL,NULL,'false','false','jira-text-renderer'),(10141,10000,'customfield_10000','开发摘要域只用于Jira软件。',NULL,'false','false','jira-text-renderer'),(10142,10000,'archiveddate',NULL,NULL,'false','false','jira-text-renderer'),(10143,10000,'archivedby',NULL,NULL,'false','false','jira-text-renderer'),(10144,10000,'customfield_10100','全局评级域仅供 Jira Software 使用。',NULL,'false','false','jira-text-renderer'),(10145,10000,'customfield_10101','选择与此问题关联的Epic。',NULL,'false','false','jira-text-renderer'),(10146,10000,'customfield_10102','仅供 Jira Software 使用的 Epic 状态域。',NULL,'false','false','jira-text-renderer'),(10147,10000,'customfield_10103','用一个简短的名称标识此史诗。',NULL,'false','true','jira-text-renderer');
+/*!40000 ALTER TABLE `fieldlayoutitem` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `fieldlayoutscheme`
+--
+
+DROP TABLE IF EXISTS `fieldlayoutscheme`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `fieldlayoutscheme` (
+  `ID` decimal(18,0) NOT NULL,
+  `NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `DESCRIPTION` text COLLATE utf8_bin,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `fieldlayoutscheme`
+--
+
+LOCK TABLES `fieldlayoutscheme` WRITE;
+/*!40000 ALTER TABLE `fieldlayoutscheme` DISABLE KEYS */;
+/*!40000 ALTER TABLE `fieldlayoutscheme` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `fieldlayoutschemeassociation`
+--
+
+DROP TABLE IF EXISTS `fieldlayoutschemeassociation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `fieldlayoutschemeassociation` (
+  `ID` decimal(18,0) NOT NULL,
+  `ISSUETYPE` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `PROJECT` decimal(18,0) DEFAULT NULL,
+  `FIELDLAYOUTSCHEME` decimal(18,0) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `fl_scheme_assoc` (`PROJECT`,`ISSUETYPE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `fieldlayoutschemeassociation`
+--
+
+LOCK TABLES `fieldlayoutschemeassociation` WRITE;
+/*!40000 ALTER TABLE `fieldlayoutschemeassociation` DISABLE KEYS */;
+/*!40000 ALTER TABLE `fieldlayoutschemeassociation` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `fieldlayoutschemeentity`
+--
+
+DROP TABLE IF EXISTS `fieldlayoutschemeentity`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `fieldlayoutschemeentity` (
+  `ID` decimal(18,0) NOT NULL,
+  `SCHEME` decimal(18,0) DEFAULT NULL,
+  `issuetype` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `FIELDLAYOUT` decimal(18,0) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `fieldlayout_scheme` (`SCHEME`),
+  KEY `fieldlayout_layout` (`FIELDLAYOUT`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `fieldlayoutschemeentity`
+--
+
+LOCK TABLES `fieldlayoutschemeentity` WRITE;
+/*!40000 ALTER TABLE `fieldlayoutschemeentity` DISABLE KEYS */;
+/*!40000 ALTER TABLE `fieldlayoutschemeentity` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `fieldscreen`
+--
+
+DROP TABLE IF EXISTS `fieldscreen`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `fieldscreen` (
+  `ID` decimal(18,0) NOT NULL,
+  `NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `DESCRIPTION` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `fieldscreen`
+--
+
+LOCK TABLES `fieldscreen` WRITE;
+/*!40000 ALTER TABLE `fieldscreen` DISABLE KEYS */;
+INSERT INTO `fieldscreen` VALUES (1,'Default Screen','Allows to update all system fields.'),(2,'Workflow Screen','This screen is used in the workflow and enables you to assign issues'),(3,'Resolve Issue Screen','Allows to set resolution, change fix versions and assign an issue.'),(10000,'AA: 项目管理创建页面',''),(10001,'AA: 项目管理创建/查看页面',''),(10002,'AA: 项目管理问题解决页面','');
+/*!40000 ALTER TABLE `fieldscreen` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `fieldscreenlayoutitem`
+--
+
+DROP TABLE IF EXISTS `fieldscreenlayoutitem`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `fieldscreenlayoutitem` (
+  `ID` decimal(18,0) NOT NULL,
+  `FIELDIDENTIFIER` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `SEQUENCE` decimal(18,0) DEFAULT NULL,
+  `FIELDSCREENTAB` decimal(18,0) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `fieldscitem_tab` (`FIELDSCREENTAB`),
+  KEY `fieldscreen_field` (`FIELDIDENTIFIER`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `fieldscreenlayoutitem`
+--
+
+LOCK TABLES `fieldscreenlayoutitem` WRITE;
+/*!40000 ALTER TABLE `fieldscreenlayoutitem` DISABLE KEYS */;
+INSERT INTO `fieldscreenlayoutitem` VALUES (10000,'summary',0,10000),(10001,'issuetype',1,10000),(10002,'security',2,10000),(10003,'priority',3,10000),(10004,'duedate',4,10000),(10005,'components',5,10000),(10006,'versions',6,10000),(10007,'fixVersions',7,10000),(10008,'assignee',8,10000),(10009,'reporter',9,10000),(10010,'environment',10,10000),(10011,'description',11,10000),(10012,'timetracking',12,10000),(10013,'attachment',13,10000),(10014,'assignee',0,10001),(10015,'resolution',0,10002),(10016,'fixVersions',1,10002),(10017,'assignee',2,10002),(10018,'worklog',3,10002),(10100,'labels',14,10000),(10200,'summary',0,10100),(10201,'issuetype',1,10100),(10202,'reporter',2,10100),(10203,'security',3,10100),(10204,'attachment',4,10100),(10205,'duedate',5,10100),(10206,'description',6,10100),(10207,'assignee',7,10100),(10208,'priority',8,10100),(10209,'labels',9,10100),(10210,'timetracking',10,10100),(10211,'summary',0,10101),(10212,'issuetype',1,10101),(10213,'reporter',2,10101),(10214,'components',3,10101),(10215,'attachment',4,10101),(10216,'duedate',5,10101),(10217,'description',6,10101),(10218,'assignee',7,10101),(10219,'priority',8,10101),(10220,'labels',9,10101),(10221,'timetracking',10,10101),(10222,'summary',0,10102),(10223,'issuetype',1,10102),(10224,'reporter',2,10102),(10225,'issuelinks',3,10102),(10226,'resolution',4,10102);
+/*!40000 ALTER TABLE `fieldscreenlayoutitem` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `fieldscreenscheme`
+--
+
+DROP TABLE IF EXISTS `fieldscreenscheme`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `fieldscreenscheme` (
+  `ID` decimal(18,0) NOT NULL,
+  `NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `DESCRIPTION` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `fieldscreenscheme`
+--
+
+LOCK TABLES `fieldscreenscheme` WRITE;
+/*!40000 ALTER TABLE `fieldscreenscheme` DISABLE KEYS */;
+INSERT INTO `fieldscreenscheme` VALUES (1,'Default Screen Scheme','Default Screen Scheme'),(10000,'AA: 项目管理页面方案','');
+/*!40000 ALTER TABLE `fieldscreenscheme` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `fieldscreenschemeitem`
+--
+
+DROP TABLE IF EXISTS `fieldscreenschemeitem`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `fieldscreenschemeitem` (
+  `ID` decimal(18,0) NOT NULL,
+  `OPERATION` decimal(18,0) DEFAULT NULL,
+  `FIELDSCREEN` decimal(18,0) DEFAULT NULL,
+  `FIELDSCREENSCHEME` decimal(18,0) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `screenitem_scheme` (`FIELDSCREENSCHEME`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `fieldscreenschemeitem`
+--
+
+LOCK TABLES `fieldscreenschemeitem` WRITE;
+/*!40000 ALTER TABLE `fieldscreenschemeitem` DISABLE KEYS */;
+INSERT INTO `fieldscreenschemeitem` VALUES (10000,NULL,1,1),(10100,NULL,10001,10000),(10101,0,10000,10000);
+/*!40000 ALTER TABLE `fieldscreenschemeitem` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `fieldscreentab`
+--
+
+DROP TABLE IF EXISTS `fieldscreentab`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `fieldscreentab` (
+  `ID` decimal(18,0) NOT NULL,
+  `NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `DESCRIPTION` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `SEQUENCE` decimal(18,0) DEFAULT NULL,
+  `FIELDSCREEN` decimal(18,0) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `fieldscreen_tab` (`FIELDSCREEN`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `fieldscreentab`
+--
+
+LOCK TABLES `fieldscreentab` WRITE;
+/*!40000 ALTER TABLE `fieldscreentab` DISABLE KEYS */;
+INSERT INTO `fieldscreentab` VALUES (10000,'Field Tab',NULL,0,1),(10001,'Field Tab',NULL,0,2),(10002,'Field Tab',NULL,0,3),(10100,'域选项',NULL,0,10000),(10101,'域选项',NULL,0,10001),(10102,'域选项',NULL,0,10002);
+/*!40000 ALTER TABLE `fieldscreentab` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `fileattachment`
+--
+
+DROP TABLE IF EXISTS `fileattachment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `fileattachment` (
+  `ID` decimal(18,0) NOT NULL,
+  `issueid` decimal(18,0) DEFAULT NULL,
+  `MIMETYPE` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `FILENAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `CREATED` datetime DEFAULT NULL,
+  `FILESIZE` decimal(18,0) DEFAULT NULL,
+  `AUTHOR` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `zip` decimal(9,0) DEFAULT NULL,
+  `thumbnailable` decimal(9,0) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `attach_issue` (`issueid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `fileattachment`
+--
+
+LOCK TABLES `fileattachment` WRITE;
+/*!40000 ALTER TABLE `fileattachment` DISABLE KEYS */;
+INSERT INTO `fileattachment` VALUES (10000,10000,'image/png','IssueTypes.png','2020-05-27 17:30:14',12880,'JIRAUSER10000',NULL,1),(10001,10001,'image/png','Workflow.png','2020-05-27 17:30:14',24139,'JIRAUSER10000',NULL,NULL),(10002,10002,'image/png','Comment.png','2020-05-27 17:30:14',15690,'JIRAUSER10000',NULL,NULL),(10003,10002,'image/png','dot.png','2020-05-27 17:30:14',1127,'JIRAUSER10000',NULL,NULL),(10004,10002,'image/png','e.png','2020-05-27 17:30:14',1280,'JIRAUSER10000',NULL,NULL),(10005,10002,'image/png','m.png','2020-05-27 17:30:14',1215,'JIRAUSER10000',NULL,NULL),(10006,10004,'image/png','Keyboard.png','2020-05-27 17:30:14',1355,'JIRAUSER10000',NULL,NULL),(10007,10004,'image/png','dot.png','2020-05-27 17:30:14',1127,'JIRAUSER10000',NULL,NULL),(10008,10004,'image/png','i.png','2020-05-27 17:30:14',1123,'JIRAUSER10000',NULL,NULL),(10009,10004,'image/png','l.png','2020-05-27 17:30:14',1120,'JIRAUSER10000',NULL,NULL),(10010,10004,'image/png','questionmark.png','2020-05-27 17:30:14',1251,'JIRAUSER10000',NULL,NULL),(10011,10005,'image/png','c.png','2020-05-27 17:30:14',1268,'JIRAUSER10000',NULL,NULL),(10012,10005,'image/png','dot.png','2020-05-27 17:30:14',1127,'JIRAUSER10000',NULL,NULL),(10013,10005,'image/png','g.png','2020-05-27 17:30:14',1284,'JIRAUSER10000',NULL,NULL),(10014,10005,'image/png','i.png','2020-05-27 17:30:14',1123,'JIRAUSER10000',NULL,NULL);
+/*!40000 ALTER TABLE `fileattachment` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `filtersubscription`
+--
+
+DROP TABLE IF EXISTS `filtersubscription`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `filtersubscription` (
+  `ID` decimal(18,0) NOT NULL,
+  `FILTER_I_D` decimal(18,0) DEFAULT NULL,
+  `USERNAME` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `groupname` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `LAST_RUN` datetime DEFAULT NULL,
+  `EMAIL_ON_EMPTY` varchar(10) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `subscrpt_user` (`FILTER_I_D`,`USERNAME`),
+  KEY `subscrptn_group` (`FILTER_I_D`,`groupname`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `filtersubscription`
+--
+
+LOCK TABLES `filtersubscription` WRITE;
+/*!40000 ALTER TABLE `filtersubscription` DISABLE KEYS */;
+/*!40000 ALTER TABLE `filtersubscription` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `gadgetuserpreference`
+--
+
+DROP TABLE IF EXISTS `gadgetuserpreference`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gadgetuserpreference` (
+  `ID` decimal(18,0) NOT NULL,
+  `PORTLETCONFIGURATION` decimal(18,0) DEFAULT NULL,
+  `USERPREFKEY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `USERPREFVALUE` longtext COLLATE utf8_bin,
+  PRIMARY KEY (`ID`),
+  KEY `userpref_portletconfiguration` (`PORTLETCONFIGURATION`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `gadgetuserpreference`
+--
+
+LOCK TABLES `gadgetuserpreference` WRITE;
+/*!40000 ALTER TABLE `gadgetuserpreference` DISABLE KEYS */;
+INSERT INTO `gadgetuserpreference` VALUES (10000,10002,'isConfigured','true'),(10001,10003,'keys','__all_projects__'),(10002,10003,'isConfigured','true'),(10003,10003,'title','Your Company Jira'),(10004,10003,'numofentries','5');
+/*!40000 ALTER TABLE `gadgetuserpreference` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `genericconfiguration`
+--
+
+DROP TABLE IF EXISTS `genericconfiguration`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `genericconfiguration` (
+  `ID` decimal(18,0) NOT NULL,
+  `DATATYPE` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `DATAKEY` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `XMLVALUE` text COLLATE utf8_bin,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `type_key` (`DATATYPE`,`DATAKEY`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `genericconfiguration`
+--
+
+LOCK TABLES `genericconfiguration` WRITE;
+/*!40000 ALTER TABLE `genericconfiguration` DISABLE KEYS */;
+INSERT INTO `genericconfiguration` VALUES (10000,'DefaultValue','10000','<string>1</string>'),(10100,'DefaultValue','10207','<string>10002</string>'),(10200,'DefaultValue','10204','<long>10000</long>');
+/*!40000 ALTER TABLE `genericconfiguration` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `globalpermissionentry`
+--
+
+DROP TABLE IF EXISTS `globalpermissionentry`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `globalpermissionentry` (
+  `ID` decimal(18,0) NOT NULL,
+  `PERMISSION` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `GROUP_ID` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `globalpermissionentry`
+--
+
+LOCK TABLES `globalpermissionentry` WRITE;
+/*!40000 ALTER TABLE `globalpermissionentry` DISABLE KEYS */;
+INSERT INTO `globalpermissionentry` VALUES (10000,'ADMINISTER','jira-administrators'),(10006,'SYSTEM_ADMIN','jira-administrators'),(10100,'USER_PICKER','jira-software-users'),(10101,'BULK_CHANGE','jira-software-users'),(10102,'CREATE_SHARED_OBJECTS','jira-software-users'),(10103,'MANAGE_GROUP_FILTER_SUBSCRIPTIONS','jira-software-users'),(10104,'CREATE_SHARED_OBJECTS','jira-administrators'),(10105,'MANAGE_GROUP_FILTER_SUBSCRIPTIONS','jira-administrators'),(10106,'USER_PICKER','jira-administrators'),(10107,'BULK_CHANGE','jira-administrators');
+/*!40000 ALTER TABLE `globalpermissionentry` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `groupbase`
+--
+
+DROP TABLE IF EXISTS `groupbase`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `groupbase` (
+  `ID` decimal(18,0) NOT NULL,
+  `groupname` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `osgroup_name` (`groupname`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `groupbase`
+--
+
+LOCK TABLES `groupbase` WRITE;
+/*!40000 ALTER TABLE `groupbase` DISABLE KEYS */;
+/*!40000 ALTER TABLE `groupbase` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `issue_field_option`
+--
+
+DROP TABLE IF EXISTS `issue_field_option`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `issue_field_option` (
+  `ID` decimal(18,0) NOT NULL,
+  `OPTION_ID` decimal(18,0) DEFAULT NULL,
+  `FIELD_KEY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `option_value` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `PROPERTIES` text COLLATE utf8_bin,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `issue_field_option`
+--
+
+LOCK TABLES `issue_field_option` WRITE;
+/*!40000 ALTER TABLE `issue_field_option` DISABLE KEYS */;
+/*!40000 ALTER TABLE `issue_field_option` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `issue_field_option_scope`
+--
+
+DROP TABLE IF EXISTS `issue_field_option_scope`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `issue_field_option_scope` (
+  `ID` decimal(18,0) NOT NULL,
+  `OPTION_ID` decimal(18,0) DEFAULT NULL,
+  `ENTITY_ID` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `SCOPE_TYPE` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `issue_field_option_scope`
+--
+
+LOCK TABLES `issue_field_option_scope` WRITE;
+/*!40000 ALTER TABLE `issue_field_option_scope` DISABLE KEYS */;
+/*!40000 ALTER TABLE `issue_field_option_scope` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `issue_version`
+--
+
+DROP TABLE IF EXISTS `issue_version`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `issue_version` (
+  `ISSUE_ID` decimal(18,0) NOT NULL,
+  `PARENT_ISSUE_ID` decimal(18,0) DEFAULT NULL,
+  `UPDATE_TIME` datetime DEFAULT NULL,
+  `INDEX_VERSION` decimal(18,0) DEFAULT NULL,
+  `DELETED` char(1) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ISSUE_ID`),
+  KEY `iv_deleted_update_time_idx` (`DELETED`,`UPDATE_TIME`),
+  KEY `iv_parent_id` (`PARENT_ISSUE_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `issue_version`
+--
+
+LOCK TABLES `issue_version` WRITE;
+/*!40000 ALTER TABLE `issue_version` DISABLE KEYS */;
+INSERT INTO `issue_version` VALUES (10000,NULL,'2020-05-27 17:30:16',2,'N'),(10001,NULL,'2020-05-27 17:30:16',2,'N'),(10002,NULL,'2020-05-27 17:30:16',2,'N'),(10003,NULL,'2020-05-27 17:30:16',2,'N'),(10004,NULL,'2020-05-27 17:30:16',2,'N'),(10005,NULL,'2020-05-27 17:30:16',2,'N');
+/*!40000 ALTER TABLE `issue_version` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `issuelink`
+--
+
+DROP TABLE IF EXISTS `issuelink`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `issuelink` (
+  `ID` decimal(18,0) NOT NULL,
+  `LINKTYPE` decimal(18,0) DEFAULT NULL,
+  `SOURCE` decimal(18,0) DEFAULT NULL,
+  `DESTINATION` decimal(18,0) DEFAULT NULL,
+  `SEQUENCE` decimal(18,0) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `issuelink_src` (`SOURCE`),
+  KEY `issuelink_dest` (`DESTINATION`),
+  KEY `issuelink_type` (`LINKTYPE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `issuelink`
+--
+
+LOCK TABLES `issuelink` WRITE;
+/*!40000 ALTER TABLE `issuelink` DISABLE KEYS */;
+/*!40000 ALTER TABLE `issuelink` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `issuelinktype`
+--
+
+DROP TABLE IF EXISTS `issuelinktype`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `issuelinktype` (
+  `ID` decimal(18,0) NOT NULL,
+  `LINKNAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `INWARD` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `OUTWARD` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `pstyle` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `linktypename` (`LINKNAME`),
+  KEY `linktypestyle` (`pstyle`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `issuelinktype`
+--
+
+LOCK TABLES `issuelinktype` WRITE;
+/*!40000 ALTER TABLE `issuelinktype` DISABLE KEYS */;
+INSERT INTO `issuelinktype` VALUES (10000,'Blocks','is blocked by','blocks',NULL),(10001,'Cloners','is cloned by','clones',NULL),(10002,'Duplicate','is duplicated by','duplicates',NULL),(10003,'Relates','relates to','relates to',NULL),(10100,'jira_subtask_link','jira_subtask_inward','jira_subtask_outward','jira_subtask'),(10200,'Epic-Story Link','has Epic','is Epic of','jira_gh_epic_story');
+/*!40000 ALTER TABLE `issuelinktype` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `issuesecurityscheme`
+--
+
+DROP TABLE IF EXISTS `issuesecurityscheme`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `issuesecurityscheme` (
+  `ID` decimal(18,0) NOT NULL,
+  `NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `DESCRIPTION` text COLLATE utf8_bin,
+  `DEFAULTLEVEL` decimal(18,0) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `issuesecurityscheme`
+--
+
+LOCK TABLES `issuesecurityscheme` WRITE;
+/*!40000 ALTER TABLE `issuesecurityscheme` DISABLE KEYS */;
+/*!40000 ALTER TABLE `issuesecurityscheme` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `issuestatus`
+--
+
+DROP TABLE IF EXISTS `issuestatus`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `issuestatus` (
+  `ID` varchar(60) COLLATE utf8_bin NOT NULL,
+  `SEQUENCE` decimal(18,0) DEFAULT NULL,
+  `pname` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `DESCRIPTION` text COLLATE utf8_bin,
+  `ICONURL` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `STATUSCATEGORY` decimal(18,0) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `issuestatus`
+--
+
+LOCK TABLES `issuestatus` WRITE;
+/*!40000 ALTER TABLE `issuestatus` DISABLE KEYS */;
+INSERT INTO `issuestatus` VALUES ('1',1,'Open','The issue is open and ready for the assignee to start work on it.','/images/icons/statuses/open.png',2),('10000',7,'To Do',NULL,'/images/icons/status_generic.gif',2),('10001',8,'Done',NULL,'/images/icons/status_generic.gif',3),('3',3,'In Progress','This issue is being actively worked on at the moment by the assignee.','/images/icons/statuses/inprogress.png',4),('4',4,'Reopened','This issue was once resolved, but the resolution was deemed incorrect. From here issues are either marked assigned or resolved.','/images/icons/statuses/reopened.png',2),('5',5,'Resolved','A resolution has been taken, and it is awaiting verification by reporter. From here issues are either reopened, or are closed.','/images/icons/statuses/resolved.png',3),('6',6,'Closed','The issue is considered finished, the resolution is correct. Issues which are closed can be reopened.','/images/icons/statuses/closed.png',3);
+/*!40000 ALTER TABLE `issuestatus` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `issuetype`
+--
+
+DROP TABLE IF EXISTS `issuetype`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `issuetype` (
+  `ID` varchar(60) COLLATE utf8_bin NOT NULL,
+  `SEQUENCE` decimal(18,0) DEFAULT NULL,
+  `pname` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `pstyle` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `DESCRIPTION` text COLLATE utf8_bin,
+  `ICONURL` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `AVATAR` decimal(18,0) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `issuetype`
+--
+
+LOCK TABLES `issuetype` WRITE;
+/*!40000 ALTER TABLE `issuetype` DISABLE KEYS */;
+INSERT INTO `issuetype` VALUES ('10000',NULL,'Epic',NULL,'由 Jira Software 创建——请勿编辑或删除。适用于大型用户故事的事务类型，需对其加以细分。','/images/icons/issuetypes/epic.svg',NULL),('10001',NULL,'故事',NULL,'由 Jira Software 创建——请勿编辑或删除。适用于一种用户故事的事务类型。','/images/icons/issuetypes/story.svg',NULL),('10002',NULL,'任务','','需要完成的任务。',NULL,10318),('10003',NULL,'子任务','jira_subtask','问题的子任务',NULL,10316);
+/*!40000 ALTER TABLE `issuetype` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `issuetypescreenscheme`
+--
+
+DROP TABLE IF EXISTS `issuetypescreenscheme`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `issuetypescreenscheme` (
+  `ID` decimal(18,0) NOT NULL,
+  `NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `DESCRIPTION` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `issuetypescreenscheme`
+--
+
+LOCK TABLES `issuetypescreenscheme` WRITE;
+/*!40000 ALTER TABLE `issuetypescreenscheme` DISABLE KEYS */;
+INSERT INTO `issuetypescreenscheme` VALUES (1,'Default Issue Type Screen Scheme','The default issue type screen scheme'),(10000,'AA: 项目管理问题类型页面方案','');
+/*!40000 ALTER TABLE `issuetypescreenscheme` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `issuetypescreenschemeentity`
+--
+
+DROP TABLE IF EXISTS `issuetypescreenschemeentity`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `issuetypescreenschemeentity` (
+  `ID` decimal(18,0) NOT NULL,
+  `ISSUETYPE` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `SCHEME` decimal(18,0) DEFAULT NULL,
+  `FIELDSCREENSCHEME` decimal(18,0) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `fieldscreen_scheme` (`FIELDSCREENSCHEME`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `issuetypescreenschemeentity`
+--
+
+LOCK TABLES `issuetypescreenschemeentity` WRITE;
+/*!40000 ALTER TABLE `issuetypescreenschemeentity` DISABLE KEYS */;
+INSERT INTO `issuetypescreenschemeentity` VALUES (10000,NULL,1,1),(10100,NULL,10000,10000);
+/*!40000 ALTER TABLE `issuetypescreenschemeentity` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `jiraaction`
+--
+
+DROP TABLE IF EXISTS `jiraaction`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `jiraaction` (
+  `ID` decimal(18,0) NOT NULL,
+  `issueid` decimal(18,0) DEFAULT NULL,
+  `AUTHOR` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `actiontype` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `actionlevel` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `rolelevel` decimal(18,0) DEFAULT NULL,
+  `actionbody` longtext COLLATE utf8_bin,
+  `CREATED` datetime DEFAULT NULL,
+  `UPDATEAUTHOR` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `UPDATED` datetime DEFAULT NULL,
+  `actionnum` decimal(18,0) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `action_author_created` (`AUTHOR`,`CREATED`),
+  KEY `action_issue` (`issueid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `jiraaction`
+--
+
+LOCK TABLES `jiraaction` WRITE;
+/*!40000 ALTER TABLE `jiraaction` DISABLE KEYS */;
+INSERT INTO `jiraaction` VALUES (10000,10002,'JIRAUSER10000','comment',NULL,NULL,'Which way are you going to add your comment?\n\n* Keyboard shortcut: !m.png!\n* Clicking the Comment button below\n* Clicking the Comment button in the top section\n* Using the Operations Dialog keyboard shortcut: !dot.png! and then typing \'comment\'\n','2020-05-27 17:30:14','JIRAUSER10000','2020-05-27 17:30:14',NULL);
+/*!40000 ALTER TABLE `jiraaction` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `jiradraftworkflows`
+--
+
+DROP TABLE IF EXISTS `jiradraftworkflows`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `jiradraftworkflows` (
+  `ID` decimal(18,0) NOT NULL,
+  `PARENTNAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `DESCRIPTOR` longtext COLLATE utf8_bin,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `jiradraftworkflows`
+--
+
+LOCK TABLES `jiradraftworkflows` WRITE;
+/*!40000 ALTER TABLE `jiradraftworkflows` DISABLE KEYS */;
+/*!40000 ALTER TABLE `jiradraftworkflows` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `jiraeventtype`
+--
+
+DROP TABLE IF EXISTS `jiraeventtype`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `jiraeventtype` (
+  `ID` decimal(18,0) NOT NULL,
+  `TEMPLATE_ID` decimal(18,0) DEFAULT NULL,
+  `NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `DESCRIPTION` text COLLATE utf8_bin,
+  `event_type` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `jiraeventtype`
+--
+
+LOCK TABLES `jiraeventtype` WRITE;
+/*!40000 ALTER TABLE `jiraeventtype` DISABLE KEYS */;
+INSERT INTO `jiraeventtype` VALUES (1,NULL,'Issue Created','This is the \'issue created\' event.','jira.system.event.type'),(2,NULL,'Issue Updated','This is the \'issue updated\' event.','jira.system.event.type'),(3,NULL,'Issue Assigned','This is the \'issue assigned\' event.','jira.system.event.type'),(4,NULL,'Issue Resolved','This is the \'issue resolved\' event.','jira.system.event.type'),(5,NULL,'Issue Closed','This is the \'issue closed\' event.','jira.system.event.type'),(6,NULL,'Issue Commented','This is the \'issue commented\' event.','jira.system.event.type'),(7,NULL,'Issue Reopened','This is the \'issue reopened\' event.','jira.system.event.type'),(8,NULL,'Issue Deleted','This is the \'issue deleted\' event.','jira.system.event.type'),(9,NULL,'Issue Moved','This is the \'issue moved\' event.','jira.system.event.type'),(10,NULL,'Work Logged On Issue','This is the \'work logged on issue\' event.','jira.system.event.type'),(11,NULL,'Work Started On Issue','This is the \'work started on issue\' event.','jira.system.event.type'),(12,NULL,'Work Stopped On Issue','This is the \'work stopped on issue\' event.','jira.system.event.type'),(13,NULL,'Generic Event','This is the \'generic event\' event.','jira.system.event.type'),(14,NULL,'Issue Comment Edited','This is the \'issue comment edited\' event.','jira.system.event.type'),(15,NULL,'Issue Worklog Updated','This is the \'issue worklog updated\' event.','jira.system.event.type'),(16,NULL,'Issue Worklog Deleted','This is the \'issue worklog deleted\' event.','jira.system.event.type'),(17,NULL,'Issue Comment Deleted','This is the \'issue comment deleted\' event.','jira.system.event.type'),(18,NULL,'Issue Archived','This is the \'issue archived\' event','jira.system.event.type'),(19,NULL,'Issue Restored','This is the \'issue restored\' event','jira.system.event.type');
+/*!40000 ALTER TABLE `jiraeventtype` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `jiraissue`
+--
+
+DROP TABLE IF EXISTS `jiraissue`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `jiraissue` (
+  `ID` decimal(18,0) NOT NULL,
+  `pkey` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `issuenum` decimal(18,0) DEFAULT NULL,
+  `PROJECT` decimal(18,0) DEFAULT NULL,
+  `REPORTER` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `ASSIGNEE` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `CREATOR` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `issuetype` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `SUMMARY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `DESCRIPTION` longtext COLLATE utf8_bin,
+  `ENVIRONMENT` longtext COLLATE utf8_bin,
+  `PRIORITY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `RESOLUTION` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `issuestatus` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `CREATED` datetime DEFAULT NULL,
+  `UPDATED` datetime DEFAULT NULL,
+  `DUEDATE` datetime DEFAULT NULL,
+  `RESOLUTIONDATE` datetime DEFAULT NULL,
+  `VOTES` decimal(18,0) DEFAULT NULL,
+  `WATCHES` decimal(18,0) DEFAULT NULL,
+  `TIMEORIGINALESTIMATE` decimal(18,0) DEFAULT NULL,
+  `TIMEESTIMATE` decimal(18,0) DEFAULT NULL,
+  `TIMESPENT` decimal(18,0) DEFAULT NULL,
+  `WORKFLOW_ID` decimal(18,0) DEFAULT NULL,
+  `SECURITY` decimal(18,0) DEFAULT NULL,
+  `FIXFOR` decimal(18,0) DEFAULT NULL,
+  `COMPONENT` decimal(18,0) DEFAULT NULL,
+  `ARCHIVED` char(1) COLLATE utf8_bin DEFAULT NULL,
+  `ARCHIVEDBY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `ARCHIVEDDATE` datetime DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `issue_proj_num` (`issuenum`,`PROJECT`),
+  KEY `issue_proj_status` (`PROJECT`,`issuestatus`),
+  KEY `issue_created` (`CREATED`),
+  KEY `issue_updated` (`UPDATED`),
+  KEY `issue_duedate` (`DUEDATE`),
+  KEY `issue_resolutiondate` (`RESOLUTIONDATE`),
+  KEY `issue_assignee` (`ASSIGNEE`),
+  KEY `issue_reporter` (`REPORTER`),
+  KEY `issue_workflow` (`WORKFLOW_ID`),
+  KEY `issue_votes` (`VOTES`),
+  KEY `issue_watches` (`WATCHES`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `jiraissue`
+--
+
+LOCK TABLES `jiraissue` WRITE;
+/*!40000 ALTER TABLE `jiraissue` DISABLE KEYS */;
+INSERT INTO `jiraissue` VALUES (10000,NULL,1,10000,'JIRAUSER10000','JIRAUSER10000','JIRAUSER10000','10002','This is your first task','h2. This is your first task. \n{color:#707070} Issues are the things you do in a project. In business projects, issues are called tasks. {color}\nh4. Types of tasks\n{color:#707070}A task can represent a document, a creative asset, a purchase and even a person.{color}\n!IssueTypes.png!\nh4. Details\n{color:#707070}The \'Details\' section above, provides the information you need, such as priority and status, to help you track the progress of your tasks.{color}\nNext: [Workflows and statuses|AA-2]\n\n----\n[Learn more |http://blogs.atlassian.com/2015/11/make-jira-core-issues-work-for-your-business-team/]',NULL,'3',NULL,'10000','2020-05-27 17:30:14','2020-05-27 17:29:14',NULL,NULL,0,0,NULL,NULL,NULL,10000,NULL,NULL,NULL,'N',NULL,NULL),(10001,NULL,2,10000,'JIRAUSER10000','JIRAUSER10000','JIRAUSER10000','10002','Workflows and statuses','!Workflow.png|align=left!\nh4. Workflows - What you need to know\n{color:#707070}Workflows define steps to get a task to done. To see the workflow this tasks goes through, click on \'View Workflow\' above. {color}\nh4. Status\n{color:#707070} A status represents the “state” of a task at a specific point in your workflow. The current status of your task can be viewed in the \'Details\' section above. Once you\'re ready to move to the next step, click on the appropriate transition button. {color}\n\nNext: [Editing tasks|AA-3]\n{color:#707070}Previous:{color} [This is your first task.|AA-1]\n\n----\n[Learn more about workflows|http://blogs.atlassian.com/2015/11/how-to-set-up-business-workflows-in-jira-core/]',NULL,'3',NULL,'10000','2020-05-27 17:30:15','2020-05-27 17:28:14',NULL,NULL,0,0,NULL,NULL,NULL,10001,NULL,NULL,NULL,'N',NULL,NULL),(10002,NULL,3,10000,'JIRAUSER10000','JIRAUSER10000','JIRAUSER10000','10002','Editing tasks','h4. Editing tasks\n{color:#707070}Hover over the content you want to edit and make the change. Click the checkmark and you\'re done! You can also edit using keyboard shortcuts or by clicking the \'Edit\' button. And don\'t forget to assign the task to someone. {color}\nh4. Commenting\n{color:#707070}You can add comments to a task below. Comments are a great way to communicate with your team and stay informed. Plus, you can notify specific team members by using @mentions.\n{color}\n!Comment.png!\nNext: [Searching|AA-4]\n{color:#707070}Previous:{color} [Workflows and Statuses|AA-2]\n\n\n----\n[Learn more about editing issues|https://confluence.atlassian.com/display/JIRA/Editing+an+Issue]',NULL,'3',NULL,'10000','2020-05-27 17:30:15','2020-05-27 17:27:14',NULL,NULL,0,0,300,NULL,NULL,10002,NULL,NULL,NULL,'N',NULL,NULL),(10003,NULL,4,10000,'JIRAUSER10000','JIRAUSER10000','JIRAUSER10000','10002','Searching for information','h4.Searching for Information\n{color:#707070}Use the Search bar in the top right to quickly find a particular task. \nFor more advanced searches, click \'Search for issues\' under the Issues menu. \n{color}\nNext: [Keyboard shortcuts|AA-5]\n{color:#707070}Previous:{color} [Editing tasks|AA-3]\n\n----\n[Learn more about searching|https://confluence.atlassian.com/display/JIRACORECLOUD/Searching+for+issues]',NULL,'3',NULL,'10000','2020-05-27 17:30:15','2020-05-27 17:26:14',NULL,NULL,0,0,NULL,NULL,NULL,10003,NULL,NULL,NULL,'N',NULL,NULL),(10004,NULL,5,10000,'JIRAUSER10000','JIRAUSER10000','JIRAUSER10000','10002','Keyboard shortcuts','h4. Working faster\n{color:#707070}!Keyboard.png! Are you a fan of keyboard shortcuts? We are too! Press !questionmark.png! to see the list.\nHere are three of our favourites that you might like to try:{color}\n* {color:#707070}!dot.png! Operations Dialog{color}\n* {color:#707070}!i.png! Assign to me{color}\n* {color:#707070}!l.png! Label Issue{color}\nNext: [Searching for Information|AA-6]\n{color:#707070}Previous:{color} [What\'s next|AA-4]\n\n----\n[Learn more about keyboard shortcuts|https://confluence.atlassian.com/display/JIRA/Using+Keyboard+Shortcuts]',NULL,'3',NULL,'10000','2020-05-27 17:30:16','2020-05-27 17:25:14',NULL,NULL,0,0,NULL,NULL,NULL,10004,NULL,NULL,NULL,'N',NULL,NULL),(10005,NULL,6,10000,'JIRAUSER10000','JIRAUSER10000','JIRAUSER10000','10002','What\'s next?','h4. Now it\'s your turn!\n{color:#707070}Now, it is your turn to create your first task. Click the \'Create\' button and get your project started. {color}\nh4. If you are a JIRA Core administrator, you can create and customize projects for your organization. \n* {color:#707070} Click on \'Create Project\' under the Project menu above and select one of the business projects to get started. {color}\n* {color:#707070}Invite team members to JIRA Core - keyboard shortcut: !dot.png!, then type \'users\' {color}\n* {color:#707070}Delete this Demo Project - keyboard shortcut: !dot.png!, then type \'projects\' {color}\n{color:#707070}Previous:{color} [Keyboard shortcuts|AA-5]\n\n----\n(i) [Visit the JIRA Core documentation|https://confluence.atlassian.com/display/JIRACORECLOUD/JIRA+Core+documentation]',NULL,'3',NULL,'10000','2020-05-27 17:30:16','2020-05-27 17:24:14',NULL,NULL,0,0,NULL,NULL,NULL,10005,NULL,NULL,NULL,'N',NULL,NULL);
+/*!40000 ALTER TABLE `jiraissue` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `jiraperms`
+--
+
+DROP TABLE IF EXISTS `jiraperms`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `jiraperms` (
+  `ID` decimal(18,0) NOT NULL,
+  `permtype` decimal(18,0) DEFAULT NULL,
+  `projectid` decimal(18,0) DEFAULT NULL,
+  `groupname` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `jiraperms`
+--
+
+LOCK TABLES `jiraperms` WRITE;
+/*!40000 ALTER TABLE `jiraperms` DISABLE KEYS */;
+/*!40000 ALTER TABLE `jiraperms` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `jiraworkflows`
+--
+
+DROP TABLE IF EXISTS `jiraworkflows`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `jiraworkflows` (
+  `ID` decimal(18,0) NOT NULL,
+  `workflowname` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `creatorname` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `DESCRIPTOR` longtext COLLATE utf8_bin,
+  `ISLOCKED` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `jiraworkflows`
+--
+
+LOCK TABLES `jiraworkflows` WRITE;
+/*!40000 ALTER TABLE `jiraworkflows` DISABLE KEYS */;
+INSERT INTO `jiraworkflows` VALUES (10000,'classic default workflow',NULL,'<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE workflow PUBLIC \"-//OpenSymphony Group//DTD OSWorkflow 2.8//EN\" \"http://www.opensymphony.com/osworkflow/workflow_2_8.dtd\">\n<workflow>\n  <meta name=\"jira.description\">The classic Jira default workflow</meta>\n  <initial-actions>\n    <action id=\"1\" name=\"Create Issue\">\n      <meta name=\"opsbar-sequence\">0</meta>\n      <meta name=\"jira.i18n.title\">common.forms.create</meta>\n      <validators>\n        <validator name=\"\" type=\"class\">\n          <arg name=\"class.name\">com.atlassian.jira.workflow.validator.PermissionValidator</arg>\n          <arg name=\"permission\">Create Issue</arg>\n        </validator>\n      </validators>\n      <results>\n        <unconditional-result old-status=\"Finished\" status=\"Open\" step=\"1\">\n          <post-functions>\n            <function type=\"class\">\n              <arg name=\"class.name\">com.atlassian.jira.workflow.function.issue.IssueCreateFunction</arg>\n            </function>\n            <function type=\"class\">\n              <arg name=\"class.name\">com.atlassian.jira.workflow.function.event.FireIssueEventFunction</arg>\n              <arg name=\"eventTypeId\">1</arg>\n            </function>\n          </post-functions>\n        </unconditional-result>\n      </results>\n    </action>\n  </initial-actions>\n  <common-actions>\n    <action id=\"2\" name=\"Close Issue\" view=\"resolveissue\">\n      <meta name=\"opsbar-sequence\">60</meta>\n      <meta name=\"jira.i18n.submit\">closeissue.close</meta>\n      <meta name=\"jira.i18n.description\">closeissue.desc</meta>\n      <meta name=\"jira.i18n.title\">closeissue.title</meta>\n      <restrict-to>\n        <conditions type=\"AND\">\n          <condition type=\"class\">\n            <arg name=\"class.name\">com.atlassian.jira.workflow.condition.PermissionCondition</arg>\n            <arg name=\"permission\">Resolve Issue</arg>\n          </condition>\n          <condition type=\"class\">\n            <arg name=\"class.name\">com.atlassian.jira.workflow.condition.PermissionCondition</arg>\n            <arg name=\"permission\">Close Issue</arg>\n          </condition>\n        </conditions>\n      </restrict-to>\n      <results>\n        <unconditional-result old-status=\"Finished\" status=\"Closed\" step=\"6\">\n          <post-functions>\n            <function type=\"class\">\n              <arg name=\"class.name\">com.atlassian.jira.workflow.function.issue.UpdateIssueStatusFunction</arg>\n            </function>\n            <function type=\"class\">\n              <arg name=\"class.name\">com.atlassian.jira.workflow.function.misc.CreateCommentFunction</arg>\n            </function>\n            <function type=\"class\">\n              <arg name=\"class.name\">com.atlassian.jira.workflow.function.issue.GenerateChangeHistoryFunction</arg>\n            </function>\n            <function type=\"class\">\n              <arg name=\"class.name\">com.atlassian.jira.workflow.function.issue.IssueReindexFunction</arg>\n            </function>\n            <function type=\"class\">\n              <arg name=\"class.name\">com.atlassian.jira.workflow.function.event.FireIssueEventFunction</arg>\n              <arg name=\"eventTypeId\">5</arg>\n            </function>\n          </post-functions>\n        </unconditional-result>\n      </results>\n    </action>\n    <action id=\"3\" name=\"Reopen Issue\" view=\"commentassign\">\n      <meta name=\"opsbar-sequence\">80</meta>\n      <meta name=\"jira.i18n.submit\">issue.operations.reopen.issue</meta>\n      <meta name=\"jira.i18n.description\">issue.operations.reopen.description</meta>\n      <meta name=\"jira.i18n.title\">issue.operations.reopen.issue</meta>\n      <restrict-to>\n        <conditions>\n          <condition type=\"class\">\n            <arg name=\"class.name\">com.atlassian.jira.workflow.condition.PermissionCondition</arg>\n            <arg name=\"permission\">Resolve Issue</arg>\n          </condition>\n        </conditions>\n      </restrict-to>\n      <results>\n        <unconditional-result old-status=\"Finished\" status=\"Reopened\" step=\"5\">\n          <post-functions>\n            <function type=\"class\">\n              <arg name=\"class.name\">com.atlassian.jira.workflow.function.issue.UpdateIssueFieldFunction</arg>\n              <arg name=\"field.value\"></arg>\n              <arg name=\"field.name\">resolution</arg>\n            </function>\n            <function type=\"class\">\n              <arg name=\"class.name\">com.atlassian.jira.workflow.function.issue.UpdateIssueStatusFunction</arg>\n            </function>\n            <function type=\"class\">\n              <arg name=\"class.name\">com.atlassian.jira.workflow.function.misc.CreateCommentFunction</arg>\n            </function>\n            <function type=\"class\">\n              <arg name=\"class.name\">com.atlassian.jira.workflow.function.issue.GenerateChangeHistoryFunction</arg>\n            </function>\n            <function type=\"class\">\n              <arg name=\"class.name\">com.atlassian.jira.workflow.function.issue.IssueReindexFunction</arg>\n            </function>\n            <function type=\"class\">\n              <arg name=\"class.name\">com.atlassian.jira.workflow.function.event.FireIssueEventFunction</arg>\n              <arg name=\"eventTypeId\">7</arg>\n            </function>\n          </post-functions>\n        </unconditional-result>\n      </results>\n    </action>\n    <action id=\"4\" name=\"Start Progress\">\n      <meta name=\"opsbar-sequence\">20</meta>\n      <meta name=\"jira.i18n.title\">startprogress.title</meta>\n      <restrict-to>\n        <conditions>\n          <condition type=\"class\">\n            <arg name=\"class.name\">com.atlassian.jira.workflow.condition.AllowOnlyAssignee</arg>\n          </condition>\n        </conditions>\n      </restrict-to>\n      <results>\n        <unconditional-result old-status=\"Finished\" status=\"Underway\" step=\"3\">\n          <post-functions>\n            <function type=\"class\">\n              <arg name=\"class.name\">com.atlassian.jira.workflow.function.issue.UpdateIssueFieldFunction</arg>\n              <arg name=\"field.value\"></arg>\n              <arg name=\"field.name\">resolution</arg>\n            </function>\n            <function type=\"class\">\n              <arg name=\"class.name\">com.atlassian.jira.workflow.function.issue.UpdateIssueStatusFunction</arg>\n            </function>\n            <function type=\"class\">\n              <arg name=\"class.name\">com.atlassian.jira.workflow.function.misc.CreateCommentFunction</arg>\n            </function>\n            <function type=\"class\">\n              <arg name=\"class.name\">com.atlassian.jira.workflow.function.issue.GenerateChangeHistoryFunction</arg>\n            </function>\n            <function type=\"class\">\n              <arg name=\"class.name\">com.atlassian.jira.workflow.function.issue.IssueReindexFunction</arg>\n            </function>\n            <function type=\"class\">\n              <arg name=\"class.name\">com.atlassian.jira.workflow.function.event.FireIssueEventFunction</arg>\n              <arg name=\"eventTypeId\">11</arg>\n            </function>\n          </post-functions>\n        </unconditional-result>\n      </results>\n    </action>\n    <action id=\"5\" name=\"Resolve Issue\" view=\"resolveissue\">\n      <meta name=\"opsbar-sequence\">40</meta>\n      <meta name=\"jira.i18n.submit\">resolveissue.resolve</meta>\n      <meta name=\"jira.i18n.description\">resolveissue.desc.line1</meta>\n      <meta name=\"jira.i18n.title\">resolveissue.title</meta>\n      <restrict-to>\n        <conditions>\n          <condition type=\"class\">\n            <arg name=\"class.name\">com.atlassian.jira.workflow.condition.PermissionCondition</arg>\n            <arg name=\"permission\">Resolve Issue</arg>\n          </condition>\n        </conditions>\n      </restrict-to>\n      <results>\n        <unconditional-result old-status=\"Finished\" status=\"Resolved\" step=\"4\">\n          <post-functions>\n            <function type=\"class\">\n              <arg name=\"class.name\">com.atlassian.jira.workflow.function.issue.UpdateIssueStatusFunction</arg>\n            </function>\n            <function type=\"class\">\n              <arg name=\"class.name\">com.atlassian.jira.workflow.function.misc.CreateCommentFunction</arg>\n            </function>\n            <function type=\"class\">\n              <arg name=\"class.name\">com.atlassian.jira.workflow.function.issue.GenerateChangeHistoryFunction</arg>\n            </function>\n            <function type=\"class\">\n              <arg name=\"class.name\">com.atlassian.jira.workflow.function.issue.IssueReindexFunction</arg>\n            </function>\n            <function type=\"class\">\n              <arg name=\"class.name\">com.atlassian.jira.workflow.function.event.FireIssueEventFunction</arg>\n              <arg name=\"eventTypeId\">4</arg>\n            </function>\n          </post-functions>\n        </unconditional-result>\n      </results>\n    </action>\n  </common-actions>\n  <steps>\n    <step id=\"1\" name=\"Open\">\n      <meta name=\"jira.status.id\">1</meta>\n      <actions>\n<common-action id=\"4\" />\n<common-action id=\"5\" />\n<common-action id=\"2\" />\n      </actions>\n    </step>\n    <step id=\"3\" name=\"In Progress\">\n      <meta name=\"jira.status.id\">3</meta>\n      <actions>\n<common-action id=\"5\" />\n<common-action id=\"2\" />\n        <action id=\"301\" name=\"Stop Progress\">\n          <meta name=\"opsbar-sequence\">20</meta>\n          <meta name=\"jira.i18n.title\">stopprogress.title</meta>\n          <restrict-to>\n            <conditions>\n              <condition type=\"class\">\n                <arg name=\"class.name\">com.atlassian.jira.workflow.condition.AllowOnlyAssignee</arg>\n              </condition>\n            </conditions>\n          </restrict-to>\n          <results>\n            <unconditional-result old-status=\"Finished\" status=\"Assigned\" step=\"1\">\n              <post-functions>\n                <function type=\"class\">\n                  <arg name=\"class.name\">com.atlassian.jira.workflow.function.issue.UpdateIssueFieldFunction</arg>\n                  <arg name=\"field.value\"></arg>\n                  <arg name=\"field.name\">resolution</arg>\n                </function>\n                <function type=\"class\">\n                  <arg name=\"class.name\">com.atlassian.jira.workflow.function.issue.UpdateIssueStatusFunction</arg>\n                </function>\n                <function type=\"class\">\n                  <arg name=\"class.name\">com.atlassian.jira.workflow.function.misc.CreateCommentFunction</arg>\n                </function>\n                <function type=\"class\">\n                  <arg name=\"class.name\">com.atlassian.jira.workflow.function.issue.GenerateChangeHistoryFunction</arg>\n                </function>\n                <function type=\"class\">\n                  <arg name=\"class.name\">com.atlassian.jira.workflow.function.issue.IssueReindexFunction</arg>\n                </function>\n                <function type=\"class\">\n                  <arg name=\"class.name\">com.atlassian.jira.workflow.function.event.FireIssueEventFunction</arg>\n                  <arg name=\"eventTypeId\">12</arg>\n                </function>\n              </post-functions>\n            </unconditional-result>\n          </results>\n        </action>\n      </actions>\n    </step>\n    <step id=\"4\" name=\"Resolved\">\n      <meta name=\"jira.status.id\">5</meta>\n      <actions>\n<common-action id=\"3\" />\n        <action id=\"701\" name=\"Close Issue\" view=\"commentassign\">\n          <meta name=\"opsbar-sequence\">60</meta>\n          <meta name=\"jira.i18n.submit\">closeissue.close</meta>\n          <meta name=\"jira.i18n.description\">closeissue.desc</meta>\n          <meta name=\"jira.i18n.title\">closeissue.title</meta>\n          <meta name=\"jira.description\">Closing an issue indicates there is no more work to be done on it, and it has been verified as complete.</meta>\n          <restrict-to>\n            <conditions>\n              <condition type=\"class\">\n                <arg name=\"class.name\">com.atlassian.jira.workflow.condition.PermissionCondition</arg>\n                <arg name=\"permission\">Close Issue</arg>\n              </condition>\n            </conditions>\n          </restrict-to>\n          <results>\n            <unconditional-result old-status=\"Finished\" status=\"Closed\" step=\"6\">\n              <post-functions>\n                <function type=\"class\">\n                  <arg name=\"class.name\">com.atlassian.jira.workflow.function.issue.UpdateIssueStatusFunction</arg>\n                </function>\n                <function type=\"class\">\n                  <arg name=\"class.name\">com.atlassian.jira.workflow.function.misc.CreateCommentFunction</arg>\n                </function>\n                <function type=\"class\">\n                  <arg name=\"class.name\">com.atlassian.jira.workflow.function.issue.GenerateChangeHistoryFunction</arg>\n                </function>\n                <function type=\"class\">\n                  <arg name=\"class.name\">com.atlassian.jira.workflow.function.issue.IssueReindexFunction</arg>\n                </function>\n                <function type=\"class\">\n                  <arg name=\"class.name\">com.atlassian.jira.workflow.function.event.FireIssueEventFunction</arg>\n                  <arg name=\"eventTypeId\">5</arg>\n                </function>\n              </post-functions>\n            </unconditional-result>\n          </results>\n        </action>\n      </actions>\n    </step>\n    <step id=\"5\" name=\"Reopened\">\n      <meta name=\"jira.status.id\">4</meta>\n      <actions>\n<common-action id=\"5\" />\n<common-action id=\"2\" />\n<common-action id=\"4\" />\n      </actions>\n    </step>\n    <step id=\"6\" name=\"Closed\">\n      <meta name=\"jira.status.id\">6</meta>\n      <meta name=\"jira.issue.editable\">false</meta>\n      <actions>\n<common-action id=\"3\" />\n      </actions>\n    </step>\n  </steps>\n</workflow>\n',NULL),(10100,'AA: 项目管理工作流',NULL,'<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE workflow PUBLIC \"-//OpenSymphony Group//DTD OSWorkflow 2.8//EN\" \"http://www.opensymphony.com/osworkflow/workflow_2_8.dtd\">\n<workflow>\n  <meta name=\"jira.description\"></meta>\n  <meta name=\"jira.update.author.key\">JIRAUSER10000</meta>\n  <meta name=\"jira.updated.date\">1590571812999</meta>\n  <initial-actions>\n    <action id=\"1\" name=\"Create\">\n      <meta name=\"jira.i18n.submit\">common.forms.create</meta>\n      <meta name=\"jira.i18n.title\">common.forms.create</meta>\n      <validators>\n        <validator name=\"\" type=\"class\">\n          <arg name=\"permission\">Create Issue</arg>\n          <arg name=\"class.name\">com.atlassian.jira.workflow.validator.PermissionValidator</arg>\n        </validator>\n      </validators>\n      <results>\n        <unconditional-result old-status=\"null\" status=\"open\" step=\"1\">\n          <post-functions>\n            <function type=\"class\">\n              <arg name=\"class.name\">com.atlassian.jira.workflow.function.issue.IssueCreateFunction</arg>\n            </function>\n            <function type=\"class\">\n              <arg name=\"class.name\">com.atlassian.jira.workflow.function.issue.IssueReindexFunction</arg>\n            </function>\n            <function type=\"class\">\n              <arg name=\"eventTypeId\">1</arg>\n              <arg name=\"class.name\">com.atlassian.jira.workflow.function.event.FireIssueEventFunction</arg>\n            </function>\n          </post-functions>\n        </unconditional-result>\n      </results>\n    </action>\n  </initial-actions>\n  <steps>\n    <step id=\"1\" name=\"To Do\">\n      <meta name=\"jira.status.id\">10000</meta>\n      <actions>\n        <action id=\"11\" name=\"Start Progress\">\n          <meta name=\"jira.i18n.submit\">startprogress.title</meta>\n          <meta name=\"jira.description\"></meta>\n          <meta name=\"jira.i18n.title\">startprogress.title</meta>\n          <results>\n            <unconditional-result old-status=\"Not Done\" status=\"Done\" step=\"2\">\n              <post-functions>\n                <function type=\"class\">\n                  <arg name=\"full.module.key\">com.atlassian.jira.plugin.system.workflowupdateissuestatus-function</arg>\n                  <arg name=\"class.name\">com.atlassian.jira.workflow.function.issue.UpdateIssueStatusFunction</arg>\n                </function>\n                <function type=\"class\">\n                  <arg name=\"full.module.key\">com.atlassian.jira.plugin.system.workflowassigntocurrentuser-function</arg>\n                  <arg name=\"class.name\">com.atlassian.jira.workflow.function.issue.AssignToCurrentUserFunction</arg>\n                </function>\n                <function type=\"class\">\n                  <arg name=\"full.module.key\">com.atlassian.jira.plugin.system.workflowcreatecomment-function</arg>\n                  <arg name=\"class.name\">com.atlassian.jira.workflow.function.misc.CreateCommentFunction</arg>\n                </function>\n                <function type=\"class\">\n                  <arg name=\"full.module.key\">com.atlassian.jira.plugin.system.workflowgeneratechangehistory-function</arg>\n                  <arg name=\"class.name\">com.atlassian.jira.workflow.function.issue.GenerateChangeHistoryFunction</arg>\n                </function>\n                <function type=\"class\">\n                  <arg name=\"full.module.key\">com.atlassian.jira.plugin.system.workflowreindexissue-function</arg>\n                  <arg name=\"class.name\">com.atlassian.jira.workflow.function.issue.IssueReindexFunction</arg>\n                </function>\n                <function type=\"class\">\n                  <arg name=\"eventTypeId\">13</arg>\n                  <arg name=\"full.module.key\">com.atlassian.jira.plugin.system.workflowfireevent-function</arg>\n                  <arg name=\"class.name\">com.atlassian.jira.workflow.function.event.FireIssueEventFunction</arg>\n                </function>\n              </post-functions>\n            </unconditional-result>\n          </results>\n        </action>\n        <action id=\"21\" name=\"Done\">\n          <meta name=\"jira.i18n.submit\">jira.issuetracking.simple.workflow.action.done.name</meta>\n          <meta name=\"jira.description\"></meta>\n          <meta name=\"jira.i18n.title\">jira.issuetracking.simple.workflow.action.done.name</meta>\n          <restrict-to>\n            <conditions>\n              <condition type=\"class\">\n                <arg name=\"permission\">RESOLVE_ISSUES</arg>\n                <arg name=\"class.name\">com.atlassian.jira.workflow.condition.PermissionCondition</arg>\n              </condition>\n            </conditions>\n          </restrict-to>\n          <results>\n            <unconditional-result old-status=\"Not Done\" status=\"Done\" step=\"3\">\n              <post-functions>\n                <function type=\"class\">\n                  <arg name=\"field.name\">resolution</arg>\n                  <arg name=\"field.value\">10000</arg>\n                  <arg name=\"class.name\">com.atlassian.jira.workflow.function.issue.UpdateIssueFieldFunction</arg>\n                </function>\n                <function type=\"class\">\n                  <arg name=\"full.module.key\">com.atlassian.jira.plugin.system.workflowupdateissuestatus-function</arg>\n                  <arg name=\"class.name\">com.atlassian.jira.workflow.function.issue.UpdateIssueStatusFunction</arg>\n                </function>\n                <function type=\"class\">\n                  <arg name=\"full.module.key\">com.atlassian.jira.plugin.system.workflowcreatecomment-function</arg>\n                  <arg name=\"class.name\">com.atlassian.jira.workflow.function.misc.CreateCommentFunction</arg>\n                </function>\n                <function type=\"class\">\n                  <arg name=\"full.module.key\">com.atlassian.jira.plugin.system.workflowgeneratechangehistory-function</arg>\n                  <arg name=\"class.name\">com.atlassian.jira.workflow.function.issue.GenerateChangeHistoryFunction</arg>\n                </function>\n                <function type=\"class\">\n                  <arg name=\"full.module.key\">com.atlassian.jira.plugin.system.workflowreindexissue-function</arg>\n                  <arg name=\"class.name\">com.atlassian.jira.workflow.function.issue.IssueReindexFunction</arg>\n                </function>\n                <function type=\"class\">\n                  <arg name=\"eventTypeId\">13</arg>\n                  <arg name=\"full.module.key\">com.atlassian.jira.plugin.system.workflowfireevent-function</arg>\n                  <arg name=\"class.name\">com.atlassian.jira.workflow.function.event.FireIssueEventFunction</arg>\n                </function>\n              </post-functions>\n            </unconditional-result>\n          </results>\n        </action>\n      </actions>\n    </step>\n    <step id=\"2\" name=\"In Progress\">\n      <meta name=\"jira.status.id\">3</meta>\n      <actions>\n        <action id=\"31\" name=\"Stop Progress\">\n          <meta name=\"jira.i18n.submit\">stopprogress.title</meta>\n          <meta name=\"jira.description\"></meta>\n          <meta name=\"jira.i18n.title\">stopprogress.title</meta>\n          <results>\n            <unconditional-result old-status=\"Not Done\" status=\"Done\" step=\"1\">\n              <post-functions>\n                <function type=\"class\">\n                  <arg name=\"full.module.key\">com.atlassian.jira.plugin.system.workflowupdateissuestatus-function</arg>\n                  <arg name=\"class.name\">com.atlassian.jira.workflow.function.issue.UpdateIssueStatusFunction</arg>\n                </function>\n                <function type=\"class\">\n                  <arg name=\"full.module.key\">com.atlassian.jira.plugin.system.workflowcreatecomment-function</arg>\n                  <arg name=\"class.name\">com.atlassian.jira.workflow.function.misc.CreateCommentFunction</arg>\n                </function>\n                <function type=\"class\">\n                  <arg name=\"full.module.key\">com.atlassian.jira.plugin.system.workflowgeneratechangehistory-function</arg>\n                  <arg name=\"class.name\">com.atlassian.jira.workflow.function.issue.GenerateChangeHistoryFunction</arg>\n                </function>\n                <function type=\"class\">\n                  <arg name=\"full.module.key\">com.atlassian.jira.plugin.system.workflowreindexissue-function</arg>\n                  <arg name=\"class.name\">com.atlassian.jira.workflow.function.issue.IssueReindexFunction</arg>\n                </function>\n                <function type=\"class\">\n                  <arg name=\"eventTypeId\">13</arg>\n                  <arg name=\"full.module.key\">com.atlassian.jira.plugin.system.workflowfireevent-function</arg>\n                  <arg name=\"class.name\">com.atlassian.jira.workflow.function.event.FireIssueEventFunction</arg>\n                </function>\n              </post-functions>\n            </unconditional-result>\n          </results>\n        </action>\n        <action id=\"41\" name=\"Done\">\n          <meta name=\"jira.i18n.submit\">jira.issuetracking.simple.workflow.action.done.name</meta>\n          <meta name=\"jira.description\"></meta>\n          <meta name=\"jira.i18n.title\">jira.issuetracking.simple.workflow.action.done.name</meta>\n          <restrict-to>\n            <conditions>\n              <condition type=\"class\">\n                <arg name=\"permission\">RESOLVE_ISSUES</arg>\n                <arg name=\"class.name\">com.atlassian.jira.workflow.condition.PermissionCondition</arg>\n              </condition>\n            </conditions>\n          </restrict-to>\n          <results>\n            <unconditional-result old-status=\"Not Done\" status=\"Done\" step=\"3\">\n              <post-functions>\n                <function type=\"class\">\n                  <arg name=\"field.name\">resolution</arg>\n                  <arg name=\"field.value\">10000</arg>\n                  <arg name=\"class.name\">com.atlassian.jira.workflow.function.issue.UpdateIssueFieldFunction</arg>\n                </function>\n                <function type=\"class\">\n                  <arg name=\"full.module.key\">com.atlassian.jira.plugin.system.workflowupdateissuestatus-function</arg>\n                  <arg name=\"class.name\">com.atlassian.jira.workflow.function.issue.UpdateIssueStatusFunction</arg>\n                </function>\n                <function type=\"class\">\n                  <arg name=\"full.module.key\">com.atlassian.jira.plugin.system.workflowcreatecomment-function</arg>\n                  <arg name=\"class.name\">com.atlassian.jira.workflow.function.misc.CreateCommentFunction</arg>\n                </function>\n                <function type=\"class\">\n                  <arg name=\"full.module.key\">com.atlassian.jira.plugin.system.workflowgeneratechangehistory-function</arg>\n                  <arg name=\"class.name\">com.atlassian.jira.workflow.function.issue.GenerateChangeHistoryFunction</arg>\n                </function>\n                <function type=\"class\">\n                  <arg name=\"full.module.key\">com.atlassian.jira.plugin.system.workflowreindexissue-function</arg>\n                  <arg name=\"class.name\">com.atlassian.jira.workflow.function.issue.IssueReindexFunction</arg>\n                </function>\n                <function type=\"class\">\n                  <arg name=\"eventTypeId\">13</arg>\n                  <arg name=\"full.module.key\">com.atlassian.jira.plugin.system.workflowfireevent-function</arg>\n                  <arg name=\"class.name\">com.atlassian.jira.workflow.function.event.FireIssueEventFunction</arg>\n                </function>\n              </post-functions>\n            </unconditional-result>\n          </results>\n        </action>\n      </actions>\n    </step>\n    <step id=\"3\" name=\"Done\">\n      <meta name=\"jira.status.id\">10001</meta>\n      <actions>\n        <action id=\"51\" name=\"Reopen\">\n          <meta name=\"jira.i18n.submit\">jira.issuetracking.simple.workflow.action.reopen.name</meta>\n          <meta name=\"jira.description\"></meta>\n          <meta name=\"jira.i18n.title\">jira.issuetracking.simple.workflow.action.reopen.name</meta>\n          <restrict-to>\n            <conditions>\n              <condition type=\"class\">\n                <arg name=\"permission\">RESOLVE_ISSUES</arg>\n                <arg name=\"class.name\">com.atlassian.jira.workflow.condition.PermissionCondition</arg>\n              </condition>\n            </conditions>\n          </restrict-to>\n          <results>\n            <unconditional-result old-status=\"Not Done\" status=\"Done\" step=\"1\">\n              <post-functions>\n                <function type=\"class\">\n                  <arg name=\"field.name\">resolution</arg>\n                  <arg name=\"field.value\"></arg>\n                  <arg name=\"class.name\">com.atlassian.jira.workflow.function.issue.UpdateIssueFieldFunction</arg>\n                </function>\n                <function type=\"class\">\n                  <arg name=\"full.module.key\">com.atlassian.jira.plugin.system.workflowupdateissuestatus-function</arg>\n                  <arg name=\"class.name\">com.atlassian.jira.workflow.function.issue.UpdateIssueStatusFunction</arg>\n                </function>\n                <function type=\"class\">\n                  <arg name=\"full.module.key\">com.atlassian.jira.plugin.system.workflowcreatecomment-function</arg>\n                  <arg name=\"class.name\">com.atlassian.jira.workflow.function.misc.CreateCommentFunction</arg>\n                </function>\n                <function type=\"class\">\n                  <arg name=\"full.module.key\">com.atlassian.jira.plugin.system.workflowgeneratechangehistory-function</arg>\n                  <arg name=\"class.name\">com.atlassian.jira.workflow.function.issue.GenerateChangeHistoryFunction</arg>\n                </function>\n                <function type=\"class\">\n                  <arg name=\"full.module.key\">com.atlassian.jira.plugin.system.workflowreindexissue-function</arg>\n                  <arg name=\"class.name\">com.atlassian.jira.workflow.function.issue.IssueReindexFunction</arg>\n                </function>\n                <function type=\"class\">\n                  <arg name=\"eventTypeId\">13</arg>\n                  <arg name=\"full.module.key\">com.atlassian.jira.plugin.system.workflowfireevent-function</arg>\n                  <arg name=\"class.name\">com.atlassian.jira.workflow.function.event.FireIssueEventFunction</arg>\n                </function>\n              </post-functions>\n            </unconditional-result>\n          </results>\n        </action>\n        <action id=\"61\" name=\"Reopen and start progress\">\n          <meta name=\"jira.i18n.submit\">jira.issuetracking.simple.workflow.action.reopenandstartprogress.name</meta>\n          <meta name=\"jira.description\"></meta>\n          <meta name=\"jira.i18n.title\">jira.issuetracking.simple.workflow.action.reopenandstartprogress.name</meta>\n          <results>\n            <unconditional-result old-status=\"Not Done\" status=\"Done\" step=\"2\">\n              <post-functions>\n                <function type=\"class\">\n                  <arg name=\"field.name\">resolution</arg>\n                  <arg name=\"field.value\"></arg>\n                  <arg name=\"class.name\">com.atlassian.jira.workflow.function.issue.UpdateIssueFieldFunction</arg>\n                </function>\n                <function type=\"class\">\n                  <arg name=\"full.module.key\">com.atlassian.jira.plugin.system.workflowupdateissuestatus-function</arg>\n                  <arg name=\"class.name\">com.atlassian.jira.workflow.function.issue.UpdateIssueStatusFunction</arg>\n                </function>\n                <function type=\"class\">\n                  <arg name=\"full.module.key\">com.atlassian.jira.plugin.system.workflowassigntocurrentuser-function</arg>\n                  <arg name=\"class.name\">com.atlassian.jira.workflow.function.issue.AssignToCurrentUserFunction</arg>\n                </function>\n                <function type=\"class\">\n                  <arg name=\"full.module.key\">com.atlassian.jira.plugin.system.workflowcreatecomment-function</arg>\n                  <arg name=\"class.name\">com.atlassian.jira.workflow.function.misc.CreateCommentFunction</arg>\n                </function>\n                <function type=\"class\">\n                  <arg name=\"full.module.key\">com.atlassian.jira.plugin.system.workflowgeneratechangehistory-function</arg>\n                  <arg name=\"class.name\">com.atlassian.jira.workflow.function.issue.GenerateChangeHistoryFunction</arg>\n                </function>\n                <function type=\"class\">\n                  <arg name=\"full.module.key\">com.atlassian.jira.plugin.system.workflowreindexissue-function</arg>\n                  <arg name=\"class.name\">com.atlassian.jira.workflow.function.issue.IssueReindexFunction</arg>\n                </function>\n                <function type=\"class\">\n                  <arg name=\"eventTypeId\">13</arg>\n                  <arg name=\"full.module.key\">com.atlassian.jira.plugin.system.workflowfireevent-function</arg>\n                  <arg name=\"class.name\">com.atlassian.jira.workflow.function.event.FireIssueEventFunction</arg>\n                </function>\n              </post-functions>\n            </unconditional-result>\n          </results>\n        </action>\n      </actions>\n    </step>\n  </steps>\n</workflow>\n',NULL);
+/*!40000 ALTER TABLE `jiraworkflows` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `jiraworkflowstatuses`
+--
+
+DROP TABLE IF EXISTS `jiraworkflowstatuses`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `jiraworkflowstatuses` (
+  `ID` decimal(18,0) NOT NULL,
+  `status` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `parentname` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `idx_parent_name` (`parentname`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `jiraworkflowstatuses`
+--
+
+LOCK TABLES `jiraworkflowstatuses` WRITE;
+/*!40000 ALTER TABLE `jiraworkflowstatuses` DISABLE KEYS */;
+/*!40000 ALTER TABLE `jiraworkflowstatuses` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `label`
+--
+
+DROP TABLE IF EXISTS `label`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `label` (
+  `ID` decimal(18,0) NOT NULL,
+  `FIELDID` decimal(18,0) DEFAULT NULL,
+  `ISSUE` decimal(18,0) DEFAULT NULL,
+  `LABEL` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `label_fieldissue` (`ISSUE`,`FIELDID`),
+  KEY `label_fieldissuelabel` (`ISSUE`,`FIELDID`,`LABEL`),
+  KEY `label_label` (`LABEL`),
+  KEY `label_issue` (`ISSUE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `label`
+--
+
+LOCK TABLES `label` WRITE;
+/*!40000 ALTER TABLE `label` DISABLE KEYS */;
+INSERT INTO `label` VALUES (10001,NULL,10004,'demo'),(10000,NULL,10004,'keyboard-shortcuts');
+/*!40000 ALTER TABLE `label` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `licenserolesdefault`
+--
+
+DROP TABLE IF EXISTS `licenserolesdefault`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `licenserolesdefault` (
+  `ID` decimal(18,0) NOT NULL,
+  `LICENSE_ROLE_NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `licenseroledefault_index` (`LICENSE_ROLE_NAME`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `licenserolesdefault`
+--
+
+LOCK TABLES `licenserolesdefault` WRITE;
+/*!40000 ALTER TABLE `licenserolesdefault` DISABLE KEYS */;
+INSERT INTO `licenserolesdefault` VALUES (10000,'jira-software');
+/*!40000 ALTER TABLE `licenserolesdefault` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `licenserolesgroup`
+--
+
+DROP TABLE IF EXISTS `licenserolesgroup`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `licenserolesgroup` (
+  `ID` decimal(18,0) NOT NULL,
+  `LICENSE_ROLE_NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `GROUP_ID` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `PRIMARY_GROUP` char(1) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `licenserolegroup_index` (`LICENSE_ROLE_NAME`,`GROUP_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `licenserolesgroup`
+--
+
+LOCK TABLES `licenserolesgroup` WRITE;
+/*!40000 ALTER TABLE `licenserolesgroup` DISABLE KEYS */;
+INSERT INTO `licenserolesgroup` VALUES (10000,'jira-software','jira-software-users','Y'),(10001,'jira-software','jira-administrators','N');
+/*!40000 ALTER TABLE `licenserolesgroup` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `listenerconfig`
+--
+
+DROP TABLE IF EXISTS `listenerconfig`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `listenerconfig` (
+  `ID` decimal(18,0) NOT NULL,
+  `CLAZZ` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `listenername` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `listenerconfig`
+--
+
+LOCK TABLES `listenerconfig` WRITE;
+/*!40000 ALTER TABLE `listenerconfig` DISABLE KEYS */;
+INSERT INTO `listenerconfig` VALUES (10000,'com.atlassian.jira.event.listeners.mail.MailListener','Mail Listener'),(10001,'com.atlassian.jira.event.listeners.history.IssueAssignHistoryListener','Issue Assignment Listener'),(10200,'com.atlassian.jira.event.listeners.search.IssueIndexListener','Issue Index Listener');
+/*!40000 ALTER TABLE `listenerconfig` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `mailserver`
+--
+
+DROP TABLE IF EXISTS `mailserver`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `mailserver` (
+  `ID` decimal(18,0) NOT NULL,
+  `NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `DESCRIPTION` text COLLATE utf8_bin,
+  `mailfrom` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `PREFIX` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `smtp_port` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `protocol` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `server_type` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `SERVERNAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `JNDILOCATION` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `mailusername` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `mailpassword` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `ISTLSREQUIRED` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `TIMEOUT` decimal(18,0) DEFAULT NULL,
+  `socks_port` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `socks_host` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `mailserver`
+--
+
+LOCK TABLES `mailserver` WRITE;
+/*!40000 ALTER TABLE `mailserver` DISABLE KEYS */;
+/*!40000 ALTER TABLE `mailserver` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `managedconfigurationitem`
+--
+
+DROP TABLE IF EXISTS `managedconfigurationitem`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `managedconfigurationitem` (
+  `ID` decimal(18,0) NOT NULL,
+  `ITEM_ID` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `ITEM_TYPE` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `MANAGED` varchar(10) COLLATE utf8_bin DEFAULT NULL,
+  `ACCESS_LEVEL` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `SOURCE` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `DESCRIPTION_KEY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `managedconfigitem_id_type_idx` (`ITEM_ID`,`ITEM_TYPE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `managedconfigurationitem`
+--
+
+LOCK TABLES `managedconfigurationitem` WRITE;
+/*!40000 ALTER TABLE `managedconfigurationitem` DISABLE KEYS */;
+INSERT INTO `managedconfigurationitem` VALUES (10000,'customfield_10000','CUSTOM_FIELD','true','LOCKED','com.atlassian.jira.plugins.jira-development-integration-plugin:reserved-field-locked','devstatus.customfield.locked.desc'),(10100,'customfield_10100','CUSTOM_FIELD','true','LOCKED','com.pyxis.greenhopper.jira:reference-select-locked','gh.customfield.locked.desc'),(10101,'customfield_10101','CUSTOM_FIELD','true','LOCKED','com.pyxis.greenhopper.jira:reference-select-locked','gh.customfield.locked.desc'),(10102,'customfield_10102','CUSTOM_FIELD','true','LOCKED','com.pyxis.greenhopper.jira:reference-select-locked','gh.customfield.locked.desc'),(10103,'customfield_10103','CUSTOM_FIELD','true','LOCKED','com.pyxis.greenhopper.jira:reference-select-locked','gh.customfield.locked.desc'),(10104,'customfield_10104','CUSTOM_FIELD','true','LOCKED','com.pyxis.greenhopper.jira:reference-select-locked','gh.customfield.locked.desc'),(10105,'customfield_10105','CUSTOM_FIELD','true','LOCKED','com.pyxis.greenhopper.jira:reference-select-locked','gh.customfield.locked.desc');
+/*!40000 ALTER TABLE `managedconfigurationitem` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `membershipbase`
+--
+
+DROP TABLE IF EXISTS `membershipbase`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `membershipbase` (
+  `ID` decimal(18,0) NOT NULL,
+  `USER_NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `GROUP_NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `mshipbase_user` (`USER_NAME`),
+  KEY `mshipbase_group` (`GROUP_NAME`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `membershipbase`
+--
+
+LOCK TABLES `membershipbase` WRITE;
+/*!40000 ALTER TABLE `membershipbase` DISABLE KEYS */;
+/*!40000 ALTER TABLE `membershipbase` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `moved_issue_key`
+--
+
+DROP TABLE IF EXISTS `moved_issue_key`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `moved_issue_key` (
+  `ID` decimal(18,0) NOT NULL,
+  `OLD_ISSUE_KEY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `ISSUE_ID` decimal(18,0) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `idx_old_issue_key` (`OLD_ISSUE_KEY`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `moved_issue_key`
+--
+
+LOCK TABLES `moved_issue_key` WRITE;
+/*!40000 ALTER TABLE `moved_issue_key` DISABLE KEYS */;
+/*!40000 ALTER TABLE `moved_issue_key` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `nodeassociation`
+--
+
+DROP TABLE IF EXISTS `nodeassociation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `nodeassociation` (
+  `SOURCE_NODE_ID` decimal(18,0) NOT NULL,
+  `SOURCE_NODE_ENTITY` varchar(60) COLLATE utf8_bin NOT NULL,
+  `SINK_NODE_ID` decimal(18,0) NOT NULL,
+  `SINK_NODE_ENTITY` varchar(60) COLLATE utf8_bin NOT NULL,
+  `ASSOCIATION_TYPE` varchar(60) COLLATE utf8_bin NOT NULL,
+  `SEQUENCE` decimal(9,0) DEFAULT NULL,
+  PRIMARY KEY (`SOURCE_NODE_ID`,`SOURCE_NODE_ENTITY`,`SINK_NODE_ID`,`SINK_NODE_ENTITY`,`ASSOCIATION_TYPE`),
+  KEY `node_source` (`SOURCE_NODE_ID`,`SOURCE_NODE_ENTITY`),
+  KEY `node_sink` (`SINK_NODE_ID`,`SINK_NODE_ENTITY`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `nodeassociation`
+--
+
+LOCK TABLES `nodeassociation` WRITE;
+/*!40000 ALTER TABLE `nodeassociation` DISABLE KEYS */;
+INSERT INTO `nodeassociation` VALUES (10000,'Project',0,'PermissionScheme','ProjectScheme',NULL),(10000,'Project',10000,'IssueTypeScreenScheme','ProjectScheme',NULL),(10000,'Project',10000,'NotificationScheme','ProjectScheme',NULL),(10000,'Project',10100,'WorkflowScheme','ProjectScheme',NULL);
+/*!40000 ALTER TABLE `nodeassociation` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `nodeindexcounter`
+--
+
+DROP TABLE IF EXISTS `nodeindexcounter`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `nodeindexcounter` (
+  `ID` decimal(18,0) NOT NULL,
+  `NODE_ID` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `SENDING_NODE_ID` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `INDEX_OPERATION_ID` decimal(18,0) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `node_id_idx` (`NODE_ID`,`SENDING_NODE_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `nodeindexcounter`
+--
+
+LOCK TABLES `nodeindexcounter` WRITE;
+/*!40000 ALTER TABLE `nodeindexcounter` DISABLE KEYS */;
+/*!40000 ALTER TABLE `nodeindexcounter` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `notification`
+--
+
+DROP TABLE IF EXISTS `notification`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `notification` (
+  `ID` decimal(18,0) NOT NULL,
+  `SCHEME` decimal(18,0) DEFAULT NULL,
+  `EVENT` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `EVENT_TYPE_ID` decimal(18,0) DEFAULT NULL,
+  `TEMPLATE_ID` decimal(18,0) DEFAULT NULL,
+  `notif_type` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `notif_parameter` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `ntfctn_scheme` (`SCHEME`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `notification`
+--
+
+LOCK TABLES `notification` WRITE;
+/*!40000 ALTER TABLE `notification` DISABLE KEYS */;
+INSERT INTO `notification` VALUES (10000,10000,NULL,1,NULL,'Current_Assignee',NULL),(10001,10000,NULL,1,NULL,'Current_Reporter',NULL),(10002,10000,NULL,1,NULL,'All_Watchers',NULL),(10003,10000,NULL,2,NULL,'Current_Assignee',NULL),(10004,10000,NULL,2,NULL,'Current_Reporter',NULL),(10005,10000,NULL,2,NULL,'All_Watchers',NULL),(10006,10000,NULL,3,NULL,'Current_Assignee',NULL),(10007,10000,NULL,3,NULL,'Current_Reporter',NULL),(10008,10000,NULL,3,NULL,'All_Watchers',NULL),(10009,10000,NULL,4,NULL,'Current_Assignee',NULL),(10010,10000,NULL,4,NULL,'Current_Reporter',NULL),(10011,10000,NULL,4,NULL,'All_Watchers',NULL),(10012,10000,NULL,5,NULL,'Current_Assignee',NULL),(10013,10000,NULL,5,NULL,'Current_Reporter',NULL),(10014,10000,NULL,5,NULL,'All_Watchers',NULL),(10015,10000,NULL,6,NULL,'Current_Assignee',NULL),(10016,10000,NULL,6,NULL,'Current_Reporter',NULL),(10017,10000,NULL,6,NULL,'All_Watchers',NULL),(10018,10000,NULL,7,NULL,'Current_Assignee',NULL),(10019,10000,NULL,7,NULL,'Current_Reporter',NULL),(10020,10000,NULL,7,NULL,'All_Watchers',NULL),(10021,10000,NULL,8,NULL,'Current_Assignee',NULL),(10022,10000,NULL,8,NULL,'Current_Reporter',NULL),(10023,10000,NULL,8,NULL,'All_Watchers',NULL),(10024,10000,NULL,9,NULL,'Current_Assignee',NULL),(10025,10000,NULL,9,NULL,'Current_Reporter',NULL),(10026,10000,NULL,9,NULL,'All_Watchers',NULL),(10027,10000,NULL,10,NULL,'Current_Assignee',NULL),(10028,10000,NULL,10,NULL,'Current_Reporter',NULL),(10029,10000,NULL,10,NULL,'All_Watchers',NULL),(10030,10000,NULL,11,NULL,'Current_Assignee',NULL),(10031,10000,NULL,11,NULL,'Current_Reporter',NULL),(10032,10000,NULL,11,NULL,'All_Watchers',NULL),(10033,10000,NULL,12,NULL,'Current_Assignee',NULL),(10034,10000,NULL,12,NULL,'Current_Reporter',NULL),(10035,10000,NULL,12,NULL,'All_Watchers',NULL),(10036,10000,NULL,13,NULL,'Current_Assignee',NULL),(10037,10000,NULL,13,NULL,'Current_Reporter',NULL),(10038,10000,NULL,13,NULL,'All_Watchers',NULL),(10100,10000,NULL,14,NULL,'Current_Assignee',NULL),(10101,10000,NULL,14,NULL,'Current_Reporter',NULL),(10102,10000,NULL,14,NULL,'All_Watchers',NULL),(10103,10000,NULL,15,NULL,'Current_Assignee',NULL),(10104,10000,NULL,15,NULL,'Current_Reporter',NULL),(10105,10000,NULL,15,NULL,'All_Watchers',NULL),(10106,10000,NULL,16,NULL,'Current_Assignee',NULL),(10107,10000,NULL,16,NULL,'Current_Reporter',NULL),(10108,10000,NULL,16,NULL,'All_Watchers',NULL),(10200,10000,NULL,18,NULL,'Current_Assignee',NULL),(10201,10000,NULL,18,NULL,'Current_Reporter',NULL),(10202,10000,NULL,18,NULL,'All_Watchers',NULL),(10203,10000,NULL,19,NULL,'Current_Assignee',NULL),(10204,10000,NULL,19,NULL,'Current_Reporter',NULL),(10205,10000,NULL,19,NULL,'All_Watchers',NULL);
+/*!40000 ALTER TABLE `notification` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `notificationinstance`
+--
+
+DROP TABLE IF EXISTS `notificationinstance`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `notificationinstance` (
+  `ID` decimal(18,0) NOT NULL,
+  `notificationtype` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `SOURCE` decimal(18,0) DEFAULT NULL,
+  `emailaddress` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `MESSAGEID` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `notif_source` (`SOURCE`),
+  KEY `notif_messageid` (`MESSAGEID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `notificationinstance`
+--
+
+LOCK TABLES `notificationinstance` WRITE;
+/*!40000 ALTER TABLE `notificationinstance` DISABLE KEYS */;
+/*!40000 ALTER TABLE `notificationinstance` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `notificationscheme`
+--
+
+DROP TABLE IF EXISTS `notificationscheme`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `notificationscheme` (
+  `ID` decimal(18,0) NOT NULL,
+  `NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `DESCRIPTION` text COLLATE utf8_bin,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `notificationscheme`
+--
+
+LOCK TABLES `notificationscheme` WRITE;
+/*!40000 ALTER TABLE `notificationscheme` DISABLE KEYS */;
+INSERT INTO `notificationscheme` VALUES (10000,'Default Notification Scheme',NULL);
+/*!40000 ALTER TABLE `notificationscheme` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `oauthconsumer`
+--
+
+DROP TABLE IF EXISTS `oauthconsumer`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `oauthconsumer` (
+  `ID` decimal(18,0) NOT NULL,
+  `CREATED` datetime DEFAULT NULL,
+  `consumername` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `CONSUMER_KEY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `consumerservice` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `PUBLIC_KEY` text COLLATE utf8_bin,
+  `PRIVATE_KEY` text COLLATE utf8_bin,
+  `DESCRIPTION` text COLLATE utf8_bin,
+  `CALLBACK` text COLLATE utf8_bin,
+  `SIGNATURE_METHOD` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `SHARED_SECRET` text COLLATE utf8_bin,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `oauth_consumer_index` (`CONSUMER_KEY`),
+  UNIQUE KEY `oauth_consumer_service_index` (`consumerservice`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `oauthconsumer`
+--
+
+LOCK TABLES `oauthconsumer` WRITE;
+/*!40000 ALTER TABLE `oauthconsumer` DISABLE KEYS */;
+INSERT INTO `oauthconsumer` VALUES (10100,'2020-05-27 17:46:37','Jira','jira:ca856b1c-ae3d-4899-ab86-b9898fc3bda4','__HOST_SERVICE__','MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkp+pVJ5wfUYe3iUnDItRHXY5b++Yl4b8DEZ+4EsYAhZp/RqgfGOVxwgY9NsE5b0+r4sG8e7skDjL4yPgHbZ8Qsgi0Nr9vC07YaRw61FaMfu0uou9wolDIo//7UKz4yOo7focsM9LNe5cI7/+NGeuT84OmkT48vvpRUoWl5FZ80TQvrgo0Aw9B1lRCqwstm8s/XIPEnwI6xle3zBTsWS9i5rbd2YhvUV5/KhDk/sXWDNrNRXHNC57Fi/QBvru+v5k6KwxE+rLcyM5lmhleEkJIjBMklToTHEKgzjhus48u3n4+F/yOF7eBa+6ev4sKtwgCwWUcQLUF9SRKm2HjXHXswIDAQAB','MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCSn6lUnnB9Rh7eJScMi1Eddjlv75iXhvwMRn7gSxgCFmn9GqB8Y5XHCBj02wTlvT6viwbx7uyQOMvjI+AdtnxCyCLQ2v28LTthpHDrUVox+7S6i73CiUMij//tQrPjI6jt+hywz0s17lwjv/40Z65Pzg6aRPjy++lFShaXkVnzRNC+uCjQDD0HWVEKrCy2byz9cg8SfAjrGV7fMFOxZL2Lmtt3ZiG9RXn8qEOT+xdYM2s1Fcc0LnsWL9AG+u76/mTorDET6stzIzmWaGV4SQkiMEySVOhMcQqDOOG6zjy7efj4X/I4Xt4Fr7p6/iwq3CALBZRxAtQX1JEqbYeNcdezAgMBAAECggEABxwq7+mG9uwxjwAqNpeC5XTYMC9kLOTk0AuTF3lMvr0rgpSJ9740gyRHYYhFYoacxZJuUckOO6glauxQb+BrgimGVq5n43omCQQaXa7iOs5D40/nccmKMeDdvjmf04HlLTUVsxU6RnE6kpk60Hu+niwV1TFHCTFiDHQdSFhKDlvTH5Gm0Ko1Jrnqd/AwxQI7Df86mC4K925pBRHDpeLiNm35Pie7IA4pHx/Yb719HSdrwdfP01zZ1EMgQsdNFvM5yj8RAQoL/J4V9Zy2fQpJ7ZXwzobTXPgPwq6CzQRHFO1sZkU58qPJcTBB6suG0R/C8U9GICoht/H7hlZeClypUQKBgQDHCTHe19YvunUiBUP+s6lglSkJKjXYPwu3BBtYeV7tSnFActKzZhhEcObT9Xnp14lON5VIqzNTr6HsjeQdSH6QbFlg2vud1ExxSf/3WBT8ZCzNY6FTycKSqCKh70m42+3dmG4ewHC7cuTop/zCxjILlSrLE/mMW9kqHznZdr7Z3QKBgQC8ll5Npkk9Eve+GK/Qy0Vj/cUwfMOZwbEkwZBU++MBm9niN5GOQc6LUBFheZ3yfEWCOaE5zwIlievFrQBGUaXz8bOzDaw8Y4uo6CUUP2VFTRZ51AcK8OzrT2J+qj4aaWoq3aOCmm25xl7zFrcsHrJzv/JakQ2juHY1jtXijQ6GzwKBgHP1cW6pRQpNkYyekLzFo3q3rE7Anto78PFRnTTwkVOiOVUZEJSgeKb3OCRpMfwBLOe7DmhmBeNNwgL1r983qzUtSu1Y55tOYrLmMBDE6oUZP9jxoL4WIBwdhP/fT445491kv1N/Pq6XA7JgnKxFmEaTQ3lJS+xwXpdh1exSeGKpAoGAMGdT2xBEGgXlSohhj/CsZca7tv8+4RcC1ZFM71MbZ81Nti9XD7E6Ry2M2HzzmkplONB73i+QuHvW5QzLVkEcnCk8W0e2HmXaccbrxW+kGY54p1pRWHCQDrF4cVRWzkaiNlBe6GWkphsRQclhyFQ0r1rj5HT4kD4HMSXxJc3YnacCgYAnz2YMiEfy4X8aZymIrxVXqxH0Rj40rca4KxPsrFCYeu5G+CO/mjRVmsG7RP+9sdidQm/G+h/HvQPoqPS6I2Tclh9UGWJFQ3PFc7LPKZeBTA92eG8uOiwO1DWCEt2ccFu8G4xNNT4bZCbMbSB3gNCFvCYg9gQfEhbiUfRd+C3waw==','Atlassian Jira 于 http://localhost:8190',NULL,'RSA_SHA1',NULL);
+/*!40000 ALTER TABLE `oauthconsumer` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `oauthconsumertoken`
+--
+
+DROP TABLE IF EXISTS `oauthconsumertoken`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `oauthconsumertoken` (
+  `ID` decimal(18,0) NOT NULL,
+  `CREATED` datetime DEFAULT NULL,
+  `TOKEN_KEY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `TOKEN` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `TOKEN_SECRET` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `TOKEN_TYPE` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `CONSUMER_KEY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `oauth_consumer_token_key_index` (`TOKEN_KEY`),
+  KEY `oauth_consumer_token_index` (`TOKEN`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `oauthconsumertoken`
+--
+
+LOCK TABLES `oauthconsumertoken` WRITE;
+/*!40000 ALTER TABLE `oauthconsumertoken` DISABLE KEYS */;
+/*!40000 ALTER TABLE `oauthconsumertoken` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `oauthspconsumer`
+--
+
+DROP TABLE IF EXISTS `oauthspconsumer`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `oauthspconsumer` (
+  `ID` decimal(18,0) NOT NULL,
+  `CREATED` datetime DEFAULT NULL,
+  `CONSUMER_KEY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `consumername` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `PUBLIC_KEY` text COLLATE utf8_bin,
+  `DESCRIPTION` text COLLATE utf8_bin,
+  `CALLBACK` text COLLATE utf8_bin,
+  `TWO_L_O_ALLOWED` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `EXECUTING_TWO_L_O_USER` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `TWO_L_O_IMPERSONATION_ALLOWED` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `THREE_L_O_ALLOWED` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `oauth_sp_consumer_index` (`CONSUMER_KEY`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `oauthspconsumer`
+--
+
+LOCK TABLES `oauthspconsumer` WRITE;
+/*!40000 ALTER TABLE `oauthspconsumer` DISABLE KEYS */;
+/*!40000 ALTER TABLE `oauthspconsumer` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `oauthsptoken`
+--
+
+DROP TABLE IF EXISTS `oauthsptoken`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `oauthsptoken` (
+  `ID` decimal(18,0) NOT NULL,
+  `CREATED` datetime DEFAULT NULL,
+  `TOKEN` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `TOKEN_SECRET` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `TOKEN_TYPE` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `CONSUMER_KEY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `USERNAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `TTL` decimal(18,0) DEFAULT NULL,
+  `spauth` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `CALLBACK` text COLLATE utf8_bin,
+  `spverifier` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `spversion` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `SESSION_HANDLE` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `SESSION_CREATION_TIME` datetime DEFAULT NULL,
+  `SESSION_LAST_RENEWAL_TIME` datetime DEFAULT NULL,
+  `SESSION_TIME_TO_LIVE` datetime DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `oauth_sp_token_index` (`TOKEN`),
+  KEY `oauth_sp_consumer_key_index` (`CONSUMER_KEY`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `oauthsptoken`
+--
+
+LOCK TABLES `oauthsptoken` WRITE;
+/*!40000 ALTER TABLE `oauthsptoken` DISABLE KEYS */;
+/*!40000 ALTER TABLE `oauthsptoken` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `optionconfiguration`
+--
+
+DROP TABLE IF EXISTS `optionconfiguration`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `optionconfiguration` (
+  `ID` decimal(18,0) NOT NULL,
+  `FIELDID` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `OPTIONID` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `FIELDCONFIG` decimal(18,0) DEFAULT NULL,
+  `SEQUENCE` decimal(18,0) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `fieldid_optionid` (`FIELDID`,`OPTIONID`),
+  KEY `fieldid_fieldconf` (`FIELDID`,`FIELDCONFIG`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `optionconfiguration`
+--
+
+LOCK TABLES `optionconfiguration` WRITE;
+/*!40000 ALTER TABLE `optionconfiguration` DISABLE KEYS */;
+INSERT INTO `optionconfiguration` VALUES (10200,'priority','1',10101,1),(10201,'priority','2',10101,2),(10202,'priority','3',10101,3),(10203,'priority','4',10101,4),(10204,'priority','5',10101,5),(10300,'issuetype','10000',10000,0),(10301,'issuetype','10001',10000,1),(10302,'issuetype','10002',10207,0),(10303,'issuetype','10003',10207,1);
+/*!40000 ALTER TABLE `optionconfiguration` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `permissionscheme`
+--
+
+DROP TABLE IF EXISTS `permissionscheme`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `permissionscheme` (
+  `ID` decimal(18,0) NOT NULL,
+  `NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `DESCRIPTION` text COLLATE utf8_bin,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `permissionscheme`
+--
+
+LOCK TABLES `permissionscheme` WRITE;
+/*!40000 ALTER TABLE `permissionscheme` DISABLE KEYS */;
+INSERT INTO `permissionscheme` VALUES (0,'Default Permission Scheme','This is the default Permission Scheme. Any new projects that are created will be assigned this scheme.');
+/*!40000 ALTER TABLE `permissionscheme` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `permissionschemeattribute`
+--
+
+DROP TABLE IF EXISTS `permissionschemeattribute`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `permissionschemeattribute` (
+  `ID` decimal(18,0) NOT NULL,
+  `SCHEME` decimal(18,0) DEFAULT NULL,
+  `ATTRIBUTE_KEY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `ATTRIBUTE_VALUE` text COLLATE utf8_bin,
+  PRIMARY KEY (`ID`),
+  KEY `prmssn_scheme_attr_idx` (`SCHEME`),
+  KEY `prmssn_scheme_attr_key_idx` (`SCHEME`,`ATTRIBUTE_KEY`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `permissionschemeattribute`
+--
+
+LOCK TABLES `permissionschemeattribute` WRITE;
+/*!40000 ALTER TABLE `permissionschemeattribute` DISABLE KEYS */;
+/*!40000 ALTER TABLE `permissionschemeattribute` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pluginstate`
+--
+
+DROP TABLE IF EXISTS `pluginstate`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `pluginstate` (
+  `pluginkey` varchar(255) COLLATE utf8_bin NOT NULL,
+  `pluginenabled` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`pluginkey`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pluginstate`
+--
+
+LOCK TABLES `pluginstate` WRITE;
+/*!40000 ALTER TABLE `pluginstate` DISABLE KEYS */;
+/*!40000 ALTER TABLE `pluginstate` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pluginversion`
+--
+
+DROP TABLE IF EXISTS `pluginversion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `pluginversion` (
+  `ID` decimal(18,0) NOT NULL,
+  `pluginname` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `pluginkey` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `pluginversion` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `CREATED` datetime DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pluginversion`
+--
+
+LOCK TABLES `pluginversion` WRITE;
+/*!40000 ALTER TABLE `pluginversion` DISABLE KEYS */;
+INSERT INTO `pluginversion` VALUES (10000,'Jira Projects Plugin','com.atlassian.jira.jira-projects-plugin','5.2.5','2020-05-27 17:18:54'),(10001,'Jira Software Application','com.atlassian.jira.jira-software-application','8.9.0','2020-05-27 17:18:54'),(10002,'Atlassian OAuth Consumer Plugin','com.atlassian.oauth.consumer','4.0.2','2020-05-27 17:18:54'),(10003,'Atlassian Jira - Plugins - My Jira Home','com.atlassian.jira.jira-my-home-plugin','8.9.0','2020-05-27 17:18:54'),(10004,'JIRA Software English (United States) Language Pack','tac.jira software.languages.en_US','8.10.0.v20200506073552','2020-05-27 17:18:54'),(10005,'Project Creation Plugin SPI for JIRA','com.atlassian.plugins.jira-project-creation','4.0.0-74bdd7a6fa','2020-05-27 17:18:54'),(10006,'Atlassian Embedded Crowd - Administration Plugin','com.atlassian.crowd.embedded.admin','2.3.4-j11-2','2020-05-27 17:18:54'),(10007,'Analytics Client Plugin','com.atlassian.analytics.analytics-client','5.8.0','2020-05-27 17:18:54'),(10008,'JIRA Software Chinese (China) Language Pack','tac.jira software.languages.zh_CN','8.10.0.v20200506073552','2020-05-27 17:18:54'),(10009,'Jira Index Analyzer','com.atlassian.jira.plugins.jira-index-analyzer-plugin','8.9.0','2020-05-27 17:18:54'),(10010,'Jira Help Tips plugin','com.atlassian.plugins.helptips.jira-help-tips','8.9.0','2020-05-27 17:18:54'),(10011,'Atlassian Navigation Links Plugin','com.atlassian.plugins.atlassian-nav-links-plugin','5.0.0','2020-05-27 17:18:54'),(10012,'JIRA Core Romanian (Romania) Language Pack','tac.jira core.languages.ro_RO','8.9.0.v20200506074233','2020-05-27 17:18:54'),(10013,'Atlassian Jira - Plugins - Issue Web Link','com.atlassian.jira.jira-issue-link-web-plugin','8.9.0','2020-05-27 17:18:54'),(10014,'JIRA Core Slovak (Slovakia) Language Pack','tac.jira core.languages.sk_SK','8.9.0.v20200506074233','2020-05-27 17:18:54'),(10015,'Atlassian Hipchat Integration Plugin Core','com.atlassian.plugins.base-hipchat-integration-plugin-api','8.4.4','2020-05-27 17:18:54'),(10016,'Whisper Messages Plugin','whisper.messages','1.0','2020-05-27 17:18:54'),(10017,'Project Role Actors Plugin','com.atlassian.jira.plugin.system.projectroleactors','1.0','2020-05-27 17:18:54'),(10018,'Atlassian Jira - Plugins - OAuth Service Provider SPI','com.atlassian.jira.oauth.serviceprovider','8.9.0','2020-05-27 17:18:54'),(10019,'Keyboard Shortcuts Plugin','jira.keyboard.shortcuts','1.0','2020-05-27 17:18:54'),(10020,'Bitbucket Importer Plugin for JIM','com.atlassian.jira.plugins.jira-importers-bitbucket-plugin','3.1.1','2020-05-27 17:18:54'),(10021,'Atlassian Remote Event Common Plugin','com.atlassian.plugins.atlassian-remote-event-common-plugin','6.1.0','2020-05-27 17:18:54'),(10022,'Jira GitHub Issue Importer','com.atlassian.jira.plugins.jira-importers-github-plugin','3.1.0','2020-05-27 17:18:54'),(10023,'JIRA Password Policy Plugin','com.atlassian.jira.plugins.jira-password-policy-plugin','2.1.0','2020-05-27 17:18:54'),(10024,'ROME: RSS/Atom syndication and publishing tools','com.springsource.com.sun.syndication-0.9.0','0.9.0','2020-05-27 17:18:54'),(10025,'JIRA iCalendar Plugin','com.atlassian.jira.extra.jira-ical-feed','1.5.0','2020-05-27 17:18:54'),(10026,'Jira Drag and Drop Attachment Plugin','com.atlassian.jira.plugins.jira-dnd-attachment-plugin','5.0.7','2020-05-27 17:18:54'),(10027,'Atlassian Jira - Plugins - Post setup announcements plugin','com.atlassian.jira.jira-postsetup-announcements-plugin','8.9.0','2020-05-27 17:18:54'),(10028,'Streams Inline Actions Plugin','com.atlassian.streams.actions','8.2.0','2020-05-27 17:18:54'),(10029,'JIRA Software Spanish (Spain) Language Pack','tac.jira software.languages.es_ES','8.10.0.v20200506073552','2020-05-27 17:18:54'),(10030,'Apache Apache HttpClient OSGi bundle','org.apache.httpcomponents.httpclient-4.5.10','4.5.10','2020-05-27 17:18:54'),(10031,'JIRA Core Swedish (Sweden) Language Pack','tac.jira core.languages.sv_SE','8.9.0.v20200506074233','2020-05-27 17:18:54'),(10032,'Comment Panel Plugin','com.atlassian.jira.plugin.system.comment-panel','1.0','2020-05-27 17:18:54'),(10033,'Atlassian Jira - Plugins - Development Integration Plugin','com.atlassian.jira.plugins.jira-development-integration-plugin','5.7.0','2020-05-27 17:18:54'),(10034,'Atlassian Remote Event Consumer Plugin','com.atlassian.plugins.atlassian-remote-event-consumer-plugin','6.1.0','2020-05-27 17:18:54'),(10035,'scala-2.11-provider-plugin','com.atlassian.scala.plugins.scala-2.11-provider-plugin','0.13','2020-05-27 17:18:54'),(10036,'JIRA Workflow Transition Tabs','com.atlassian.jira.plugin.system.workfloweditor.transition.tabs','1.0','2020-05-27 17:18:54'),(10037,'Jira inform - batching plugin','com.atlassian.jira.plugins.inform.batching-plugin','1.3.6','2020-05-27 17:18:54'),(10038,'JIRA Core Czech (Czech Republic) Language Pack','tac.jira core.languages.cs_CZ','8.9.0.v20200506074233','2020-05-27 17:18:54'),(10039,'Renderer Plugin','com.atlassian.jira.plugin.system.jirarenderers','1.0','2020-05-27 17:18:54'),(10040,'Atlassian Gadgets OAuth Service Provider Plugin','com.atlassian.gadgets.oauth.serviceprovider','4.4.9','2020-05-27 17:18:54'),(10041,'JIRA Software Finnish (Finland) Language Pack','tac.jira software.languages.fi_FI','8.10.0.v20200506073552','2020-05-27 17:18:54'),(10042,'JIRA Core Japanese (Japan) Language Pack','tac.jira core.languages.ja_JP','8.9.0.v20200506074233','2020-05-27 17:18:54'),(10043,'JIRA Core Italian (Italy) Language Pack','tac.jira core.languages.it_IT','8.9.0.v20200506074233','2020-05-27 17:18:54'),(10044,'Jira for Software Plugin','com.atlassian.jira.plugins.jira-software-plugin','8.9.0','2020-05-27 17:18:54'),(10045,'JIRA Core Polish (Poland) Language Pack','tac.jira core.languages.pl_PL','8.9.0.v20200506074233','2020-05-27 17:18:54'),(10046,'Atlassian Jira - Plugins - Admin Navigation Component','com.atlassian.jira.jira-admin-navigation-plugin','8.9.0','2020-05-27 17:18:54'),(10047,'JIRA Software Danish (Denmark) Language Pack','tac.jira software.languages.da_DK','8.10.0.v20200506073552','2020-05-27 17:18:54'),(10048,'JIRA Core German (Germany) Language Pack','tac.jira core.languages.de_DE','8.9.0.v20200506074233','2020-05-27 17:18:54'),(10049,'Atlassian Plugins - Web Resources - Implementation Plugin','com.atlassian.plugins.atlassian-plugins-webresource-plugin','4.1.3','2020-05-27 17:18:54'),(10050,'Preset Filters Sections','jira.webfragments.preset.filters','1.0','2020-05-27 17:18:54'),(10051,'Atlassian Jira - Plugins - Project Config Plugin','com.atlassian.jira.jira-project-config-plugin','8.9.0','2020-05-27 17:18:54'),(10052,'Crowd System Password Encoders','crowd.system.passwordencoders','1.0','2020-05-27 17:18:54'),(10053,'Atlassian UI Plugin','com.atlassian.auiplugin','8.6.0','2020-05-27 17:18:54'),(10054,'Atlassian Jira - Plugins - Share Content Component','com.atlassian.jira.jira-share-plugin','8.9.0','2020-05-27 17:18:54'),(10055,'Atlassian Jira - Plugins - Statistics plugin','com.atlassian.jira.jira-statistics-plugin','8.9.0','2020-05-27 17:18:54'),(10056,'Atlassian Jira - Plugins - Remote Jira Link','com.atlassian.jira.jira-issue-link-remote-jira-plugin','8.9.0','2020-05-27 17:18:54'),(10057,'Functional Extensions Guava Inter-Ops','io.atlassian.fugue.guava-4.7.2','4.7.2','2020-05-27 17:18:54'),(10058,'Remote Link Aggregator Plugin','com.atlassian.plugins.remote-link-aggregator-plugin','3.0.0','2020-05-27 17:18:54'),(10059,'Atlassian HealthCheck Common Module','com.atlassian.healthcheck.atlassian-healthcheck','6.0.0','2020-05-27 17:18:54'),(10060,'Workbox - Common Plugin','com.atlassian.mywork.mywork-common-plugin','7.0.1','2020-05-27 17:18:54'),(10061,'Jira Workflow Sharing Plugin','com.atlassian.jira.plugins.workflow.sharing.jira-workflow-sharing-plugin','2.2.7','2020-05-27 17:18:54'),(10062,'Entity property conditions','system.entity.property.conditions','1.0','2020-05-27 17:18:54'),(10063,'org.osgi:org.osgi.service.cm','org.osgi.service.cm-1.5.0.201505202024','1.5.0.201505202024','2020-05-27 17:18:54'),(10064,'JIRA Software Korean (South Korea) Language Pack','tac.jira software.languages.ko_KR','8.10.0.v20200506073552','2020-05-27 17:18:54'),(10065,'Atlassian Jira - Plugins - APDEX','com.atlassian.jira.jira-apdex-plugin','8.9.0','2020-05-27 17:18:54'),(10066,'JQL Functions','jira.jql.function','1.0','2020-05-27 17:18:54'),(10067,'Atlassian Soy - Plugin','com.atlassian.soy.soy-template-plugin','5.0.0','2020-05-27 17:18:54'),(10068,'JIRA Software Icelandic (Iceland) Language Pack','tac.jira software.languages.is_IS','8.10.0.v20200506073552','2020-05-27 17:18:54'),(10069,'Mobile Plugin for Jira','com.atlassian.jira.mobile.jira-mobile-rest','2.1.0','2020-05-27 17:18:54'),(10070,'atlassian-failure-cache-plugin','com.atlassian.atlassian-failure-cache-plugin','2.0.0','2020-05-27 17:18:54'),(10071,'Atlassian Jira - Plugins - View Issue Panels','com.atlassian.jira.jira-view-issue-plugin','8.9.0','2020-05-27 17:18:54'),(10072,'JIRA Footer','jira.footer','1.0','2020-05-27 17:18:54'),(10073,'Applinks - Plugin - Core','com.atlassian.applinks.applinks-plugin','7.1.3','2020-05-27 17:18:54'),(10074,'Jira inform - batchers','com.atlassian.jira.plugins.inform.batchers','1.3.6','2020-05-27 17:18:54'),(10075,'jira-optimizer-plugin','com.atlassian.jira.plugins.jira-optimizer-plugin','2.0.13','2020-05-27 17:18:54'),(10076,'Analytics Whitelist Plugin','com.atlassian.analytics.analytics-whitelist','3.73','2020-05-27 17:18:54'),(10077,'Atlassian Jira - Plugins - Invite User','com.atlassian.jira.jira-invite-user-plugin','2.3.1','2020-05-27 17:18:54'),(10078,'Atlassian Jira - Plugins - Cluster Monitoring','com.atlassian.jira.jira-cluster-monitoring-plugin','8.9.0','2020-05-27 17:18:54'),(10079,'JIRA Software Norwegian (Norway) Language Pack','tac.jira software.languages.no_NO','8.10.0.v20200506073552','2020-05-27 17:18:54'),(10080,'Applinks - Plugin - Basic Authentication','com.atlassian.applinks.applinks-basicauth-plugin','7.1.3','2020-05-27 17:18:54'),(10081,'Atlassian Jira - Plugins - Quick Search','com.atlassian.jira.plugins.jira-quicksearch-plugin','8.9.0','2020-05-27 17:18:54'),(10082,'User Profile Links','jira.webfragments.user.profile.links','1.0','2020-05-27 17:18:54'),(10083,'JIRA Software Italian (Italy) Language Pack','tac.jira software.languages.it_IT','8.10.0.v20200506073552','2020-05-27 17:18:54'),(10084,'Admin Menu Sections','jira.webfragments.admin','1.0','2020-05-27 17:18:54'),(10085,'wiki-editor','com.atlassian.jira.plugins.jira-wiki-editor','4.1.13','2020-05-27 17:18:54'),(10086,'Atlassian OAuth Service Provider SPI','com.atlassian.oauth.atlassian-oauth-service-provider-spi','4.0.2','2020-05-27 17:18:54'),(10087,'Top Navigation Bar','jira.top.navigation.bar','1.0','2020-05-27 17:18:54'),(10088,'Applinks - Plugin - Trusted Apps','com.atlassian.applinks.applinks-trustedapps-plugin','7.1.3','2020-05-27 17:18:54'),(10089,'Wiki Renderer Macros Plugin','com.atlassian.jira.plugin.system.renderers.wiki.macros','1.0','2020-05-27 17:18:54'),(10090,'Issue Views Plugin','jira.issueviews','1.0','2020-05-27 17:18:54'),(10091,'JIRA Core Icelandic (Iceland) Language Pack','tac.jira core.languages.is_IS','8.9.0.v20200506074233','2020-05-27 17:18:54'),(10092,'Streams SPI','com.atlassian.streams.streams-spi','8.2.0','2020-05-27 17:18:54'),(10093,'Jira inform - event plugin','com.atlassian.jira.plugins.inform.event-plugin','1.3.6','2020-05-27 17:18:54'),(10094,'Applinks - Plugin - CORS','com.atlassian.applinks.applinks-cors-plugin','7.1.3','2020-05-27 17:18:54'),(10095,'Streams Third Party Provider Plugin','com.atlassian.streams.streams-thirdparty-plugin','8.2.0','2020-05-27 17:18:54'),(10096,'Atlassian OAuth Service Provider Plugin','com.atlassian.oauth.serviceprovider','4.0.2','2020-05-27 17:18:54'),(10097,'Atlassian Jira - Plugins - Common AppLinks Based Issue Link Plugin','com.atlassian.jira.jira-issue-link-applinks-common-plugin','8.9.0','2020-05-27 17:18:54'),(10098,'Functional Extensions','io.atlassian.fugue-4.7.2','4.7.2','2020-05-27 17:18:54'),(10099,'jira-webresources-plugin','jira.webresources','1.0','2020-05-27 17:18:54'),(10100,'Embedded Gadgets Plugin','com.atlassian.gadgets.embedded','4.4.9','2020-05-27 17:18:54'),(10101,'Atlassian Jira - Plugins - Core Reports','com.atlassian.jira.jira-core-reports-plugin','8.9.0','2020-05-27 17:18:54'),(10102,'Streams Plugin','com.atlassian.streams','8.2.0','2020-05-27 17:18:54'),(10103,'Browse Project Operations Sections','jira.webfragments.browse.project.links','1.0','2020-05-27 17:18:54'),(10104,'Jira Issue Collector Plugin','com.atlassian.jira.collector.plugin.jira-issue-collector-plugin','4.0.1','2020-05-27 17:18:54'),(10105,'Atlassian Whitelist Core Plugin','com.atlassian.plugins.atlassian-whitelist-core-plugin','4.2.0','2020-05-27 17:18:54'),(10106,'JIRA Core Russian (Russia) Language Pack','tac.jira core.languages.ru_RU','8.9.0.v20200506074233','2020-05-27 17:18:54'),(10107,'ICU4J','com.atlassian.bundles.icu4j-3.8.0.1','3.8.0.1','2020-05-27 17:18:54'),(10108,'Streams Core Plugin','com.atlassian.streams.core','8.2.0','2020-05-27 17:18:54'),(10109,'Atlassian Jira - Plugins - WebHooks Plugin','com.atlassian.jira.plugins.webhooks.jira-webhooks-plugin','8.9.0','2020-05-27 17:18:54'),(10110,'Issue Operations Plugin','com.atlassian.jira.plugin.system.issueoperations','1.0','2020-05-27 17:18:54'),(10111,'Gadget Directory Plugin','com.atlassian.gadgets.directory','4.4.9','2020-05-27 17:18:54'),(10112,'Attach Image for JIRA','com.atlassian.plugins.jira-html5-attach-images','4.0.0','2020-05-27 17:18:54'),(10113,'Jira Monitoring Plugin','com.atlassian.jira.jira-monitoring-plugin','05.7.3','2020-05-27 17:18:54'),(10114,'Atlassian Hipchat Integration Plugin','com.atlassian.plugins.base-hipchat-integration-plugin','8.4.4','2020-05-27 17:18:54'),(10115,'Atlassian Jira - Plugins - Project Centric Issue Navigator','com.atlassian.jira.jira-projects-issue-navigator','9.5.7','2020-05-27 17:18:54'),(10116,'jira-importers-plugin','com.atlassian.jira.plugins.jira-importers-plugin','9.1.3','2020-05-27 17:18:54'),(10117,'Atlassian Plugins - JavaScript libraries','com.atlassian.plugin.jslibs','2.1.0','2020-05-27 17:18:54'),(10118,'JIRA Software Portuguese (Brazil) Language Pack','tac.jira software.languages.pt_BR','8.10.0.v20200506073552','2020-05-27 17:18:54'),(10119,'Jira Time Zone Detection plugin','com.atlassian.jira.jira-tzdetect-plugin','3.0.3','2020-05-27 17:18:54'),(10120,'Hipchat for Jira','com.atlassian.labs.hipchat.hipchat-for-jira-plugin','8.4.4','2020-05-27 17:18:54'),(10121,'Atlassian Jira - Plugins - Diagnostics Plugin','com.atlassian.jira.diagnostics','8.9.0','2020-05-27 17:18:54'),(10122,'JIRA Core Dutch (Netherlands) Language Pack','tac.jira core.languages.nl_NL','8.9.0.v20200506074233','2020-05-27 17:18:54'),(10123,'JIRA Core Estonian (Estonia) Language Pack','tac.jira core.languages.et_EE','8.9.0.v20200506074233','2020-05-27 17:18:54'),(10124,'JSON Library','com.atlassian.bundles.json-20070829.0.0.1','20070829.0.0.1','2020-05-27 17:18:54'),(10125,'JDOM DOM Processor','com.springsource.org.jdom-1.0.0','1.0.0','2020-05-27 17:18:54'),(10126,'JIRA Core Chinese (China) Language Pack','tac.jira core.languages.zh_CN','8.9.0.v20200506074233','2020-05-27 17:18:54'),(10127,'Atlassian Jira - Plugins - Feedback Plugin','com.atlassian.feedback.jira-feedback-plugin','8.9.0','2020-05-27 17:18:54'),(10128,'ActiveObjects Plugin - OSGi Bundle','com.atlassian.activeobjects.activeobjects-plugin','3.2.3','2020-05-27 17:18:54'),(10129,'Atlassian Jira - Plugins - Header Plugin','com.atlassian.jira.jira-header-plugin','8.9.0','2020-05-27 17:18:54'),(10130,'Issue Tab Panels Plugin','com.atlassian.jira.plugin.system.issuetabpanels','1.0','2020-05-27 17:18:54'),(10131,'JIRA Feature Keys','jira.feature.keys','1.0','2020-05-27 17:18:54'),(10132,'JIRA Streams Inline Actions Plugin','com.atlassian.streams.jira.inlineactions','8.2.0','2020-05-27 17:18:54'),(10133,'Atlassian Jira - Plugins - Application Properties','com.atlassian.jira.jira-application-properties-plugin','8.9.0','2020-05-27 17:18:54'),(10134,'Atlassian Jira - Plugins - Gadgets Plugin','com.atlassian.jira.gadgets','8.9.0','2020-05-27 17:18:54'),(10135,'Atlassian Jira - Plugins - Analytics whitelist','com.atlassian.jira.jira-analytics-whitelist-plugin','8.9.0','2020-05-27 17:18:54'),(10136,'jira-inline-issue-create-plugin','com.atlassian.jira.plugins.inline-create.jira-inline-issue-create-plugin','2.0.18','2020-05-27 17:18:54'),(10137,'Functional Extensions Scala Inter-Ops','io.atlassian.fugue.scala-4.7.2','4.7.2','2020-05-27 17:18:54'),(10138,'Workbox - JIRA Provider Plugin','com.atlassian.mywork.mywork-jira-provider-plugin','7.0.1','2020-05-27 17:18:54'),(10139,'JIRA Core Korean (South Korea) Language Pack','tac.jira core.languages.ko_KR','8.9.0.v20200506074233','2020-05-27 17:18:54'),(10140,'Content Link Resolvers Plugin','com.atlassian.jira.plugin.wiki.contentlinkresolvers','1.0','2020-05-27 17:18:54'),(10141,'Atlassian Whitelist API Plugin','com.atlassian.plugins.atlassian-whitelist-api-plugin-4.2.0','4.2.0','2020-05-27 17:18:54'),(10142,'Atlassian Application Manager plugin','com.atlassian.upm.upm-application-plugin','4.0.8','2020-05-27 17:18:54'),(10143,'JIRA Core Spanish (Spain) Language Pack','tac.jira core.languages.es_ES','8.9.0.v20200506074233','2020-05-27 17:18:54'),(10144,'JIRA Software Russian (Russia) Language Pack','tac.jira software.languages.ru_RU','8.10.0.v20200506073552','2020-05-27 17:18:54'),(10145,'JIRA Software Swedish (Sweden) Language Pack','tac.jira software.languages.sv_SE','8.10.0.v20200506073552','2020-05-27 17:18:54'),(10146,'Atlassian Jira - Plugins - Credits Plugin','com.atlassian.jira.jira-credits-plugin','8.9.0','2020-05-27 17:18:54'),(10147,'Jira Mobile','com.atlassian.jira.mobile','3.2.9','2020-05-27 17:18:54'),(10148,'Atlassian Jira - Plugins - Onboarding','com.atlassian.jira.jira-onboarding-assets-plugin','8.9.0','2020-05-27 17:18:54'),(10149,'FishEye Plugin','com.atlassian.jirafisheyeplugin','8.9.0','2020-05-27 17:18:54'),(10150,'JIRA Software French (France) Language Pack','tac.jira software.languages.fr_FR','8.10.0.v20200506073552','2020-05-27 17:18:54'),(10151,'Atlassian JIRA - Admin Helper Plugin','com.atlassian.jira.plugins.jira-admin-helper-plugin','5.0.1','2020-05-27 17:18:54'),(10152,'Atlassian browser metrics plugin','com.atlassian.plugins.browser.metrics.browser-metrics-plugin','7.0.1','2020-05-27 17:18:54'),(10153,'JIRA Software German (Germany) Language Pack','tac.jira software.languages.de_DE','8.10.0.v20200506073552','2020-05-27 17:18:54'),(10154,'Atlassian Jira - Plugins - Global Issue Navigator','com.atlassian.jira.jira-issue-nav-plugin','9.5.7','2020-05-27 17:18:54'),(10155,'User Navigation Bar Sections','jira.webfragments.user.navigation.bar','1.0','2020-05-27 17:18:54'),(10156,'Atlassian Troubleshooting and Support Tools','com.atlassian.troubleshooting.plugin-jira','1.24.1','2020-05-27 17:18:54'),(10157,'Neko HTML','com.atlassian.bundles.nekohtml-1.9.12.1','1.9.12.1','2020-05-27 17:18:54'),(10158,'JIRA Global Permissions','jira.system.global.permissions','1.0','2020-05-27 17:18:54'),(10159,'JIRA Software Slovak (Slovakia) Language Pack','tac.jira software.languages.sk_SK','8.10.0.v20200506073552','2020-05-27 17:18:54'),(10160,'Atlassian Template Renderer API','com.atlassian.templaterenderer.api','4.0.0','2020-05-27 17:18:54'),(10161,'JIRA Core Danish (Denmark) Language Pack','tac.jira core.languages.da_DK','8.9.0.v20200506074233','2020-05-27 17:18:54'),(10162,'Atlassian JIRA - Plugins - File viewer plugin','com.atlassian.jira.jira-fileviewer-plugin','8.0.0','2020-05-27 17:18:54'),(10163,'Atlassian Pretty URLs Plugin','com.atlassian.prettyurls.atlassian-pretty-urls-plugin','3.0.0','2020-05-27 17:18:54'),(10164,'JIRA Attachment Archive File Processors','jira.system.attachment.processors','1.0','2020-05-27 17:18:54'),(10165,'Atlassian Jira - Plugins - Admin Upgrades','com.atlassian.jira.jira-admin-updates-plugin','8.9.0','2020-05-27 17:18:54'),(10166,'Atlassian Cluster Monitoring Plugin','com.atlassian.cluster.monitoring.cluster-monitoring-plugin','4.0.0','2020-05-27 17:18:54'),(10167,'jira-ui','com.atlassian.jira.plugins.jira-ui','0.3.0','2020-05-27 17:18:54'),(10168,'Atlassian Universal Plugin Manager Plugin','com.atlassian.upm.atlassian-universal-plugin-manager-plugin','4.0.8','2020-05-27 17:18:54'),(10169,'SSO for Atlassian Data Center','com.atlassian.plugins.authentication.atlassian-authentication-plugin','4.0.1','2020-05-27 17:18:54'),(10170,'Atlassian Whitelist UI Plugin','com.atlassian.plugins.atlassian-whitelist-ui-plugin','4.2.0','2020-05-27 17:18:54'),(10171,'JIRA Core Portuguese (Brazil) Language Pack','tac.jira core.languages.pt_BR','8.9.0.v20200506074233','2020-05-27 17:18:54'),(10172,'Atlassian Jira - Plugins - Frontend Features','com.atlassian.jira.jira-frontend-plugin','8.9.0','2020-05-27 17:18:54'),(10173,'Redmine Importers Plugin for JIM','com.atlassian.jira.plugins.jira-importers-redmine-plugin','2.2.0','2020-05-27 17:18:54'),(10174,'jira-capabilities-plugin','jira.capabilities','1.0','2020-05-27 17:18:54'),(10175,'Atlassian JIRA - Plugins - Quick Edit Plugin','com.atlassian.jira.jira-quick-edit-plugin','4.0.0','2020-05-27 17:18:54'),(10176,'Soy Function Plugin','com.atlassian.jira.plugin.system.soyfunction','1.0','2020-05-27 17:18:54'),(10177,'Universal Plugin Manager - Role-Based Licensing Implementation Plugin','com.atlassian.upm.role-based-licensing-plugin','4.0.8','2020-05-27 17:18:54'),(10178,'Jira Core Project Templates Plugin','com.atlassian.jira-core-project-templates','7.0.5','2020-05-27 17:18:54'),(10179,'Atlassian OAuth Admin Plugin','com.atlassian.oauth.admin','4.0.2','2020-05-27 17:18:54'),(10180,'Atlassian REST - Module Types','com.atlassian.plugins.rest.atlassian-rest-module','6.0.2','2020-05-27 17:18:54'),(10181,'Crowd REST API','crowd-rest-application-management','1.0','2020-05-27 17:18:54'),(10182,'jira-issue-nav-components','com.atlassian.jira.jira-issue-nav-components','9.5.7','2020-05-27 17:18:54'),(10183,'jquery','com.atlassian.plugins.jquery','2.2.4.7','2020-05-27 17:18:54'),(10184,'Atlassian Jira - Plugins - Auditing Plugin [Audit Log]','com.atlassian.jira.plugins.jira-auditing-plugin','8.9.0','2020-05-27 17:18:54'),(10185,'Apache Apache HttpCore OSGi bundle','org.apache.httpcomponents.httpcore-4.4.12','4.4.12','2020-05-27 17:18:54'),(10186,'JIRA Remote Link Aggregator Plugin','com.atlassian.plugins.jira-remote-link-aggregator-plugin','3.0.0','2020-05-27 17:18:54'),(10187,'Streams API','com.atlassian.streams.streams-api','8.2.0','2020-05-27 17:18:54'),(10188,'Atlassian Jira - Plugins - Atlassian Notifications Plugin','com.atlassian.jira.jira-whisper-plugin','8.9.0','2020-05-27 17:18:54'),(10189,'Atlassian HTTP Client, Apache HTTP components impl','com.atlassian.httpclient.atlassian-httpclient-plugin','2.0.0','2020-05-27 17:18:54'),(10190,'Jira DVCS Connector Plugin','com.atlassian.jira.plugins.jira-bitbucket-connector-plugin','5.2.7','2020-05-27 17:18:54'),(10191,'JIRA Software Hungarian (Hungary) Language Pack','tac.jira software.languages.hu_HU','8.10.0.v20200506073552','2020-05-27 17:18:54'),(10192,'Atlassian Audit Plugin','com.atlassian.audit.atlassian-audit-plugin','1.5.7','2020-05-27 17:18:54'),(10193,'Asana Importers Plugin for JIM','com.atlassian.jira.plugins.jira-importers-asana-plugin','2.1.0','2020-05-27 17:18:54'),(10194,'Atlassian Awareness Capability','com.atlassian.plugins.atlassian-awareness-capability','0.0.6','2020-05-27 17:18:54'),(10195,'Atlassian Plugins - Web Resources REST','com.atlassian.plugins.atlassian-plugins-webresource-rest','4.1.3','2020-05-27 17:18:54'),(10196,'Custom Field Types & Searchers','com.atlassian.jira.plugin.system.customfieldtypes','1.0','2020-05-27 17:18:54'),(10197,'Project Creation Capability Product REST Plugin','com.atlassian.plugins.atlassian-project-creation-plugin','4.0.0-74bdd7a6fa','2020-05-27 17:18:54'),(10198,'Atlassian Jira - Plugins - REST Plugin','com.atlassian.jira.rest','8.9.0','2020-05-27 17:18:54'),(10199,'Atlassian Spring Scanner Runtime','com.atlassian.plugin.atlassian-spring-scanner-runtime','2.1.13','2020-05-27 17:18:54'),(10200,'JIRA Software Czech (Czech Republic) Language Pack','tac.jira software.languages.cs_CZ','8.10.0.v20200506073552','2020-05-27 17:18:54'),(10201,'Opensocial Plugin','com.atlassian.gadgets.opensocial','4.4.9','2020-05-27 17:18:54'),(10202,'Atlassian Jira - Plugins - Confluence Link','com.atlassian.jira.jira-issue-link-confluence-plugin','8.9.0','2020-05-27 17:18:54'),(10203,'ROME, RSS and atOM utilitiEs for Java','rome.rome-1.0','1.0','2020-05-27 17:18:54'),(10204,'User Format','jira.user.format','1.0','2020-05-27 17:18:54'),(10205,'JIRA Core Finnish (Finland) Language Pack','tac.jira core.languages.fi_FI','8.9.0.v20200506074233','2020-05-27 17:18:54'),(10206,'JIRA Software Japanese (Japan) Language Pack','tac.jira software.languages.ja_JP','8.10.0.v20200506073552','2020-05-27 17:18:54'),(10207,'View Project Operations Sections','jira.webfragments.view.project.operations','1.0','2020-05-27 17:18:54'),(10208,'atlassian-servlet-plugin','com.atlassian.web.atlassian-servlet-plugin','5.2.0','2020-05-27 17:18:54'),(10209,'Crowd REST API','crowd-rest-plugin','1.0','2020-05-27 17:18:54'),(10210,'JIRA Software Polish (Poland) Language Pack','tac.jira software.languages.pl_PL','8.10.0.v20200506073552','2020-05-27 17:18:54'),(10211,'Atlassian OAuth Consumer SPI','com.atlassian.oauth.atlassian-oauth-consumer-spi','4.0.2','2020-05-27 17:18:54'),(10212,'Atlassian Jira - Plugins - Post-Upgrade Landing Page','com.atlassian.jira.plugins.jira-post-upgrade-landing-page-plugin','8.9.0','2020-05-27 17:18:54'),(10213,'JIRA Core Hungarian (Hungary) Language Pack','tac.jira core.languages.hu_HU','8.9.0.v20200506074233','2020-05-27 17:18:54'),(10214,'Atlassian Spring Scanner Annotations','com.atlassian.plugin.atlassian-spring-scanner-annotation','2.1.13','2020-05-27 17:18:54'),(10215,'jackson-module-scala-2.10-provider','com.atlassian.scala.plugins.jackson-module-scala-2.10-provider-plugin','0.5','2020-05-27 17:18:54'),(10216,'User anonymization in Jira Core','com.atlassian.jira.user.anonymize','1.0','2020-05-27 17:18:54'),(10217,'Rich Text Editor for JIRA','com.atlassian.jira.plugins.jira-editor-plugin','4.1.13','2020-05-27 17:18:54'),(10218,'Web Resources Plugin Jira Core','jira.core','1.0','2020-05-27 17:18:54'),(10219,'Workflow Plugin','com.atlassian.jira.plugin.system.workflow','1.0','2020-05-27 17:18:54'),(10220,'jira-importers-trello-plugin','com.atlassian.jira.plugins.jira-importers-trello-plugin','3.1.0','2020-05-27 17:18:55'),(10221,'JIRA Software Dutch (Netherlands) Language Pack','tac.jira software.languages.nl_NL','8.10.0.v20200506073552','2020-05-27 17:18:55'),(10222,'Icon Types Plugin','jira.icontypes','1.0','2020-05-27 17:18:55'),(10223,'JIRA Core Norwegian (Norway) Language Pack','tac.jira core.languages.no_NO','8.9.0.v20200506074233','2020-05-27 17:18:55'),(10224,'Atlassian WebHooks Plugin','com.atlassian.webhooks.atlassian-webhooks-plugin','3.3.0','2020-05-27 17:18:55'),(10225,'Help Paths Plugin','jira.help.paths','1.0','2020-05-27 17:18:55'),(10226,'Jira Base URL Plugin','com.atlassian.jira.jira-baseurl-plugin','3.2.0','2020-05-27 17:18:55'),(10227,'Atlassian Jira - Plugins - Look And Feel Logo Upload Plugin','com.atlassian.jira.lookandfeel','8.9.0','2020-05-27 17:18:55'),(10228,'Issue Status Plugin','com.atlassian.plugins.issue-status-plugin','2.1.1','2020-05-27 17:18:55'),(10229,'Gadget Spec Publisher Plugin','com.atlassian.gadgets.publisher','4.4.9','2020-05-27 17:18:55'),(10230,'Atlassian Jira - Plugins - OAuth Consumer SPI','com.atlassian.jira.oauth.consumer','8.9.0','2020-05-27 17:18:55'),(10231,'Jira Agile','com.pyxis.greenhopper.jira','8.9.0','2020-05-27 17:18:55'),(10232,'JIRA Software Estonian (Estonia) Language Pack','tac.jira software.languages.et_EE','8.10.0.v20200506073552','2020-05-27 17:18:55'),(10233,'JIRA Core French (France) Language Pack','tac.jira core.languages.fr_FR','8.9.0.v20200506074233','2020-05-27 17:18:55'),(10234,'Renderer Component Factories Plugin','com.atlassian.jira.plugin.wiki.renderercomponentfactories','1.0','2020-05-27 17:18:55'),(10235,'Atlassian LESS Transformer Plugin','com.atlassian.plugins.less-transformer-plugin','4.0.0','2020-05-27 17:18:55'),(10236,'Pocketknife Feature Flags Plugin','com.atlassian.pocketknife.featureflags-plugin','0.5.4','2020-05-27 17:18:55'),(10237,'Functional Optics Library','io.atlassian.fugue.optics-4.7.2','4.7.2','2020-05-27 17:18:55'),(10238,'Functional Extensions Retry Inter-Ops','io.atlassian.fugue.retry-4.7.2','4.7.2','2020-05-27 17:18:55'),(10239,'Jira Bamboo Plugin','com.atlassian.jira.plugin.ext.bamboo','8.9.0','2020-05-27 17:18:55'),(10240,'Atlassian Jira - Plugins - Transition Trigger Plugin','com.atlassian.jira.plugins.jira-transition-triggers-plugin','8.9.0','2020-05-27 17:18:55'),(10241,'Atlassian Front-End Runtime Plugin','com.atlassian.frontend.atlassian-frontend-runtime-plugin','0.3.0','2020-05-27 17:18:55'),(10242,'Atlassian Bot Session Killer','com.atlassian.labs.atlassian-bot-killer','1.7.9','2020-05-27 17:18:55'),(10243,'User Profile Panels','jira.user.profile.panels','1.0','2020-05-27 17:18:55'),(10244,'scala-2.10-provider-plugin','com.atlassian.scala.plugins.scala-2.10-provider-plugin','0.14','2020-05-27 17:18:55'),(10245,'JIRA Software Romanian (Romania) Language Pack','tac.jira software.languages.ro_RO','8.10.0.v20200506073552','2020-05-27 17:18:55'),(10246,'Atlassian Jira - Plugins - ActiveObjects SPI','com.atlassian.jira.jira-activeobjects-spi-plugin','8.9.0','2020-05-27 17:18:55'),(10247,'Atlassian Rate Limiting - Plugin','com.atlassian.ratelimiting.rate-limiting-plugin','1.0.6','2020-05-27 17:18:55'),(10248,'JIRA Project Permissions','jira.system.project.permissions','1.0','2020-05-27 17:18:55'),(10249,'Wallboard Plugin','com.atlassian.jirawallboard.atlassian-wallboard-plugin','3.0.3','2020-05-27 17:18:55'),(10250,'Atlassian Jira - Plugins - User Profile Plugin','com.atlassian.jira.jira-user-profile-plugin','4.0.6','2020-05-27 17:18:55'),(10251,'Project Templates Plugin','com.atlassian.jira.project-templates-plugin','7.0.5','2020-05-27 17:18:55'),(10252,'Atlassian Notifications','com.atlassian.whisper.atlassian-whisper-plugin','2.0.9','2020-05-27 17:18:55'),(10253,'Filter Deletion Warning Plugin','jira.filter.deletion.warning','1.0','2020-05-27 17:18:55'),(10254,'Jira Software Monitor Plugin','com.atlassian.jira.plugins.jira-software-monitor-plugin','8.9.0','2020-05-27 17:18:55'),(10255,'English (United States) Language Pack','com.atlassian.jira.jira-languages.en_US','8.9.0','2020-05-27 17:18:55'),(10256,'Atlassian Jira - Plugins - LESS integration','com.atlassian.jira.jira-less-integration','8.9.0','2020-05-27 17:18:55'),(10257,'Atlassian Jira - Plugins - SAL Plugin','com.atlassian.sal.jira','8.9.0','2020-05-27 17:18:55'),(10258,'Atlassian Diagnostics - Plugin','com.atlassian.diagnostics.atlassian-diagnostics-plugin','1.1.10','2020-05-27 17:18:55'),(10259,'Atlassian Template Renderer Velocity 1.6 Plugin','com.atlassian.templaterenderer.atlassian-template-renderer-velocity1.6-plugin','4.0.0','2020-05-27 17:18:55'),(10260,'Atlassian Jira - Plugins - Mail Plugin','com.atlassian.jira.jira-mail-plugin','11.0.8','2020-05-27 17:18:55'),(10261,'Atlassian Jira - Plugins - Closure Template Renderer','com.atlassian.jira.jira-soy-plugin','8.9.0','2020-05-27 17:18:55'),(10262,'Jira Workflow Designer Plugin','com.atlassian.jira.plugins.jira-workflow-designer','8.0.7','2020-05-27 17:18:55'),(10263,'Gadget Dashboard Plugin','com.atlassian.gadgets.dashboard','4.4.9','2020-05-27 17:18:55'),(10264,'Atlassian - Administration - Quick Search - JIRA','com.atlassian.administration.atlassian-admin-quicksearch-jira','2.3.3','2020-05-27 17:18:55'),(10265,'Web Panel Plugin','jira.webpanels','1.0','2020-05-27 17:18:55'),(10266,'Applinks - Plugin - OAuth','com.atlassian.applinks.applinks-oauth-plugin','7.1.3','2020-05-27 17:18:55'),(10267,'JIRA browser metrics integration plugin','com.atlassian.jira.plugins.jira-browser-metrics','2.0.14','2020-05-27 17:18:55'),(10268,'JIRA Activity Stream Plugin','com.atlassian.streams.streams-jira-plugin','8.2.0','2020-05-27 17:18:55'),(10269,'English (United Kingdom) Language Pack','com.atlassian.jira.jira-languages.en_UK','8.9.0','2020-05-27 17:18:55'),(10270,'Static Assets (CDN) Plugin','com.atlassian.plugins.static-assets-url','1.0.5','2020-05-27 17:18:55'),(10271,'JIRA Usage Hints','jira.usage.hints','1.0','2020-05-27 17:18:55');
+/*!40000 ALTER TABLE `pluginversion` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `portalpage`
+--
+
+DROP TABLE IF EXISTS `portalpage`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `portalpage` (
+  `ID` decimal(18,0) NOT NULL,
+  `USERNAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `PAGENAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `DESCRIPTION` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `SEQUENCE` decimal(18,0) DEFAULT NULL,
+  `FAV_COUNT` decimal(18,0) DEFAULT NULL,
+  `LAYOUT` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `ppversion` decimal(18,0) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `ppage_username` (`USERNAME`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `portalpage`
+--
+
+LOCK TABLES `portalpage` WRITE;
+/*!40000 ALTER TABLE `portalpage` DISABLE KEYS */;
+INSERT INTO `portalpage` VALUES (10000,NULL,'System Dashboard',NULL,0,0,'AA',0);
+/*!40000 ALTER TABLE `portalpage` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `portletconfiguration`
+--
+
+DROP TABLE IF EXISTS `portletconfiguration`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `portletconfiguration` (
+  `ID` decimal(18,0) NOT NULL,
+  `PORTALPAGE` decimal(18,0) DEFAULT NULL,
+  `PORTLET_ID` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `COLUMN_NUMBER` decimal(9,0) DEFAULT NULL,
+  `positionseq` decimal(9,0) DEFAULT NULL,
+  `GADGET_XML` text COLLATE utf8_bin,
+  `COLOR` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `DASHBOARD_MODULE_COMPLETE_KEY` text COLLATE utf8_bin,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `portletconfiguration`
+--
+
+LOCK TABLES `portletconfiguration` WRITE;
+/*!40000 ALTER TABLE `portletconfiguration` DISABLE KEYS */;
+INSERT INTO `portletconfiguration` VALUES (10000,10000,NULL,0,0,NULL,NULL,'com.atlassian.jira.gadgets:introduction-dashboard-item'),(10002,10000,NULL,1,0,'rest/gadgets/1.0/g/com.atlassian.jira.gadgets:assigned-to-me-gadget/gadgets/assigned-to-me-gadget.xml',NULL,NULL),(10003,10000,NULL,1,1,'rest/gadgets/1.0/g/com.atlassian.streams.streams-jira-plugin:activitystream-gadget/gadgets/activitystream-gadget.xml',NULL,NULL);
+/*!40000 ALTER TABLE `portletconfiguration` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `priority`
+--
+
+DROP TABLE IF EXISTS `priority`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `priority` (
+  `ID` varchar(60) COLLATE utf8_bin NOT NULL,
+  `SEQUENCE` decimal(18,0) DEFAULT NULL,
+  `pname` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `DESCRIPTION` text COLLATE utf8_bin,
+  `ICONURL` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `STATUS_COLOR` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `priority`
+--
+
+LOCK TABLES `priority` WRITE;
+/*!40000 ALTER TABLE `priority` DISABLE KEYS */;
+INSERT INTO `priority` VALUES ('1',1,'Highest','This problem will block progress.','/images/icons/priorities/highest.png','#ff7452'),('2',2,'High','Serious problem that could block progress.','/images/icons/priorities/high.png','#ff8f73'),('3',3,'Medium','Has the potential to affect progress.','/images/icons/priorities/medium.png','#ffab00'),('4',4,'Low','Minor problem or easily worked around.','/images/icons/priorities/low.png','#0065ff'),('5',5,'Lowest','Trivial problem with little or no impact on progress.','/images/icons/priorities/lowest.png','#2684ff');
+/*!40000 ALTER TABLE `priority` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `productlicense`
+--
+
+DROP TABLE IF EXISTS `productlicense`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `productlicense` (
+  `ID` decimal(18,0) NOT NULL,
+  `LICENSE` longtext COLLATE utf8_bin,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `productlicense`
+--
+
+LOCK TABLES `productlicense` WRITE;
+/*!40000 ALTER TABLE `productlicense` DISABLE KEYS */;
+INSERT INTO `productlicense` VALUES (10000,'AAABmw0ODAoPeJyNklFvgjAUhd/5FSR7LgMiQ0yazAEPZKBG1D1XvM4uWMhtcXO/fkUwc5sxSxqSkntOv3vuvXuBjZmxo+n6puOPXG80CMwwX5iu7drGKwKIXVXXgFbKCxASFscaJmwPNJxmWTwPk3FqhAhM8UpETAFthcT2iOsbNyQRyAJ53aroUpR8z5UGKTuBuT6aO6VqObq//9zxEixeGRnjQoFgooD4o+Z47F8bBsT29THeOLIzZbzhnfUkTbJkEUfGpNmvAafbpQSUlDhnuBteNVabplBWeyGy2qp3hmD9MbpRywrFD0AVNvAjy8v/N+SaioWgu8autI9npR9um3ONvFl/x3gqiQ+sbE7DoFtWyt7+t9EUX5ngsqtrk9ZBO4FrOQ9Dy7aGgRFWQmnIWIdeUgVSPbYfq6j2neH1EP7ZVq4YtigdYD+HJKJpEuXxhKSOF9ie73iD4CHwfoz12iblgAdALX8au0viOHFE8tnLM5mvVoNrC/x3NWYNFjsm4ff6XopP4dXIZd+eBqVXYPvcToxP48UXlmwmczAsAhQ9doFbOV37C7DBinDIWWle/WDthQIUC9n5F4fmN0z+X48lt9q27gKLqGA=X02jr');
+/*!40000 ALTER TABLE `productlicense` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `project`
+--
+
+DROP TABLE IF EXISTS `project`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `project` (
+  `ID` decimal(18,0) NOT NULL,
+  `pname` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `URL` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `LEAD` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `DESCRIPTION` text COLLATE utf8_bin,
+  `pkey` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `pcounter` decimal(18,0) DEFAULT NULL,
+  `ASSIGNEETYPE` decimal(18,0) DEFAULT NULL,
+  `AVATAR` decimal(18,0) DEFAULT NULL,
+  `ORIGINALKEY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `PROJECTTYPE` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `idx_project_key` (`pkey`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `project`
+--
+
+LOCK TABLES `project` WRITE;
+/*!40000 ALTER TABLE `project` DISABLE KEYS */;
+INSERT INTO `project` VALUES (10000,'aa',NULL,'JIRAUSER10000','<h3>Welcome to the administration of your demonstration project!</h3>\n <p>This is where you can view and change how the project is configured. Use the tabs on the left to navigate to different project settings.</p>','AA',6,3,10324,'AA','business');
+/*!40000 ALTER TABLE `project` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `project_key`
+--
+
+DROP TABLE IF EXISTS `project_key`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `project_key` (
+  `ID` decimal(18,0) NOT NULL,
+  `PROJECT_ID` decimal(18,0) DEFAULT NULL,
+  `PROJECT_KEY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `idx_all_project_keys` (`PROJECT_KEY`),
+  KEY `idx_all_project_ids` (`PROJECT_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `project_key`
+--
+
+LOCK TABLES `project_key` WRITE;
+/*!40000 ALTER TABLE `project_key` DISABLE KEYS */;
+INSERT INTO `project_key` VALUES (10000,10000,'AA');
+/*!40000 ALTER TABLE `project_key` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `projectcategory`
+--
+
+DROP TABLE IF EXISTS `projectcategory`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `projectcategory` (
+  `ID` decimal(18,0) NOT NULL,
+  `cname` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `description` text COLLATE utf8_bin,
+  PRIMARY KEY (`ID`),
+  KEY `idx_project_category_name` (`cname`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `projectcategory`
+--
+
+LOCK TABLES `projectcategory` WRITE;
+/*!40000 ALTER TABLE `projectcategory` DISABLE KEYS */;
+/*!40000 ALTER TABLE `projectcategory` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `projectchangedtime`
+--
+
+DROP TABLE IF EXISTS `projectchangedtime`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `projectchangedtime` (
+  `PROJECT_ID` decimal(18,0) NOT NULL,
+  `ISSUE_CHANGED_TIME` datetime DEFAULT NULL,
+  PRIMARY KEY (`PROJECT_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `projectchangedtime`
+--
+
+LOCK TABLES `projectchangedtime` WRITE;
+/*!40000 ALTER TABLE `projectchangedtime` DISABLE KEYS */;
+/*!40000 ALTER TABLE `projectchangedtime` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `projectrole`
+--
+
+DROP TABLE IF EXISTS `projectrole`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `projectrole` (
+  `ID` decimal(18,0) NOT NULL,
+  `NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `DESCRIPTION` text COLLATE utf8_bin,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `projectrole`
+--
+
+LOCK TABLES `projectrole` WRITE;
+/*!40000 ALTER TABLE `projectrole` DISABLE KEYS */;
+INSERT INTO `projectrole` VALUES (10002,'Administrators','A project role that represents administrators in a project'),(10100,'Developers',NULL);
+/*!40000 ALTER TABLE `projectrole` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `projectroleactor`
+--
+
+DROP TABLE IF EXISTS `projectroleactor`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `projectroleactor` (
+  `ID` decimal(18,0) NOT NULL,
+  `PID` decimal(18,0) DEFAULT NULL,
+  `PROJECTROLEID` decimal(18,0) DEFAULT NULL,
+  `ROLETYPE` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `ROLETYPEPARAMETER` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `role_player_idx` (`PROJECTROLEID`,`PID`),
+  KEY `role_pid_idx` (`PID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `projectroleactor`
+--
+
+LOCK TABLES `projectroleactor` WRITE;
+/*!40000 ALTER TABLE `projectroleactor` DISABLE KEYS */;
+INSERT INTO `projectroleactor` VALUES (10002,NULL,10002,'atlassian-group-role-actor','jira-administrators'),(10100,10000,10002,'atlassian-group-role-actor','jira-administrators'),(10101,10000,10100,'atlassian-user-role-actor','JIRAUSER10000');
+/*!40000 ALTER TABLE `projectroleactor` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `projectversion`
+--
+
+DROP TABLE IF EXISTS `projectversion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `projectversion` (
+  `ID` decimal(18,0) NOT NULL,
+  `PROJECT` decimal(18,0) DEFAULT NULL,
+  `vname` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `DESCRIPTION` text COLLATE utf8_bin,
+  `SEQUENCE` decimal(18,0) DEFAULT NULL,
+  `RELEASED` varchar(10) COLLATE utf8_bin DEFAULT NULL,
+  `ARCHIVED` varchar(10) COLLATE utf8_bin DEFAULT NULL,
+  `URL` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `STARTDATE` datetime DEFAULT NULL,
+  `RELEASEDATE` datetime DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `idx_version_project` (`PROJECT`),
+  KEY `idx_version_sequence` (`SEQUENCE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `projectversion`
+--
+
+LOCK TABLES `projectversion` WRITE;
+/*!40000 ALTER TABLE `projectversion` DISABLE KEYS */;
+/*!40000 ALTER TABLE `projectversion` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `propertydata`
+--
+
+DROP TABLE IF EXISTS `propertydata`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `propertydata` (
+  `ID` decimal(18,0) NOT NULL,
+  `propertyvalue` blob,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `propertydata`
+--
+
+LOCK TABLES `propertydata` WRITE;
+/*!40000 ALTER TABLE `propertydata` DISABLE KEYS */;
+/*!40000 ALTER TABLE `propertydata` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `propertydate`
+--
+
+DROP TABLE IF EXISTS `propertydate`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `propertydate` (
+  `ID` decimal(18,0) NOT NULL,
+  `propertyvalue` datetime DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `propertydate`
+--
+
+LOCK TABLES `propertydate` WRITE;
+/*!40000 ALTER TABLE `propertydate` DISABLE KEYS */;
+INSERT INTO `propertydate` VALUES (10348,'2020-05-27 17:27:45');
+/*!40000 ALTER TABLE `propertydate` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `propertydecimal`
+--
+
+DROP TABLE IF EXISTS `propertydecimal`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `propertydecimal` (
+  `ID` decimal(18,0) NOT NULL,
+  `propertyvalue` decimal(18,6) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `propertydecimal`
+--
+
+LOCK TABLES `propertydecimal` WRITE;
+/*!40000 ALTER TABLE `propertydecimal` DISABLE KEYS */;
+/*!40000 ALTER TABLE `propertydecimal` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `propertyentry`
+--
+
+DROP TABLE IF EXISTS `propertyentry`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `propertyentry` (
+  `ID` decimal(18,0) NOT NULL,
+  `ENTITY_NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `ENTITY_ID` decimal(18,0) DEFAULT NULL,
+  `PROPERTY_KEY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `propertytype` decimal(9,0) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `osproperty_entId_name_propKey` (`ENTITY_ID`,`ENTITY_NAME`,`PROPERTY_KEY`),
+  KEY `osproperty_propertyKey` (`PROPERTY_KEY`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `propertyentry`
+--
+
+LOCK TABLES `propertyentry` WRITE;
+/*!40000 ALTER TABLE `propertyentry` DISABLE KEYS */;
+INSERT INTO `propertyentry` VALUES (1,'jira.properties',1,'jira.version.patched',5),(2,'jira.properties',1,'jira.avatar.issuetype.subtask.default.id',5),(3,'jira.properties',1,'jira.avatar.default.id',5),(4,'jira.properties',1,'jira.avatar.issuetype.default.id',5),(5,'jira.properties',1,'jira.avatar.user.default.id',5),(6,'jira.properties',1,'jira.avatar.user.anonymous.id',5),(7,'jira.properties',1,'jira.scheme.default.issue.type',5),(9,'jira.properties',1,'jira.whitelist.disabled',1),(10,'jira.properties',1,'jira.whitelist.rules',6),(11,'jira.properties',1,'jira.option.timetracking',1),(12,'jira.properties',1,'jira.timetracking.estimates.legacy.behaviour',1),(13,'jira.properties',1,'jira.version',5),(14,'jira.properties',1,'jira.downgrade.minimum.version',5),(15,'jira.properties',1,'jira.option.allowunassigned',1),(16,'jira.properties',1,'jira.path.index.use.default.directory',1),(21,'com.atlassian.jira.plugins.jira-workflow-designer',1,'jira.workflow.layout:8a6044147cf2c19c02d099279cfbfd47',6),(22,'jira.properties',1,'jira.onboarding.app_user.id.threshold',5),(23,'jira.properties',1,'post.migration.page.displayed',1),(10100,'jira.properties',1,'webwork.i18n.encoding',5),(10101,'jira.properties',1,'jira.sid.key',5),(10102,'BambooServerProperties',1,'bamboo.config.version',2),(10103,'GreenHopper.Run.History',1,'lastRunVersion',6),(10104,'GreenHopper.Run.History',2,'2020-05-27T17:18:40.693+08:00',6),(10105,'jira.properties',1,'com.atlassian.audit.plugin:audit-config:retention:period',5),(10106,'jira.properties',1,'AO_550953_#',5),(10107,'jira.properties',1,'AO_60DB71_#',5),(10108,'jira.properties',1,'AO_E8B6CC_#',5),(10109,'jira.properties',1,'dvcs.connector.bitbucket.url',5),(10110,'jira.properties',1,'dvcs.connector.github.url',5),(10111,'jira.plugin.devstatus.datastorage',1,'upgrade.state',5),(10112,'jira.properties',1,'AO_4AEACD_#',5),(10113,'jira.properties',1,'AO_587B34_#',5),(10114,'jira.properties',1,'com.atlassian.jira.util.index.IndexingCounterManagerImpl.counterValue',3),(10115,'jira.properties',1,'jvm.system.timezone',5),(10116,'jira.properties',1,'jira.webresource.superbatch.flushcounter',5),(10117,'jira.properties',1,'jira.i18n.language.index',5),(10118,'jira.properties',1,'jira.scheme.default.priority',5),(10121,'com.atlassian.jira.user.flag.FlagDismissalServiceImpl',1,'com.atlassian.jira.flag.resets',6),(10200,'jira.properties',1,'jira.webresource.flushcounter',5),(10201,'jira.properties',1,'mailsetting.jira.mail.send.disabled.modifiedBy',5),(10202,'jira.properties',1,'mailsetting.jira.mail.send.disabled.modifiedDate',5),(10203,'jira.properties',1,'jira.title',5),(10204,'jira.properties',1,'jira.baseurl',5),(10205,'jira.properties',1,'jira.mode',5),(10206,'jira.properties',1,'jira.path.attachments',5),(10207,'jira.properties',1,'jira.path.attachments.use.default.directory',1),(10208,'jira.properties',1,'jira.option.allowattachments',1),(10209,'ServiceConfig',10200,'USE_DEFAULT_DIRECTORY',5),(10210,'jira.properties',1,'jira.path.backup',5),(10211,'jira.properties',1,'jira.setup',5),(10212,'jira.properties',1,'jira.initial.build.number',5),(10213,'jira.properties',1,'jira.option.voting',1),(10214,'jira.properties',1,'jira.option.watching',1),(10215,'jira.properties',1,'jira.option.issuelinking',1),(10216,'jira.properties',1,'jira.option.emailvisible',5),(10300,'jira.properties',1,'jira.option.allowsubtasks',1),(10301,'jira.properties',1,'com.atlassian.streams.InlineActivityStream:loaded.from.jira.projects',5),(10302,'jira.properties',1,'com.atlassian.upm.log.PluginSettingsAuditLogService:log:upm_audit_log_v3',5),(10303,'jira.properties',1,'com.atlassian.analytics.client.configuration..analytics_enabled',5),(10304,'jira.properties',1,'com.atlassian.analytics.client.configuration.uuid',5),(10305,'jira.properties',1,'com.atlassian.analytics.client.configuration.serverid',5),(10306,'jira.properties',1,'com.atlassian.sal.jira:build',5),(10307,'jira.properties',1,'com.atlassian.plugins.atlassian-whitelist-api-plugin:whitelist.enabled',5),(10308,'jira.properties',1,'com.atlassian.jira.gadgets:build',5),(10309,'jira.properties',1,'com.atlassian.jira.plugins.jira-bitbucket-connector-plugin:build',5),(10310,'GreenHopper.UpgradeHistory',1,'2020-05-27T17:27:38.056+08:00',6),(10311,'GreenHopper.UpgradeHistory',2,'2020-05-27T17:27:38.077+08:00',6),(10312,'GreenHopper.properties',1,'GreenHopper.Upgrade.Latest.Upgraded.Version',3),(10313,'jira.properties',1,'com.pyxis.greenhopper.jira:build',5),(10314,'GreenHopper.UpgradeHistory',1,'2020-05-27T17:27:38.098+08:00',6),(10315,'GreenHopper.UpgradeHistory',2,'2020-05-27T17:27:38.112+08:00',6),(10316,'GreenHopper.UpgradeHistory',1,'2020-05-27T17:27:38.138+08:00',6),(10317,'GreenHopper.UpgradeHistory',2,'2020-05-27T17:27:38.151+08:00',6),(10318,'GreenHopper.UpgradeHistory',1,'2020-05-27T17:27:38.170+08:00',6),(10319,'GreenHopper.UpgradeHistory',2,'2020-05-27T17:27:38.228+08:00',6),(10320,'GreenHopper.UpgradeHistory',1,'2020-05-27T17:27:38.243+08:00',6),(10321,'GreenHopper.UpgradeHistory',2,'2020-05-27T17:27:38.281+08:00',6),(10322,'GreenHopper.UpgradeHistory',1,'2020-05-27T17:27:38.301+08:00',6),(10323,'GreenHopper.UpgradeHistory',2,'2020-05-27T17:27:38.308+08:00',6),(10324,'jira.properties',1,'com.atlassian.crowd.embedded.admin:build',5),(10325,'jira.properties',1,'com.atlassian.labs.hipchat.hipchat-for-jira-plugin:build',5),(10326,'jira.properties',1,'com.atlassian.plugins.atlassian-whitelist-core-plugin:build',5),(10327,'jira.properties',1,'com.atlassian.jira.plugin.ext.bamboo:build',5),(10328,'jira.properties',1,'com.atlassian.jira.jira-mail-plugin:build',5),(10329,'jira.properties',1,'com.atlassian.plugins.custom_apps.hasCustomOrder',5),(10330,'jira.properties',1,'com.atlassian.plugins.atlassian-nav-links-plugin:build',5),(10331,'jira.properties',1,'com.atlassian.jira.plugins.jira-workflow-designer:build',5),(10332,'jira.properties',1,'com.atlassian.jira.plugins.webhooks.jira-webhooks-plugin:build',5),(10333,'jira.properties',1,'com.atlassian.jirawallboard.atlassian-wallboard-plugin:build',5),(10334,'jira.properties',1,'com.atlassian.upm.atlassian-universal-plugin-manager-plugin:build',5),(10335,'jira.properties',1,'com.atlassian.jira.lookandfeel:isDefaultFavicon',5),(10336,'jira.properties',1,'com.atlassian.jira.lookandfeel:usingCustomFavicon',5),(10337,'jira.properties',1,'com.atlassian.jira.lookandfeel:customDefaultFaviconURL',5),(10338,'jira.properties',1,'com.atlassian.jira.lookandfeel:customDefaultFaviconHiresURL',5),(10339,'jira.properties',1,'com.atlassian.jira.lookandfeel:faviconWidth',5),(10340,'jira.properties',1,'com.atlassian.jira.lookandfeel:faviconHeight',5),(10341,'jira.properties',1,'com.atlassian.jira.lookandfeel:build',5),(10342,'jira.properties',1,'com.atlassian.plugins.authentication.atlassian-authentication-plugin:build',5),(10343,'jira.properties',1,'com.atlassian.plugins.authentication.sso.config.sso-type',5),(10344,'jira.properties',1,'com.atlassian.jira.project-templates-plugin:build',5),(10345,'GreenHopper.properties',1,'GreenHopper.LexoRank.Default.customfield.id',3),(10346,'GreenHopper.properties',1,'GreenHopper.EpicLink.Default.customfield.id',3),(10347,'admin.message.manager',1,'user',5),(10348,'admin.message.manager',1,'time',7),(10349,'admin.message.manager',1,'task',5),(10350,'GreenHopper.properties',1,'GreenHopper.EpicStatus.Default.customfield.id',3),(10351,'GreenHopper.properties',1,'GreenHopper.EpicLabel.Default.customfield.id',3),(10352,'GreenHopper.properties',1,'GreenHopper.EpicColor.Default.customfield.id',3),(10353,'GreenHopper.properties',1,'GreenHopper.Sprint.Default.customfield.id',3),(10354,'GreenHopper.properties',1,'GreenHopper.Sprint.Index.Check.Necessary',5),(10355,'GreenHopper.properties',1,'GreenHopper.JIRA60.Version.Migration',1),(10356,'GreenHopper.properties',1,'JIRA.Software.Simplified.Workflow.Upgraded',1),(10357,'GreenHopper.properties',1,'GreenHopper.Epic.Default.issuetype.id',5),(10358,'GreenHopper.properties',1,'GreenHopper.Story.Default.issuetype.id',5),(10359,'GreenHopper.properties',1,'GreenHopper.StoryPoints.Default.customfield.id',3),(10360,'GreenHopper.properties',1,'GreenHopper.Epic.Default.linktype.id',3),(10361,'jira.properties',1,'com.atlassian.upm:notifications:notification-edition.mismatch',5),(10362,'jira.properties',1,'com.atlassian.upm:notifications:notification-plugin.request',5),(10363,'jira.properties',1,'com.atlassian.upm:notifications:notification-evaluation.expired',5),(10364,'jira.properties',1,'com.atlassian.upm:notifications:notification-evaluation.nearlyexpired',5),(10365,'jira.properties',1,'com.atlassian.upm:notifications:notification-maintenance.expired',5),(10366,'jira.properties',1,'com.atlassian.upm:notifications:notification-maintenance.nearlyexpired',5),(10367,'jira.properties',1,'com.atlassian.upm:notifications:notification-license.expired',5),(10368,'jira.properties',1,'com.atlassian.upm:notifications:notification-license.nearlyexpired',5),(10369,'jira.properties',1,'com.atlassian.analytics.client.configuration..policy_acknowledged',5),(10370,'jira.properties',1,'jira-header-plugin.studio-tab-migration-complete',5),(10371,'fisheye-jira-plugin.properties',1,'Upgrade Conditions Applied',5),(10372,'fisheye-jira-plugin.properties',1,'FISH-375-fixed',5),(10373,'fisheye-jira-plugin.properties',1,'fisheye.ual.migration.complete',5),(10374,'fisheye-jira-plugin.properties',1,'fisheye.ual.crucible.enabled.property.fix.complete',5),(10375,'fisheye-jira-plugin.properties',1,'Perforce Update Applied',5),(10376,'ApplicationUser',10000,'jira.onboarding.first.use.flow.started',5),(10377,'jira.properties',1,'com.atlassian.jira.onboarding.postsetup.AppPropertiesPostSetupAnnouncementStore.all',6),(10378,'jira.properties',1,'com.atlassian.upm:notifications:notification-update',5),(10379,'ApplicationUser',10000,'newsletter.signup.first.view',3),(10380,'ApplicationUser',10000,'jira.onboarding.first.use.flow.current.sequence',5),(10381,'ApplicationUser',10000,'user.avatar.id',3),(10382,'ApplicationUser',10000,'jira.onboarding.first.use.flow.completed',1),(10383,'com.atlassian.jira.plugins.jira-workflow-designer',1,'jira.workflow.layout:9ce0f38f98e952eac1c306da8277ff41',6),(10384,'com.atlassian.jira.plugins.jira-workflow-designer',1,'jira.workflow.draft.layout.v5:9ce0f38f98e952eac1c306da8277ff41',6),(10385,'com.atlassian.jira.plugins.jira-workflow-designer',1,'jira.workflow.layout.v5:9ce0f38f98e952eac1c306da8277ff41',6),(10386,'ApplicationUser',10000,'user.search.filter.id',6),(10387,'ApplicationUser',10000,'user.search.jql',6),(10388,'ApplicationUser',10000,'last-visited-item.10000',5),(10389,'user.format.mapping',1,'avatarFullNameHover',5),(10390,'user.format.mapping',1,'fullName',5),(10391,'ApplicationUser',10000,'jira.user.suppressedTips.qs-onboarding-tip',1),(10392,'ApplicationUser',10000,'com.atlassian.jira.flag.dismissals',6),(10393,'ApplicationUser',10000,'jira.onboarding.first.use.flow.resolved',1),(10394,'jira.properties',1,'org.apache.shindig.common.crypto.BlobCrypter:key',5),(10395,'jira.properties',1,'jira.trustedapp.key.private.data',6),(10396,'jira.properties',1,'jira.trustedapp.key.public.data',6),(10397,'jira.properties',1,'jira.trustedapp.uid',5),(10400,'jira.properties',1,'com.atlassian.jira.upgrade.untranslatedkeyfixer.disabled',5),(10401,'jira.properties',1,'com.atlassian.analytics.client.configuration..logged_base_analytics_data',5);
+/*!40000 ALTER TABLE `propertyentry` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `propertynumber`
+--
+
+DROP TABLE IF EXISTS `propertynumber`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `propertynumber` (
+  `ID` decimal(18,0) NOT NULL,
+  `propertyvalue` decimal(18,0) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `propertynumber`
+--
+
+LOCK TABLES `propertynumber` WRITE;
+/*!40000 ALTER TABLE `propertynumber` DISABLE KEYS */;
+INSERT INTO `propertynumber` VALUES (9,0),(11,1),(12,0),(15,1),(16,1),(23,1),(10102,22),(10114,1),(10207,1),(10208,1),(10213,1),(10214,1),(10215,1),(10300,1),(10312,51),(10345,10100),(10346,10101),(10350,10102),(10351,10103),(10352,10104),(10353,10105),(10355,1),(10356,1),(10359,10106),(10360,10200),(10379,1590571682212),(10381,10334),(10382,1),(10391,1),(10393,1);
+/*!40000 ALTER TABLE `propertynumber` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `propertystring`
+--
+
+DROP TABLE IF EXISTS `propertystring`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `propertystring` (
+  `ID` decimal(18,0) NOT NULL,
+  `propertyvalue` text COLLATE utf8_bin,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `propertystring`
+--
+
+LOCK TABLES `propertystring` WRITE;
+/*!40000 ALTER TABLE `propertystring` DISABLE KEYS */;
+INSERT INTO `propertystring` VALUES (1,'809000'),(2,'10316'),(3,'10011'),(4,'10300'),(5,'10122'),(6,'10123'),(7,'10000'),(13,'8.9.0'),(14,'7.1.2'),(22,'0'),(10100,'UTF-8'),(10101,'BA2U-11ED-SPWK-RVV4'),(10105,'P20Y'),(10106,'1'),(10107,'1'),(10108,'16'),(10109,'https://bitbucket.org'),(10110,'https://github.com'),(10111,'UPGRADED'),(10112,'1'),(10113,'4'),(10115,'Asia/Shanghai'),(10116,'4'),(10117,'english-moderate-stemming'),(10118,'10101'),(10200,'6411e0087192541a09d88223fb51a6a0'),(10201,''),(10202,'1590571135848'),(10203,'Jira'),(10204,'http://localhost:8190'),(10205,'public'),(10206,'/var/atlassian/application-data/jira/data/attachments'),(10209,'true'),(10210,'/var/atlassian/application-data/jira/export'),(10211,'true'),(10212,'809000'),(10216,'show'),(10301,'true'),(10302,'#java.util.List\n{\"userKey\":\"JIRA\",\"date\":1590572959871,\"i18nKey\":\"upm.auditLog.upm.startup\",\"entryType\":\"UPM_STARTUP\",\"params\":[]}\n{\"userKey\":\"JIRA\",\"date\":1590571657679,\"i18nKey\":\"upm.auditLog.upm.startup\",\"entryType\":\"UPM_STARTUP\",\"params\":[]}'),(10303,'true'),(10304,'63fc1dce-e370-40da-b04e-9dd53387b05a'),(10305,'BA2U-11ED-SPWK-RVV4'),(10306,'2'),(10307,'true'),(10308,'1'),(10309,'2'),(10313,'51'),(10324,'3'),(10325,'1'),(10326,'4'),(10327,'1'),(10328,'2'),(10329,'false'),(10330,'1'),(10331,'1'),(10332,'3'),(10333,'6086'),(10334,'5'),(10335,'false'),(10336,'false'),(10337,'/favicon.ico'),(10338,'/images/64jira.png'),(10339,'64'),(10340,'64'),(10341,'1'),(10342,'4'),(10343,'NONE'),(10344,'2001'),(10347,''),(10349,'Story Point Field Creation'),(10354,'true'),(10357,'10000'),(10358,'10001'),(10361,'#java.util.List\n'),(10362,'#java.util.List\n'),(10363,'#java.util.List\n'),(10364,'#java.util.List\n'),(10365,'#java.util.List\n'),(10366,'#java.util.List\n'),(10367,'#java.util.List\n'),(10368,'#java.util.List\n'),(10369,'true'),(10370,'migrated'),(10371,'1'),(10372,'1'),(10373,'1'),(10374,'1'),(10375,'1'),(10376,'cyoaFirstUseFlow'),(10378,'#java.util.List\ncom.atlassian.troubleshooting.plugin-jira'),(10380,'cyoa:return'),(10388,'com.atlassian.jira.jira-projects-issue-navigator:sidebar-issue-navigator'),(10389,'jira.user.format:avatar-and-full-name-with-hover-format'),(10390,'jira.user.format:full-name-user-format'),(10394,'5VsD0qniTqp0wEx4El3OqFOwhjFaOldFnT+KdbU+87E='),(10397,'jira:3759532'),(10400,'true'),(10401,'true');
+/*!40000 ALTER TABLE `propertystring` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `propertytext`
+--
+
+DROP TABLE IF EXISTS `propertytext`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `propertytext` (
+  `ID` decimal(18,0) NOT NULL,
+  `propertyvalue` longtext COLLATE utf8_bin,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `propertytext`
+--
+
+LOCK TABLES `propertytext` WRITE;
+/*!40000 ALTER TABLE `propertytext` DISABLE KEYS */;
+INSERT INTO `propertytext` VALUES (10,'http://www.atlassian.com/*\n'),(21,'{\n    \"edgeMap\": {\n        \"1DEDB66F-FE5C-EDFD-54D0-4D19CDC8CECA\": {\n            \"actionId\": 5,\n            \"allPoints\": [\n                {\n                    \"positiveController\": null,\n                    \"x\": 1806.5,\n                    \"y\": 434.0\n                },\n                {\n                    \"positiveController\": null,\n                    \"x\": 1801.0,\n                    \"y\": 115.0\n                }\n            ],\n            \"controlPoints\": [],\n            \"endNodeId\": \"6DA64EEB-08FE-2870-C90C-4D19CDA2F72D\",\n            \"endPoint\": {\n                \"positiveController\": null,\n                \"x\": 1801.0,\n                \"y\": 115.0\n            },\n            \"endStepId\": 4,\n            \"id\": \"1DEDB66F-FE5C-EDFD-54D0-4D19CDC8CECA\",\n            \"label\": \"Resolve Issue\",\n            \"labelPoint\": {\n                \"positiveController\": null,\n                \"x\": 1776.85,\n                \"y\": 355.25\n            },\n            \"lineType\": \"straight\",\n            \"startNodeId\": \"A8B1A431-AC3A-6DCD-BFF0-4D19CDBCAADB\",\n            \"startPoint\": {\n                \"positiveController\": null,\n                \"x\": 1806.5,\n                \"y\": 434.0\n            },\n            \"startStepId\": 5\n        },\n        \"3DF7CEC8-9FBC-C0D0-AFB1-4D19CE6EA230\": {\n            \"actionId\": 2,\n            \"allPoints\": [\n                {\n                    \"positiveController\": null,\n                    \"x\": 1469.5,\n                    \"y\": 113.0\n                },\n                {\n                    \"positiveController\": null,\n                    \"x\": 1614.0,\n                    \"y\": 226.0\n                }\n            ],\n            \"controlPoints\": [],\n            \"endNodeId\": \"1C846CFB-4F0D-2F40-D0AE-4D19CDAF5D34\",\n            \"endPoint\": {\n                \"positiveController\": null,\n                \"x\": 1614.0,\n                \"y\": 226.0\n            },\n            \"endStepId\": 6,\n            \"id\": \"3DF7CEC8-9FBC-C0D0-AFB1-4D19CE6EA230\",\n            \"label\": \"Close Issue\",\n            \"labelPoint\": {\n                \"positiveController\": null,\n                \"x\": 1492.25,\n                \"y\": 154.25\n            },\n            \"lineType\": \"straight\",\n            \"startNodeId\": \"778534F4-7595-88B6-45E1-4D19CD518712\",\n            \"startPoint\": {\n                \"positiveController\": null,\n                \"x\": 1469.5,\n                \"y\": 113.0\n            },\n            \"startStepId\": 1\n        },\n        \"483797F1-1BF4-5E0F-86C6-4D19CE6023A2\": {\n            \"actionId\": 5,\n            \"allPoints\": [\n                {\n                    \"positiveController\": null,\n                    \"x\": 1469.5,\n                    \"y\": 113.0\n                },\n                {\n                    \"positiveController\": null,\n                    \"x\": 1763.0,\n                    \"y\": 113.0\n                }\n            ],\n            \"controlPoints\": [],\n            \"endNodeId\": \"6DA64EEB-08FE-2870-C90C-4D19CDA2F72D\",\n            \"endPoint\": {\n                \"positiveController\": null,\n                \"x\": 1763.0,\n                \"y\": 113.0\n            },\n            \"endStepId\": 4,\n            \"id\": \"483797F1-1BF4-5E0F-86C6-4D19CE6023A2\",\n            \"label\": \"Resolve Issue\",\n            \"labelPoint\": {\n                \"positiveController\": null,\n                \"x\": 1551.0,\n                \"y\": 104.0\n            },\n            \"lineType\": \"straight\",\n            \"startNodeId\": \"778534F4-7595-88B6-45E1-4D19CD518712\",\n            \"startPoint\": {\n                \"positiveController\": null,\n                \"x\": 1469.5,\n                \"y\": 113.0\n            },\n            \"startStepId\": 1\n        },\n        \"517D7F32-20FB-309E-8639-4D19CE2ACB54\": {\n            \"actionId\": 5,\n            \"allPoints\": [\n                {\n                    \"positiveController\": null,\n                    \"x\": 1434.0,\n                    \"y\": 435.0\n                },\n                {\n                    \"positiveController\": {\n                        \"positiveController\": null,\n                        \"x\": 0.0,\n                        \"y\": 0.0\n                    },\n                    \"x\": 1435.0,\n                    \"y\": 490.0\n                },\n                {\n                    \"positiveController\": {\n                        \"positiveController\": null,\n                        \"x\": 0.0,\n                        \"y\": 0.0\n                    },\n                    \"x\": 1947.0,\n                    \"y\": 494.0\n                },\n                {\n                    \"positiveController\": {\n                        \"positiveController\": null,\n                        \"x\": 0.0,\n                        \"y\": 0.0\n                    },\n                    \"x\": 1950.0,\n                    \"y\": 118.0\n                },\n                {\n                    \"positiveController\": null,\n                    \"x\": 1763.0,\n                    \"y\": 113.0\n                }\n            ],\n            \"controlPoints\": [\n                {\n                    \"positiveController\": {\n                        \"positiveController\": null,\n                        \"x\": 0.0,\n                        \"y\": 0.0\n                    },\n                    \"x\": 1435.0,\n                    \"y\": 490.0\n                },\n                {\n                    \"positiveController\": {\n                        \"positiveController\": null,\n                        \"x\": 0.0,\n                        \"y\": 0.0\n                    },\n                    \"x\": 1947.0,\n                    \"y\": 494.0\n                },\n                {\n                    \"positiveController\": {\n                        \"positiveController\": null,\n                        \"x\": 0.0,\n                        \"y\": 0.0\n                    },\n                    \"x\": 1950.0,\n                    \"y\": 118.0\n                }\n            ],\n            \"endNodeId\": \"6DA64EEB-08FE-2870-C90C-4D19CDA2F72D\",\n            \"endPoint\": {\n                \"positiveController\": null,\n                \"x\": 1763.0,\n                \"y\": 113.0\n            },\n            \"endStepId\": 4,\n            \"id\": \"517D7F32-20FB-309E-8639-4D19CE2ACB54\",\n            \"label\": \"Resolve Issue\",\n            \"labelPoint\": {\n                \"positiveController\": null,\n                \"x\": 1631.25,\n                \"y\": 479.5\n            },\n            \"lineType\": \"poly\",\n            \"startNodeId\": \"0740FFFA-2AA1-C90A-38ED-4D19CD61899B\",\n            \"startPoint\": {\n                \"positiveController\": null,\n                \"x\": 1434.0,\n                \"y\": 435.0\n            },\n            \"startStepId\": 3\n        },\n        \"58BD4605-5FB9-84EA-6952-4D19CE7B454B\": {\n            \"actionId\": 1,\n            \"allPoints\": [\n                {\n                    \"positiveController\": null,\n                    \"x\": 1470.0,\n                    \"y\": 16.0\n                },\n                {\n                    \"positiveController\": null,\n                    \"x\": 1469.5,\n                    \"y\": 113.0\n                }\n            ],\n            \"controlPoints\": [],\n            \"endNodeId\": \"778534F4-7595-88B6-45E1-4D19CD518712\",\n            \"endPoint\": {\n                \"positiveController\": null,\n                \"x\": 1469.5,\n                \"y\": 113.0\n            },\n            \"endStepId\": 1,\n            \"id\": \"58BD4605-5FB9-84EA-6952-4D19CE7B454B\",\n            \"label\": \"Create Issue\",\n            \"labelPoint\": {\n                \"positiveController\": null,\n                \"x\": 1475.5,\n                \"y\": 48.5\n            },\n            \"lineType\": \"straight\",\n            \"startNodeId\": \"15174530-AE75-04E0-1D9D-4D19CD200835\",\n            \"startPoint\": {\n                \"positiveController\": null,\n                \"x\": 1470.0,\n                \"y\": 16.0\n            },\n            \"startStepId\": 1\n        },\n        \"92D3DEFD-13AC-06A7-E5D8-4D19CE537791\": {\n            \"actionId\": 4,\n            \"allPoints\": [\n                {\n                    \"positiveController\": null,\n                    \"x\": 1439.5,\n                    \"y\": 116.0\n                },\n                {\n                    \"positiveController\": {\n                        \"positiveController\": null,\n                        \"x\": 0.0,\n                        \"y\": 0.0\n                    },\n                    \"x\": 1393.0,\n                    \"y\": 116.0\n                },\n                {\n                    \"positiveController\": null,\n                    \"x\": 1390.0,\n                    \"y\": 434.0\n                }\n            ],\n            \"controlPoints\": [\n                {\n                    \"positiveController\": {\n                        \"positiveController\": null,\n                        \"x\": 0.0,\n                        \"y\": 0.0\n                    },\n                    \"x\": 1393.0,\n                    \"y\": 116.0\n                }\n            ],\n            \"endNodeId\": \"0740FFFA-2AA1-C90A-38ED-4D19CD61899B\",\n            \"endPoint\": {\n                \"positiveController\": null,\n                \"x\": 1390.0,\n                \"y\": 434.0\n            },\n            \"endStepId\": 3,\n            \"id\": \"92D3DEFD-13AC-06A7-E5D8-4D19CE537791\",\n            \"label\": \"Start Progress\",\n            \"labelPoint\": {\n                \"positiveController\": null,\n                \"x\": 1323.65,\n                \"y\": 193.75\n            },\n            \"lineType\": \"poly\",\n            \"startNodeId\": \"778534F4-7595-88B6-45E1-4D19CD518712\",\n            \"startPoint\": {\n                \"positiveController\": null,\n                \"x\": 1439.5,\n                \"y\": 116.0\n            },\n            \"startStepId\": 1\n        },\n        \"C049EE11-C5BB-F93B-36C3-4D19CDF12B8F\": {\n            \"actionId\": 3,\n            \"allPoints\": [\n                {\n                    \"positiveController\": null,\n                    \"x\": 1677.0,\n                    \"y\": 227.0\n                },\n                {\n                    \"positiveController\": {\n                        \"positiveController\": null,\n                        \"x\": 0.0,\n                        \"y\": 0.0\n                    },\n                    \"x\": 1767.05,\n                    \"y\": 230.05\n                },\n                {\n                    \"positiveController\": null,\n                    \"x\": 1773.5,\n                    \"y\": 425.0\n                }\n            ],\n            \"controlPoints\": [\n                {\n                    \"positiveController\": {\n                        \"positiveController\": null,\n                        \"x\": 0.0,\n                        \"y\": 0.0\n                    },\n                    \"x\": 1767.05,\n                    \"y\": 230.05\n                }\n            ],\n            \"endNodeId\": \"A8B1A431-AC3A-6DCD-BFF0-4D19CDBCAADB\",\n            \"endPoint\": {\n                \"positiveController\": null,\n                \"x\": 1773.5,\n                \"y\": 425.0\n            },\n            \"endStepId\": 5,\n            \"id\": \"C049EE11-C5BB-F93B-36C3-4D19CDF12B8F\",\n            \"label\": \"Reopen Issue\",\n            \"labelPoint\": {\n                \"positiveController\": null,\n                \"x\": 1703.85,\n                \"y\": 218.5\n            },\n            \"lineType\": \"poly\",\n            \"startNodeId\": \"1C846CFB-4F0D-2F40-D0AE-4D19CDAF5D34\",\n            \"startPoint\": {\n                \"positiveController\": null,\n                \"x\": 1677.0,\n                \"y\": 227.0\n            },\n            \"startStepId\": 6\n        },\n        \"C9EA1792-2332-8B56-A04D-4D19CD725367\": {\n            \"actionId\": 301,\n            \"allPoints\": [\n                {\n                    \"positiveController\": null,\n                    \"x\": 1465.0,\n                    \"y\": 436.0\n                },\n                {\n                    \"positiveController\": null,\n                    \"x\": 1469.5,\n                    \"y\": 113.0\n                }\n            ],\n            \"controlPoints\": [],\n            \"endNodeId\": \"778534F4-7595-88B6-45E1-4D19CD518712\",\n            \"endPoint\": {\n                \"positiveController\": null,\n                \"x\": 1469.5,\n                \"y\": 113.0\n            },\n            \"endStepId\": 1,\n            \"id\": \"C9EA1792-2332-8B56-A04D-4D19CD725367\",\n            \"label\": \"Stop Progress\",\n            \"labelPoint\": {\n                \"positiveController\": null,\n                \"x\": 1407.8,\n                \"y\": 308.5\n            },\n            \"lineType\": \"straight\",\n            \"startNodeId\": \"0740FFFA-2AA1-C90A-38ED-4D19CD61899B\",\n            \"startPoint\": {\n                \"positiveController\": null,\n                \"x\": 1465.0,\n                \"y\": 436.0\n            },\n            \"startStepId\": 3\n        },\n        \"CAF37138-6321-E03A-8E41-4D19CDD7DC78\": {\n            \"actionId\": 2,\n            \"allPoints\": [\n                {\n                    \"positiveController\": null,\n                    \"x\": 1764.5,\n                    \"y\": 430.0\n                },\n                {\n                    \"positiveController\": null,\n                    \"x\": 1614.0,\n                    \"y\": 226.0\n                }\n            ],\n            \"controlPoints\": [],\n            \"endNodeId\": \"1C846CFB-4F0D-2F40-D0AE-4D19CDAF5D34\",\n            \"endPoint\": {\n                \"positiveController\": null,\n                \"x\": 1614.0,\n                \"y\": 226.0\n            },\n            \"endStepId\": 6,\n            \"id\": \"CAF37138-6321-E03A-8E41-4D19CDD7DC78\",\n            \"label\": \"Close Issue\",\n            \"labelPoint\": {\n                \"positiveController\": null,\n                \"x\": 1677.65,\n                \"y\": 365.0\n            },\n            \"lineType\": \"straight\",\n            \"startNodeId\": \"A8B1A431-AC3A-6DCD-BFF0-4D19CDBCAADB\",\n            \"startPoint\": {\n                \"positiveController\": null,\n                \"x\": 1764.5,\n                \"y\": 430.0\n            },\n            \"startStepId\": 5\n        },\n        \"E1F8462A-8B0A-87EA-4F70-4D19CE423C83\": {\n            \"actionId\": 2,\n            \"allPoints\": [\n                {\n                    \"positiveController\": null,\n                    \"x\": 1488.0,\n                    \"y\": 430.0\n                },\n                {\n                    \"positiveController\": null,\n                    \"x\": 1614.0,\n                    \"y\": 226.0\n                }\n            ],\n            \"controlPoints\": [],\n            \"endNodeId\": \"1C846CFB-4F0D-2F40-D0AE-4D19CDAF5D34\",\n            \"endPoint\": {\n                \"positiveController\": null,\n                \"x\": 1614.0,\n                \"y\": 226.0\n            },\n            \"endStepId\": 6,\n            \"id\": \"E1F8462A-8B0A-87EA-4F70-4D19CE423C83\",\n            \"label\": \"Close Issue\",\n            \"labelPoint\": {\n                \"positiveController\": null,\n                \"x\": 1492.0,\n                \"y\": 345.0\n            },\n            \"lineType\": \"straight\",\n            \"startNodeId\": \"0740FFFA-2AA1-C90A-38ED-4D19CD61899B\",\n            \"startPoint\": {\n                \"positiveController\": null,\n                \"x\": 1488.0,\n                \"y\": 430.0\n            },\n            \"startStepId\": 3\n        },\n        \"E27D8EB8-8E49-430B-8FCB-4D19CE127171\": {\n            \"actionId\": 3,\n            \"allPoints\": [\n                {\n                    \"positiveController\": null,\n                    \"x\": 1840.0,\n                    \"y\": 130.0\n                },\n                {\n                    \"positiveController\": null,\n                    \"x\": 1846.5,\n                    \"y\": 428.0\n                }\n            ],\n            \"controlPoints\": [],\n            \"endNodeId\": \"A8B1A431-AC3A-6DCD-BFF0-4D19CDBCAADB\",\n            \"endPoint\": {\n                \"positiveController\": null,\n                \"x\": 1846.5,\n                \"y\": 428.0\n            },\n            \"endStepId\": 5,\n            \"id\": \"E27D8EB8-8E49-430B-8FCB-4D19CE127171\",\n            \"label\": \"Reopen Issue\",\n            \"labelPoint\": {\n                \"positiveController\": null,\n                \"x\": 1814.05,\n                \"y\": 169.5\n            },\n            \"lineType\": \"straight\",\n            \"startNodeId\": \"6DA64EEB-08FE-2870-C90C-4D19CDA2F72D\",\n            \"startPoint\": {\n                \"positiveController\": null,\n                \"x\": 1840.0,\n                \"y\": 130.0\n            },\n            \"startStepId\": 4\n        },\n        \"F79E742D-A9E4-0124-D7D4-4D19CDE48C9C\": {\n            \"actionId\": 4,\n            \"allPoints\": [\n                {\n                    \"positiveController\": null,\n                    \"x\": 1806.5,\n                    \"y\": 434.0\n                },\n                {\n                    \"positiveController\": null,\n                    \"x\": 1434.0,\n                    \"y\": 435.0\n                }\n            ],\n            \"controlPoints\": [],\n            \"endNodeId\": \"0740FFFA-2AA1-C90A-38ED-4D19CD61899B\",\n            \"endPoint\": {\n                \"positiveController\": null,\n                \"x\": 1434.0,\n                \"y\": 435.0\n            },\n            \"endStepId\": 3,\n            \"id\": \"F79E742D-A9E4-0124-D7D4-4D19CDE48C9C\",\n            \"label\": \"Start Progress\",\n            \"labelPoint\": {\n                \"positiveController\": null,\n                \"x\": 1607.25,\n                \"y\": 423.5\n            },\n            \"lineType\": \"straight\",\n            \"startNodeId\": \"A8B1A431-AC3A-6DCD-BFF0-4D19CDBCAADB\",\n            \"startPoint\": {\n                \"positiveController\": null,\n                \"x\": 1806.5,\n                \"y\": 434.0\n            },\n            \"startStepId\": 5\n        },\n        \"FD6BA267-475B-70B3-8AA4-4D19CE00BCD1\": {\n            \"actionId\": 701,\n            \"allPoints\": [\n                {\n                    \"positiveController\": null,\n                    \"x\": 1763.0,\n                    \"y\": 113.0\n                },\n                {\n                    \"positiveController\": null,\n                    \"x\": 1614.0,\n                    \"y\": 226.0\n                }\n            ],\n            \"controlPoints\": [],\n            \"endNodeId\": \"1C846CFB-4F0D-2F40-D0AE-4D19CDAF5D34\",\n            \"endPoint\": {\n                \"positiveController\": null,\n                \"x\": 1614.0,\n                \"y\": 226.0\n            },\n            \"endStepId\": 6,\n            \"id\": \"FD6BA267-475B-70B3-8AA4-4D19CE00BCD1\",\n            \"label\": \"Close Issue\",\n            \"labelPoint\": {\n                \"positiveController\": null,\n                \"x\": 1635.75,\n                \"y\": 152.25\n            },\n            \"lineType\": \"straight\",\n            \"startNodeId\": \"6DA64EEB-08FE-2870-C90C-4D19CDA2F72D\",\n            \"startPoint\": {\n                \"positiveController\": null,\n                \"x\": 1763.0,\n                \"y\": 113.0\n            },\n            \"startStepId\": 4\n        }\n    },\n    \"nodeMap\": {\n        \"0740FFFA-2AA1-C90A-38ED-4D19CD61899B\": {\n            \"id\": \"0740FFFA-2AA1-C90A-38ED-4D19CD61899B\",\n            \"inLinkIds\": [\n                \"F79E742D-A9E4-0124-D7D4-4D19CDE48C9C\",\n                \"92D3DEFD-13AC-06A7-E5D8-4D19CE537791\"\n            ],\n            \"isInitialAction\": false,\n            \"label\": \"In Progress\",\n            \"outLinkIds\": [\n                \"C9EA1792-2332-8B56-A04D-4D19CD725367\",\n                \"517D7F32-20FB-309E-8639-4D19CE2ACB54\",\n                \"E1F8462A-8B0A-87EA-4F70-4D19CE423C83\"\n            ],\n            \"rect\": {\n                \"height\": 45.0,\n                \"positiveController\": null,\n                \"width\": 146.0,\n                \"x\": 1373.0,\n                \"y\": 419.0\n            },\n            \"stepId\": 3\n        },\n        \"15174530-AE75-04E0-1D9D-4D19CD200835\": {\n            \"id\": \"15174530-AE75-04E0-1D9D-4D19CD200835\",\n            \"inLinkIds\": [],\n            \"isInitialAction\": true,\n            \"label\": \"Create Issue\",\n            \"outLinkIds\": [\n                \"58BD4605-5FB9-84EA-6952-4D19CE7B454B\"\n            ],\n            \"rect\": {\n                \"height\": 45.0,\n                \"positiveController\": null,\n                \"width\": 157.0,\n                \"x\": 1405.0,\n                \"y\": 0.0\n            },\n            \"stepId\": 1\n        },\n        \"1C846CFB-4F0D-2F40-D0AE-4D19CDAF5D34\": {\n            \"id\": \"1C846CFB-4F0D-2F40-D0AE-4D19CDAF5D34\",\n            \"inLinkIds\": [\n                \"CAF37138-6321-E03A-8E41-4D19CDD7DC78\",\n                \"E1F8462A-8B0A-87EA-4F70-4D19CE423C83\",\n                \"FD6BA267-475B-70B3-8AA4-4D19CE00BCD1\",\n                \"3DF7CEC8-9FBC-C0D0-AFB1-4D19CE6EA230\"\n            ],\n            \"isInitialAction\": false,\n            \"label\": \"Closed\",\n            \"outLinkIds\": [\n                \"C049EE11-C5BB-F93B-36C3-4D19CDF12B8F\"\n            ],\n            \"rect\": {\n                \"height\": 45.0,\n                \"positiveController\": null,\n                \"width\": 120.0,\n                \"x\": 1569.0,\n                \"y\": 210.0\n            },\n            \"stepId\": 6\n        },\n        \"6DA64EEB-08FE-2870-C90C-4D19CDA2F72D\": {\n            \"id\": \"6DA64EEB-08FE-2870-C90C-4D19CDA2F72D\",\n            \"inLinkIds\": [\n                \"517D7F32-20FB-309E-8639-4D19CE2ACB54\",\n                \"1DEDB66F-FE5C-EDFD-54D0-4D19CDC8CECA\",\n                \"483797F1-1BF4-5E0F-86C6-4D19CE6023A2\"\n            ],\n            \"isInitialAction\": false,\n            \"label\": \"Resolved\",\n            \"outLinkIds\": [\n                \"FD6BA267-475B-70B3-8AA4-4D19CE00BCD1\",\n                \"E27D8EB8-8E49-430B-8FCB-4D19CE127171\"\n            ],\n            \"rect\": {\n                \"height\": 44.0,\n                \"positiveController\": null,\n                \"width\": 137.0,\n                \"x\": 1709.0,\n                \"y\": 97.0\n            },\n            \"stepId\": 4\n        },\n        \"778534F4-7595-88B6-45E1-4D19CD518712\": {\n            \"id\": \"778534F4-7595-88B6-45E1-4D19CD518712\",\n            \"inLinkIds\": [\n                \"C9EA1792-2332-8B56-A04D-4D19CD725367\",\n                \"58BD4605-5FB9-84EA-6952-4D19CE7B454B\"\n            ],\n            \"isInitialAction\": false,\n            \"label\": \"Open\",\n            \"outLinkIds\": [\n                \"92D3DEFD-13AC-06A7-E5D8-4D19CE537791\",\n                \"483797F1-1BF4-5E0F-86C6-4D19CE6023A2\",\n                \"3DF7CEC8-9FBC-C0D0-AFB1-4D19CE6EA230\"\n            ],\n            \"rect\": {\n                \"height\": 45.0,\n                \"positiveController\": null,\n                \"width\": 106.0,\n                \"x\": 1429.5,\n                \"y\": 97.0\n            },\n            \"stepId\": 1\n        },\n        \"A8B1A431-AC3A-6DCD-BFF0-4D19CDBCAADB\": {\n            \"id\": \"A8B1A431-AC3A-6DCD-BFF0-4D19CDBCAADB\",\n            \"inLinkIds\": [\n                \"E27D8EB8-8E49-430B-8FCB-4D19CE127171\",\n                \"C049EE11-C5BB-F93B-36C3-4D19CDF12B8F\"\n            ],\n            \"isInitialAction\": false,\n            \"label\": \"Reopened\",\n            \"outLinkIds\": [\n                \"1DEDB66F-FE5C-EDFD-54D0-4D19CDC8CECA\",\n                \"CAF37138-6321-E03A-8E41-4D19CDD7DC78\",\n                \"F79E742D-A9E4-0124-D7D4-4D19CDE48C9C\"\n            ],\n            \"rect\": {\n                \"height\": 45.0,\n                \"positiveController\": null,\n                \"width\": 142.0,\n                \"x\": 1749.5,\n                \"y\": 418.0\n            },\n            \"stepId\": 5\n        }\n    },\n    \"rootIds\": [\n        \"15174530-AE75-04E0-1D9D-4D19CD200835\"\n    ],\n    \"width\": 1136\n}\n'),(10103,'<map>\n  <entry>\n    <string>pluginVersion</string>\n    <string>8.9.0</string>\n  </entry>\n  <entry>\n    <string>ranOn</string>\n    <string>2020-05-27T17:49:02.600+08:00</string>\n  </entry>\n  <entry>\n    <string>buildDate</string>\n    <string>2020-05-18T17:33:06.518+08:00</string>\n  </entry>\n  <entry>\n    <string>latestUpgradeTaskRun</string>\n    <string>0</string>\n  </entry>\n  <entry>\n    <string>changeSet</string>\n    <string>e45c1dfb0a7419d5</string>\n  </entry>\n</map>'),(10104,'<map>\n  <entry>\n    <string>pluginVersion</string>\n    <string>8.9.0</string>\n  </entry>\n  <entry>\n    <string>ranOn</string>\n    <string>2020-05-27T17:18:40.673+08:00</string>\n  </entry>\n  <entry>\n    <string>buildDate</string>\n    <string>2020-05-18T17:33:06.518+08:00</string>\n  </entry>\n  <entry>\n    <string>latestUpgradeTaskRun</string>\n    <string>0</string>\n  </entry>\n  <entry>\n    <string>changeSet</string>\n    <string>e45c1dfb0a7419d5</string>\n  </entry>\n</map>'),(10121,'{\"com.atlassian.jira.reindex.required\":1590571664973}'),(10310,'<map>\n  <entry>\n    <string>timeTaken</string>\n    <string>-1</string>\n  </entry>\n  <entry>\n    <string>pluginVersion</string>\n    <string>8.9.0</string>\n  </entry>\n  <entry>\n    <string>ranOn</string>\n    <string>2020-05-27T17:27:38.056+08:00</string>\n  </entry>\n  <entry>\n    <string>buildNumber</string>\n    <string>46</string>\n  </entry>\n  <entry>\n    <string>changeSet</string>\n    <string>e45c1dfb0a7419d5</string>\n  </entry>\n</map>'),(10311,'<map>\n  <entry>\n    <string>timeTaken</string>\n    <string>15</string>\n  </entry>\n  <entry>\n    <string>pluginVersion</string>\n    <string>8.9.0</string>\n  </entry>\n  <entry>\n    <string>ranOn</string>\n    <string>2020-05-27T17:27:38.077+08:00</string>\n  </entry>\n  <entry>\n    <string>buildNumber</string>\n    <string>46</string>\n  </entry>\n  <entry>\n    <string>changeSet</string>\n    <string>e45c1dfb0a7419d5</string>\n  </entry>\n</map>'),(10314,'<map>\n  <entry>\n    <string>timeTaken</string>\n    <string>-1</string>\n  </entry>\n  <entry>\n    <string>pluginVersion</string>\n    <string>8.9.0</string>\n  </entry>\n  <entry>\n    <string>ranOn</string>\n    <string>2020-05-27T17:27:38.098+08:00</string>\n  </entry>\n  <entry>\n    <string>buildNumber</string>\n    <string>47</string>\n  </entry>\n  <entry>\n    <string>changeSet</string>\n    <string>e45c1dfb0a7419d5</string>\n  </entry>\n</map>'),(10315,'<map>\n  <entry>\n    <string>timeTaken</string>\n    <string>6</string>\n  </entry>\n  <entry>\n    <string>pluginVersion</string>\n    <string>8.9.0</string>\n  </entry>\n  <entry>\n    <string>ranOn</string>\n    <string>2020-05-27T17:27:38.111+08:00</string>\n  </entry>\n  <entry>\n    <string>buildNumber</string>\n    <string>47</string>\n  </entry>\n  <entry>\n    <string>changeSet</string>\n    <string>e45c1dfb0a7419d5</string>\n  </entry>\n</map>'),(10316,'<map>\n  <entry>\n    <string>timeTaken</string>\n    <string>-1</string>\n  </entry>\n  <entry>\n    <string>pluginVersion</string>\n    <string>8.9.0</string>\n  </entry>\n  <entry>\n    <string>ranOn</string>\n    <string>2020-05-27T17:27:38.138+08:00</string>\n  </entry>\n  <entry>\n    <string>buildNumber</string>\n    <string>48</string>\n  </entry>\n  <entry>\n    <string>changeSet</string>\n    <string>e45c1dfb0a7419d5</string>\n  </entry>\n</map>'),(10317,'<map>\n  <entry>\n    <string>timeTaken</string>\n    <string>7</string>\n  </entry>\n  <entry>\n    <string>pluginVersion</string>\n    <string>8.9.0</string>\n  </entry>\n  <entry>\n    <string>ranOn</string>\n    <string>2020-05-27T17:27:38.151+08:00</string>\n  </entry>\n  <entry>\n    <string>buildNumber</string>\n    <string>48</string>\n  </entry>\n  <entry>\n    <string>changeSet</string>\n    <string>e45c1dfb0a7419d5</string>\n  </entry>\n</map>'),(10318,'<map>\n  <entry>\n    <string>timeTaken</string>\n    <string>-1</string>\n  </entry>\n  <entry>\n    <string>pluginVersion</string>\n    <string>8.9.0</string>\n  </entry>\n  <entry>\n    <string>ranOn</string>\n    <string>2020-05-27T17:27:38.170+08:00</string>\n  </entry>\n  <entry>\n    <string>buildNumber</string>\n    <string>49</string>\n  </entry>\n  <entry>\n    <string>changeSet</string>\n    <string>e45c1dfb0a7419d5</string>\n  </entry>\n</map>'),(10319,'<map>\n  <entry>\n    <string>timeTaken</string>\n    <string>52</string>\n  </entry>\n  <entry>\n    <string>pluginVersion</string>\n    <string>8.9.0</string>\n  </entry>\n  <entry>\n    <string>ranOn</string>\n    <string>2020-05-27T17:27:38.228+08:00</string>\n  </entry>\n  <entry>\n    <string>buildNumber</string>\n    <string>49</string>\n  </entry>\n  <entry>\n    <string>changeSet</string>\n    <string>e45c1dfb0a7419d5</string>\n  </entry>\n</map>'),(10320,'<map>\n  <entry>\n    <string>timeTaken</string>\n    <string>-1</string>\n  </entry>\n  <entry>\n    <string>pluginVersion</string>\n    <string>8.9.0</string>\n  </entry>\n  <entry>\n    <string>ranOn</string>\n    <string>2020-05-27T17:27:38.243+08:00</string>\n  </entry>\n  <entry>\n    <string>buildNumber</string>\n    <string>50</string>\n  </entry>\n  <entry>\n    <string>changeSet</string>\n    <string>e45c1dfb0a7419d5</string>\n  </entry>\n</map>'),(10321,'<map>\n  <entry>\n    <string>timeTaken</string>\n    <string>32</string>\n  </entry>\n  <entry>\n    <string>pluginVersion</string>\n    <string>8.9.0</string>\n  </entry>\n  <entry>\n    <string>ranOn</string>\n    <string>2020-05-27T17:27:38.281+08:00</string>\n  </entry>\n  <entry>\n    <string>buildNumber</string>\n    <string>50</string>\n  </entry>\n  <entry>\n    <string>changeSet</string>\n    <string>e45c1dfb0a7419d5</string>\n  </entry>\n</map>'),(10322,'<map>\n  <entry>\n    <string>timeTaken</string>\n    <string>-1</string>\n  </entry>\n  <entry>\n    <string>pluginVersion</string>\n    <string>8.9.0</string>\n  </entry>\n  <entry>\n    <string>ranOn</string>\n    <string>2020-05-27T17:27:38.301+08:00</string>\n  </entry>\n  <entry>\n    <string>buildNumber</string>\n    <string>51</string>\n  </entry>\n  <entry>\n    <string>changeSet</string>\n    <string>e45c1dfb0a7419d5</string>\n  </entry>\n</map>'),(10323,'<map>\n  <entry>\n    <string>timeTaken</string>\n    <string>2</string>\n  </entry>\n  <entry>\n    <string>pluginVersion</string>\n    <string>8.9.0</string>\n  </entry>\n  <entry>\n    <string>ranOn</string>\n    <string>2020-05-27T17:27:38.308+08:00</string>\n  </entry>\n  <entry>\n    <string>buildNumber</string>\n    <string>51</string>\n  </entry>\n  <entry>\n    <string>changeSet</string>\n    <string>e45c1dfb0a7419d5</string>\n  </entry>\n</map>'),(10377,'database.setup=FULLFILLED;app.properties.setup=FULLFILLED;create.user.mail.properties.setup=ANNOUNCE;mail.properties.setup=ANNOUNCE'),(10383,'{\n  \"annotations\": [],\n  \"width\": 1375,\n  \"rootIds\": [\"0D45CF1F-C6AE-B393-21B3-5A05591D1737\"],\n  \"nodeMap\": {\n    \"4E4B73B1-3C40-5FAC-264E-5A05595F62A5\": {\n      \"stepId\": 2,\n      \"isInitialAction\": false,\n      \"rect\": {\n        \"height\": 42.0,\n        \"width\": 151.0,\n        \"x\": 1927.0,\n        \"y\": 215.0,\n        \"positiveController\": null\n      },\n      \"inLinkIds\": [\n        \"5841480E-F84E-DBF7-3509-5A0559D9CADA\",\n        \"407198C8-F439-AEEC-73FE-5A0559F98EB5\"\n      ],\n      \"outLinkIds\": [\n        \"9D6AA61E-F12E-9BD5-6EBB-5A055974DDE7\",\n        \"40B3F1B0-322B-BC82-F68C-5A0559E9885E\"\n      ],\n      \"id\": \"4E4B73B1-3C40-5FAC-264E-5A05595F62A5\",\n      \"label\": \"In Progress\"\n    },\n    \"0D45CF1F-C6AE-B393-21B3-5A05591D1737\": {\n      \"stepId\": 1,\n      \"isInitialAction\": true,\n      \"rect\": {\n        \"height\": 42.0,\n        \"width\": 117.0,\n        \"x\": 1512.0,\n        \"y\": 0.0,\n        \"positiveController\": null\n      },\n      \"inLinkIds\": [],\n      \"outLinkIds\": [\"A56BC718-F21C-4688-A750-5A055A19265A\"],\n      \"id\": \"0D45CF1F-C6AE-B393-21B3-5A05591D1737\",\n      \"label\": \"Create\"\n    },\n    \"3A048B99-FC9B-EADD-9590-5A0559B773A9\": {\n      \"stepId\": 3,\n      \"isInitialAction\": false,\n      \"rect\": {\n        \"height\": 42.0,\n        \"width\": 109.0,\n        \"x\": 1518.0,\n        \"y\": 354.0,\n        \"positiveController\": null\n      },\n      \"inLinkIds\": [\n        \"40B3F1B0-322B-BC82-F68C-5A0559E9885E\",\n        \"1B7EC8D6-8966-9F61-6207-5A055A09D24C\"\n      ],\n      \"outLinkIds\": [\n        \"321335A8-A6FA-C691-F3DF-5A0559C94B79\",\n        \"5841480E-F84E-DBF7-3509-5A0559D9CADA\"\n      ],\n      \"id\": \"3A048B99-FC9B-EADD-9590-5A0559B773A9\",\n      \"label\": \"Done\"\n    },\n    \"8AB4AFFF-FF78-15A4-3FF6-5A05594C4257\": {\n      \"stepId\": 1,\n      \"isInitialAction\": false,\n      \"rect\": {\n        \"height\": 42.0,\n        \"width\": 114.0,\n        \"x\": 1512.0,\n        \"y\": 80.0,\n        \"positiveController\": null\n      },\n      \"inLinkIds\": [\n        \"321335A8-A6FA-C691-F3DF-5A0559C94B79\",\n        \"9D6AA61E-F12E-9BD5-6EBB-5A055974DDE7\",\n        \"A56BC718-F21C-4688-A750-5A055A19265A\"\n      ],\n      \"outLinkIds\": [\n        \"407198C8-F439-AEEC-73FE-5A0559F98EB5\",\n        \"1B7EC8D6-8966-9F61-6207-5A055A09D24C\"\n      ],\n      \"id\": \"8AB4AFFF-FF78-15A4-3FF6-5A05594C4257\",\n      \"label\": \"To Do\"\n    }\n  },\n  \"edgeMap\": {\n    \"1B7EC8D6-8966-9F61-6207-5A055A09D24C\": {\n      \"actionId\": 21,\n      \"startStepId\": 1,\n      \"endStepId\": 3,\n      \"startPoint\": {\n        \"x\": 1572.0,\n        \"y\": 122.0,\n        \"positiveController\": null\n      },\n      \"endPoint\": {\n        \"x\": 1573.0,\n        \"y\": 354.0,\n        \"positiveController\": null\n      },\n      \"controlPoints\": [],\n      \"allPoints\": [\n        {\n          \"x\": 1572.0,\n          \"y\": 122.0,\n          \"positiveController\": null\n        },\n        {\n          \"x\": 1573.0,\n          \"y\": 354.0,\n          \"positiveController\": null\n        }\n      ],\n      \"lineType\": \"straight\",\n      \"labelPoint\": {\n        \"x\": 1567.0,\n        \"y\": 219.6,\n        \"positiveController\": null\n      },\n      \"startNodeId\": \"8AB4AFFF-FF78-15A4-3FF6-5A05594C4257\",\n      \"endNodeId\": \"3A048B99-FC9B-EADD-9590-5A0559B773A9\",\n      \"id\": \"1B7EC8D6-8966-9F61-6207-5A055A09D24C\",\n      \"label\": \"Done\"\n    },\n    \"5841480E-F84E-DBF7-3509-5A0559D9CADA\": {\n      \"actionId\": 61,\n      \"startStepId\": 3,\n      \"endStepId\": 2,\n      \"startPoint\": {\n        \"x\": 1627.0,\n        \"y\": 361.0,\n        \"positiveController\": null\n      },\n      \"endPoint\": {\n        \"x\": 1953.0,\n        \"y\": 257.0,\n        \"positiveController\": null\n      },\n      \"controlPoints\": [],\n      \"allPoints\": [\n        {\n          \"x\": 1627.0,\n          \"y\": 361.0,\n          \"positiveController\": null\n        },\n        {\n          \"x\": 1953.0,\n          \"y\": 257.0,\n          \"positiveController\": null\n        }\n      ],\n      \"lineType\": \"straight\",\n      \"labelPoint\": {\n        \"x\": 1658.0,\n        \"y\": 287.0,\n        \"positiveController\": null\n      },\n      \"startNodeId\": \"3A048B99-FC9B-EADD-9590-5A0559B773A9\",\n      \"endNodeId\": \"4E4B73B1-3C40-5FAC-264E-5A05595F62A5\",\n      \"id\": \"5841480E-F84E-DBF7-3509-5A0559D9CADA\",\n      \"label\": \"Reopen and start progress\"\n    },\n    \"321335A8-A6FA-C691-F3DF-5A0559C94B79\": {\n      \"actionId\": 51,\n      \"startStepId\": 3,\n      \"endStepId\": 1,\n      \"startPoint\": {\n        \"x\": 1528.0,\n        \"y\": 354.0,\n        \"positiveController\": null\n      },\n      \"endPoint\": {\n        \"x\": 1527.0,\n        \"y\": 120.0,\n        \"positiveController\": null\n      },\n      \"controlPoints\": [],\n      \"allPoints\": [\n        {\n          \"x\": 1528.0,\n          \"y\": 354.0,\n          \"positiveController\": null\n        },\n        {\n          \"x\": 1527.0,\n          \"y\": 120.0,\n          \"positiveController\": null\n        }\n      ],\n      \"lineType\": \"straight\",\n      \"labelPoint\": {\n        \"x\": 1437.0,\n        \"y\": 219.1,\n        \"positiveController\": null\n      },\n      \"startNodeId\": \"3A048B99-FC9B-EADD-9590-5A0559B773A9\",\n      \"endNodeId\": \"8AB4AFFF-FF78-15A4-3FF6-5A05594C4257\",\n      \"id\": \"321335A8-A6FA-C691-F3DF-5A0559C94B79\",\n      \"label\": \"Reopen\"\n    },\n    \"40B3F1B0-322B-BC82-F68C-5A0559E9885E\": {\n      \"actionId\": 41,\n      \"startStepId\": 2,\n      \"endStepId\": 3,\n      \"startPoint\": {\n        \"x\": 2056.0,\n        \"y\": 257.0,\n        \"positiveController\": null\n      },\n      \"endPoint\": {\n        \"x\": 1608.0,\n        \"y\": 394.0,\n        \"positiveController\": null\n      },\n      \"controlPoints\": [],\n      \"allPoints\": [\n        {\n          \"x\": 2056.0,\n          \"y\": 257.0,\n          \"positiveController\": null\n        },\n        {\n          \"x\": 1608.0,\n          \"y\": 394.0,\n          \"positiveController\": null\n        }\n      ],\n      \"lineType\": \"straight\",\n      \"labelPoint\": {\n        \"x\": 1788.5,\n        \"y\": 325.25,\n        \"positiveController\": null\n      },\n      \"startNodeId\": \"4E4B73B1-3C40-5FAC-264E-5A05595F62A5\",\n      \"endNodeId\": \"3A048B99-FC9B-EADD-9590-5A0559B773A9\",\n      \"id\": \"40B3F1B0-322B-BC82-F68C-5A0559E9885E\",\n      \"label\": \"Done\"\n    },\n    \"A56BC718-F21C-4688-A750-5A055A19265A\": {\n      \"actionId\": 1,\n      \"startStepId\": 1,\n      \"endStepId\": 1,\n      \"startPoint\": {\n        \"x\": 1557.0,\n        \"y\": 40.0,\n        \"positiveController\": null\n      },\n      \"endPoint\": {\n        \"x\": 1557.0,\n        \"y\": 80.0,\n        \"positiveController\": null\n      },\n      \"controlPoints\": [],\n      \"allPoints\": [\n        {\n          \"x\": 1557.0,\n          \"y\": 40.0,\n          \"positiveController\": null\n        },\n        {\n          \"x\": 1557.0,\n          \"y\": 80.0,\n          \"positiveController\": null\n        }\n      ],\n      \"lineType\": \"straight\",\n      \"labelPoint\": {\n        \"x\": 1537.0,\n        \"y\": 50.6,\n        \"positiveController\": null\n      },\n      \"startNodeId\": \"0D45CF1F-C6AE-B393-21B3-5A05591D1737\",\n      \"endNodeId\": \"8AB4AFFF-FF78-15A4-3FF6-5A05594C4257\",\n      \"id\": \"A56BC718-F21C-4688-A750-5A055A19265A\",\n      \"label\": \"Create\"\n    },\n    \"9D6AA61E-F12E-9BD5-6EBB-5A055974DDE7\": {\n      \"actionId\": 31,\n      \"startStepId\": 2,\n      \"endStepId\": 1,\n      \"startPoint\": {\n        \"x\": 1951.0,\n        \"y\": 215.0,\n        \"positiveController\": null\n      },\n      \"endPoint\": {\n        \"x\": 1623.0,\n        \"y\": 114.0,\n        \"positiveController\": null\n      },\n      \"controlPoints\": [],\n      \"allPoints\": [\n        {\n          \"x\": 1951.0,\n          \"y\": 215.0,\n          \"positiveController\": null\n        },\n        {\n          \"x\": 1623.0,\n          \"y\": 114.0,\n          \"positiveController\": null\n        }\n      ],\n      \"lineType\": \"straight\",\n      \"labelPoint\": {\n        \"x\": 1709.5,\n        \"y\": 168.75,\n        \"positiveController\": null\n      },\n      \"startNodeId\": \"4E4B73B1-3C40-5FAC-264E-5A05595F62A5\",\n      \"endNodeId\": \"8AB4AFFF-FF78-15A4-3FF6-5A05594C4257\",\n      \"id\": \"9D6AA61E-F12E-9BD5-6EBB-5A055974DDE7\",\n      \"label\": \"Stop Progress\"\n    },\n    \"407198C8-F439-AEEC-73FE-5A0559F98EB5\": {\n      \"actionId\": 11,\n      \"startStepId\": 1,\n      \"endStepId\": 2,\n      \"startPoint\": {\n        \"x\": 1626.0,\n        \"y\": 89.0,\n        \"positiveController\": null\n      },\n      \"endPoint\": {\n        \"x\": 2053.0,\n        \"y\": 215.0,\n        \"positiveController\": null\n      },\n      \"controlPoints\": [],\n      \"allPoints\": [\n        {\n          \"x\": 1626.0,\n          \"y\": 89.0,\n          \"positiveController\": null\n        },\n        {\n          \"x\": 2053.0,\n          \"y\": 215.0,\n          \"positiveController\": null\n        }\n      ],\n      \"lineType\": \"straight\",\n      \"labelPoint\": {\n        \"x\": 1809.5,\n        \"y\": 131.5,\n        \"positiveController\": null\n      },\n      \"startNodeId\": \"8AB4AFFF-FF78-15A4-3FF6-5A05594C4257\",\n      \"endNodeId\": \"4E4B73B1-3C40-5FAC-264E-5A05595F62A5\",\n      \"id\": \"407198C8-F439-AEEC-73FE-5A0559F98EB5\",\n      \"label\": \"Start Progress\"\n    }\n  }\n}'),(10384,'{\"statuses\":[{\"id\":\"S<1>\",\"x\":1512.0,\"y\":80.0},{\"id\":\"S<2>\",\"x\":1927.0,\"y\":215.0},{\"id\":\"I<1>\",\"x\":1512.0,\"y\":0.0},{\"id\":\"S<3>\",\"x\":1518.0,\"y\":354.0}],\"transitions\":[],\"updateAuthor\":null,\"updatedDate\":null,\"loopedTransitionContainer\":null}'),(10385,'{\"statuses\":[{\"id\":\"S<1>\",\"x\":1512.0,\"y\":80.0},{\"id\":\"S<2>\",\"x\":1927.0,\"y\":215.0},{\"id\":\"I<1>\",\"x\":1512.0,\"y\":0.0},{\"id\":\"S<3>\",\"x\":1518.0,\"y\":354.0}],\"transitions\":[],\"updateAuthor\":null,\"updatedDate\":null,\"loopedTransitionContainer\":null}'),(10386,NULL),(10387,'project = AA AND resolution = Unresolved ORDER BY priority DESC, updated DESC'),(10392,'{\"com.atlassian.jira.reindex.required\":1590571834523}'),(10395,'MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC+z4e/u6mKnR9PIX85CVtDUcT+sDMPw1MAX2vFkFqyxJv1l45rwsmuq9cTrZ7dotL7d/pX9nXnyEvgi63P/sto2UlYXWXHvVUomCCPpcz3KxFuJz4RlI1qDMJFVO0sjwihVLFx7aEfRcvu72vfgaPegeqX3ldegOvQVrt5fIuOHX99c4vKOYT4p5+yybVeAgRYuekuQ0ZpstV6pyyHnTxYkMc3/gdT6DQ6Ylu6oIYIyxGy1iSCAFBdbH6b/lfGg0jr015uG9HUmFeq1uBifh8LIiNWr50FjjmbzzoQv+FyYDz03IS7E5ILctkVjQK3fbCNUWIcO2ZIw366vqzyVOyzAgMBAAECggEAO81XQmRSkrsD4Q0ijoG8NLEgCKK4niwdi3RclqLTikvMhYBmhqeaBkCdO/GiZNxvO5kywPbhpS9FeK7OXu4AWnAfaK59A8j3M63aJqtUPfMll1x9O41PdPliudAQNXLuxYGBy68qXF7Ht68aJAbBkS8uk0KAJ4JIZheI0l6SbouNVQv/Q7rcVd0dFyBwQ6BIp/e0oQyYqo7tQ/cQHTGkaKhDiUUjYPhSLjquE0CSvFyo/BTp6IR4XXNr1qDfjJ7/HOY+mfRvckvuFGo4WdXs0dDlM/7rSj4vqvVOefJqe8ixze68aS5Mk0IrwlHPzcaPqaVYMYQju4Qavz/r+8nLYQKBgQDtAFcXu5oDeuECCYSIimId+m26SGXPp8sLmdPGUkhh36fi0lnIyjQYe99k1EFlhu8WGhZw5gvOdMmzHog2KIup0fwPAaXXqM5ZGB/jpk3b++apgcQyyej0C9CyQp8TztUjXgXnaCAAGE5vP/jIp34gzRPwaIk6cQifV50bOme+7QKBgQDOG0f40lK63Tpjxx0ZodBN9jKzTPKhZKI+maFYS75skMgJOFDhYmwhPwY54SddkRKBmEbH7oiQCxZwoXJ2/4ywJvxO32+g2T0aPNzRHLosumjOLGlnoEhFMwEnpW+qtrKQggrh0wrUfEGXGHajD17dRW/sW1nDwIAESYXVxdBGHwKBgQCgUVaYq0Knj/udESsh4do1RS3skQStz2c+VbQ3t3lXG5/Jg1lQxdcvqLuYzSvfrcMVRFhhznu2ELJQBBtH521yVqUW0ZqJo5rSEcughuKsKF4D09AQOxzl2Qg3TXGmSIdNAVElE/5xkf+cqb10njhnn9IZEd2iNswKXY3c2UlMkQKBgBXGdBgpwGvVq7GW+9AVdHiIJlsjKg87HpkWiiFV/0xhD4FJ3eGyEFKC4hmDXDFafmYKvI+q9+qgAULtC7be0PJbbBS5LoYD7Zy0CXBeZJ0NJL2Dm69DE9+bv+d8ZwvWOY9i7dtl/KLubc+U2hPoL9GY4HZMQHOaBuxtCCLJv3NpAoGAWFAUpl56XpG4vwA7jxCyKHWxHsSgWsCMo+eRmKBecJ5CVhqdex/Wi/5KOaz0EFTz2nxLZHWig+tm1SYuSSyEg7RR1d3liZwwVFstZ7wmxY+SH/vO86WNuMX7JDbF3ZRyx5ybhNX42y96jU2Oq/FpKplbp5eRfbnasBQAKTYXaUE='),(10396,'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvs+Hv7upip0fTyF/OQlbQ1HE/rAzD8NTAF9rxZBassSb9ZeOa8LJrqvXE62e3aLS+3f6V/Z158hL4Iutz/7LaNlJWF1lx71VKJggj6XM9ysRbic+EZSNagzCRVTtLI8IoVSxce2hH0XL7u9r34Gj3oHql95XXoDr0Fa7eXyLjh1/fXOLyjmE+Kefssm1XgIEWLnpLkNGabLVeqcsh508WJDHN/4HU+g0OmJbuqCGCMsRstYkggBQXWx+m/5XxoNI69NebhvR1JhXqtbgYn4fCyIjVq+dBY45m886EL/hcmA89NyEuxOSC3LZFY0Ct32wjVFiHDtmSMN+ur6s8lTsswIDAQAB');
+/*!40000 ALTER TABLE `propertytext` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `qrtz_calendars`
+--
+
+DROP TABLE IF EXISTS `qrtz_calendars`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `qrtz_calendars` (
+  `ID` decimal(18,0) DEFAULT NULL,
+  `CALENDAR_NAME` varchar(255) COLLATE utf8_bin NOT NULL,
+  `CALENDAR` text COLLATE utf8_bin,
+  PRIMARY KEY (`CALENDAR_NAME`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `qrtz_calendars`
+--
+
+LOCK TABLES `qrtz_calendars` WRITE;
+/*!40000 ALTER TABLE `qrtz_calendars` DISABLE KEYS */;
+/*!40000 ALTER TABLE `qrtz_calendars` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `qrtz_cron_triggers`
+--
+
+DROP TABLE IF EXISTS `qrtz_cron_triggers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `qrtz_cron_triggers` (
+  `ID` decimal(18,0) NOT NULL,
+  `trigger_id` decimal(18,0) DEFAULT NULL,
+  `cronExperssion` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `qrtz_cron_triggers`
+--
+
+LOCK TABLES `qrtz_cron_triggers` WRITE;
+/*!40000 ALTER TABLE `qrtz_cron_triggers` DISABLE KEYS */;
+/*!40000 ALTER TABLE `qrtz_cron_triggers` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `qrtz_fired_triggers`
+--
+
+DROP TABLE IF EXISTS `qrtz_fired_triggers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `qrtz_fired_triggers` (
+  `ID` decimal(18,0) DEFAULT NULL,
+  `ENTRY_ID` varchar(255) COLLATE utf8_bin NOT NULL,
+  `trigger_id` decimal(18,0) DEFAULT NULL,
+  `TRIGGER_LISTENER` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `FIRED_TIME` datetime DEFAULT NULL,
+  `TRIGGER_STATE` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ENTRY_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `qrtz_fired_triggers`
+--
+
+LOCK TABLES `qrtz_fired_triggers` WRITE;
+/*!40000 ALTER TABLE `qrtz_fired_triggers` DISABLE KEYS */;
+/*!40000 ALTER TABLE `qrtz_fired_triggers` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `qrtz_job_details`
+--
+
+DROP TABLE IF EXISTS `qrtz_job_details`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `qrtz_job_details` (
+  `ID` decimal(18,0) NOT NULL,
+  `JOB_NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `JOB_GROUP` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `CLASS_NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `IS_DURABLE` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `IS_STATEFUL` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `REQUESTS_RECOVERY` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `JOB_DATA` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `qrtz_job_details`
+--
+
+LOCK TABLES `qrtz_job_details` WRITE;
+/*!40000 ALTER TABLE `qrtz_job_details` DISABLE KEYS */;
+/*!40000 ALTER TABLE `qrtz_job_details` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `qrtz_job_listeners`
+--
+
+DROP TABLE IF EXISTS `qrtz_job_listeners`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `qrtz_job_listeners` (
+  `ID` decimal(18,0) NOT NULL,
+  `JOB` decimal(18,0) DEFAULT NULL,
+  `JOB_LISTENER` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `qrtz_job_listeners`
+--
+
+LOCK TABLES `qrtz_job_listeners` WRITE;
+/*!40000 ALTER TABLE `qrtz_job_listeners` DISABLE KEYS */;
+/*!40000 ALTER TABLE `qrtz_job_listeners` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `qrtz_simple_triggers`
+--
+
+DROP TABLE IF EXISTS `qrtz_simple_triggers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `qrtz_simple_triggers` (
+  `ID` decimal(18,0) NOT NULL,
+  `trigger_id` decimal(18,0) DEFAULT NULL,
+  `REPEAT_COUNT` decimal(9,0) DEFAULT NULL,
+  `REPEAT_INTERVAL` decimal(18,0) DEFAULT NULL,
+  `TIMES_TRIGGERED` decimal(9,0) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `qrtz_simple_triggers`
+--
+
+LOCK TABLES `qrtz_simple_triggers` WRITE;
+/*!40000 ALTER TABLE `qrtz_simple_triggers` DISABLE KEYS */;
+/*!40000 ALTER TABLE `qrtz_simple_triggers` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `qrtz_trigger_listeners`
+--
+
+DROP TABLE IF EXISTS `qrtz_trigger_listeners`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `qrtz_trigger_listeners` (
+  `ID` decimal(18,0) NOT NULL,
+  `trigger_id` decimal(18,0) DEFAULT NULL,
+  `TRIGGER_LISTENER` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `qrtz_trigger_listeners`
+--
+
+LOCK TABLES `qrtz_trigger_listeners` WRITE;
+/*!40000 ALTER TABLE `qrtz_trigger_listeners` DISABLE KEYS */;
+/*!40000 ALTER TABLE `qrtz_trigger_listeners` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `qrtz_triggers`
+--
+
+DROP TABLE IF EXISTS `qrtz_triggers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `qrtz_triggers` (
+  `ID` decimal(18,0) NOT NULL,
+  `TRIGGER_NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `TRIGGER_GROUP` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `JOB` decimal(18,0) DEFAULT NULL,
+  `NEXT_FIRE` datetime DEFAULT NULL,
+  `TRIGGER_STATE` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `TRIGGER_TYPE` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `START_TIME` datetime DEFAULT NULL,
+  `END_TIME` datetime DEFAULT NULL,
+  `CALENDAR_NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `MISFIRE_INSTR` decimal(9,0) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `qrtz_triggers`
+--
+
+LOCK TABLES `qrtz_triggers` WRITE;
+/*!40000 ALTER TABLE `qrtz_triggers` DISABLE KEYS */;
+/*!40000 ALTER TABLE `qrtz_triggers` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `reindex_component`
+--
+
+DROP TABLE IF EXISTS `reindex_component`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `reindex_component` (
+  `ID` decimal(18,0) NOT NULL,
+  `REQUEST_ID` decimal(18,0) DEFAULT NULL,
+  `AFFECTED_INDEX` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `ENTITY_TYPE` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `idx_reindex_component_req_id` (`REQUEST_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `reindex_component`
+--
+
+LOCK TABLES `reindex_component` WRITE;
+/*!40000 ALTER TABLE `reindex_component` DISABLE KEYS */;
+INSERT INTO `reindex_component` VALUES (10100,10000,'ISSUE','NONE'),(10101,10000,'COMMENT','NONE'),(10102,10000,'CHANGEHISTORY','NONE'),(10103,10000,'WORKLOG','NONE');
+/*!40000 ALTER TABLE `reindex_component` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `reindex_request`
+--
+
+DROP TABLE IF EXISTS `reindex_request`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `reindex_request` (
+  `ID` decimal(18,0) NOT NULL,
+  `TYPE` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `REQUEST_TIME` datetime DEFAULT NULL,
+  `START_TIME` datetime DEFAULT NULL,
+  `COMPLETION_TIME` datetime DEFAULT NULL,
+  `STATUS` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `EXECUTION_NODE_ID` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `QUERY` text COLLATE utf8_bin,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `reindex_request`
+--
+
+LOCK TABLES `reindex_request` WRITE;
+/*!40000 ALTER TABLE `reindex_request` DISABLE KEYS */;
+INSERT INTO `reindex_request` VALUES (10000,'IMMEDIATE','2020-05-27 17:18:55','2020-05-27 17:27:37','2020-05-27 17:27:38','COMPLETE',NULL,NULL);
+/*!40000 ALTER TABLE `reindex_request` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `remembermetoken`
+--
+
+DROP TABLE IF EXISTS `remembermetoken`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `remembermetoken` (
+  `ID` decimal(18,0) NOT NULL,
+  `CREATED` datetime DEFAULT NULL,
+  `TOKEN` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `USERNAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `remembermetoken_username_index` (`USERNAME`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `remembermetoken`
+--
+
+LOCK TABLES `remembermetoken` WRITE;
+/*!40000 ALTER TABLE `remembermetoken` DISABLE KEYS */;
+/*!40000 ALTER TABLE `remembermetoken` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `remotelink`
+--
+
+DROP TABLE IF EXISTS `remotelink`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `remotelink` (
+  `ID` decimal(18,0) NOT NULL,
+  `ISSUEID` decimal(18,0) DEFAULT NULL,
+  `GLOBALID` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `TITLE` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `SUMMARY` text COLLATE utf8_bin,
+  `URL` text COLLATE utf8_bin,
+  `ICONURL` text COLLATE utf8_bin,
+  `ICONTITLE` text COLLATE utf8_bin,
+  `RELATIONSHIP` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `RESOLVED` char(1) COLLATE utf8_bin DEFAULT NULL,
+  `STATUSNAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `STATUSDESCRIPTION` text COLLATE utf8_bin,
+  `STATUSICONURL` text COLLATE utf8_bin,
+  `STATUSICONTITLE` text COLLATE utf8_bin,
+  `STATUSICONLINK` text COLLATE utf8_bin,
+  `STATUSCATEGORYKEY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `STATUSCATEGORYCOLORNAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `APPLICATIONTYPE` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `APPLICATIONNAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `remotelink_issueid` (`ISSUEID`,`GLOBALID`),
+  KEY `remotelink_globalid` (`GLOBALID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `remotelink`
+--
+
+LOCK TABLES `remotelink` WRITE;
+/*!40000 ALTER TABLE `remotelink` DISABLE KEYS */;
+/*!40000 ALTER TABLE `remotelink` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `replicatedindexoperation`
+--
+
+DROP TABLE IF EXISTS `replicatedindexoperation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `replicatedindexoperation` (
+  `ID` decimal(18,0) NOT NULL,
+  `INDEX_TIME` datetime DEFAULT NULL,
+  `NODE_ID` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `AFFECTED_INDEX` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `ENTITY_TYPE` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `AFFECTED_IDS` longtext COLLATE utf8_bin,
+  `VERSIONS` longtext COLLATE utf8_bin,
+  `OPERATION` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `FILENAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `node_operation_idx` (`NODE_ID`,`AFFECTED_INDEX`,`OPERATION`,`INDEX_TIME`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `replicatedindexoperation`
+--
+
+LOCK TABLES `replicatedindexoperation` WRITE;
+/*!40000 ALTER TABLE `replicatedindexoperation` DISABLE KEYS */;
+/*!40000 ALTER TABLE `replicatedindexoperation` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `resolution`
+--
+
+DROP TABLE IF EXISTS `resolution`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `resolution` (
+  `ID` varchar(60) COLLATE utf8_bin NOT NULL,
+  `SEQUENCE` decimal(18,0) DEFAULT NULL,
+  `pname` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `DESCRIPTION` text COLLATE utf8_bin,
+  `ICONURL` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `resolution`
+--
+
+LOCK TABLES `resolution` WRITE;
+/*!40000 ALTER TABLE `resolution` DISABLE KEYS */;
+INSERT INTO `resolution` VALUES ('10000',1,'完成','该问题的工作流程已完成。',NULL),('10001',2,'被否决','该问题不会被处理。',NULL),('10002',3,'重复提交','重复提交的问题。',NULL);
+/*!40000 ALTER TABLE `resolution` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `rundetails`
+--
+
+DROP TABLE IF EXISTS `rundetails`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `rundetails` (
+  `ID` decimal(18,0) NOT NULL,
+  `JOB_ID` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `START_TIME` datetime DEFAULT NULL,
+  `RUN_DURATION` decimal(18,0) DEFAULT NULL,
+  `RUN_OUTCOME` char(1) COLLATE utf8_bin DEFAULT NULL,
+  `INFO_MESSAGE` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `rundetails_jobid_idx` (`JOB_ID`),
+  KEY `rundetails_starttime_idx` (`START_TIME`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `rundetails`
+--
+
+LOCK TABLES `rundetails` WRITE;
+/*!40000 ALTER TABLE `rundetails` DISABLE KEYS */;
+INSERT INTO `rundetails` VALUES (10009,'com.atlassian.diagnostics.internal.analytics.DailyAlertAnalyticsJob','2020-05-27 17:19:00',29,'S',''),(10010,'com.atlassian.jira.service.JiraService:10200','2020-05-27 17:19:13',1480,'S',''),(10103,'PluginRequestCheckJob-job','2020-05-27 17:27:45',15,'S',''),(10105,'LocalPluginLicenseNotificationJob-job','2020-05-27 17:27:45',106,'S',''),(10152,'com.atlassian.jira.versioning.VersioningCleanupService','2020-05-27 17:32:02',11,'S',''),(10251,'RateLimitReaperJob','2020-05-27 17:42:01',1,'S',''),(10299,'HistoryFlushJob','2020-05-27 17:47:01',8,'S',''),(10306,'com.atlassian.jira.plugins.inform.batching.cron.BatchNotificationJobSchedulerImpl','2020-05-27 17:47:38',14,'S',''),(10402,'data-provider-poll','2020-05-27 17:49:20',97,'S',''),(10403,'class com.atlassian.scheduler.core.util.JobRunnerRegistry:com.atlassian.cluster.monitoring.cluster-monitoring-plugin:system-information','2020-05-27 17:49:20',27,'S',''),(10404,'data-provider-cleanup','2020-05-27 17:49:20',81,'S',''),(10405,'com.atlassian.jira.user.UserHistoryDatabaseCompactor','2020-05-27 17:49:20',3,'S',''),(10406,'com.atlassian.jira.cache.monitor.CacheStatisticsMonitor','2020-05-27 17:49:20',11,'S',''),(10407,'ConfigurationLoggerJob','2020-05-27 17:49:20',15,'S',''),(10408,'BundledUpdateCheckJob-job','2020-05-27 17:49:20',16,'S',''),(10412,'applink-status-analytics-job','2020-05-27 17:49:20',16,'S',''),(10413,'com.atlassian.troubleshooting.jira.scheduler.CustomisationsCheckScheduler:job','2020-05-27 17:49:20',266,'S',''),(10414,'7452da3a-c935-4950-9632-f8b39f516268','2020-05-27 17:49:20',3345,'S',''),(10415,'JiraPluginScheduler:com.atlassian.analytics.client.upload.RemoteFilterRead:job','2020-05-27 17:49:25',3244,'S',''),(10416,'24c2edc1-82e8-4354-997e-004241e2535e','2020-05-27 17:49:20',17329,'S',''),(10417,'CompatibilityPluginScheduler.JobId.hipchatInstallGlancesJob','2020-05-27 17:49:38',11,'S',''),(10418,'CompatibilityPluginScheduler.JobId.hipchatRefreshConnectionStatusJob','2020-05-27 17:49:42',13,'S',''),(10421,'com.atlassian.jira.plugins.software.monitor.ApplicationPluginsEnablerJobRunner','2020-05-27 17:50:10',24,'S',''),(10500,'com.atlassian.jira.upgrade.UpgradeService','2020-05-27 17:50:15',111,'S',''),(10502,'JiraPluginScheduler:com.atlassian.troubleshooting.healthcheck.scheduler.HealthCheckSchedulerImpl:job','2020-05-27 17:50:16',361,'S',''),(10508,'HistoryCleanupJob','2020-05-27 17:50:21',20,'S',''),(10525,'e62f8ad2-841c-4fd7-80c6-9cc8f7e4a350','2020-05-27 17:52:20',106,'S',''),(10529,'com.atlassian.jira.service.JiraService:10000','2020-05-27 17:53:00',1,'S',''),(10530,'SettingsReloaderJob','2020-05-27 17:53:11',10,'S',''),(10531,'com.atlassian.jira.plugins.inform.batching.cron.BatchNotificationJobSchedulerImpl.mentions','2020-05-27 17:53:16',17,'S',''),(10532,'com.atlassian.jira.plugin.cluster.monitoring.internal.job.ApplicationStatusCollector','2020-05-27 17:53:20',1,'S',''),(10533,'CompatibilityPluginScheduler.JobId.LEXO_RANK_SCHEDULER_JOB','2020-05-27 17:53:20',10,'S',''),(10534,'class com.atlassian.scheduler.core.util.JobRunnerRegistry:com.atlassian.cluster.monitoring.cluster-monitoring-plugin:runtime-information','2020-05-27 17:53:20',2,'S',''),(10535,'com.atlassian.jira.plugin.ext.bamboo.service.PlanStatusUpdateJob-job','2020-05-27 17:53:20',8,'S',''),(10536,'JiraPluginScheduler:LEXO_RANK_STATS_COLLECTOR_JOB','2020-05-27 17:53:20',1,'S',''),(10537,'CompatibilityPluginScheduler.JobId.hipchatUpdateGlancesDataJob','2020-05-27 17:53:45',10,'S','');
+/*!40000 ALTER TABLE `rundetails` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `schemeissuesecurities`
+--
+
+DROP TABLE IF EXISTS `schemeissuesecurities`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `schemeissuesecurities` (
+  `ID` decimal(18,0) NOT NULL,
+  `SCHEME` decimal(18,0) DEFAULT NULL,
+  `SECURITY` decimal(18,0) DEFAULT NULL,
+  `sec_type` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `sec_parameter` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `sec_scheme` (`SCHEME`),
+  KEY `sec_security` (`SECURITY`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `schemeissuesecurities`
+--
+
+LOCK TABLES `schemeissuesecurities` WRITE;
+/*!40000 ALTER TABLE `schemeissuesecurities` DISABLE KEYS */;
+/*!40000 ALTER TABLE `schemeissuesecurities` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `schemeissuesecuritylevels`
+--
+
+DROP TABLE IF EXISTS `schemeissuesecuritylevels`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `schemeissuesecuritylevels` (
+  `ID` decimal(18,0) NOT NULL,
+  `NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `DESCRIPTION` text COLLATE utf8_bin,
+  `SCHEME` decimal(18,0) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `schemeissuesecuritylevels`
+--
+
+LOCK TABLES `schemeissuesecuritylevels` WRITE;
+/*!40000 ALTER TABLE `schemeissuesecuritylevels` DISABLE KEYS */;
+/*!40000 ALTER TABLE `schemeissuesecuritylevels` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `schemepermissions`
+--
+
+DROP TABLE IF EXISTS `schemepermissions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `schemepermissions` (
+  `ID` decimal(18,0) NOT NULL,
+  `SCHEME` decimal(18,0) DEFAULT NULL,
+  `PERMISSION` decimal(18,0) DEFAULT NULL,
+  `perm_type` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `perm_parameter` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `PERMISSION_KEY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `prmssn_scheme` (`SCHEME`),
+  KEY `permission_key_idx` (`PERMISSION_KEY`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `schemepermissions`
+--
+
+LOCK TABLES `schemepermissions` WRITE;
+/*!40000 ALTER TABLE `schemepermissions` DISABLE KEYS */;
+INSERT INTO `schemepermissions` VALUES (10000,NULL,0,'group','jira-administrators',NULL),(10004,0,23,'projectrole','10002','ADMINISTER_PROJECTS'),(10005,0,10,'applicationRole','','BROWSE_PROJECTS'),(10006,0,11,'applicationRole','','CREATE_ISSUES'),(10007,0,15,'applicationRole','','ADD_COMMENTS'),(10008,0,19,'applicationRole','','CREATE_ATTACHMENTS'),(10009,0,13,'applicationRole','','ASSIGN_ISSUES'),(10010,0,17,'applicationRole','','ASSIGNABLE_USER'),(10011,0,14,'applicationRole','','RESOLVE_ISSUES'),(10012,0,21,'applicationRole','','LINK_ISSUES'),(10013,0,12,'applicationRole','','EDIT_ISSUES'),(10014,0,16,'projectrole','10002','DELETE_ISSUES'),(10015,0,18,'applicationRole','','CLOSE_ISSUES'),(10016,0,25,'applicationRole','','MOVE_ISSUES'),(10017,0,28,'applicationRole','','SCHEDULE_ISSUES'),(10018,0,30,'projectrole','10002','MODIFY_REPORTER'),(10019,0,20,'applicationRole','','WORK_ON_ISSUES'),(10020,0,43,'projectrole','10002','DELETE_ALL_WORKLOGS'),(10021,0,42,'applicationRole','','DELETE_OWN_WORKLOGS'),(10022,0,41,'projectrole','10002','EDIT_ALL_WORKLOGS'),(10023,0,40,'applicationRole','','EDIT_OWN_WORKLOGS'),(10024,0,31,'applicationRole','','VIEW_VOTERS_AND_WATCHERS'),(10025,0,32,'projectrole','10002','MANAGE_WATCHERS'),(10026,0,34,'projectrole','10002','EDIT_ALL_COMMENTS'),(10027,0,35,'applicationRole','','EDIT_OWN_COMMENTS'),(10028,0,36,'projectrole','10002','DELETE_ALL_COMMENTS'),(10029,0,37,'applicationRole','','DELETE_OWN_COMMENTS'),(10030,0,38,'projectrole','10002','DELETE_ALL_ATTACHMENTS'),(10031,0,39,'applicationRole','','DELETE_OWN_ATTACHMENTS'),(10033,0,29,'applicationRole','','VIEW_DEV_TOOLS'),(10101,NULL,44,'group','jira-administrators',NULL),(10200,0,45,'applicationRole','','VIEW_READONLY_WORKFLOW'),(10300,0,46,'applicationRole','','TRANSITION_ISSUES'),(10401,0,NULL,'projectrole','10002','MANAGE_SPRINTS_PERMISSION');
+/*!40000 ALTER TABLE `schemepermissions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `searchrequest`
+--
+
+DROP TABLE IF EXISTS `searchrequest`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `searchrequest` (
+  `ID` decimal(18,0) NOT NULL,
+  `filtername` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `authorname` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `DESCRIPTION` text COLLATE utf8_bin,
+  `username` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `groupname` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `projectid` decimal(18,0) DEFAULT NULL,
+  `reqcontent` longtext COLLATE utf8_bin,
+  `FAV_COUNT` decimal(18,0) DEFAULT NULL,
+  `filtername_lower` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `sr_author` (`authorname`),
+  KEY `searchrequest_filternameLower` (`filtername_lower`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `searchrequest`
+--
+
+LOCK TABLES `searchrequest` WRITE;
+/*!40000 ALTER TABLE `searchrequest` DISABLE KEYS */;
+INSERT INTO `searchrequest` VALUES (10000,'开放和未分配 (AA)','JIRAUSER10000',NULL,'JIRAUSER10000',NULL,NULL,'project = 10000 and statusCategory != Done and assignee = EMPTY ORDER BY priority desc',0,'开放和未分配 (aa)'),(10001,'本周内到期的 (AA)','JIRAUSER10000',NULL,'JIRAUSER10000',NULL,NULL,'project = 10000 and duedate >= startOfWeek() and duedate <= endOfWeek() ORDER BY priority desc',0,'本周内到期的 (aa)'),(10002,'逾期的 (AA)','JIRAUSER10000',NULL,'JIRAUSER10000',NULL,NULL,'project = 10000 and statusCategory != Done and duedate < now() ORDER BY duedate desc',0,'逾期的 (aa)');
+/*!40000 ALTER TABLE `searchrequest` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `serviceconfig`
+--
+
+DROP TABLE IF EXISTS `serviceconfig`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `serviceconfig` (
+  `ID` decimal(18,0) NOT NULL,
+  `delaytime` decimal(18,0) DEFAULT NULL,
+  `CLAZZ` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `servicename` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `CRON_EXPRESSION` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `serviceconfig`
+--
+
+LOCK TABLES `serviceconfig` WRITE;
+/*!40000 ALTER TABLE `serviceconfig` DISABLE KEYS */;
+INSERT INTO `serviceconfig` VALUES (10000,60000,'com.atlassian.jira.service.services.mail.MailQueueService','Mail Queue Service','0 * * * * ?'),(10001,43200000,'com.atlassian.jira.service.services.export.ExportService','Backup Service','0 0 8/12 * * ?'),(10002,86400000,'com.atlassian.jira.service.services.auditing.AuditLogCleaningService','Audit log cleaning service','0 0 8 * * ?'),(10200,43200000,'com.atlassian.jira.service.services.export.ExportService','备份服务','0 15 5/12 * * ?');
+/*!40000 ALTER TABLE `serviceconfig` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `sharepermissions`
+--
+
+DROP TABLE IF EXISTS `sharepermissions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `sharepermissions` (
+  `ID` decimal(18,0) NOT NULL,
+  `entityid` decimal(18,0) DEFAULT NULL,
+  `entitytype` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `sharetype` varchar(10) COLLATE utf8_bin DEFAULT NULL,
+  `PARAM1` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `PARAM2` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `RIGHTS` decimal(9,0) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `share_index` (`entityid`,`entitytype`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `sharepermissions`
+--
+
+LOCK TABLES `sharepermissions` WRITE;
+/*!40000 ALTER TABLE `sharepermissions` DISABLE KEYS */;
+INSERT INTO `sharepermissions` VALUES (10000,10000,'PortalPage','global',NULL,NULL,1),(10100,10000,'SearchRequest','project','10000',NULL,1),(10101,10001,'SearchRequest','project','10000',NULL,1),(10102,10002,'SearchRequest','project','10000',NULL,1);
+/*!40000 ALTER TABLE `sharepermissions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tempattachmentsmonitor`
+--
+
+DROP TABLE IF EXISTS `tempattachmentsmonitor`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tempattachmentsmonitor` (
+  `TEMPORARY_ATTACHMENT_ID` varchar(255) COLLATE utf8_bin NOT NULL,
+  `FORM_TOKEN` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `FILE_NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `CONTENT_TYPE` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `FILE_SIZE` decimal(18,0) DEFAULT NULL,
+  `CREATED_TIME` decimal(18,0) DEFAULT NULL,
+  PRIMARY KEY (`TEMPORARY_ATTACHMENT_ID`),
+  KEY `idx_tam_by_form_token` (`FORM_TOKEN`),
+  KEY `idx_tam_by_created_time` (`CREATED_TIME`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tempattachmentsmonitor`
+--
+
+LOCK TABLES `tempattachmentsmonitor` WRITE;
+/*!40000 ALTER TABLE `tempattachmentsmonitor` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tempattachmentsmonitor` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `trackback_ping`
+--
+
+DROP TABLE IF EXISTS `trackback_ping`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `trackback_ping` (
+  `ID` decimal(18,0) NOT NULL,
+  `ISSUE` decimal(18,0) DEFAULT NULL,
+  `URL` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `TITLE` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `BLOGNAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `EXCERPT` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `CREATED` datetime DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `trackback_ping`
+--
+
+LOCK TABLES `trackback_ping` WRITE;
+/*!40000 ALTER TABLE `trackback_ping` DISABLE KEYS */;
+/*!40000 ALTER TABLE `trackback_ping` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `trustedapp`
+--
+
+DROP TABLE IF EXISTS `trustedapp`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `trustedapp` (
+  `ID` decimal(18,0) NOT NULL,
+  `APPLICATION_ID` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `PUBLIC_KEY` text COLLATE utf8_bin,
+  `IP_MATCH` text COLLATE utf8_bin,
+  `URL_MATCH` text COLLATE utf8_bin,
+  `TIMEOUT` decimal(18,0) DEFAULT NULL,
+  `CREATED` datetime DEFAULT NULL,
+  `CREATED_BY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `UPDATED` datetime DEFAULT NULL,
+  `UPDATED_BY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `trustedapp_id` (`APPLICATION_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `trustedapp`
+--
+
+LOCK TABLES `trustedapp` WRITE;
+/*!40000 ALTER TABLE `trustedapp` DISABLE KEYS */;
+/*!40000 ALTER TABLE `trustedapp` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `upgradehistory`
+--
+
+DROP TABLE IF EXISTS `upgradehistory`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `upgradehistory` (
+  `ID` decimal(18,0) DEFAULT NULL,
+  `UPGRADECLASS` varchar(255) COLLATE utf8_bin NOT NULL,
+  `TARGETBUILD` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `STATUS` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `DOWNGRADETASKREQUIRED` char(1) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`UPGRADECLASS`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `upgradehistory`
+--
+
+LOCK TABLES `upgradehistory` WRITE;
+/*!40000 ALTER TABLE `upgradehistory` DISABLE KEYS */;
+INSERT INTO `upgradehistory` VALUES (10000,'com.atlassian.jira.upgrade.tasks.UpgradeTask_Build70100','70100','complete','Y'),(10100,'com.atlassian.jira.upgrade.tasks.UpgradeTask_Build70101','70101','complete','N'),(10101,'com.atlassian.jira.upgrade.tasks.UpgradeTask_Build70102','70102','complete','N'),(10102,'com.atlassian.jira.upgrade.tasks.UpgradeTask_Build71001','71001','complete','N'),(10103,'com.atlassian.jira.upgrade.tasks.UpgradeTask_Build72001','72001','complete','N'),(10104,'com.atlassian.jira.upgrade.tasks.UpgradeTask_Build72002','72002','complete','N'),(10105,'com.atlassian.jira.upgrade.tasks.UpgradeTask_Build73002','73002','complete','N');
+/*!40000 ALTER TABLE `upgradehistory` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `upgradetaskhistory`
+--
+
+DROP TABLE IF EXISTS `upgradetaskhistory`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `upgradetaskhistory` (
+  `ID` decimal(18,0) NOT NULL,
+  `UPGRADE_TASK_FACTORY_KEY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `BUILD_NUMBER` decimal(9,0) DEFAULT NULL,
+  `STATUS` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `UPGRADE_TYPE` varchar(10) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `upgradetaskhistory`
+--
+
+LOCK TABLES `upgradetaskhistory` WRITE;
+/*!40000 ALTER TABLE `upgradetaskhistory` DISABLE KEYS */;
+INSERT INTO `upgradetaskhistory` VALUES (10000,'com.atlassian.audit.atlassian-audit-plugin',1,'COMPLETED','SERVER'),(10001,'com.atlassian.audit.atlassian-audit-plugin',2,'COMPLETED','SERVER'),(10002,'com.atlassian.jira.plugins.jira-bitbucket-connector-plugin',1,'COMPLETED','SERVER'),(10003,'com.atlassian.jira.plugins.jira-bitbucket-connector-plugin',2,'COMPLETED','SERVER'),(10004,'com.atlassian.jira.plugins.jira-development-integration-plugin',1,'COMPLETED','SERVER'),(10005,'com.atlassian.jira.plugins.jira-development-integration-plugin',2,'COMPLETED','SERVER'),(10006,'com.atlassian.jira.plugins.jira-development-integration-plugin',3,'COMPLETED','SERVER'),(10007,'com.atlassian.jira.plugins.inform.batching-plugin',1,'COMPLETED','SERVER'),(10014,'host',73010,'COMPLETED','SERVER'),(10015,'host',73011,'COMPLETED','SERVER'),(10016,'host',74002,'COMPLETED','SERVER'),(10017,'host',75002,'COMPLETED','SERVER'),(10018,'host',75003,'COMPLETED','SERVER'),(10019,'host',75004,'COMPLETED','SERVER'),(10020,'host',75005,'COMPLETED','SERVER'),(10021,'host',76001,'COMPLETED','SERVER'),(10022,'host',77001,'COMPLETED','SERVER'),(10023,'host',710001,'COMPLETED','SERVER'),(10024,'host',711001,'COMPLETED','SERVER'),(10025,'host',712001,'COMPLETED','SERVER'),(10026,'host',800000,'COMPLETED','SERVER'),(10027,'host',800003,'COMPLETED','SERVER'),(10028,'host',800004,'COMPLETED','SERVER'),(10029,'host',800005,'COMPLETED','SERVER'),(10030,'host',800006,'COMPLETED','SERVER'),(10031,'host',800007,'COMPLETED','SERVER'),(10032,'host',800009,'COMPLETED','SERVER'),(10033,'host',801000,'COMPLETED','SERVER'),(10034,'host',804000,'COMPLETED','SERVER');
+/*!40000 ALTER TABLE `upgradetaskhistory` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `upgradetaskhistoryauditlog`
+--
+
+DROP TABLE IF EXISTS `upgradetaskhistoryauditlog`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `upgradetaskhistoryauditlog` (
+  `ID` decimal(18,0) NOT NULL,
+  `UPGRADE_TASK_FACTORY_KEY` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `BUILD_NUMBER` decimal(9,0) DEFAULT NULL,
+  `STATUS` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `UPGRADE_TYPE` varchar(10) COLLATE utf8_bin DEFAULT NULL,
+  `TIMEPERFORMED` datetime DEFAULT NULL,
+  `ACTION` varchar(10) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `upgradetaskhistoryauditlog`
+--
+
+LOCK TABLES `upgradetaskhistoryauditlog` WRITE;
+/*!40000 ALTER TABLE `upgradetaskhistoryauditlog` DISABLE KEYS */;
+INSERT INTO `upgradetaskhistoryauditlog` VALUES (10000,'com.atlassian.audit.atlassian-audit-plugin',1,'COMPLETED','SERVER','2020-05-27 17:18:43','upgrade'),(10001,'com.atlassian.audit.atlassian-audit-plugin',2,'COMPLETED','SERVER','2020-05-27 17:18:44','upgrade'),(10002,'com.atlassian.jira.plugins.jira-bitbucket-connector-plugin',1,'COMPLETED','SERVER','2020-05-27 17:18:49','upgrade'),(10003,'com.atlassian.jira.plugins.jira-bitbucket-connector-plugin',2,'COMPLETED','SERVER','2020-05-27 17:18:50','upgrade'),(10004,'com.atlassian.jira.plugins.jira-development-integration-plugin',1,'COMPLETED','SERVER','2020-05-27 17:18:50','upgrade'),(10005,'com.atlassian.jira.plugins.jira-development-integration-plugin',2,'COMPLETED','SERVER','2020-05-27 17:18:50','upgrade'),(10006,'com.atlassian.jira.plugins.jira-development-integration-plugin',3,'COMPLETED','SERVER','2020-05-27 17:18:51','upgrade'),(10007,'com.atlassian.jira.plugins.inform.batching-plugin',1,'COMPLETED','SERVER','2020-05-27 17:18:51','upgrade'),(10008,'host',70101,'COMPLETED','SERVER','2020-05-27 17:18:55','upgrade'),(10009,'host',70102,'COMPLETED','SERVER','2020-05-27 17:18:55','upgrade'),(10010,'host',71001,'COMPLETED','SERVER','2020-05-27 17:18:55','upgrade'),(10011,'host',72001,'COMPLETED','SERVER','2020-05-27 17:18:55','upgrade'),(10012,'host',72002,'COMPLETED','SERVER','2020-05-27 17:18:55','upgrade'),(10013,'host',73002,'COMPLETED','SERVER','2020-05-27 17:18:55','upgrade'),(10014,'host',73010,'COMPLETED','SERVER','2020-05-27 17:18:55','upgrade'),(10015,'host',73011,'COMPLETED','SERVER','2020-05-27 17:18:55','upgrade'),(10016,'host',74002,'COMPLETED','SERVER','2020-05-27 17:18:55','upgrade'),(10017,'host',75002,'COMPLETED','SERVER','2020-05-27 17:18:55','upgrade'),(10018,'host',75003,'COMPLETED','SERVER','2020-05-27 17:18:55','upgrade'),(10019,'host',75004,'COMPLETED','SERVER','2020-05-27 17:18:55','upgrade'),(10020,'host',75005,'COMPLETED','SERVER','2020-05-27 17:18:55','upgrade'),(10021,'host',76001,'COMPLETED','SERVER','2020-05-27 17:18:55','upgrade'),(10022,'host',77001,'COMPLETED','SERVER','2020-05-27 17:18:55','upgrade'),(10023,'host',710001,'COMPLETED','SERVER','2020-05-27 17:18:55','upgrade'),(10024,'host',711001,'COMPLETED','SERVER','2020-05-27 17:18:55','upgrade'),(10025,'host',712001,'COMPLETED','SERVER','2020-05-27 17:18:55','upgrade'),(10026,'host',800000,'COMPLETED','SERVER','2020-05-27 17:18:55','upgrade'),(10027,'host',800003,'COMPLETED','SERVER','2020-05-27 17:18:55','upgrade'),(10028,'host',800004,'COMPLETED','SERVER','2020-05-27 17:18:55','upgrade'),(10029,'host',800005,'COMPLETED','SERVER','2020-05-27 17:18:55','upgrade'),(10030,'host',800006,'COMPLETED','SERVER','2020-05-27 17:18:55','upgrade'),(10031,'host',800007,'COMPLETED','SERVER','2020-05-27 17:18:55','upgrade'),(10032,'host',800009,'COMPLETED','SERVER','2020-05-27 17:18:55','upgrade'),(10033,'host',801000,'COMPLETED','SERVER','2020-05-27 17:18:55','upgrade'),(10034,'host',804000,'COMPLETED','SERVER','2020-05-27 17:18:55','upgrade');
+/*!40000 ALTER TABLE `upgradetaskhistoryauditlog` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `upgradeversionhistory`
+--
+
+DROP TABLE IF EXISTS `upgradeversionhistory`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `upgradeversionhistory` (
+  `ID` decimal(18,0) DEFAULT NULL,
+  `TIMEPERFORMED` datetime DEFAULT NULL,
+  `TARGETBUILD` varchar(255) COLLATE utf8_bin NOT NULL,
+  `TARGETVERSION` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`TARGETBUILD`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `upgradeversionhistory`
+--
+
+LOCK TABLES `upgradeversionhistory` WRITE;
+/*!40000 ALTER TABLE `upgradeversionhistory` DISABLE KEYS */;
+INSERT INTO `upgradeversionhistory` VALUES (10000,'2020-05-27 17:18:55','804000','8.9.0');
+/*!40000 ALTER TABLE `upgradeversionhistory` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `userassociation`
+--
+
+DROP TABLE IF EXISTS `userassociation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `userassociation` (
+  `SOURCE_NAME` varchar(60) COLLATE utf8_bin NOT NULL,
+  `SINK_NODE_ID` decimal(18,0) NOT NULL,
+  `SINK_NODE_ENTITY` varchar(60) COLLATE utf8_bin NOT NULL,
+  `ASSOCIATION_TYPE` varchar(60) COLLATE utf8_bin NOT NULL,
+  `SEQUENCE` decimal(9,0) DEFAULT NULL,
+  `CREATED` datetime DEFAULT NULL,
+  PRIMARY KEY (`SOURCE_NAME`,`SINK_NODE_ID`,`SINK_NODE_ENTITY`,`ASSOCIATION_TYPE`),
+  KEY `user_source` (`SOURCE_NAME`),
+  KEY `user_sink` (`SINK_NODE_ID`,`SINK_NODE_ENTITY`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `userassociation`
+--
+
+LOCK TABLES `userassociation` WRITE;
+/*!40000 ALTER TABLE `userassociation` DISABLE KEYS */;
+/*!40000 ALTER TABLE `userassociation` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `userbase`
+--
+
+DROP TABLE IF EXISTS `userbase`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `userbase` (
+  `ID` decimal(18,0) NOT NULL,
+  `username` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `PASSWORD_HASH` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `osuser_name` (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `userbase`
+--
+
+LOCK TABLES `userbase` WRITE;
+/*!40000 ALTER TABLE `userbase` DISABLE KEYS */;
+/*!40000 ALTER TABLE `userbase` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `userhistoryitem`
+--
+
+DROP TABLE IF EXISTS `userhistoryitem`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `userhistoryitem` (
+  `ID` decimal(18,0) NOT NULL,
+  `entitytype` varchar(10) COLLATE utf8_bin DEFAULT NULL,
+  `entityid` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  `USERNAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `lastviewed` decimal(18,0) DEFAULT NULL,
+  `data` longtext COLLATE utf8_bin,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `uh_type_user_entity` (`entitytype`,`USERNAME`,`entityid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `userhistoryitem`
+--
+
+LOCK TABLES `userhistoryitem` WRITE;
+/*!40000 ALTER TABLE `userhistoryitem` DISABLE KEYS */;
+INSERT INTO `userhistoryitem` VALUES (10000,'Project','10000','JIRAUSER10000',1590571817638,NULL),(10001,'Issue','10000','JIRAUSER10000',1590571818489,NULL),(10002,'Dashboard','10000','JIRAUSER10000',1590572974490,NULL);
+/*!40000 ALTER TABLE `userhistoryitem` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `userpickerfilter`
+--
+
+DROP TABLE IF EXISTS `userpickerfilter`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `userpickerfilter` (
+  `ID` decimal(18,0) NOT NULL,
+  `CUSTOMFIELD` decimal(18,0) DEFAULT NULL,
+  `CUSTOMFIELDCONFIG` decimal(18,0) DEFAULT NULL,
+  `enabled` varchar(60) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `upf_customfield` (`CUSTOMFIELD`),
+  KEY `upf_fieldconfigid` (`CUSTOMFIELDCONFIG`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `userpickerfilter`
+--
+
+LOCK TABLES `userpickerfilter` WRITE;
+/*!40000 ALTER TABLE `userpickerfilter` DISABLE KEYS */;
+/*!40000 ALTER TABLE `userpickerfilter` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `userpickerfiltergroup`
+--
+
+DROP TABLE IF EXISTS `userpickerfiltergroup`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `userpickerfiltergroup` (
+  `ID` decimal(18,0) NOT NULL,
+  `USERPICKERFILTER` decimal(18,0) DEFAULT NULL,
+  `groupname` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `cf_userpickerfiltergroup` (`USERPICKERFILTER`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `userpickerfiltergroup`
+--
+
+LOCK TABLES `userpickerfiltergroup` WRITE;
+/*!40000 ALTER TABLE `userpickerfiltergroup` DISABLE KEYS */;
+/*!40000 ALTER TABLE `userpickerfiltergroup` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `userpickerfilterrole`
+--
+
+DROP TABLE IF EXISTS `userpickerfilterrole`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `userpickerfilterrole` (
+  `ID` decimal(18,0) NOT NULL,
+  `USERPICKERFILTER` decimal(18,0) DEFAULT NULL,
+  `PROJECTROLEID` decimal(18,0) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `cf_userpickerfilterrole` (`USERPICKERFILTER`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `userpickerfilterrole`
+--
+
+LOCK TABLES `userpickerfilterrole` WRITE;
+/*!40000 ALTER TABLE `userpickerfilterrole` DISABLE KEYS */;
+/*!40000 ALTER TABLE `userpickerfilterrole` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `versioncontrol`
+--
+
+DROP TABLE IF EXISTS `versioncontrol`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `versioncontrol` (
+  `ID` decimal(18,0) NOT NULL,
+  `vcsname` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `vcsdescription` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `vcstype` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `versioncontrol`
+--
+
+LOCK TABLES `versioncontrol` WRITE;
+/*!40000 ALTER TABLE `versioncontrol` DISABLE KEYS */;
+/*!40000 ALTER TABLE `versioncontrol` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `votehistory`
+--
+
+DROP TABLE IF EXISTS `votehistory`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `votehistory` (
+  `ID` decimal(18,0) NOT NULL,
+  `issueid` decimal(18,0) DEFAULT NULL,
+  `VOTES` decimal(18,0) DEFAULT NULL,
+  `TIMESTAMP` datetime DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `votehistory_issue_index` (`issueid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `votehistory`
+--
+
+LOCK TABLES `votehistory` WRITE;
+/*!40000 ALTER TABLE `votehistory` DISABLE KEYS */;
+/*!40000 ALTER TABLE `votehistory` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `workflowscheme`
+--
+
+DROP TABLE IF EXISTS `workflowscheme`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `workflowscheme` (
+  `ID` decimal(18,0) NOT NULL,
+  `NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `DESCRIPTION` text COLLATE utf8_bin,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `workflowscheme`
+--
+
+LOCK TABLES `workflowscheme` WRITE;
+/*!40000 ALTER TABLE `workflowscheme` DISABLE KEYS */;
+INSERT INTO `workflowscheme` VALUES (10000,'classic','classic'),(10100,'AA: 项目管理工作流方案','');
+/*!40000 ALTER TABLE `workflowscheme` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `workflowschemeentity`
+--
+
+DROP TABLE IF EXISTS `workflowschemeentity`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `workflowschemeentity` (
+  `ID` decimal(18,0) NOT NULL,
+  `SCHEME` decimal(18,0) DEFAULT NULL,
+  `WORKFLOW` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `issuetype` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `workflow_scheme` (`SCHEME`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `workflowschemeentity`
+--
+
+LOCK TABLES `workflowschemeentity` WRITE;
+/*!40000 ALTER TABLE `workflowschemeentity` DISABLE KEYS */;
+INSERT INTO `workflowschemeentity` VALUES (10000,10000,'classic default workflow','0'),(10100,10100,'AA: 项目管理工作流','0');
+/*!40000 ALTER TABLE `workflowschemeentity` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `worklog`
+--
+
+DROP TABLE IF EXISTS `worklog`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `worklog` (
+  `ID` decimal(18,0) NOT NULL,
+  `issueid` decimal(18,0) DEFAULT NULL,
+  `AUTHOR` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `grouplevel` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `rolelevel` decimal(18,0) DEFAULT NULL,
+  `worklogbody` longtext COLLATE utf8_bin,
+  `CREATED` datetime DEFAULT NULL,
+  `UPDATEAUTHOR` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `UPDATED` datetime DEFAULT NULL,
+  `STARTDATE` datetime DEFAULT NULL,
+  `timeworked` decimal(18,0) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `worklog_issue` (`issueid`),
+  KEY `worklog_author` (`AUTHOR`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `worklog`
+--
+
+LOCK TABLES `worklog` WRITE;
+/*!40000 ALTER TABLE `worklog` DISABLE KEYS */;
+/*!40000 ALTER TABLE `worklog` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `worklog_version`
+--
+
+DROP TABLE IF EXISTS `worklog_version`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `worklog_version` (
+  `WORKLOG_ID` decimal(18,0) NOT NULL,
+  `PARENT_ISSUE_ID` decimal(18,0) DEFAULT NULL,
+  `UPDATE_TIME` datetime DEFAULT NULL,
+  `INDEX_VERSION` decimal(18,0) DEFAULT NULL,
+  `DELETED` char(1) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`WORKLOG_ID`),
+  KEY `wv_deleted_update_time_idx` (`DELETED`,`UPDATE_TIME`),
+  KEY `wv_parent_id` (`PARENT_ISSUE_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `worklog_version`
+--
+
+LOCK TABLES `worklog_version` WRITE;
+/*!40000 ALTER TABLE `worklog_version` DISABLE KEYS */;
+/*!40000 ALTER TABLE `worklog_version` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2020-05-27 17:53:46

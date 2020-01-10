@@ -63,14 +63,14 @@ services:
     restart: always
     networks:
       - nets
-  elastic_head:
-    container_name: elastic_head
-    image: chunhui2001/ubuntu_1804_dev.elasticsearch.head
-    hostname: elastic_head
-    mem_limit: 600m
-    ports:
-      - 9100:9100
-    restart: always
-    networks:
-      - nets
+  # elastic_head:
+  #   container_name: elastic_head
+  #   image: chunhui2001/ubuntu_1804_dev.elasticsearch.head
+  #   hostname: elastic_head
+  #   mem_limit: 600m
+  #   ports:
+  #     - 9100:9100
+  #   restart: always
+  #   networks:
+  #     - nets
       

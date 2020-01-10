@@ -1,0 +1,28 @@
+
+## 安装Docker Compose
+# curl -L https://github.com/docker/compose/releases/download/3.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+# chmod +x /usr/local/bin/docker-compose
+# docker-compose --version
+# docker-compose up -d
+
+version: '2.4'
+networks:
+    br0:
+      external: true
+
+services:
+  registry:
+    image: registry
+    restart: always
+    container_name: registry
+    privileged: true
+    environment:
+      - REGISTRY_STORAGE_DELETE_ENABLED=true
+    ports:
+      - 5000:5000
+    volumes:
+      - ./registry/data:/var/lib/registry
+    networks:
+    #  - br0
+      br0:
+        ipv4_address: 172.16.197.76

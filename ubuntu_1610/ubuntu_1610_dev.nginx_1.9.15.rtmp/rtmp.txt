@@ -1,0 +1,127 @@
+
+wget https://codeload.github.com/arut/nginx-rtmp-module/zip/master
+
+# 完成rtmp模块安装，=后面输入你的模块包的绝对路径
+./configure --add-module=/usr/local/nginx/nginx-rtmp-module-master
+make&make install
+
+## 查看nginx配置文件路径
+$ ./nginx -t
+
+## 重新加载配置文件
+$ nginx -s reload
+
+## 查看版本
+$ nginx -v
+
+## 查看编译选项
+$ nginx -V
+
+配置及启动服务支持hls
+
+vi /usr/local/nginx/conf/nginx.conf 
+
+rtmp {  
+    server {  
+        listen 1935;  #监听的端口
+        chunk_size 4000;  
+        application hls {
+            live on;
+            hls on;
+            hls_path /usr/local/html/hls;#视频流存放地址
+            hls_fragment 5s;
+            hls_playlist_length 15s;
+            hls_continuous on; #连续模式。
+            hls_cleanup on;    #对多余的切片进行删除。
+            hls_nested on;     #嵌套模式。
+        }
+    }  
+}
+
+rtmp {                
+    server {
+	    listen 1935;  # 服务端口 
+	    chunk_size 4096;   # 数据传输块的大小
+	    application vod {
+	        play /data; # 视频文件存放位置。
+	    }
+	}
+}
+
+### VLC 
+用vlc播放器进行点播
+有个前提，就是刚刚你在nginx配置文件中配置的视频文件存放位置下面一定要有视频文件。
+我存放的视频文件目录是/data，下面有个test.mp4文件。
+用vlc打开的播放地址就是rtmp://ip/vod/test.mp4
+
+
+rtmp{}的内容和http{}为同级，位置不要放错
+
+在http里添加一个直播流存放的地址：
+
+location /hls {  # 添加视频流存放地址。
+    types {
+        application/vnd.apple.mpegurl m3u8;
+        video/mp2t ts;
+    }
+    #访问权限开启，否则访问这个地址会报403
+    autoindex on;
+    alias /usr/local/html/hls;#视频流存放地址，与上面的hls_path相对应，这里root和alias的区别可自行百度
+    expires -1;
+    add_header Cache-Control no-cache;
+    # 防止跨域问题
+    add_header 'Access-Control-Allow-Origin' '*';
+    add_header 'Access-Control-Allow-Credentials' 'true';
+    add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
+    add_header 'Access-Control-Allow-Headers' 'DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type';  
+}
+
+./nginx -s reload
+
+### 推流设置
+在设置->串流 中填写信息：URL为 rtmp://xxx:1935/hls，xxx为你的服务器的IP地址，hls是用来存放流媒体的，”对应的就是conf文件中设置的application名称，流名称可自定义，服务器端生成的m3u8文件就是以此命名的。设置完成之后，点击“开始推流”，推流端的设置就完成了
+
+
+### 拉流设置
+观看直播就比较简单了，可以简单的使用h5的vedio标签就可以观看了。
+
+可以访问 http://xxx:80/hls/abcd.m3u8 来观看直播，其中xxx为你的服务器IP地址，后面的 abcd 就是在推流时候使用的秘钥，是自定义的。或者使用
+
+<video>  
+    <source src="http://xxx:80/hls/abcd.m3u8"/>  
+    <p class="warning">Your browser does not support HTML5 video.</p>  
+</video>
+
+### VLC
+打开VLC，在菜单选择file->open network->在弹出的新窗口中选择Network标签页，填入URL：rtmp://localhost:1935/live1->点击open，等待缓冲完成后，就自动开始播放了=。=
+
+
+
+./configure --prefix=/app/openresty --user=xxx --group=xxx --with-http_v2_module --with-openssl=/home/appdeploy/nginx/openssl-1.0.2h --with-select_module --with-poll_module --with-file-aio --with-http_ssl_module --with-http_realip_module --with-http_gzip_static_module --with-http_secure_link_module --with-http_sub_module --with-http_stub_status_module --with-http_perl_module --with-http_mp4_module --with-http_flv_module
+
+
+server {
+   listen 8080;
+   server_name  10.202.94.16;
+   root    /app/openresty/nginx/html/;
+   limit_rate_after 30m;   
+   limit_rate 700k;            # 这里根据需要设置，意思是视频缓冲30M之后，限速为700k/s
+   index   index.html;
+   charset utf-8;
+   location ~ \.flv$ {
+      flv;
+   }
+   location ~ \.mp4$ {
+      mp4;
+   }
+   error_page   500 502 503 504  /50x.html;
+   location = /50x.html {
+       root   html;
+   }
+}
+
+
+## Mac版OBS设置详解
+https://www.jianshu.com/p/ecfaac6ee7ab
+
+

@@ -1,11 +1,12 @@
 # chunhui2001/clouddisk:java
 # Version 0.0.1
 #FROM alpine
-FROM b6720bf4c863
+FROM 7013a5e4da5c
 MAINTAINER Chunhui.Zhang "chunhui2001@gmail.com"
 
 WORKDIR /
 
+### https://www.oracle.com/java/technologies/javase-downloads.html
 ### COPY jdk-8u211-linux-i586.tar.gz /
 ### COPY apache-ant-1.10.5-bin.tar.gz / 		>>>>>>> b2606ee8660b
 ### COPY jdk-12.0.2_linux-x64_bin.tar.gz /		>>>>>>> 72455963c50d
@@ -30,6 +31,11 @@ WORKDIR /
 ### COPY apr-util-1.6.1.tar.gz / 				>>>>>>> 31881ea9e8e8
 ### COPY kafka_2.11-2.4.0.tgz / 				XXX
 ### COPY jdk-10.0.2_linux-x64_bin.tar.gz /		>>>>>>> b6720bf4c863
+### COPY pinpoint-web-1.7.3_cust.tar / 			>>>>>>> 0cc5ba5dc6a4
+### COPY jdk-14.0.1_linux-x64_bin.tar.gz /
+### COPY jdk-14.0.1_doc-all.zip / 				>>>>>>> 7013a5e4da5c
+### COPY jdk-8u251-docs-all.zip / 
+### COPY jdk-11.0.7_doc-all.zip /  				>>>>>>> 21f2e89b1fff
 
 # docker build . -t 'chunhui2001/clouddisk:java'
 # docker run -dit --entrypoint="top" --name clouddisk_java chunhui2001/clouddisk:java

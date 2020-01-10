@@ -1,0 +1,36 @@
+## 安装Docker Compose
+# curl -L https://github.com/docker/compose/releases/download/1.24.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+# chmod +x /usr/local/bin/docker-compose
+# docker-compose --version
+# docker-compose up -d
+
+version: '2.4'
+
+networks:
+    br0:
+      external: true
+
+services:
+  logstash:
+    container_name: logstash
+    image: chunhui2001/centos_6_dev:logstash_instance
+    entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
+    volumes:
+      #- ./logstash.conf:/etc/logstash.conf:rw
+      - ./logstash.conf.default:/etc/logstash.conf:rw
+      - ./jvm.options:/usr/local/logstash/config/jvm.options:rw
+      - /tmp/logger/TruffleDaemonServer/logs.log:/tmp/logs.log:rw
+    restart: always
+    ports:
+      - 9600:9600
+    networks:
+        br0:
+          ipv4_address: 172.16.197.99
+
+
+## 验证配置文件语法格式
+# /usr/local/logstash/bin/logstash -t -f /etc/logstash.conf
+# /usr/local/logstash/bin/logstash --config.test_and_exit -f /etc/logstash.conf
+
+## 启动
+# /usr/local/logstash/bin/logstash -f /etc/logstash.conf

@@ -2,3 +2,6 @@
 *.tar
 *.war
 *.tgz
+*.zip
+jdk-8u251-docs-all.zip
+jdk-11.0.7_doc-all.zip

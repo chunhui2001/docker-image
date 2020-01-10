@@ -38,5 +38,26 @@ RUN apt-get update -y && apt-get install -y --no-install-recommends apt-utils in
 
 WORKDIR /var/lib/mysql_data
 
+
+# 推送到私服
+# docker tag chunhui2001/debian_8_dev:mysql_5.7 172.28.128.3:5000/chunhui2001/debian_8_dev:mysql_5.7
+# docker push 172.28.128.3:5000/chunhui2001/debian_8_dev:mysql_5.7
+# docker pull 172.28.128.3:5000/chunhui2001/debian_8_dev:mysql_5.7
+
+# 列出私服上的所有景象
+# curl http://172.28.128.3:5000/v2/_catalog
+
+# 列出镜像的所有 tag
+# curl http://172.28.128.3:5000/v2/chunhui2001/ubuntu_20.04_dev/tags/list
+# 获取镜像的 Digest
+# curl http://172.28.128.3:5000/v2/chunhui2001/ubuntu_20.04_dev/manifests/confluence-jira
+# curl http://172.28.128.3:5000/v2/{{          镜像名         }}/manifests/{{  镜像名tag  }}
+
+# 删除私服上的镜像
+# 登录到私服容器所在的宿主服务器
+# docker exec {{私服容器名字}} rm -rf /var/lib/registry/docker/registry/v2/repositories/{{将要删除的镜像名字}}
+# 清除残留的 blob
+# docker exec {{私服容器名字}} bin/registry garbage-collect /etc/docker/registry/config.yml
+
 # Open ports
 EXPOSE 3306

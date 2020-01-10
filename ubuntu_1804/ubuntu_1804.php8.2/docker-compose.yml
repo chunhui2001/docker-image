@@ -1,0 +1,34 @@
+
+## 安装Docker Compose
+# curl -L https://github.com/docker/compose/releases/download/1.24.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+# chmod +x /usr/local/bin/docker-compose
+# docker-compose --version
+# docker-compose up -d
+
+version: '2.4'
+networks:
+  br0:
+    external: true
+    # aliases: net1
+
+services:
+  php8.2:
+    container_name: php8.2
+    image: chunhui2001/ubuntu_1804:php8.2
+    hostname: php8.2
+    mem_limit: 300m
+    ports:
+      - 8183:80
+    entrypoint: ["apache2ctl", "-DFOREGROUND", "-e", "debug"]
+    #entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
+    volumes:
+      - ./apache2.conf:/etc/apache2/apache2.conf:ro
+      - ./000-default.conf:/etc/apache2/sites-enabled/000-default.conf:ro
+      - ./index.html:/var/www/index.html:ro
+      - ./index.php:/var/www/index.php:rw
+      - ./siafu.png:/var/www/favicon.ico:rw
+    restart: always
+    networks:
+        br0:
+          ipv4_address: 172.16.197.165
+      

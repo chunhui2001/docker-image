@@ -1,0 +1,33 @@
+## 安装Docker Compose
+# curl -L https://github.com/docker/compose/releases/download/1.24.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+# chmod +x /usr/local/bin/docker-compose
+# docker-compose --version
+# docker-compose up -d
+
+version: '2.4'
+
+networks:
+    br0:
+      external: true
+
+services:
+  postgres_15.3:
+    container_name: postgres_15.3
+    image: chunhui2001/debian12:postgres-15.3
+    #image: postgres:15.3
+    hostname: postgres_15.3
+    mem_limit: 800m
+    environment:
+      - POSTGRES_USER=keesh
+      - POSTGRES_DB=newsletter
+      - POSTGRES_PASSWORD=Cc
+    ports:
+      - 5432:5432
+    #entrypoint: ["/bin/sh", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
+    entrypoint: ["docker-entrypoint.sh", "postgres", "-N", "1000"]
+    #volumes:
+    #  - ./my.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf:ro
+    restart: always
+    networks:
+        br0:
+          ipv4_address: 172.16.197.79

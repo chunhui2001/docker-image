@@ -1,0 +1,39 @@
+
+## 安装Docker Compose
+# curl -L https://github.com/docker/compose/releases/download/1.24.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+# chmod +x /usr/local/bin/docker-compose
+# docker-compose --version
+# docker-compose up -d
+
+version: '2.4'
+networks:
+  priv-eth-net:
+    external: true
+      
+services:
+  blkchain1:
+    #container_name: blkchain1
+    image: chunhui2001/ubuntu_20.04_dev:geth_1.10.17
+    hostname: blkchain1
+    restart: always
+    #mem_limit: 2048m
+    env_file:
+      - .env
+    ports:
+      - 30303:30303
+      - 8545:8545
+    entrypoint: ["make"]
+    command: ["$CMD"]
+    #command: ["sleep"]
+    #command: ["bootnode"]
+    #command: ["rpcnode"]
+    volumes:
+      - ../genesis.json:/root/genesis.json:rw
+      - ./blkchain1:/root/blkchain1:rw
+      - ../password.sec:/root/password.sec:ro
+      - ./nodekey:/root/nodekey:ro
+      - ../BuiltMakefile:/root/Makefile:rw
+    networks:
+        priv-eth-net:
+          ipv4_address: 172.16.254.10
+

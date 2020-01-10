@@ -1,0 +1,77 @@
+### 当前 Makefile 文件物理路径
+ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
+
+IP 			?=$(IP)
+IDENTITY 	?=$(IDENTITY)
+ETHERBASE 	?=$(ETHERBASE)
+NETWORK_ID	?=$(NETWORK_ID)
+ENODE_PORT	?=$(ENODE_PORT)
+HTTP_PORT	?=$(HTTP_PORT)
+VERBOSITY 	?=$(VERBOSITY)
+MAXPEERS 	?=$(MAXPEERS)
+SYNC_MODE	?=$(SYNC_MODE)
+CACHE 		?=$(CACHE)
+
+sleep:
+	while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done
+
+init:
+	geth 	--datadir $(IDENTITY) --nodekey='/root/nodekey' init genesis.json
+
+cli:
+	geth 	--identity $(IDENTITY) \
+			--nodekey='/root/nodekey' \
+			--datadir /root/$(IDENTITY) --verbosity $(VERBOSITY) --nodiscover \
+			--nat=extip:$(IP) \
+			--networkid $(NETWORK_ID)
+
+console:
+	geth 	--identity $(IDENTITY) \
+			--nodekey='/root/nodekey' \
+			--datadir /root/$(IDENTITY) --verbosity $(VERBOSITY) --nodiscover \
+			--nat=extip:$(IP) \
+			--networkid $(NETWORK_ID) console
+
+newAccount:
+	geth 	--datadir $(IDENTITY) account new --password '/root/password.sec'
+
+listAccount:
+	geth 	--datadir $(IDENTITY) account list 
+
+miner:	
+	geth 	--identity $(IDENTITY) \
+			--networkid $(NETWORK_ID) --port $(ENODE_PORT) --nat=extip:$(IP) \
+			--datadir /root/$(IDENTITY) --verbosity $(VERBOSITY) --nodiscover \
+			--syncmode "$(SYNC_MODE)" -cache=$(CACHE) --maxpeers $(MAXPEERS) \
+			--allow-insecure-unlock --unlock 0 --password='/root/password.sec' \
+			--mine --miner.threads=1 --miner.etherbase=$(ETHERBASE)
+
+rpcnode:
+	geth 	--identity $(IDENTITY) \
+			--networkid $(NETWORK_ID) --port $(ENODE_PORT) --nat=extip:$(IP) \
+			--datadir /root/$(IDENTITY) --verbosity $(VERBOSITY) --nodiscover \
+			--syncmode "$(SYNC_MODE)" -cache=$(CACHE) --maxpeers $(MAXPEERS) \
+			--http --metrics --http.addr "0.0.0.0" --http.corsdomain "*" --http.port $(HTTP_PORT) \
+			--http.api 'eth,net,web3,txpool'
+
+bootnode:
+	geth 	--identity $(IDENTITY) \
+			--networkid $(NETWORK_ID) --port $(ENODE_PORT) --nat=extip:$(IP) \
+			--datadir /root/$(IDENTITY) --verbosity $(VERBOSITY) --nodiscover \
+			--syncmode "$(SYNC_MODE)" -cache=$(CACHE) --maxpeers $(MAXPEERS) \
+			--nodekey='/root/nodekey'
+
+getCoinbase:
+	geth attach $(IDENTITY)/geth.ipc --exec "eth.coinbase"
+
+getPeers:
+	geth attach $(IDENTITY)/geth.ipc --exec "admin.peers"
+
+getNodeInfo:
+	geth attach $(IDENTITY)/geth.ipc --exec "admin.nodeInfo"
+
+getLastBlockNumber:
+	@geth attach $(IDENTITY)/geth.ipc --exec "eth.blockNumber"
+
+
+

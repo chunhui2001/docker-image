@@ -17,6 +17,9 @@ ENTRYPOINT ["verdaccio"]
 # 生成随机密码并加到 /root/nodejs/app/verdaccio/htpasswd 文件
 # htpasswd -bc /root/nodejs/app/verdaccio/htpasswd keesh.zhang zch1234560SA
 
+# 设置npm使用的源为本地私服
+# npm set registry http://localhost:4873/
+
 # docker run -d -p 4873:4873 ubuntu_1610_dev:nodejs6_verdaccio
 
 ## Open ports

@@ -1,0 +1,34 @@
+
+## 安装Docker Compose
+# curl -L https://github.com/docker/compose/releases/download/1.24.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+# chmod +x /usr/local/bin/docker-compose
+# docker-compose --version
+# docker-compose up -d
+
+version: '2.4'
+
+networks:
+    br0:
+      external: true
+
+services:
+  redis_single_auth:                
+    container_name: redis_single_auth
+    privileged: true
+    image: chunhui2001/ubuntu_1804_dev:redis_cluster
+    hostname: redis.single.auth
+    mem_limit: 100m
+    ports: 
+      - 6379:6379
+    entrypoint: ["/usr/local/redis/src/redis-server", "/usr/local/redis/redis.conf"]
+    #command: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
+    volumes:
+      # centos7 as the host and container with selinux enabled.
+      # 在 centos7 下需执行: chcon -Rt svirt_sandbox_file_t config/
+    #  - ./conf/redis-5.0.5.conf:/usr/local/redis/redis.conf:ro
+      - ./conf/redis.single-auth.conf:/usr/local/redis/redis.conf:ro
+    restart: always
+    networks:
+        br0:
+          ipv4_address: 172.16.197.14
+

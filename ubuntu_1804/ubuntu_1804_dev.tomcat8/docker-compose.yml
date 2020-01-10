@@ -26,8 +26,7 @@ services:
     entrypoint: ["/usr/bin/supervisord"]
     #command: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
     volumes:
-      - ./conf/server.xml:/usr/local/apache-tomcat-8.5.45/conf/server.xml:ro
-      - ./supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
+      - ./conf/server.xml:/usr/local/apache-tomcat-9.0.30/conf/server.xml:ro
     restart: always
     # docker network connect multi-host-network my_container1
     #network_mode: host

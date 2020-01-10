@@ -111,31 +111,35 @@ $ apt-get install flannel -y
 >>>>>> #FLANNEL_OPTIONS=""
 >>>>>>   
 >>>>>> 配置 etcd 中关于 flannel 的 key（这个只在安装了 etcd 的机器上操作）
->>>>>> Flannel 使用 Etcd 进行配置，来保证多个 Flannel 实例之间的配置一致性，
-       所以需要在 etcd 上进行如下配置
-       （'/atomic.io/network/config' 这个 key 与上文/etc/sysconfig/flannel 中的配置项 FLANNEL_ETCD_PREFIX 是相对应的，错误的话启动就会出错）：
->>>>>> $ etcdctl mk /atomic.io/network/config '{ "Network": "10.10.0.0/16" }'    
->>>>>> { "Network": "10.10.0.0/16" }
-		OR 
->>>>>> $ curl -XPUT http://127.0.0.1:2379/v2/keys/k8s/config -d value="{\"Network\": \"192.168.0.0/16\"}"
+>>>>>> Flannel 使用 Etcd 进行配置，来保证多个 Flannel 实例之间的配置一致性，所以需要在 etcd 上进行如下配置
+$ cat <<EOF | sudo tee /run/flannel/flannel-network-config.json
+{
+    "Network": "10.0.0.0/8",
+    "SubnetLen": 20,
+    "SubnetMin": "10.10.0.0",
+    "SubnetMax": "10.99.0.0",
+    "Backend": {
+        "Type": "vxlan",
+        "VNI": 100,
+        "Port": 8472
+    }
+}
+EOF
+>>>>>> 类型属性 "Type": "vxlan" 要求宿主操作系统内核支持 VXLAN, 执行下面的命令查看当前系统是否支持 VXLAN:
+       $ cat /boot/config-`uname -r` | grep CONFIG_VXLAN
+       > CONFIG_VXLAN=m
+### 写入 etcd ('/atomic.io/network/config' 这个 key 与上文 /etc/sysconfig/flannel 中的配置项 FLANNEL_ETCD_PREFIX 是相对应的)
+$ etcdctl set /atomic.io/network/config < /run/flannel/flannel-network-config.json
+### 查看写入后的内容
+$ curl -XGET http://127.0.0.1:2379/v2/keys/atomic.io/network/config
 >>>>>> -- 温馨提示：上面 flannel 设置的 ip 网段可以任意设定，随便设定一个网段都可以。
        -- 容器的 ip 就是根据这个网段进行自动分配的，ip 分配后，容器一般是可以对外联网的（网桥模式，只要宿主机能上网就可以）.
+>>>>>> confirm the vxlan tunnel
+       $ sudo tcpdump -i enp0s8 -n not port 2380
 
+### 使用 restapi 写入etcd
+>>>>>> $ curl -XPUT http://127.0.0.1:2379/v2/keys/atomic.io/network/config -d value="{\"Network\": \"10.10.0.0/16\"}"
 
-### 启动 Flannel
-----------------------------
-$ systemctl enable flanneld.service
-$ systemctl start flanneld.service
-$ ps -ef|grep flannel
--- 启动 Flannel 后，一定要记得重启 docker，这样 Flannel 配置分配的 ip 才能生效，即 docker0 虚拟网卡的 ip 会变成上面 flannel 设定的 ip 段
-
-$ systemctl restart docker
-$ systemctl enable docker
-
-### node2（10.10.172.202）机器操作
-----------------------------
-$ apt-get install docker -y
-$ apt-get install flannel -y
 
 ### 配置 Flannel, /etc/sysconfig/flanneld
 ----------------------------
@@ -149,17 +153,92 @@ FLANNEL_ETCD_ENDPOINTS="http://etcd:2379"
 FLANNEL_ETCD_PREFIX="/atomic.io/network"
    
 # Any additional options that you want to pass
-#FLANNEL_OPTIONS=""
-  
+FLANNEL_OPTIONS="--iface=eth1"
+
 ### 启动 Flannel
 ----------------------------
 $ systemctl enable flanneld.service
 $ systemctl start flanneld.service
-$ ps -ef|grep flannel 
-  启动 Flannel 后，一定要记得重启docker，这样 Flannel 配置分配的 ip 才能生效，
-  即 docker0 虚拟网卡的 ip 会变成上面 flannel 设定的 ip 段
+$ ps -ef|grep flannel
+-- 启动 Flannel 后，一定要记得重启 docker，这样 Flannel 配置分配的 ip 才能生效，即 docker0 虚拟网卡的 ip 会变成上面 flannel 设定的 ip 段
+
 $ systemctl restart docker
 $ systemctl enable docker
+
+/usr/bin/flanneld \
+        -etcd-endpoints=http://etcd1.server.com:2379,http://etcd2.server.com:2379,http://etcd3.server.com:2379 \
+        -etcd-prefix=/atomic.io/network \
+        --iface=eth1
+
+### node2（10.10.172.202）机器操作
+----------------------------
+$ apt-get install docker -y
+$ apt-get install flannel -y
+
+### 
+### flannel启动成功后会生成一个环境变量文件
+$ cat /run/flannel/subnet.env
+
+### 查看 flanneld 子网 
+$ etcdctl ls /atomic.io/network/subnets
+> /atomic.io/network/subnets/10.10.35.0-24
+> /atomic.io/network/subnets/10.10.82.0-24
+
+### 查看子网当前分配的ip
+$ etcdctl get /atomic.io/network/subnets/10.10.82.0-24
+> {"PublicIP":"10.0.2.15","BackendType":"vxlan","BackendData":{"VtepMAC":"8a:8e:4a:b0:2b:9b"}}
+
+### 同时在 /run/flannel/docker 文件中会生成docker启动参数
+$ cat /run/flannel/docker
+> DOCKER_OPT_BIP="--bip=10.10.81.1/24"
+> DOCKER_OPT_IPMASQ="--ip-masq=true"
+> DOCKER_OPT_MTU="--mtu=1472"
+> DOCKER_NETWORK_OPTIONS=" --bip=10.10.81.1/24 --ip-masq=true --mtu=1472"
+
+### 将 DOCKER_NETWORK_OPTIONS 定义为环境变量
+$ sudo vi /lib/systemd/system/docker.service
+> [Unit]
+> Description=Docker Application Container Engine
+> Documentation=http://docs.docker.com
+> After=network.target
+> Wants=docker-storage-setup.service
+> Requires=docker-cleanup.timer
+> 
+> [Service]
+> Type=notify
+> NotifyAccess=main
+> EnvironmentFile=-/run/containers/registries.conf
+> EnvironmentFile=-/etc/sysconfig/docker
+> EnvironmentFile=-/etc/sysconfig/docker-storage
+> EnvironmentFile=-/etc/sysconfig/docker-network
+> EnvironmentFile=-/run/flannel/docker ###
+> Environment=GOTRACEBACK=crash
+> Environment=DOCKER_HTTP_HOST_COMPAT=1
+> Environment=PATH=/usr/libexec/docker:/usr/bin:/usr/sbin
+> ExecStart=/usr/bin/dockerd-current \
+>           --add-runtime docker-runc=/usr/libexec/docker/docker-runc-current \
+>           --default-runtime=docker-runc \
+>           --exec-opt native.cgroupdriver=systemd \
+>           --userland-proxy-path=/usr/libexec/docker/docker-proxy-current \
+>           --init-path=/usr/libexec/docker/docker-init-current \
+>           --seccomp-profile=/etc/docker/seccomp.json \
+>           $OPTIONS \
+>           $DOCKER_STORAGE_OPTIONS \
+>           $DOCKER_NETWORK_OPTIONS \
+>           $ADD_REGISTRY \
+>           $BLOCK_REGISTRY \
+>           $INSECURE_REGISTRY \
+>           $REGISTRIES
+> ExecReload=/bin/kill -s HUP $MAINPID
+> LimitNOFILE=1048576
+> LimitNPROC=1048576
+> LimitCORE=infinity
+> TimeoutStartSec=0
+> Restart=on-abnormal
+> KillMode=process
+> 
+> [Install]
+> WantedBy=multi-user.target
 
 
 ### 创建容器，验证跨主机容器之间的网络联通性
@@ -220,6 +299,16 @@ $ ps aux|grep docker|grep "bip"
 -- 这个 IP 范围是由 Flannel 自动分配的，由 Flannel 通过保存在 Etcd 服务中的记录确保它们不会重复。
 
 
+### 查看本机默认网关
+$ route -n
 
+### 删除一个网关
+$ route del default gw 192.168.1.45
 
+### 添加默认网关
+$ route add default gw 10.0.2.2
+
+### Making the changes permanent
+/etc/sysconfig/network
+GATEWAY=192.168.1.45 # change value to new Gateway
 

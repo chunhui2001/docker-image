@@ -1,0 +1,29 @@
+## 安装Docker Compose
+# curl -L https://github.com/docker/compose/releases/download/1.24.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+# chmod +x /usr/local/bin/docker-compose
+# docker-compose --version
+# docker-compose up -d
+
+version: '2.4'
+
+networks:
+    br0:
+      external: true
+
+services:
+  nginx_1.9.15.autoindex:
+    container_name: nginx_1.9.15.autoindex
+    image: chunhui2001/ubuntu_1610_dev:nginx_1.9.15.autoindex
+    mem_limit: 100m
+    ports:
+      - 8008:80
+    entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
+    #entrypoint: ["/docker-entrypoint.sh"]
+    #volumes:
+      # 在 centos7 下需执行: chcon -Rt svirt_sandbox_file_t config/
+      #- ./nginx.sample.default:/usr/local/nginx/sites-enabled/default:ro
+      #- ./nginx.sample.default.ssl:/usr/local/nginx/sites-enabled/default:ro
+    restart: always
+    networks:
+        br0:
+          ipv4_address: 172.16.197.61

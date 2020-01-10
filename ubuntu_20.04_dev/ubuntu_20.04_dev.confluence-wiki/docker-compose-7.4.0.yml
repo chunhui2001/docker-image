@@ -1,0 +1,31 @@
+
+## 安装Docker Compose
+# curl -L https://github.com/docker/compose/releases/download/3.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+# chmod +x /usr/local/bin/docker-compose
+# docker-compose --version
+# docker-compose up -d
+
+version: '2.4'
+networks:
+    br0:
+      external: true
+
+services:
+  confluence-wiki-7.4.0:
+    container_name: confluence-wiki-7.4.0
+    image: chunhui2001/ubuntu_20.04_dev:confluence-wiki-7.4.0
+    hostname: confluence-wiki-7.4.0
+    restart: always
+    mem_limit: 2048m
+    entrypoint: ["/opt/atlassian/confluence/bin/start-confluence.sh", "-fg"]
+    volumes:
+      # centos7 as the host and container with selinux enabled.
+      # 在 centos7 下需执行: chcon -Rt svirt_sandbox_file_t config/
+      # jdbc:mysql://172.16.197.13:3306/confluence_wiki?sessionVariables=tx_isolation='READ-COMMITTED'&useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&failOverReadOnly=false
+      - ./conf/atlassian-agent-v1.2.3.jar:/opt/atlassian/confluence/atlassian-agent.jar:ro
+      - ./conf/setenv.sh:/opt/atlassian/confluence/bin/setenv.sh:ro
+    ports:
+      - 8090:8090
+    networks:
+      br0:
+        ipv4_address: 172.16.197.186

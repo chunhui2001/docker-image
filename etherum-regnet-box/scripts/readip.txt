@@ -1,0 +1,4 @@
+docker network create \
+  --driver=bridge \
+  --subnet=172.16.254.0/28 \
+  priv-eth-net

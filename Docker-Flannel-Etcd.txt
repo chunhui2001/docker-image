@@ -1,0 +1,175 @@
+### 下载
+$ sudo apt -y install wget
+$ export RELEASE="3.3.5"
+$ wget https://github.com/etcd-io/etcd/releases/download/v${RELEASE}/etcd-v${RELEASE}-linux-amd64.tar.gz
+$ tar xvf etcd-v${RELEASE}-linux-amd64.tar.gz
+$ cd etcd-v${RELEASE}-linux-amd64
+$ sudo mv etcd etcdctl /usr/local/bin 
+$ etcd --version
+$ etcdctl --version
+
+### Create Etcd configuration file and data directory.
+$ sudo mkdir -p /var/lib/etcd/
+$ sudo mkdir /etc/etcd
+
+### Create etcd system user
+$ sudo groupadd --system etcd
+$ sudo useradd -s /sbin/nologin --system -g etcd etcd
+
+### Set /var/lib/etcd/ directory ownership to etcd user.
+$ sudo chown -R etcd:etcd /var/lib/etcd/
+
+### Configure Systemd and start etcd service
+$ sudo vim /etc/systemd/system/etcd.service
+[Unit]
+Description=etcd key-value store
+Documentation=https://github.com/etcd-io/etcd
+After=network.target
+
+[Service]
+User=etcd
+Type=notify
+Environment=ETCD_DATA_DIR=/var/lib/etcd
+Environment=ETCD_NAME=%m
+ExecStart=/usr/local/bin/etcd
+Restart=always
+RestartSec=10s
+LimitNOFILE=40000
+
+[Install]
+WantedBy=multi-user.target
+
+### Reload systemd service and start etcd on Ubuntu 18,04 / Ubuntu 16,04
+$ sudo systemctl  daemon-reload
+$ sudo systemctl  start etcd.service
+
+### Check service status:
+$ sudo systemctl  status etcd.service
+
+### The service will start on localhost address port 2379
+$ ss -tunelp | grep 2379
+> tcp   LISTEN 0 128 127.0.0.1:2379 0.0.0.0:*  uid:998 ino:72981 sk:45c <-> 
+
+$ etcdctl member list
+> 8e9e05c52164694d: name=5fbf3d068d6c491eb687a7a427fc2263 peerURLs=http://localhost:2380 clientURLs=http://localhost:2379 isLeader=true
+
+### 查看集群健康状况
+$ etcdctl -C http://localhost:2379 cluster-health
+
+### 创建 etcd 集群
+### Setup Etcd Cluster on CentOS 7/8 / Ubuntu 18.04/16.04 / Debian 10/9
+This setup is based on below server network information and details.
+------------------------------------------------------------------------
+Short Hostname		IP Address
+etcd1				172.28.128.6
+etcd2				172.28.128.7
+etcd3				172.28.128.8
+------------------------------------------------------------------------
+##########
+# Node 1 #
+##########
+$ sudo hostnamectl set-hostname etcd1.server.com --static
+$ sudo hostname etcd1.server.com
+##########
+# Node 2 #
+##########
+$ sudo hostnamectl set-hostname etcd2.server.com --static
+$ sudo hostname etcd2.server.com
+##########
+# Node 3 #
+##########
+$ sudo hostnamectl set-hostname etcd3.server.com --static
+$ sudo hostname etcd3.server.com
+
+$ sudo tee -a /etc/hosts<<EOF
+172.28.128.6 etcd1.server.com etcd1
+172.28.128.7 etcd2.server.com etcd2
+172.28.128.8 etcd3.server.com etcd3
+EOF
+
+### Configure the etcd on all nodes
+### 设置全局环境变量
+###### $ sudo tee -a /etc/profile.d/etcd.sh<<EOF
+###### export INT_NAME="eth1"
+###### export ETCD_HOST_IP=$(ip addr show $INT_NAME | grep "inet\b" | awk '{print $2}' | cut -d/ -f1)
+###### export ETCD_NAME=$(hostname -s)
+###### EOF
+
+### 设置全局环境变量
+export INT_NAME="eth1"
+export ETCD_HOST_IP=$(ip addr show $INT_NAME | grep "inet\b" | awk '{print $2}' | cut -d/ -f1)
+export ETCD_NAME=$(hostname -s)
+
+INT_NAME: 
+is the name of your network interface to be used for cluster traffic. Change it to match your server configuration.
+ETCD_HOST_IP: 
+is the internal IP address of the specified network interface. This is used to serve client requests and communicate with etcd cluster peers.
+ETCD_NAME:
+Each etcd member must have a unique name within an etcd cluster. Command used will set the etcd name to match the hostname of the current compute instance.
+
+### Once all variables are set, create the etcd.service systemd unit file:
+$ cat <<EOF | sudo tee /etc/systemd/system/etcd.service
+[Unit]
+Description=etcd service
+Documentation=https://github.com/etcd-io/etcd
+
+[Service]
+Type=notify
+User=etcd
+ExecStart=/usr/local/bin/etcd \\
+  --name ${ETCD_NAME} \\
+  --data-dir=/var/lib/etcd \\
+  --initial-advertise-peer-urls http://${ETCD_HOST_IP}:2380 \\
+  --listen-peer-urls http://${ETCD_HOST_IP}:2380 \\
+  --listen-client-urls http://${ETCD_HOST_IP}:2379,http://127.0.0.1:2379 \\
+  --advertise-client-urls http://${ETCD_HOST_IP}:2379 \\
+  --initial-cluster-token etcd-cluster-0 \\
+  --initial-cluster etcd1=http://etcd1:2380,etcd2=http://etcd2:2380,etcd3=http://etcd3:2380 \\
+  --initial-cluster-state new \
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+### If you have SELinux running in enforcing mode, then generate a local policy module to allow access to data directories.
+$ sudo ausearch -c '(etcd)' --raw | audit2allow -M my-etcd
+
+### To make this policy package active, execute:
+$ sudo semodule -X 300 -i my-etcd.pp
+$ sudo restorecon -Rv /usr/local/bin/etcd
+----> OR
+### For CentOS / RHEL Linux distributions, set SELinux mode to permissive.
+$ sudo setenforce 0
+$ sudo sed -i 's/^SELINUX=.*/SELINUX=permissive/g' /etc/selinux/config
+
+### If you have active firewall service, allow ports 2379 and 2380.
+### RHEL / CentOS / Fedora firewalld
+$ sudo firewall-cmd --add-port={2379,2380}/tcp --permanent
+$ sudo firewall-cmd --reload
+### Ubuntu/Debian
+$ sudo ufw allow proto tcp from any to any port 2379,2380
+
+### Start the etcd Server
+$ sudo systemctl daemon-reload
+$ sudo systemctl enable etcd
+$ sudo systemctl start etcd
+
+### Confirm that etcd service is running on all nodes.
+$ systemctl status etcd -l
+
+### Test Etcd Cluster installation
+$ etcdctl member list
+
+### To use etcd v3, you need to explicitly specify version.
+$ ETCDCTL_API=3 etcdctl member list
+
+### Also check cluster health by running the command:
+$ etcdctl cluster-health
+
+### Let’s also try writing to etcd.
+$ etcdctl set /message "Hello World"
+Hello World
+
+
+
+

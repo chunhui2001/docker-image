@@ -1,0 +1,21 @@
+# chunhui2001/ubuntu_20.04_dev:geth_1.10.17
+FROM chunhui2001/ubuntu_20.04_dev:golang_1.15.7
+MAINTAINER Chunhui.Zhang "chunhui2001@gmail.com"
+
+ENV GETH_VERSION 1.10.17
+
+RUN apt-get update && apt-get install curl -y
+RUN curl -L -o /usr/local/geth-linux-amd64-1.10.17-25c9b49f.tar.gz \
+	"https://gethstore.blob.core.windows.net/builds/geth-linux-amd64-1.10.17-25c9b49f.tar.gz"
+
+RUN tar -zxvf /usr/local/geth-linux-amd64-1.10.17-25c9b49f.tar.gz -C /usr/local && \
+	ln -s /usr/local/geth-linux-amd64-1.10.17-25c9b49f/geth /usr/local/bin/geth && \
+	rm -rf /usr/local/geth-linux-amd64-1.10.17-25c9b49f.tar.gz
+
+# docker build -f Dockerfile-1.10.17 . -t 'chunhui2001/ubuntu_20.04_dev:geth_1.10.17'
+# docker run -dit --entrypoint="top" --name geth_1.10.17 chunhui2001/ubuntu_20.04_dev:geth_1.10.17
+# docker push chunhui2001/ubuntu_20.04_dev:geth_1.10.17
+### docker pull chunhui2001/ubuntu_20.04_dev:geth_1.10.17
+
+### docker run -it --rm --entrypoint="top" --name geth_1.10.17 chunhui2001/ubuntu_20.04_dev:geth_1.10.17
+

@@ -1,0 +1,58 @@
+# chunhui2001/ubuntu_1804_dev:rabbitmq_3.8.2
+# Version 0.0.1
+FROM chunhui2001/ubuntu_1804_dev:zh-CN
+MAINTAINER Chunhui.Zhang "chunhui2001@gmail.com"
+
+
+RUN wget https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb
+RUN wget -O- https://dl.bintray.com/rabbitmq/Keys/rabbitmq-release-signing-key.asc | apt-key add -
+RUN echo "deb https://dl.bintray.com/rabbitmq/debian $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/rabbitmq.list
+RUN dpkg -i erlang-solutions_1.0_all.deb
+RUN apt-get update -y && apt-get -y install esl-erlang && apt-get -y install rabbitmq-server
+RUN /usr/sbin/rabbitmq-plugins enable rabbitmq_management
+
+# 查看所有用户
+# $ rabbitmqctl list_users
+
+# 新增管理员用户
+# $ rabbitmqctl add_user admin admin
+# $ rabbitmqctl set_user_tags admin administrator
+# $ rabbitmqctl set_permissions -p / admin ".*" ".*" ".*"
+
+# Virtual Host: /
+# Configure regexp: .*
+# Write regexp: .*
+# Read regexp: .*
+
+# 创建vhost
+# $ rabbitmqctl add_vhost test
+# 删除vhost
+# $ rabbitmqctl delete_vhost test
+# 列出所有vhost
+# $ rabbitmqctl list_vhosts
+# 创建一般账户
+# $ rabbitmqctl add_user keesh keesh
+# $ rabbitmqctl set_user_tags keesh eml_user
+# $ rabbitmqctl set_permissions -p test keesh ".*" ".*" ".*"
+
+
+# PORTS
+# 15672 	For Management
+# 5672 		For connect port
+# 4369
+# 25672
+
+# 前台启动：rabbitmq-server
+# 后台启动：rabbitmq-server -detached
+
+ENTRYPOINT ["/usr/sbin/rabbitmq-server"]
+
+# docker build -f Dockerfile_3.8.2 . -t 'chunhui2001/ubuntu_1804_dev:rabbitmq_3.8.2'
+# docker run -dit -p 15672:15672 --entrypoint="top" --name rabbitmq chunhui2001/ubuntu_1804_dev:rabbitmq_3.8.2
+# docker push chunhui2001/ubuntu_1804_dev:rabbitmq_3.8.2
+# docker pull chunhui2001/ubuntu_1804_dev:rabbitmq_3.8.2
+
+# Open ports
+#EXPOSE 8081
+
+

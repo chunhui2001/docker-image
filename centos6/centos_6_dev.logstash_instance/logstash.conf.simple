@@ -1,0 +1,21 @@
+input {
+	stdin {
+
+	},
+	file {
+		type => "applog"
+		path => [
+			"/tmp/*.log"
+		]
+	}
+}
+
+output {
+	stdout {
+		codec => rubydebug
+	}
+	elasticsearch {
+		hosts => "http://127.0.0.1:9200"
+		index => "logstash-simple-%{+yyyy-MM-dd}"
+	}
+}

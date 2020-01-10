@@ -1,0 +1,41 @@
+### 源码编译 OpenJDK
+### If you are eager to try out building the JDK, these simple steps works most of the time. 
+### 如果你渴望尝试构建JDK, 以下步骤在大多数情况下都是可行的。
+### They assume that you have installed Mercurial (and Cygwin if running on Windows) and cloned the top-level JDK repository that you want to build.
+### 
+
+# Get the complete source code:
+# 主库列表页
+# http://hg.openjdk.java.net/
+$ hg clone http://hg.openjdk.java.net/jdk/jdk
+
+# Run configure:
+$ bash configure
+
+### If configure fails due to missing dependencies (to either the toolchain, build tools, external libraries or the boot JDK), 
+### most of the time it prints a suggestion on how to resolve the situation on your platform. Follow the instructions, and try running bash configure again.
+
+# Run make:
+$ make images
+
+# Verify your newly built JDK:
+$ ./build/*/images/jdk/bin/java -version
+
+# Run basic tests:
+$ make run-test-tier1
+
+
+### 源码编译OpenJdk 8，Netbeans调试Java原子类在JVM中的实现（Ubuntu 16.04）
+# https://www.cnblogs.com/grey-wolf/p/10971741.html
+# https://hg.openjdk.java.net/jdk-updates/jdk9u/raw-file/tip/common/doc/building.html
+
+### 安装必要的依赖
+sudo apt install \
+        libx11-dev \
+        libxext-dev \
+        libxrender-dev \
+        libxtst-dev \
+        libxt-dev \
+        libcups2-dev \
+        libfreetype6-dev \
+        libasound2-dev

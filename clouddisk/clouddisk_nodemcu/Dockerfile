@@ -20,7 +20,7 @@ WORKDIR /soft
 
 
 # docker build . -t 'chunhui2001/clouddisk:nodemcu'
-# docker run -dit --entrypoint="top" --name clouddisk_work1 chunhui2001/clouddisk:nodemcu
+# docker run -dit --entrypoint="top" --name clouddisk_nodemcu chunhui2001/clouddisk:nodemcu
 # docker push chunhui2001/clouddisk:nodemcu
 # docker pull chunhui2001/clouddisk:nodemcu
 

@@ -1,0 +1,24 @@
+# chunhui2001/ubuntu_20.04_dev:atlassian-jira-8.9.0
+# Version 0.0.1
+FROM chunhui2001/ubuntu_1804_dev:java13
+MAINTAINER Chunhui.Zhang "chunhui2001@gmail.com"
+
+COPY atlassian-jira-software-8.9.0-x64.bin /usr/local/soft/
+COPY mysql-connector-java-5.1.32-bin.jar /usr/local/soft/
+
+# Details on where Jira Software will be installed and the settings that will be used.
+# Installation Directory: /opt/atlassian/jira 
+# Home Directory: /var/atlassian/application-data/jira 
+# HTTP Port: 8080 
+# RMI Port: 8005 
+# Install as service: No 
+
+# docker build -f Dockerfile-8.9.0 . -t 'chunhui2001/ubuntu_20.04_dev:atlassian-jira-8.9.0'
+# docker run -dit --entrypoint="top" -p 8190:8080 --name atlassian-jira-8.9.0 chunhui2001/ubuntu_20.04_dev:atlassian-jira-8.9.0
+# docker run -dit -p 8190:8080 --name atlassian-jira-8.9.0 chunhui2001/ubuntu_20.04_dev:atlassian-jira-8.9.0
+# docker push chunhui2001/ubuntu_20.04_dev:atlassian-jira-8.9.0
+# docker pull chunhui2001/ubuntu_20.04_dev:atlassian-jira-8.9.0
+
+# Open ports
+EXPOSE 8080
+
