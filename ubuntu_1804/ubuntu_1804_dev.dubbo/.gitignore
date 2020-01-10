@@ -1,0 +1,3 @@
+*.tar
+dubbo-admin-2.6.0/*
+*.war

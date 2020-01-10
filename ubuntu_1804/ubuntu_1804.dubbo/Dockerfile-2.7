@@ -1,0 +1,17 @@
+# chunhui2001/ubuntu_1804:dubbo2.7
+# Version 0.0.1
+FROM chunhui2001/ubuntu_1804_dev:java8
+MAINTAINER Chunhui.Zhang "chunhui2001@gmail.com"
+
+
+COPY dubbo-admin-2.7 /root/app/dubbo-admin-2.7
+
+
+ENTRYPOINT ["java", "-jar", "/root/app/dubbo-admin-2.7/dubbo-admin-distribution/target/dubbo-admin-0.1.jar", " --spring.config.location=file:///root/app/dubbo-admin-2.7/dubbo-admin-application.properties"]
+
+# docker build -f Dockerfile-2.7 . -t 'chunhui2001/ubuntu_1804:dubbo2.7'
+# docker run -dit --entrypoint="top" --name ubuntu_dubbo2.7 chunhui2001/ubuntu_1804:dubbo2.7
+# docker push chunhui2001/ubuntu_1804:dubbo2.7
+# docker pull chunhui2001/ubuntu_1804:dubbo2.7
+
+EXPOSE 80

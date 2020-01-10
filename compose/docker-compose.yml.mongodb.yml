@@ -1,0 +1,20 @@
+
+version: '2.4'
+networks:
+  br0:
+    external: true
+
+services:
+  mon1:
+    container_name: mon1
+    image: chunhui2001/ubuntu_1804_dev:mongodb_2.6.1
+    hostname: mon1
+    mem_limit: 100m
+    ports:
+      - 27018:27017
+    # command: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
+    # command: ["/etc/entrypoint.sh"]
+    restart: always
+    networks:
+        br0:
+          ipv4_address: 172.16.197.51

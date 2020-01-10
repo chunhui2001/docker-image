@@ -1,0 +1,45 @@
+
+## 安装Docker Compose
+# curl -L https://github.com/docker/compose/releases/download/1.24.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+# chmod +x /usr/local/bin/docker-compose
+# docker-compose --version
+# docker-compose up -d
+
+# command: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
+# docker network connect multi-host-network my_container1
+
+version: '2.4'
+networks:
+  br0:
+    external: true
+    # aliases: net1
+
+services:
+  gitolite:                
+    container_name: gitolite
+    image: chunhui2001/ubuntu_1804:gitolite
+    hostname: gitolite
+    mem_limit: 300m
+    entrypoint: ["/usr/bin/supervisord"]
+    #entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
+    ports:
+      - 8180:80
+      - "2222:22"
+    volumes:
+      - ./ssh/ssh_config:/etc/ssh/ssh_config:ro
+      - ./ssh/sshd_config:/etc/ssh/sshd_config:ro
+      - ./supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
+      - ./gitweb.conf:/etc/gitweb.conf:ro
+      - ./gitweb:/etc/apache2/conf-available/gitweb.conf:ro
+      - ./.gitolite.rc:/home/git/.gitolite.rc:ro
+      - ./repositories:/home/git/repositories:rw
+      - ./projects.list:/home/git/projects.list:rw
+    restart: always
+    networks:
+        br0:
+          ipv4_address: 172.16.197.34
+
+
+
+
+      

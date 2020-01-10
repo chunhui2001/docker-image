@@ -1,0 +1,6 @@
+Photoshop_15_LS20.dmg
+1.断开网络。
+2.安装 Adobe Photoshop CC for Mac，注意在安装时会让你选择语言，想安装中文版的，要选择中文。
+3.打开 Adobe Photoshop CC 的安装目录，进入到应用的 Frameworks 目录。（Frameworks目录为：/Applications/Adobe Photoshop CC/Adobe Photoshop CC.app/Contents/Frameworks/）
+4.打开 Adobe Photoshop CC 破解工具，将其中的 amtlib.framewrok 目录复制覆盖到上一步打开 Photoshop CC 的 Framework 目录中。
+5.Have done！

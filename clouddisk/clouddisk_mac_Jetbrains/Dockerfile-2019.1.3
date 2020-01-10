@@ -1,0 +1,41 @@
+# chunhui2001/clouddisk:mac_Jetbrains
+# Version 0.0.1
+# FROM alpine
+FROM 5a8b48e267df
+MAINTAINER Chunhui.Zhang "chunhui2001@gmail.com"
+
+
+# IDEA -- Java 开发工具				
+### COPY ideaIU-2019.1.3.dmg /soft/
+### COPY ideaIU-2019.1.4.tar.gz /soft/
+# Jetbrains CLion for Mac -- c/c++ 开发工具		
+### COPY CLion-2019.1.4.dmg /soft/
+### COPY CLion-2019.1.4.tar.gz /soft/
+# Jetbrains WebStorm -- js 开发工具
+### COPY WebStorm-2019.1.3.dmg /soft/
+### COPY WebStorm-2019.1.4.tar.gz /soft/
+# Jetbrains Pycharm 2019.1.3 -- Python 开发工具		
+### COPY pycharm-professional-2019.1.3.dmg /soft/
+### COPY pycharm-professional-2019.1.3.tar.gz /soft/ 		# 3a13d147547b
+
+### COPY ideaIU-2019.2.3.tar.gz  /soft/
+# 2019.2.3 亲测可用
+### COPY jetbrains2019.2.rar  /soft/ 						# 5a8b48e267df
+
+# docker build . -t 'chunhui2001/clouddisk:mac_Jetbrains'
+# docker run -dit --entrypoint="top" --name clouddisk_mac_Jetbrains chunhui2001/clouddisk:mac_Jetbrains
+# docker push chunhui2001/clouddisk:mac_Jetbrains
+# docker pull chunhui2001/clouddisk:mac_Jetbrains
+# docker cp clouddisk_golang:/jdk-8u211-linux-i586.tar.gz ~/Desktop/
+# docker exec -it clouddisk_mac ls -al / | grep -E -i ".dmg|.tar.gz|.jar|.zip|.pkg" 				# 根据扩展名筛选
+# docker exec -it clouddisk_mac ls -al / | grep -E -i ".dmg|.tar.gz|.jar|.zip|.pl" | wc -l 		# 统计行数
+
+# 将镜像 ubuntu:15.10 标记为 runoob/ubuntu:v3 镜像。
+# docker tag ubuntu:15.10 runoob/ubuntu:v3
+
+# 查看指定镜像被哪个镜像依赖
+# docker inspect --format='{{.Id}} {{.Parent}}' $(docker images --filter since=指定的镜像id -q)
+
+# ENTRYPOINT ["top"]
+# CMD ["top"]
+

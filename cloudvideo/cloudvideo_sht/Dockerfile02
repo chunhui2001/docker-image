@@ -1,0 +1,17 @@
+# chunhui2001/cloudvideo:sht02
+# Version 0.0.1
+FROM chunhui2001/ubuntu_1610_dev:nginx_1.9.15
+MAINTAINER Chunhui.Zhang "chunhui2001@gmail.com"
+
+COPY 上海滩02.mkv /usr/loca/nginx/html/sht/
+
+
+# docker build -f Dockerfile02 . -t 'chunhui2001/cloudvideo:sht02'
+# docker run -dit --entrypoint="top" --name cloudvideo_sht02 chunhui2001/cloudvideo:sht02
+# docker push chunhui2001/cloudvideo:sht02
+# docker pull chunhui2001/cloudvideo:sht02
+# docker exec -it clouddisk_mac ls -al / | grep -E -i ".dmg|.tar.gz|.jar|.zip|.pkg" 				# 根据扩展名筛选
+# docker exec -it clouddisk_mac ls -al / | grep -E -i ".dmg|.tar.gz|.pkg|.jar|.zip|.ZIP|.pl" | wc -l 		# 统计行数
+
+# open port
+EXPOSE 80

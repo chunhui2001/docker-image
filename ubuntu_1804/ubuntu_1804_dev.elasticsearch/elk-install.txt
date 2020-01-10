@@ -1,0 +1,65 @@
+
+# elasticsearch cluster
+node1 master	172.26.0.4	elastic_node1
+node2 slave 	172.26.0.2	elastic_node2
+node3 slave 	172.26.0.3 	elastic_node3
+
+elasticsearch.yml 配置说明：
+-----------------------------------------------------------------------------------
+参数								说明
+cluster.name					集群名称，相同名称为一个集群
+node.name						节点名称，集群模式下每个节点名称唯一
+node.master						当前节点是否可以被选举为master节点，是：true、否：false
+node.data						当前节点是否用于存储数据，是：true、否：false
+path.data						索引数据存放的位置
+path.logs						日志文件存放的位置
+bootstrap.memory_lock			需求锁住物理内存，是：true、否：false
+bootstrap.system_call_filter	SecComp检测，是：true、否：false
+network.host					监听地址，用于访问该es
+network.publish_host			可设置成内网ip，用于集群内各机器间通信
+http.port						es对外提供的http端口，默认 9200
+transport.tcp.port				TCP的默认监听端口，默认 9300
+discovery.seed_hosts			es7.x 之后新增的配置，写入候选主节点的设备地址，在开启服务后可以被选为主节点
+cluster.initial_master_nodes	es7.x 之后新增的配置，初始化一个新的集群时需要此配置来选举master
+http.cors.enabled				是否支持跨域，是：true，在使用head插件时需要此配置
+http.cors.allow-origin			“*” 表示支持所有域名
+-----------------------------------------------------------------------------------
+
+安装中文分词器
+中文分词器的版本和 elasticsearch 的版本要一致。随笔中安装的是 6.3.2 版本
+$ ./bin/elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v6.3.2/elasticsearch-analysis-ik-6.3.2.zip
+ 安装OK后重启elasticsearch服务
+
+安装 Head 插件
+由于head插件本质上还是一个nodejs的工程，因此需要安装node，使用npm来安装依赖的包。
+$ git clone https://github.com/mobz/elasticsearch-head.git
+$ cd elasticsearch-head
+$ npm install -g grunt --registry=https://registry.npm.taobao.org
+$ npm install
+
+在 elasticsearch-head 目录下node_modules/grunt 下如果没有 grunt 二进制程序，需要执行：
+$ npm install grunt --save 
+
+修改配置 elasticsearch-head 下 Gruntfile.js 文件
+修改 connect 配置节点: hostname AND port/9100
+
+修改 _site/app.js 修改 http://localhost:9200 字段到本机ES端口与 IP
+启动 head 插件服务（后台运行）
+$ /elasticsearch-head/node_modules/grunt/bin/grunt server &
+
+
+# 取本机ip地址
+# /sbin/ifconfig -a|grep inet|grep -v 127.0.0.1|grep -v inet6|awk '{print $2}' | head -1
+
+# 查看集群节点
+http://172.26.2.56:9200/_cat/nodes?v
+
+# curl -X GET `/sbin/ifconfig -a|grep inet|grep -v 127.0.0.1|grep -v inet6|awk '{print $2}' | head -1`:9200
+# curl -X GET "192.168.127.180:9200"
+
+
+curl -XPUT 'http://172.26.2.56:9200/twitter/_doc/1?pretty' -H 'Content-Type: application/json' -d '{"user": "kimchy","post_date": "2009-11-15T13:12:00","message": "Trying out Elasticsearch, so far so good?"}'
+
+
+
+curl -XPUT 'http://localhost:9200/twitter/_doc/1?pretty' -H 'Content-Type: application/json' -d '{"user": "kimchy","post_date": "2009-11-15T13:12:00","message": "Trying out Elasticsearch, so far so good?"}'

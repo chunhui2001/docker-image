@@ -1,0 +1,42 @@
+
+## 安装Docker Compose
+# curl -L https://github.com/docker/compose/releases/download/1.8.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+# chmod +x /usr/local/bin/docker-compose
+# docker-compose --version
+# docker-compose up -d
+
+# docker network create --driver bridge --subnet=172.18.12.0/16 --gateway=172.18.1.1 mynet1
+
+version: '2.4'
+
+networks:
+   mynet1:
+      ipam:
+         config:
+         - subnet: 172.18.12.0/16
+           gateway: 172.18.1.1
+
+services:
+  ms.rocketmq.namesrv:                
+    container_name: ms.rocketmq.namesrv
+    image: chunhui2001/ubuntu_1804_dev:rocketmq
+    hostname: ms.rocketmq.namesrv
+    mem_limit: 600m
+    ports: 
+      - 9876:9876
+      - 10911:10911
+    #command: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
+    command: ["/usr/bin/supervisord"]
+    volumes:
+      # 设置外部ip，否则连不上 broker (10911)
+      # RUN echo "\nbrokerIP1=172.17.16.70" >> /usr/local/rocketmq/conf/broker.conf 
+      - ./conf/broker.conf:/usr/local/rocketmq/conf/broker.conf:ro
+      # 覆盖默认启动文件, 默认 jvm 参数太大
+      - ./conf/runserver.sh:/usr/local/rocketmq/bin/runserver.sh:ro
+      - ./conf/runbroker.sh:/usr/local/rocketmq/bin/runbroker.sh:ro
+      - ./supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
+    restart: always
+    networks:
+        mynet1:
+          ipv4_address: 172.18.12.1
+

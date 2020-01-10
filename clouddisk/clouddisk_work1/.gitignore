@@ -1,0 +1,10 @@
+*.ZIP
+*.dmg
+*.pkg
+*.jar
+target
+.DS_Store
+.metadata
+.recommenders
+.project
+.settings

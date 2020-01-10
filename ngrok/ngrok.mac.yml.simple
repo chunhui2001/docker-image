@@ -1,0 +1,54 @@
+
+https://dashboard.ngrok.com/get-started (github 登陆)
+
+https://ngrok.com/download
+
+https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-darwin-amd64.zip
+
+./ngrok authtoken 1T750atJi3xccndeUqJ4ewiS62o_2s6f8GUccL1qDUXTGSftN
+
+./ngrok http localhost:10011
+./ngrok tcp localhost:9188
+
+ngrok http -subdomain=inconshreveable 80
+ngrok start -config ~/ngrok.yml -config ~/projects/example/ngrok.yml website ttcp
+
+### ngrok.yml
+====================
+authtoken: 1T750atJi3xccndeUqJ4ewiS62o_2s6f8GUccL1qDUXTGSftN
+region: us
+console_ui: true
+http_proxy: false
+inspect_db_size: 50000000
+log_level: info
+log_format: json
+log: /var/log/ngrok.log
+metadata: '{"serial": "00012xa-33rUtz9", "comment": "For customer alan@example.com"}'
+root_cas: trusted
+#socks5_proxy: "socks5://localhost:9150"
+update: false
+update_channel: stable
+web_addr: localhost:4040
+tunnels:
+  website:
+    addr: 10011
+    auth: keesh:Cc
+    bind_tls: true
+    host_header: "myapp.dev"
+    inspect: false
+    proto: http
+    subdomain: myapp
+
+  e2etls:
+    addr: 9000
+    proto: tls
+    hostname: myapp.example.com
+    crt: example.crt
+    key: example.key
+
+  ttcp:
+    addr: 9188
+    proto: tcp
+    remote_addr: 1.tcp.ngrok.io:12345
+
+

@@ -1,0 +1,77 @@
+
+## 安装Docker Compose
+# curl -L https://github.com/docker/compose/releases/download/1.24.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+# chmod +x /usr/local/bin/docker-compose
+# docker-compose --version
+# docker-compose up -d
+
+version: '2.4'
+networks:
+  br0:
+    external: true
+    # aliases: net1
+
+services:
+  zk1:
+    container_name: zk1
+    image: chunhui2001/ubuntu_1804:zookeeper
+    hostname: zk1
+    mem_limit: 100m
+    environment:
+       - ZOOKEEPER_HOME=/usr/local/zookeeper
+       - JAVA_HOME=/usr/local/java
+    ports:
+      - 2183:2181
+    # command: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
+    command: ["/etc/entrypoint.sh"]
+    volumes:
+      # centos7 as the host and container with selinux enabled.
+      # 在 centos7 下需执行: chcon -Rt svirt_sandbox_file_t config/
+      - ./config/zoo.cfg:/usr/local/zookeeper/conf/zoo.cfg:ro
+      - ./config/myid.1:/usr/local/zookeeper/zoo_data/myid:ro
+    #  - ./zoo_data:/usr/local/zookeeper/zoo_data
+    restart: always
+    networks:
+      br0:
+        ipv4_address: 172.16.197.41
+  zk2:
+    container_name: zk2
+    hostname: zk2
+    image: chunhui2001/ubuntu_1804:zookeeper
+    mem_limit: 100m
+    environment:
+       - ZOOKEEPER_HOME=/usr/local/zookeeper
+       - JAVA_HOME=/usr/local/java
+    ports:
+      - 2182:2181
+    # command: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
+    command: ["/etc/entrypoint.sh"]
+    volumes:
+      - ./config/zoo.cfg:/usr/local/zookeeper/conf/zoo.cfg:ro
+      - ./config/myid.2:/usr/local/zookeeper/zoo_data/myid:ro
+    #  - ./zoo_data:/usr/local/zookeeper/zoo_data
+    restart: always
+    networks:
+      br0:
+        ipv4_address: 172.16.197.42
+  zk3:
+    container_name: zk3
+    image: chunhui2001/ubuntu_1804:zookeeper
+    hostname: zk3
+    mem_limit: 100m
+    environment:
+       - ZOOKEEPER_HOME=/usr/local/zookeeper
+       - JAVA_HOME=/usr/local/java
+    ports:
+      - 2283:2181
+    # command: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
+    command: ["/etc/entrypoint.sh"]
+    volumes:
+      - ./config/zoo.cfg:/usr/local/zookeeper/conf/zoo.cfg:ro
+      - ./config/myid.3:/usr/local/zookeeper/zoo_data/myid:ro
+    #  - ./zoo_data:/usr/local/zookeeper/zoo_data
+    restart: always
+    networks:
+        br0:
+          ipv4_address: 172.16.197.43
+      

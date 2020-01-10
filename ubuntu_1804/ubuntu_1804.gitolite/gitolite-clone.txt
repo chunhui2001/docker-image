@@ -1,0 +1,57 @@
+#!/bin/bash
+
+# git config
+su -l admin
+git config --global user.name "Git-admin"
+git config --global user.email "gitadmin@gitweb.com"
+git config --list
+
+# checkout reop
+git clone git@127.0.0.1:gitolite-admin.git
+
+# add a simple repo
+/home/admin/gitolite-admin/conf/gitolite.conf
+$ git add .
+$ git commit -m "added simple repo"
+$ git push origin master
+$ exit
+
+# change new repo peri
+$ chmod g+r /home/git/projects.list
+$ chmod -R g+rx /home/git/repositories
+
+# enable gitweb
+$ a2enconf
+choose gitweb
+
+# enable cgi
+$ a2enmod cgi
+
+# restart apache2
+$ docker restart gitweb
+
+# view log
+$ tail -f /var/log/apache2/access.log 
+$ tail -f /var/log/apache2/error.log 
+
+
+# 
+git clone ssh://git@mydomain.com:[port]/gitolite-admin
+git clone git@172.16.197.34:simple.git
+git clone http://localhost:8180/git/testing.git
+
+# 如果看不到所有项目可能是 .gitolite.rc 里面的 UMASK 权限不对
+# 所有仓库的权限需改为: chmod -R g+rx /home/git/repositories
+
+#### $ cd gitolite-admin/conf/
+#### $ cat gitolite.conf
+#### 
+#### repo gitolite-admin
+####      RW+ = Git-Admin
+#### 
+#### repo testing
+####      RW+ = @all
+#### 
+#### $ git add gitolite.conf
+#### $ git commit -m "first commit"
+#### $ git push origin master

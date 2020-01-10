@@ -1,0 +1,45 @@
+# 设置集群名称，集群内所有节点的名称必须一致。
+cluster.name: myes
+# 设置节点名称，集群内节点名称必须唯一。
+node.name: node2
+# 表示该节点会不会作为主节点，true表示会；false表示不会
+node.master: true
+# 当前节点是否用于存储数据，是：true、否：false
+node.data: true
+# 索引数据存放的位置
+#path.data: /opt/elasticsearch/data
+# 日志文件存放的位置
+#path.logs: /opt/elasticsearch/logs
+# 需求锁住物理内存，是：true、否：false
+bootstrap.memory_lock: false
+# 监听地址，用于访问该es, 
+network.host: 0.0.0.0
+# network.host 监听 0.0.0.0 之后无法组成集群, 增加如下配置，用于集群内各机器间通信：
+network.publish_host: elastic_node2
+# es对外提供的http端口，默认 9200
+http.port: 9200
+# 设置集群节点通信的TCP端口，默认 9300
+transport.tcp.port: 9300
+# 设置这个参数来保证集群中的节点可以知道其它N个有master资格的节点。默认为1，对于大的集群来说，可以设置大一点的值（2-4）
+discovery.zen.minimum_master_nodes: 2
+# es7.x 之后新增的配置，写入候选主节点的设备地址，在开启服务后可以被选为主节点, 空格不能去掉，否则集群搭建不成
+discovery.seed_hosts: ["elastic_node1", "elastic_node2", "elastic_node3"] 
+discovery.zen.fd.ping_timeout: 1m
+discovery.zen.fd.ping_retries: 5
+# es7.x 之后新增的配置，初始化一个新的集群时需要此配置来选举 ∂master, 空格不能去掉，否则集群搭建不成
+cluster.initial_master_nodes: ["node1", "node2", "node3"]
+# 是否支持跨域，是：true，在使用head插件时需要此配置
+http.cors.enabled: true
+# “*” 表示支持所有域名
+http.cors.allow-origin: "*"
+action.destructive_requires_name: true
+action.auto_create_index: .security,.monitoring*,.watches,.triggered_watches,.watcher-history*
+xpack.security.enabled: false
+xpack.monitoring.enabled: true
+xpack.graph.enabled: false
+xpack.watcher.enabled: false
+xpack.ml.enabled: false
+
+# 因为 Centos6 不支持 SecComp，而 ES5.2.0 默认 bootstrap.system_call_filter 为 true 进行检测，
+# 所以导致检测失败，失败后直接导致ES不能启动
+bootstrap.system_call_filter: false

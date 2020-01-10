@@ -1,0 +1,14 @@
+Alias /gitweb /usr/share/gitweb
+
+<Directory /usr/share/gitweb>
+  Options +FollowSymLinks +ExecCGI
+  AddHandler cgi-script .cgi
+
+  AllowOverride None
+  Order allow,deny
+  Allow from all
+  AuthType Basic
+  AuthName "Git Access"
+  Require valid-user
+  AuthUserFile /etc/apache2/gitweb-htpasswd
+</Directory>

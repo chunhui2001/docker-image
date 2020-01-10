@@ -1,0 +1,19 @@
+
+
+SET NAMES utf8;
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+--  Table structure for `simple_table`
+-- ----------------------------
+DROP TABLE IF EXISTS `simple_table`;
+CREATE TABLE `simple_table` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `name` varchar(35) DEFAULT NULL,
+  `age` smallint(2) DEFAULT NULL,
+  `phone` varchar(30) DEFAULT NULL,
+  `create_at` timestamp NOT NULL ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+SET FOREIGN_KEY_CHECKS = 1;

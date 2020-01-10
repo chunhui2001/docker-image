@@ -1,0 +1,52 @@
+2019 07-15 增加18.00.0.66破解:
+去官网下载原载，先运行一次，再在终端里执行下面代码就可以破解完成！
+printf '\x31\xC0\xFF\xC0\xC3\x90' | dd seek=$((0x74B480)) conv=notrunc bs=1 of=/Applications/UltraEdit.app/Contents/MacOS/UltraEdit
+printf '\x31\xC0\xFF\xC0\xC3\x90' | dd seek=$((0x760900)) conv=notrunc bs=1 of=/Applications/UltraEdit.app/Contents/MacOS/UltraEdit
+
+2019 06-06 增加18.00.0.54破解:
+去官网下载原载，先运行一次，再在终端里执行下面代码就可以破解完成！
+printf '\x31\xC0\xFF\xC0\xC3\x90' | dd seek=$((0x74B460)) conv=notrunc bs=1 of=/Applications/UltraEdit.app/Contents/MacOS/UltraEdit
+printf '\x31\xC0\xFF\xC0\xC3\x90' | dd seek=$((0x7608E0)) conv=notrunc bs=1 of=/Applications/UltraEdit.app/Contents/MacOS/UltraEdit
+
+2018-09-25 增加18.00.0.40破解
+去官网下载原载，先运行一次，再在终端里执行下面代码就可以破解完成！
+printf '\x31\xC0\xFF\xC0\xC3\x90' | dd seek=$((0x76D210)) conv=notrunc bs=1 of=/Applications/UltraEdit.app/Contents/MacOS/UltraEdit
+
+2018-08-30 增加18.00.0.34破解
+去官网下载原载，先运行一次，再在终端里执行下面代码就可以破解完成！
+printf '\x31\xC0\xFF\xC0\xC3\x90' | dd seek=$((0x76B9E0)) conv=notrunc bs=1 of=/Applications/UltraEdit.app/Contents/MacOS/UltraEdit
+
+2018-08-01 增加18.00.0.30破解
+去官网下载原载，先运行一次，再在终端里执行下面代码就可以破解完成！
+printf '\x31\xC0\xFF\xC0\xC3\x90' | dd seek=$((0x76B7C0)) conv=notrunc bs=1 of=/Applications/UltraEdit.app/Contents/MacOS/UltraEdit
+
+2018-07-08 增加18.00.0.22破解
+去官网下载原载，先运行一次，再在终端里执行下面代码就可以破解完成！
+printf '\x31\xC0\xFF\xC0\xC3\x90' | dd seek=$((0x76DC40)) conv=notrunc bs=1 of=/Applications/UltraEdit.app/Contents/MacOS/UltraEdit
+
+2018-01-17 增加18.00.0.19破解
+去官网下载原载，先运行一次，再在终端里执行下面代码就可以破解完成！
+printf '\x31\xC0\xFF\xC0\xC3\x90' | dd seek=$((0x777160)) conv=notrunc bs=1 of=/Applications/UltraEdit.app/Contents/MacOS/UltraEdit
+
+2018-01-17 增加18.00.0.17破解
+去官网下载原载，先运行一次，再在终端里执行下面代码就可以破解完成！
+printf '\x31\xC0\xFF\xC0\xC3\x90' | dd seek=$((0x776BE0)) conv=notrunc bs=1 of=/Applications/UltraEdit.app/Contents/MacOS/UltraEdit
+
+2018-01-10 增加18.00.0.12破解
+去官网下载原载，先运行一次，再在终端里执行下面代码就可以破解完成！
+printf '\x31\xC0\xFF\xC0\xC3\x90' | dd seek=$((0x776DA0)) conv=notrunc bs=1 of=/Applications/UltraEdit.app/Contents/MacOS/UltraEdit
+
+2016-11-20 增加16.10.0.22破解
+去官网下载原载，先运行一次，再在终端里执行下面代码就可以破解完成！
+printf '\x31\xC0\xFF\xC0\xC3\x90' | dd seek=$((0x92D370)) conv=notrunc bs=1 of=/Applications/UltraEdit.app/Contents/MacOS/UltraEdit
+
+2016-11-17 增加16.10.0.21破解
+去官网下载原载，先运行一次，再在终端里执行下面代码就可以破解完成！
+printf '\x31\xC0\xFF\xC0\xC3\x90' | dd seek=$((0x92B240)) conv=notrunc bs=1 of=/Applications/UltraEdit.app/Contents/MacOS/UltraEdit
+
+16.10.0.19破解：
+去官网下载原载，先运行一次，再在终端里执行下面代码就可以破解完成！
+printf '\x31\xC0\xFF\xC0\xC3\x90' | dd seek=$((0x92D540)) conv=notrunc bs=1 of=/Applications/UltraEdit.app/Contents/MacOS/UltraEdit
+
+
+

@@ -1,0 +1,139 @@
+
+## 安装Docker Compose
+# curl -L https://github.com/docker/compose/releases/download/1.24.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+# chmod +x /usr/local/bin/docker-compose
+# docker-compose --version
+# docker-compose up -d
+
+version: '2.4'
+networks:
+  br0:
+    external: true
+
+services:
+
+  zk1:
+    container_name: zk1
+    image: chunhui2001/ubuntu_1804:zookeeper
+    hostname: zk1
+    mem_limit: 100m
+    environment:
+       - ZOOKEEPER_HOME=/usr/local/zookeeper
+       - JAVA_HOME=/usr/local/java
+    ports:
+      - 2183:2181
+    # command: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
+    command: ["/etc/entrypoint.sh"]
+    volumes:
+      - ./zk_config/zoo.cfg:/usr/local/zookeeper/conf/zoo.cfg:ro
+      - ./zk_config/myid.1:/usr/local/zookeeper/zoo_data/myid:ro
+    #  - ./zoo_data:/usr/local/zookeeper/zoo_data
+      - ./ssh/sshd_config:/etc/ssh/sshd_config:ro
+      - ./ssh/ssh_config:/etc/ssh/ssh_config:ro
+      - ./ssh/id_rsa:/root/.ssh/id_rsa:rw
+      - ./ssh/id_rsa.pub:/root/.ssh/id_rsa.pub:rw
+      - ./ssh/authorized_keys:/root/.ssh/authorized_keys:rw
+    restart: always
+    networks:
+        br0:
+          ipv4_address: 172.16.197.41
+  zk2:
+    container_name: zk2
+    image: chunhui2001/ubuntu_1804:zookeeper
+    hostname: zk2
+    mem_limit: 100m
+    environment:
+       - ZOOKEEPER_HOME=/usr/local/zookeeper
+       - JAVA_HOME=/usr/local/java
+    ports:
+      - 2182:2181
+    # command: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
+    command: ["/etc/entrypoint.sh"]
+    volumes:
+      - ./zk_config/zoo.cfg:/usr/local/zookeeper/conf/zoo.cfg:ro
+      - ./zk_config/myid.2:/usr/local/zookeeper/zoo_data/myid:ro
+    #  - ./zoo_data:/usr/local/zookeeper/zoo_data
+      - ./ssh/sshd_config:/etc/ssh/sshd_config:ro
+      - ./ssh/ssh_config:/etc/ssh/ssh_config:ro
+      - ./ssh/id_rsa:/root/.ssh/id_rsa:rw
+      - ./ssh/id_rsa.pub:/root/.ssh/id_rsa.pub:rw
+      - ./ssh/authorized_keys:/root/.ssh/authorized_keys:rw
+    restart: always
+    networks:
+        br0:
+          ipv4_address: 172.16.197.42
+  zk3:
+    container_name: zk3
+    image: chunhui2001/ubuntu_1804:zookeeper
+    hostname: zk3
+    mem_limit: 100m
+    environment:
+       - ZOOKEEPER_HOME=/usr/local/zookeeper
+       - JAVA_HOME=/usr/local/java
+    ports:
+      - 2283:2181
+    # command: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
+    command: ["/etc/entrypoint.sh"]
+    volumes:
+      - ./zk_config/zoo.cfg:/usr/local/zookeeper/conf/zoo.cfg:ro
+      - ./zk_config/myid.3:/usr/local/zookeeper/zoo_data/myid:ro
+    #  - ./zoo_data:/usr/local/zookeeper/zoo_data
+      - ./ssh/sshd_config:/etc/ssh/sshd_config:ro
+      - ./ssh/ssh_config:/etc/ssh/ssh_config:ro
+      - ./ssh/id_rsa:/root/.ssh/id_rsa:rw
+      - ./ssh/id_rsa.pub:/root/.ssh/id_rsa.pub:rw
+      - ./ssh/authorized_keys:/root/.ssh/authorized_keys:rw
+    restart: always
+    networks:
+        br0:
+          ipv4_address: 172.16.197.43
+
+  master.hadoop.namenode:
+    container_name: master.hadoop.namenode
+    image: chunhui2001/centos_66_dev:hadoop_2.4.0_cluster
+    hostname: master.hadoop.namenode
+    mem_limit: 1600m
+    depends_on:
+      - zk1
+      - zk2
+      - zk3
+    #environment:
+    #  - HADOOP_LOG_DIR=/tmp/hadoop_log
+    ports:
+      - "16010:16010"
+      - "16030:16030"
+      - "50070:50070"
+      - "8088:8088"
+    entrypoint: ["/etc/entrypoint.sh"]
+    #entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
+    volumes:
+      ## config: hadoop 
+      - ./config_distributed/hadoop-env.sh:/usr/local/hadoop/etc/hadoop/hadoop-env.sh:ro
+      - ./config_distributed/yarn-env.sh:/usr/local/hadoop/etc/hadoop/yarn-env.sh:ro
+      - ./config_distributed/core-site.xml:/usr/local/hadoop/etc/hadoop/core-site.xml:ro
+      - ./config_distributed/mapred-site.xml:/usr/local/hadoop/etc/hadoop/mapred-site.xml:ro
+      - ./config_distributed/hdfs-site.xml:/usr/local/hadoop/etc/hadoop/hdfs-site.xml:ro
+      - ./config_distributed/yarn-site.xml:/usr/local/hadoop/etc/hadoop/yarn-site.xml:ro
+      - ./config_distributed/log4j.properties:/usr/local/hadoop/etc/hadoop/log4j.properties:ro
+      #- ./config_distributed/files/slaves_on_master:/usr/local/hadoop/etc/hadoop/slaves:ro
+      ## config: zookeeper 
+      - ./config_distributed/core-site.xml:/usr/local/hbase/conf/core-site.xml:ro
+      - ./config_distributed/hdfs-site.xml:/usr/local/hbase/conf/hdfs-site.xml:ro
+      - ./hb_config/hbase-site.xml:/usr/local/hbase/conf/hbase-site.xml:ro
+      - ./hb_config/hbase-env.sh:/usr/local/hbase/conf/hbase-env.sh:ro
+      - ./hb_config/regionservers:/usr/local/hbase/conf/regionservers:ro
+      ## config: ssh 
+      - ./ssh/sshd_config:/etc/ssh/sshd_config:ro
+      - ./ssh/ssh_config:/etc/ssh/ssh_config:ro
+      - ./ssh/id_rsa:/root/.ssh/id_rsa:rw
+      - ./ssh/id_rsa.pub:/root/.ssh/id_rsa.pub:rw
+      - ./ssh/authorized_keys:/root/.ssh/authorized_keys:rw
+      - ./logs:/usr/local/hadoop-2.4.0/logs:rw
+      #- ./data_formated:/usr/local/hadoop/data:rw
+      - ./entrypoint.sh:/etc/entrypoint.sh:rw
+    restart: always
+    networks:
+        br0:
+          ipv4_address: 172.16.197.44
+
+      

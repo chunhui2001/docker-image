@@ -1,0 +1,18 @@
+# chunhui2001/clouddisk:virtualbox.ubuntu-18.04.bentley
+# Version 0.0.1
+FROM alpine
+MAINTAINER Chunhui.Zhang "chunhui2001@gmail.com"
+
+COPY ubuntu-18.04-bentley.box /soft/
+
+# docker build -f Dockerfile.Bentley . -t 'chunhui2001/clouddisk:virtualbox.ubuntu-18.04.bentley'
+# docker run -dit --entrypoint="top" --name clouddisk_virtualbox.ubuntu-18.04.bentley chunhui2001/clouddisk:virtualbox.ubuntu-18.04.bentley
+# docker push chunhui2001/clouddisk:virtualbox.ubuntu-18.04.bentley
+# docker pull chunhui2001/clouddisk:virtualbox.ubuntu-18.04.bentley
+
+
+# 查看指定镜像被哪个镜像依赖
+# docker inspect --format='{{.Id}} {{.Parent}}' $(docker images --filter since=指定的镜像id -q)
+
+ENTRYPOINT ["top"]
+

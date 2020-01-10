@@ -1,0 +1,41 @@
+# chunhui2001/ubuntu_1804_dev:mongodb_4.2.2
+# Version 0.0.1
+FROM chunhui2001/ubuntu_1804_dev:zh-CN 
+MAINTAINER Chunhui.Zhang "chunhui2001@gmail.com"
+
+# https://docs.mongodb.com/manual/release-notes/
+# https://www.mongodb.com/download-center/community?jmp=docs
+
+# ADD mongodb-linux-aarch64-ubuntu1804-4.2.2.tgz /usr/local/
+# RUN ln -s /usr/local/mongodb-linux-aarch64-ubuntu1804-4.2.2 /usr/local/mongodb
+
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+ARG DEBIAN_FRONTEND=noninteractive
+RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 4B7C549A058F8B6B
+RUN echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.2 multiverse" | tee /etc/apt/sources.list.d/mongodb.list
+RUN apt-get update -y && apt-get -y install mongodb-org=4.2.2 mongodb-org-server=4.2.2 mongodb-org-shell=4.2.2 mongodb-org-mongos=4.2.2 mongodb-org-tools=4.2.2
+
+# view version
+# mongod --version 
+
+RUN mkdir -p /data/mongodb/data
+RUN mkdir -p /data/mongodb/repair
+RUN mkdir -p /data/mongodb/journal
+RUN mkdir -p /data/mongodb/log
+
+RUN touch /data/mongodb/log/mongodb.log
+
+ADD mongodb.conf4 /etc/mongodb.conf
+
+# docker build -f Dockerfile-4.2.2 . -t 'chunhui2001/ubuntu_1804_dev:mongodb_4.2.2'
+# docker run -dit --entrypoint="top" --name mongodb_4 chunhui2001/ubuntu_1804_dev:mongodb_4.2.2
+# docker run -dit -p 27017:27017 --name mongo chunhui2001/ubuntu_1804_dev:mongodb_4.2.2
+
+# mongod --dbpath /var/lib/mongo --logpath /var/log/mongodb/mongod.log --fork
+
+ENTRYPOINT ["mongod", "-f", "/etc/mongodb.conf"]
+
+# Open ports
+EXPOSE 27017
+
+

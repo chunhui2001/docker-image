@@ -1,0 +1,116 @@
+
+## 安装Docker Compose
+# curl -L https://github.com/docker/compose/releases/download/1.8.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+# chmod +x /usr/local/bin/docker-compose
+# docker-compose --version
+# docker-compose up -d
+
+version: '2.4'
+
+networks:
+    mynet1:
+      external: false
+      ipam:
+        config:
+        - subnet: 172.16.12.0/16
+          gateway: 172.16.1.1
+
+services:
+  redis_c1:                
+    container_name: redis_c1
+    privileged: true
+    image: chunhui2001/ubuntu_1610_dev:redis_cluster
+    hostname: redis.c1
+    mem_limit: 100m
+    ports: 
+      - 6380:6379
+    entrypoint: ["/usr/local/redis/src/redis-server", "/usr/local/redis/redis.conf"]
+    #command: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
+    volumes:
+      - ./conf/redis-5.0.5.conf:/usr/local/redis/redis.conf:ro
+    restart: always
+    networks:
+        mynet1:
+          ipv4_address: 172.16.12.1
+  redis_c2:                
+    container_name: redis_c2
+    privileged: true
+    image: chunhui2001/ubuntu_1610_dev:redis_cluster
+    hostname: redis.c2
+    mem_limit: 100m
+    ports: 
+      - 6381:6379
+    entrypoint: ["/usr/local/redis/src/redis-server", "/usr/local/redis/redis.conf"]
+    #command: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
+    volumes:
+      - ./conf/redis-5.0.5.conf:/usr/local/redis/redis.conf:ro
+    restart: always
+    networks:
+        mynet1:
+          ipv4_address: 172.16.12.2
+  redis_c3:                
+    container_name: redis_c3
+    privileged: true
+    image: chunhui2001/ubuntu_1610_dev:redis_cluster
+    hostname: redis.c3
+    mem_limit: 100m
+    ports: 
+      - 6382:6379
+    entrypoint: ["/usr/local/redis/src/redis-server", "/usr/local/redis/redis.conf"]
+    #command: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
+    volumes:
+      - ./conf/redis-5.0.5.conf:/usr/local/redis/redis.conf:ro
+    restart: always
+    networks:
+        mynet1:
+          ipv4_address: 172.16.12.3
+  redis_c4:                
+    container_name: redis_c4
+    privileged: true
+    image: chunhui2001/ubuntu_1610_dev:redis_cluster
+    hostname: redis.c4
+    mem_limit: 100m
+    ports: 
+      - 6383:6379
+    entrypoint: ["/usr/local/redis/src/redis-server", "/usr/local/redis/redis.conf"]
+    #command: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
+    volumes:
+      - ./conf/redis-5.0.5.conf:/usr/local/redis/redis.conf:ro
+    restart: always
+    networks:
+        mynet1:
+          ipv4_address: 172.16.12.4
+  redis_c5:                
+    container_name: redis_c5
+    privileged: true
+    image: chunhui2001/ubuntu_1610_dev:redis_cluster
+    hostname: redis.c5
+    mem_limit: 100m
+    ports: 
+      - 6384:6379
+    entrypoint: ["/usr/local/redis/src/redis-server", "/usr/local/redis/redis.conf"]
+    #command: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
+    volumes:
+      - ./conf/redis-5.0.5.conf:/usr/local/redis/redis.conf:ro
+    restart: always
+    networks:
+        mynet1:
+          ipv4_address: 172.16.12.5
+  redis_c6:                
+    container_name: redis_c6
+    privileged: true
+    image: chunhui2001/ubuntu_1610_dev:redis_cluster
+    hostname: redis.c6
+    mem_limit: 100m
+    ports: 
+      - 6385:6379
+    entrypoint: ["/usr/local/redis/src/redis-server", "/usr/local/redis/redis.conf"]
+    #command: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
+    volumes:
+      - ./conf/redis-5.0.5.conf:/usr/local/redis/redis.conf:ro
+    restart: always
+    networks:
+        mynet1:
+          ipv4_address: 172.16.12.6
+ 
+

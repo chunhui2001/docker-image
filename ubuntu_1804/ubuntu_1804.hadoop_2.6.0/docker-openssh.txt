@@ -1,0 +1,11 @@
+# yum -y install openssh openssh-server openssh-clients
+# systemctl start sshd
+# vi /etc/ssh/ssh_config
+>> 将原来的  	StrictHostKeyChecking ask
+>> 设置    	StrictHostKeyChecking 为 no
+# systemctl restart sshd
+
+# ssh-keygen -t rsa
+# cat ~/.ssh/id_rsa.pub > ~/.ssh/authorized_keys
+
+文件生成之后用 scp 将公钥文件分发到集群 slave 主机

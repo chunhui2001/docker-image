@@ -1,0 +1,34 @@
+
+## 安装Docker Compose
+# curl -L https://github.com/docker/compose/releases/download/1.24.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+# chmod +x /usr/local/bin/docker-compose
+# docker-compose --version
+# docker-compose up -d
+
+# docker stats
+# [CONTAINER]：以短格式显示容器的 ID。
+# [CPU %]：CPU 的使用情况。
+# [MEM USAGE / LIMIT]：当前使用的内存和最大可以使用的内存。
+# [MEM %]：以百分比的形式显示内存使用情况。
+# [NET I/O]：网络 I/O 数据。
+# [BLOCK I/O]：磁盘 I/O 数据。 
+# [PIDS]：PID 号。
+
+version: '2.4'
+networks:
+  nets:
+    external: false
+    # aliases: net1
+
+services:
+  ngrok:
+    container_name: ngrok_client_java
+    image: chunhui2001/alpine:ngrok_client_java
+    mem_limit: 300m
+    ports:
+      - 9081:8081
+    volumes:
+      - /Users/keesh/workspace_cloudbox/gofun-cloudbox-connect/gofun-cloudbox-connect-tbox/target/gofun-cloudbox-connect-tbox-1.0-SNAPSHOT-fat.jar:/root/app/app.jar:ro
+    restart: always
+    networks:
+      - nets

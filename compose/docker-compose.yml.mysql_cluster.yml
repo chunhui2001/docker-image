@@ -1,0 +1,57 @@
+
+## 安装Docker Compose
+# curl -L https://github.com/docker/compose/releases/download/1.24.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+# chmod +x /usr/local/bin/docker-compose
+# docker-compose --version
+# docker-compose up -d
+
+version: '2.4'
+networks:
+  nets:
+    external: false
+    # aliases: net1
+
+services:
+  mysql_node1:
+    container_name: mysql_node1
+    image: chunhui2001/debian_8_dev:mysql_5.7
+    mem_limit: 100m
+    environment:
+      - MYSQL_ROOT_PASSWORD=Cc
+    ports:
+      - 3318:3306
+    #command: /usr/local/elasticsearch/bin/elasticsearch
+    volumes:
+      - ./my.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf:ro
+    restart: always
+    networks:
+      - nets
+  mysql_node2:
+    container_name: mysql_node2
+    image: chunhui2001/debian_8_dev:mysql_5.7
+    mem_limit: 100m
+    environment:
+      - MYSQL_ROOT_PASSWORD=Cc
+    ports:
+      - 3319:3306
+    #command: /usr/local/elasticsearch/bin/elasticsearch
+    volumes:
+      - ./my.cnf.slave:/etc/mysql/mysql.conf.d/mysqld.cnf:ro
+    restart: always
+    networks:
+      - nets
+  mysql_node3:
+    container_name: mysql_node3
+    image: chunhui2001/debian_8_dev:mysql_5.7
+    mem_limit: 100m
+    environment:
+      - MYSQL_ROOT_PASSWORD=Cc
+    ports:
+      - 3320:3306
+    #command: /usr/local/elasticsearch/bin/elasticsearch
+    volumes:
+      - ./my.cnf.slave2:/etc/mysql/mysql.conf.d/mysqld.cnf:ro
+    restart: always
+    networks:
+      - nets
+      

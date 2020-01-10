@@ -1,0 +1,31 @@
+Daemon Tools Mac 破解版：
+Daemon Tools Mac 是一款非常实用的 Mac 虚拟光驱软件，您可以使用它来快速加载和创建各种光盘镜像，支持加载 Iso、Dmg、Flac、Cue、Bin 等等光盘镜像文件，您也可以使用它来创建 ISO,、MDX 和 MDS/MDF 等磁盘镜像，而且现在 DAEMONTools 支持查看镜像加载历史、自动加载镜像、ISCS Initiator 等功能，非常强大，是你 Mac 电脑上最优秀的虚拟光驱。
+
+
+DAEMON Tools支持的文件格式：
+B5T.BT6T.BWT.CDD.CDI.BIN.CUE.APE.CUE.IMG.ISO.ISZ.MDS.MDF.MDX.NRG.PDI.FLAC.CUE.DMG.VHD.VMDK.TC.ZIPAKAI CD
+
+
+Daemon Tools Mac 破解安装：
+1. 下载完成后打开【Daemontools.Dmg】文件，将【DAEMONTools.App】拖入【Applications】内就可以完成安装。
+2. 启动安装完成的 DAEMONTools，点击【试一下】进入软件。
+3. 可以看到窗口上方显示试用期剩余 20 天，我们先点击 DAEMONTools 右上角的 +ISCSI。
+4. 点击【试一下】，然后选择取消。
+5. 退出软件，在应用程序中找到安装的 DAEMONTools，右键选择【显示包内容】。
+6. 依次进入【Contents】-【MacOS】文件夹。
+7. 找到安装程序【Daemontools.Dmg】中的【Crack】文件夹，把其中的【DAEMON Tools】文件拖入【MacOS】内。
+8. 打开 Mac 的系统偏好设置，在防火墙页面选择禁止 DAEMONTools 接入网络。
+9. 再次打开 DAEMONTools，我们可以看到，DAEMONTools 已经不再显示有试用时长。
+
+
+安装注意事项
+* 此软件为破解版本，部分 Mac 系统用户可能无法直接安装，若遇到【App已损坏,无法启动。你应该将它移到废纸篓。】提示时，建议进行以下操作：
+1、打开系统偏好设置，选择【安全性与隐私】
+2、点击右下角锁状图标，输入密码解除锁定
+3、在【允许从以下位置下载的应用】的三个选项里，选择最下方的【任何来源】
+4、重新启动程序
+* 如果打开【安全性与隐私】后没有发现【允许从以下位置下载的应用】选项的用户，可以进行以下操作：
+1、复制括号内代码：【Sudo Spctl --Master-Disable】
+2、在【应用程序】-【实用工具】中找到【终端.App】打开，粘贴之前复制的代码，回车键运行。
+3、重新启动程序
+

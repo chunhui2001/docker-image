@@ -1,0 +1,37 @@
+
+## 安装Docker Compose
+# curl -L https://github.com/docker/compose/releases/download/1.24.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+# chmod +x /usr/local/bin/docker-compose
+# docker-compose --version
+# docker-compose up -d
+version: '2.4'
+networks:
+    br0:
+      external: true
+      
+services:
+  ubuntu_dubbo2.7:
+    container_name: ubuntu_dubbo2.7
+    image: chunhui2001/ubuntu_1804:dubbo2.7
+    hostname: ubuntu_dubbo2.7
+    mem_limit: 300m
+    #environment:
+    #  - SPRING_PROFILES_ACTIVE=docker
+    ports:
+      - 19080:8080
+    #entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
+    #entrypoint: ["java", "-Djava.library.path=/usr/local/apr/lib", "-jar", "/usr/local/dubbo-admin-2.7/dubbo-admin-distribution/target/dubbo-admin-0.1.jar"]
+    entrypoint: ["java", "-Dserver.port=8080", "-Dadmin.registry.address=zookeeper://172.16.197.41:2181", "-Dadmin.config-center=zookeeper://172.16.197.41:2181
+", "-Dadmin.metadata-report.address=zookeeper://zk1:2181", "-jar", "/root/app/dubbo-admin-2.7/dubbo-admin-distribution/target/dubbo-admin-0.1.jar"]
+    #command: [" --spring.config.location=file:///root/app/dubbo-admin-application.properties"]
+    volumes:
+      # centos7 as the host and container with selinux enabled.
+      # 在 centos7 下需执行: chcon -Rt svirt_sandbox_file_t config/
+    #  - ./conf/server.xml:/usr/local/apache-tomcat-8.5.45/conf/server.xml:ro
+      - ./dubbo-admin-application.properties:/root/app/dubbo-admin-application.properties:ro
+    restart: always
+    networks:
+        br0:
+          ipv4_address: 172.16.197.55
+  
+  
