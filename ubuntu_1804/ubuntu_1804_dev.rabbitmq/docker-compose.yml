@@ -1,0 +1,33 @@
+
+## 安装Docker Compose
+# curl -L https://github.com/docker/compose/releases/download/1.24.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+# chmod +x /usr/local/bin/docker-compose
+# docker-compose --version
+# docker-compose up -d
+
+version: '2.4'
+networks:
+  br0:
+    external: true
+    # aliases: net1
+
+services:
+  rabbit.mq1:
+    container_name: rabbit.mq1
+    image: 'chunhui2001/ubuntu_1804_dev:rabbitmq_3.8.2'
+    hostname: rabbit.mq1
+    mem_limit: 600m
+    ports:
+    #  - '4369:4369'
+      - '5672:5672'
+    #  - '25672:25672'
+      - '15672:15672'
+    #entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
+    entrypoint: ["/usr/sbin/rabbitmq-server"]
+    #volumes:
+    #  - 'rabbitmq_data:/bitnami'
+    restart: always
+    networks:
+        br0:
+          ipv4_address: 172.16.197.70
+

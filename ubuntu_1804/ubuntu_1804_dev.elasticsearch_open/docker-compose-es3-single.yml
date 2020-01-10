@@ -1,0 +1,48 @@
+
+networks:
+  br0:
+    external: true
+
+# mkdir -p ./config/opensearch-performance-analyzer
+# touch ./config/opensearch-performance-analyzer/plugin-stats-metadata
+# touch ./config/opensearch-performance-analyzer/performance-analyzer.properties
+
+services:
+  opensearch_3_3_2:
+    image: opensearchproject/opensearch:3.3.2
+    container_name: opensearch_3_3_2
+    hostname: opensearch_3_3_2
+    environment:
+      - discovery.type=single-node
+      #- plugins.security.disabled=true
+      - OPENSEARCH_INITIAL_ADMIN_PASSWORD=Qhur+nlB3yVeknCg
+      # JVM
+      - OPENSEARCH_JAVA_OPTS=-Xms1g -Xmx1g --enable-native-access=ALL-UNNAMED
+      - network.host=0.0.0.0
+      - cluster.name=opensearch-cluster
+      - bootstrap.memory_lock=true
+      # 禁用安全 / SSL
+      - plugins.security.disabled=true
+      - plugins.security.ssl.http.enabled=false
+      # 禁用 Performance Analyzer
+      #- opensearch.performance_analyzer.enabled=false
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536
+        hard: 65536
+    volumes:
+      - ./osdata:/usr/share/opensearch/data
+      - ./config/opensearch-performance-analyzer:/usr/share/opensearch/config/opensearch-performance-analyzer
+    ports:
+      - 9411:9200
+      #- 9611:9600 # Performance Analyzer webservice
+      #- 9650:9650 # Performance Analyzer RPC port
+    restart: always
+    networks:
+        br0:
+          ipv4_address: 172.16.197.166
+
+

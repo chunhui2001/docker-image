@@ -1,0 +1,91 @@
+
+## 安装Docker Compose
+# curl -L https://github.com/docker/compose/releases/download/1.24.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+# chmod +x /usr/local/bin/docker-compose
+# docker-compose --version
+# docker-compose up -d
+
+version: '2.4'
+networks:
+  br0:
+    external: true
+
+services:
+
+  zk1:
+    container_name: zk1
+    image: chunhui2001/ubuntu_1804:zookeeper
+    hostname: zk1
+    mem_limit: 100m
+    environment:
+       - ZOOKEEPER_HOME=/usr/local/zookeeper
+       - JAVA_HOME=/usr/local/java
+    ports:
+      - 2181:2181
+    command: ["/etc/entrypoint.sh"]
+    volumes:
+      - ./zk_config/zoo.cfg:/usr/local/zookeeper/conf/zoo.cfg:ro
+      - ./zk_config/myid.1:/usr/local/zookeeper/zoo_data/myid:ro
+    #  - ./zoo_data:/usr/local/zookeeper/zoo_data
+      - ./ssh/sshd_config:/etc/ssh/sshd_config:ro
+      - ./ssh/ssh_config:/etc/ssh/ssh_config:ro
+      - ./ssh/id_rsa:/root/.ssh/id_rsa:rw
+      - ./ssh/id_rsa.pub:/root/.ssh/id_rsa.pub:rw
+      - ./ssh/authorized_keys:/root/.ssh/authorized_keys:rw
+    restart: always
+    networks:
+        br0:
+          ipv4_address: 172.16.197.41
+  zk2:
+    container_name: zk2
+    image: chunhui2001/ubuntu_1804:zookeeper
+    hostname: zk2
+    mem_limit: 100m
+    environment:
+       - ZOOKEEPER_HOME=/usr/local/zookeeper
+       - JAVA_HOME=/usr/local/java
+    ports:
+      - 2182:2181
+    command: ["/etc/entrypoint.sh"]
+    volumes:
+      - ./zk_config/zoo.cfg:/usr/local/zookeeper/conf/zoo.cfg:ro
+      - ./zk_config/myid.2:/usr/local/zookeeper/zoo_data/myid:ro
+    #  - ./zoo_data:/usr/local/zookeeper/zoo_data
+      - ./ssh/sshd_config:/etc/ssh/sshd_config:ro
+      - ./ssh/ssh_config:/etc/ssh/ssh_config:ro
+      - ./ssh/id_rsa:/root/.ssh/id_rsa:rw
+      - ./ssh/id_rsa.pub:/root/.ssh/id_rsa.pub:rw
+      - ./ssh/authorized_keys:/root/.ssh/authorized_keys:rw
+    restart: always
+    networks:
+        br0:
+          ipv4_address: 172.16.197.42
+  zk3:
+    container_name: zk3
+    image: chunhui2001/ubuntu_1804:zookeeper
+    hostname: zk3
+    mem_limit: 100m
+    environment:
+       - ZOOKEEPER_HOME=/usr/local/zookeeper
+       - JAVA_HOME=/usr/local/java
+    ports:
+      - 2283:2181
+    command: ["/etc/entrypoint.sh"]
+    volumes:
+      - ./zk_config/zoo.cfg:/usr/local/zookeeper/conf/zoo.cfg:ro
+      - ./zk_config/myid.3:/usr/local/zookeeper/zoo_data/myid:ro
+    #  - ./zoo_data:/usr/local/zookeeper/zoo_data
+      - ./ssh/sshd_config:/etc/ssh/sshd_config:ro
+      - ./ssh/ssh_config:/etc/ssh/ssh_config:ro
+      - ./ssh/id_rsa:/root/.ssh/id_rsa:rw
+      - ./ssh/id_rsa.pub:/root/.ssh/id_rsa.pub:rw
+      - ./ssh/authorized_keys:/root/.ssh/authorized_keys:rw
+    restart: always
+    networks:
+        br0:
+          ipv4_address: 172.16.197.43
+
+
+
+
+      

@@ -1,0 +1,18 @@
+
+## 安装Docker Compose
+# curl -L https://github.com/docker/compose/releases/download/1.24.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+# chmod +x /usr/local/bin/docker-compose
+# docker-compose --version
+# docker-compose up -d
+version: '2.4'
+services:
+  web3j:
+    container_name: web3j
+    image: chunhui2001/centos_7_dev:web3j
+    hostname: web3j
+    mem_limit: 300m
+    #environment:
+    #  - JAVA_OPTS="-server -Xms128m -Xmx128m -Xmn64m -Xss268k"
+    command: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
+    #entrypoint: ["java", "-Djava.library.path=/usr/local/tomcat/native-jni-lib", "-jar", "/root/app/app.jar"]
+    restart: always

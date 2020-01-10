@@ -1,0 +1,22 @@
+
+## 安装Docker Compose
+# curl -L https://github.com/docker/compose/releases/download/1.24.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+# chmod +x /usr/local/bin/docker-compose
+# docker-compose --version
+# docker-compose up -d
+
+version: '2.4'
+
+services:
+  pptp:                
+    container_name: pptp
+    privileged: true
+    image: mobtitude/vpn-pptp
+    hostname: pptp
+    mem_limit: 50m
+    ports: 
+      - 1723:1723
+    volumes:
+      - ./conf/chap-secrets:/etc/ppp/chap-secrets:ro
+    restart: always
+    network_mode: host

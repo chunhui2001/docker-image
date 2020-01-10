@@ -9,19 +9,20 @@ ADD ./apache-tomcat-8.5.45.tar.gz /usr/local/
 ADD ./apr-1.7.0.tar.gz /usr/local/
 ADD ./apr-util-1.6.1.tar.gz /usr/local/
 ADD ./apr-iconv-1.2.2.tar.gz /usr/local/
-ADD ./tomcat-native-1.2.23-src.tar.gz /usr/local/
+#ADD ./tomcat-native-1.2.23-src.tar.gz /usr/local/
+ADD ./libtool-2.4.6.tar.gz /usr/local/
 
 RUN ln -s /usr/local/apache-tomcat-8.5.45 /usr/local/tomcat
 RUN ln -s /usr/local/apr-1.7.0 /usr/local/apr-src
 RUN ln -s /usr/local/apr-util-1.6.1 /usr/local/apr-util
 RUN ln -s /usr/local/apr-iconv-1.2.2 /usr/local/apr-iconv-src
-RUN ln -s /usr/local/tomcat-native-1.2.23-src /usr/local/tomcat-native-src
+#RUN ln -s /usr/local/tomcat-native-1.2.23-src /usr/local/tomcat-native-src
 
 # Add tomcat group and tomcat user
 RUN groupadd tomcat && chown -R root:root /usr/local/tomcat 
 RUN useradd -s /bin/false -g tomcat -d /usr/local/tomcat tomcat
 
-RUN apt-get install -y libtool make libexpat1-dev
+RUN apt-get update -y && apt-get install -y libtool make libexpat1-dev m4
 
 ## Tomcat APR
 WORKDIR /usr/local/apr-src
@@ -45,12 +46,18 @@ RUN ln -s /usr/local/apr-iconv-src ./apr-iconv-src
 RUN ./configure --with-apr=/usr/local/apr --with-apr-iconv=./apr-iconv-src
 RUN make && make install
 
+## libtool
+WORKDIR /usr/local/libtool-2.4.6
+RUN ./configure && make -j4 && make install
+RUN libtool --finish /usr/local/apr-iconv/lib/iconv
+
 ## Tomcat native
+RUN tar -zxvf /usr/local/tomcat/bin/tomcat-native.tar.gz -C /usr/local/
+RUN ln -s /usr/local/tomcat-native-*-src /usr/local/tomcat-native-src
 WORKDIR /usr/local/tomcat-native-src/native
 RUN ./configure --with-apr=/usr/local/apr && make && make install 
 
 # set environments
-ENV JAVA_HOME=/usr/local/java
 ENV CATALINA_BASE=/usr/local/tomcat
 ENV CATALINA_HOME=/usr/local/tomcat
 ENV JAVA_OPTS="-Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom"
@@ -69,22 +76,18 @@ VOLUME ["/usr/local/tomcat/webapps/ROOT", "/usr/local/tomcat/logs"]
 RUN cp /usr/local/tomcat/conf/server.xml /usr/local/tomcat/conf/server.xml.backup
 COPY ./conf/server.xml /usr/local/tomcat/conf/server.xml
 
-## install supervisor
-RUN apt-get install -y libc6-i386 lib32gcc1 lib32z1 lib32stdc++6 supervisor
-
 # start tomcat
 #ENTRYPOINT ["/usr/local/tomcat/bin/startup.sh"]
 ENTRYPOINT ["/usr/local/tomcat/bin/catalina.sh", "run"]
 
-# ngrok client
-ADD ./ngrok.tar /usr/local/
-COPY ./conf/ngrok_client.conf /usr/local/ngrok
+# 启动程序时, 加入 /usr/local/apr/lib 用于启用 Tomcat APR
+# java -Djava.library.path=/usr/local/apr/lib -jar /root/app/app.jar
 
 # docker build . -t 'chunhui2001/ubuntu_1804_dev:tomcat8'
 # docker run -dit --entrypoint="top" -P --name tomcat8 chunhui2001/ubuntu_1804_dev:tomcat8
-# docker run -dit -p 80:8080 --name tomcat8 chunhui2001/ubuntu_1804_dev:tomcat8
+# docker run -dit -p 8080:8080 --name tomcat8 chunhui2001/ubuntu_1804_dev:tomcat8
 # docker push chunhui2001/ubuntu_1804_dev:tomcat8
 # docker pull chunhui2001/ubuntu_1804_dev:tomcat8
 
 # Open ports
-EXPOSE 8080
+#EXPOSE 8080

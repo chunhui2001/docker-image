@@ -15,13 +15,12 @@ services:
   ubuntu_apache24:
     container_name: ubuntu_apache24
     image: chunhui2001/ubuntu_1804:apache24
-    hostname: gitweb
+    hostname: ubuntu_apache24
     mem_limit: 300m
-    environment:
-      - SPRING_PROFILES_ACTIVE=docker
     ports:
-      - 8180:80
-    entrypoint: ["/usr/sbin/apache2ctl", "-DFOREGROUND"]
+      - 8182:80
+    entrypoint: ["/usr/sbin/apache2ctl", "-DFOREGROUND", "-e", "debug"]
+    #entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
     volumes:
       - ./apache2.conf:/etc/apache2/apache2.conf:ro
     restart: always

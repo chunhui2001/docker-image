@@ -1,0 +1,34 @@
+
+## 安装Docker Compose
+# curl -L https://github.com/docker/compose/releases/download/1.24.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+# chmod +x /usr/local/bin/docker-compose
+# docker-compose --version
+# docker-compose up -d
+
+
+networks:
+    br0:
+      external: true
+
+services:
+  envoy-1.36.x:
+    container_name: envoy-1.36.x
+    image: chunhui2001/debian_13:debian13.envoy-1.36.x
+    hostname: envoy-1.36.x
+    #mem_limit: 300m
+    # entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
+    entrypoint: ["envoy", "-c", "/etc/envoy/envoy.yaml", "--log-level", "info"]
+    #command: /usr/local/elasticsearch/bin/elasticsearch
+    ports:
+      - 10000:10000
+      - 9901:9901
+    volumes:
+      #- ./envoy-bootstrap.yaml:/etc/envoy/envoy.yaml:ro
+      #- ./envoy-default.yaml:/etc/envoy/envoy.yaml:ro
+      - ./envoy-xds.yaml:/etc/envoy/envoy.yaml:ro
+      # - ./envoy-xds-tenant-0.yaml:/etc/envoy/envoy.yaml:ro
+    restart: always
+    networks:
+        br0:
+          ipv4_address: 172.16.197.157
+

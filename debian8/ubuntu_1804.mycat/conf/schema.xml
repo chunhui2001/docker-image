@@ -2,106 +2,29 @@
 <!DOCTYPE mycat:schema SYSTEM "schema.dtd">
 <mycat:schema xmlns:mycat="http://io.mycat/">
 
-	<!-- schema: 			数据库设置，此数据库为逻辑数据库，name与server.xml中schema对应 -->
-	<!-- name: 				逻辑数据库名，与server.xml中的schema对应 -->
-	<!-- checkSQLschema: 	数据库前缀相关设置，建议看文档，这里暂时设为false -->
-	<!-- sqlMaxLimit: 		select 时默认的 limit，避免查询全表 -->
-	<!-- dataNode: 			指定该属性时, 对于主从数据库有用, 
-							但是对于需要分表的没有用, 需要分表时需增加 table 子节点 -->
-	<schema name="cloudbox_device" dataNode="dn1" checkSQLschema="false" sqlMaxLimit="100">
-		<!-- auto sharding by id (long) -->
-		<!-- name: 			表名，物理数据库中表名 -->
-		<!-- dataNode: 		表存储到哪些节点，多个节点用逗号分隔。节点为下文dataNode设置的name -->
-		<!-- primaryKey:	主键字段名，自动生成主键时需要设置 -->
-		<!-- autoIncrement:	是否自增 -->
-		<!-- rule:			分片规则名，具体规则下文rule详细介绍 -->
-		<!-- <table name="travelrecord" dataNode="dn1,dn2,dn3" rule="auto-sharding-long" /> -->
-
-		<!-- global table is auto cloned to all defined data nodes ,so can join
-			with any table whose sharding node is in the same data node -->
-		<!-- <table name="company" primaryKey="ID" type="global" dataNode="dn1,dn2,dn3" />
-		<table name="goods" primaryKey="ID" type="global" dataNode="dn1,dn2" /> -->
-		<!-- random sharding using mod sharind rule -->
-		<!-- <table name="hotnews" primaryKey="ID" autoIncrement="true" dataNode="dn1,dn2,dn3"
-			   rule="mod-long" /> -->
-		<!-- <table name="dual" primaryKey="ID" dataNode="dnx,dnoracle2" type="global"
-			needAddLimit="false"/> <table name="worker" primaryKey="ID" dataNode="jdbc_dn1,jdbc_dn2,jdbc_dn3"
-			rule="mod-long" /> -->
-		<!-- <table name="employee" primaryKey="ID" dataNode="dn1,dn2"
-			   rule="sharding-by-intfile" />
-		<table name="customer" primaryKey="ID" dataNode="dn1,dn2"
-			   rule="sharding-by-intfile">
-			<childTable name="orders" primaryKey="ID" joinKey="customer_id"
-						parentKey="id">
-				<childTable name="order_items" joinKey="order_id"
-							parentKey="id" />
-			</childTable>
-			<childTable name="customer_addr" primaryKey="ID" joinKey="customer_id"
-						parentKey="id" />
-		</table> -->
-		<!-- <table name="oc_call" primaryKey="ID" dataNode="dn1$0-743" rule="latest-month-calldate"
-			/> -->
-
-		<!-- <table name="device" dataNode="dn1" /> -->
+	<schema name="mydb_cat" checkSQLschema="false" sqlMaxLimit="100">
+		<table name="t_user" dataNode="dn1" />
+		<table name="t_album" dataNode="dn1" />
+		<table name="t_album_order2" dataNode="dn2" />
 	</schema>
-	<schema name="cloudbox_member" dataNode="dn2" checkSQLschema="false" sqlMaxLimit="100"></schema>
 
+	<dataNode name="dn1" dataHost="localhost1" database="mydb" />
+	<dataNode name="dn2" dataHost="localhost2" database="mydb2" />
 
-	<!-- <dataNode name="dn1$0-743" dataHost="localhost1" database="db$0-743"
-		/> -->
-	<!-- 分片信息，也就是分库相关配置 -->
-	<!-- name:		节点名，与 table 中 dataNode 对应 -->
-	<!-- datahost:	物理数据库名，与 datahost 中 name 对应 -->
-	<!-- database:	物理数据库中数据库名 -->
-	<dataNode name="dn1" dataHost="localhost1" database="cloudbox_device" />
-	<dataNode name="dn2" dataHost="localhost1" database="cloudbox_member" />
-	<!-- <dataNode name="dn2" dataHost="localhost1" database="db2" />
-	<dataNode name="dn3" dataHost="localhost1" database="db3" /> -->
-
-
-
-	<!--<dataNode name="dn4" dataHost="sequoiadb1" database="SAMPLE" />
-	 <dataNode name="jdbc_dn1" dataHost="jdbchost" database="db1" />
-	<dataNode	name="jdbc_dn2" dataHost="jdbchost" database="db2" />
-	<dataNode name="jdbc_dn3" 	dataHost="jdbchost" database="db3" /> -->
-	<!-- 物理数据库，真正存储数据的数据库 -->
-	<!-- name:		物理数据库名，与dataNode中dataHost对应 -->
-	<!-- balance:	均衡负载的方式, 1:读写分离 -->
-	<!-- writeType:	写入方式 -->
-	<!-- dbType:	数据库类型 -->
-	<!-- heartbeat:	心跳检测语句，注意语句结尾的分号要加。 -->
-	<dataHost name="localhost1" maxCon="1000" minCon="10" balance="1"
-			  writeType="0" dbType="mysql" dbDriver="native" switchType="1"  slaveThreshold="100">
+	<dataHost name="localhost1" maxCon="1000" minCon="10" balance="1" writeType="0" dbType="mysql" dbDriver="native" switchType="1"  slaveThreshold="100">
 		<heartbeat>select user();</heartbeat>
-		<!-- can have multi write hosts -->
-		<writeHost host="hostM1" url="mysql_node1:3318" user="root" password="Cc">
-			<!-- can have multi read hosts -->
-			<readHost host="hostS2" url="mysql_node2:3319" user="root" password="Cc" />
+		<writeHost host="hostM1" url="172.16.197.13:3306" user="keesh" password="Cc">
+			<readHost host="hostS2" url="172.16.197.13:3306" user="keesh" password="Cc" />
 		</writeHost>
-		<!-- <writeHost host="hostS1" url="localhost:3316" user="root"
-				   password="Cc" /> -->
-		<!-- <writeHost host="hostM2" url="localhost:3316" user="root" password="Cc"/> -->
 	</dataHost>
-	<!--
-		<dataHost name="sequoiadb1" maxCon="1000" minCon="1" balance="0" dbType="sequoiadb" dbDriver="jdbc">
-		<heartbeat> 		</heartbeat>
-		 <writeHost host="hostM1" url="sequoiadb://1426587161.dbaas.sequoialab.net:11920/SAMPLE" user="jifeng" 	password="jifeng"></writeHost>
-		 </dataHost>
 
-	  <dataHost name="oracle1" maxCon="1000" minCon="1" balance="0" writeType="0" 	dbType="oracle" dbDriver="jdbc"> <heartbeat>select 1 from dual</heartbeat>
-		<connectionInitSql>alter session set nls_date_format='yyyy-mm-dd hh24:mi:ss'</connectionInitSql>
-		<writeHost host="hostM1" url="jdbc:oracle:thin:@127.0.0.1:1521:nange" user="base" 	password="123456" > </writeHost> </dataHost>
-
-		<dataHost name="jdbchost" maxCon="1000" 	minCon="1" balance="0" writeType="0" dbType="mongodb" dbDriver="jdbc">
-		<heartbeat>select 	user()</heartbeat>
-		<writeHost host="hostM" url="mongodb://192.168.0.99/test" user="admin" password="123456" ></writeHost> </dataHost>
-
-		<dataHost name="sparksql" maxCon="1000" minCon="1" balance="0" dbType="spark" dbDriver="jdbc">
-		<heartbeat> </heartbeat>
-		 <writeHost host="hostM1" url="jdbc:hive2://feng01:10000" user="jifeng" 	password="jifeng"></writeHost> </dataHost> -->
-
-	<!-- <dataHost name="jdbchost" maxCon="1000" minCon="10" balance="0" dbType="mysql"
-		dbDriver="jdbc"> <heartbeat>select user()</heartbeat> <writeHost host="hostM1"
-		url="jdbc:mysql://localhost:3306" user="root" password="123456"> </writeHost>
-		</dataHost> -->
+	<dataHost name="localhost2" maxCon="1000" minCon="10" balance="1" writeType="0" dbType="mysql" dbDriver="native" switchType="1"  slaveThreshold="100">
+		<heartbeat>select user();</heartbeat>
+		<writeHost host="hostM1" url="172.16.197.117:3306" user="keesh" password="Cc">
+			<readHost host="hostS2" url="172.16.197.117:3306" user="keesh" password="Cc" />
+		</writeHost>
+	</dataHost>
+	
 </mycat:schema>
+
+

@@ -127,4 +127,5 @@
 	<function name="jump-consistent-hash" class="io.mycat.route.function.PartitionByJumpConsistentHash">
 		<property name="totalBuckets">3</property>
 	</function>
+	
 </mycat:rule>

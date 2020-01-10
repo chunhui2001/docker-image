@@ -24,7 +24,7 @@ service iptables save
 
 修改容器 /etc/ssh/sshd_config
 vi /etc/ssh/sshd_config 
-PermitRootLogin no  	# 允许root用户ssh登录, 需给 root 用户加密码
+PermitRootLogin yes  	# 允许root用户ssh登录, 需给 root 用户加密码
 UsePAM no            ## 禁用PAM
 
 service sshd restart

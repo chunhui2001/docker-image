@@ -1,0 +1,78 @@
+node:
+  id: tenant-0
+  cluster: demo-cluster
+
+#admin:
+#  access_log_path: "/dev/stdout"
+#  address:
+#    socket_address:
+#      address: 0.0.0.0
+#      port_value: 9901
+
+static_resources:
+  listeners:
+    - name: bootstrap_listener
+      address:
+        socket_address:
+          address: 0.0.0.0
+          port_value: 10000
+      filter_chains:
+        - filters:
+            - name: envoy.filters.network.http_connection_manager
+              typed_config:
+                "@type": type.googleapis.com/envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager
+                stat_prefix: bootstrap
+                route_config:
+                  name: bootstrap_route
+                  virtual_hosts:
+                    - name: default
+                      domains: ["*"]
+                      routes:
+                        - match:
+                            prefix: "/"
+                          direct_response:
+                            status: 503
+                            body:
+                              inline_string: "Waiting for xDS..."
+                http_filters:
+                  - name: envoy.filters.http.router
+                    typed_config:
+                      "@type": type.googleapis.com/envoy.extensions.filters.http.router.v3.Router
+
+  clusters:
+    - name: xds_cluster
+      connect_timeout: 5s
+      type: LOGICAL_DNS
+      http2_protocol_options: {}
+      lb_policy: ROUND_ROBIN
+      load_assignment:
+        cluster_name: xds_cluster
+        endpoints:
+          - lb_endpoints:
+              - endpoint:
+                  address:
+                    socket_address:
+                      # address: host.docker.internal
+                      address: 127.0.0.1
+                      port_value: 18000
+
+dynamic_resources:
+  ads_config:
+    # api_type: GRPC
+    api_type: DELTA_GRPC
+    # transport_api_version: V3
+    grpc_services:
+      - envoy_grpc:
+          cluster_name: xds_cluster
+
+  lds_config:
+    ads: {}
+  cds_config:
+    ads: {}
+
+
+
+
+
+
+

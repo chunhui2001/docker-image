@@ -1,0 +1,31 @@
+## 安装Docker Compose
+# curl -L https://github.com/docker/compose/releases/download/1.24.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+# chmod +x /usr/local/bin/docker-compose
+# docker-compose --version
+# docker-compose up -d
+
+version: '2.4'
+
+networks:
+    br0:
+      external: true
+
+services:
+  nodejs6:
+    container_name: nodejs6
+    image: chunhui2001/ubuntu_1610_dev:nodejs6
+    mem_limit: 128m
+    environment:
+      - HTTP_PORT=19200
+    ports:
+      - 19200:19200
+    entrypoint: ["/usr/sbin/node"]
+    command: ["server.js", $NODE_ENV]
+    volumes:
+      # centos7 as the host and container with selinux enabled.
+      # 在 centos7 下需执行: chcon -Rt svirt_sandbox_file_t config/
+      - ./nodeappdemo/environment-local.yml:/root/nodejs/app/environment-local.yml:ro
+    restart: always
+    networks:
+        br0:
+          ipv4_address: 172.16.197.182

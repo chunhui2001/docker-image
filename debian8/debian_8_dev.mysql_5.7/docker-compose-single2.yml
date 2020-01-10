@@ -1,0 +1,34 @@
+
+## 安装Docker Compose
+# curl -L https://github.com/docker/compose/releases/download/1.24.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+# chmod +x /usr/local/bin/docker-compose
+# docker-compose --version
+# docker-compose up -d
+
+
+version: '2.4'
+
+networks:
+    br0:
+      external: true
+
+
+services:
+  mysql_single2:
+    container_name: mysql_single2
+    image: chunhui2001/debian_8_dev:mysql_5.7
+    hostname: mysql_single2
+    mem_limit: 2600m
+    environment:
+      - MYSQL_ROOT_PASSWORD=Cc
+    ports:
+      - 3316:3306
+    #entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
+    volumes:
+      - ./my.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf:ro
+      - ./mysql_data2:/var/lib/mysql_data:rw
+    restart: always
+    networks:
+        br0:
+          ipv4_address: 172.16.197.117
+

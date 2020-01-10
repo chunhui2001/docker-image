@@ -1,0 +1,95 @@
+---------------------------------------------------------------------
+----------- https://www.cnblogs.com/zhoujie/p/kong3.html ------------
+----------- https://www.cnblogs.com/zhoujie/p/kong2.html ------------
+---------------------------------------------------------------------
+### Kong公开了几个可以通过两个配置属性进行调整的接口：
+proxy_listen，默认8000，它定义Kong将接受来自客户端的公共流量并将其代理到您的上游服务的地址/端口列表。
+admin_listen，默认8001，它还定义了一个地址和端口列表，但这些列表应该仅限于管理员访问，因为它们揭示了Kong的配置功能：Admin API
+
+### 一些术语
+client：指下游客户向Kong的代理端口发出请求。
+upstream service：指自己的API /服务，位于Kong后面，客户请求被转发到该服务。
+service：服务实体，顾名思义，是对自己的每个上游服务的抽象。服务的例子可以是数据转换微服务，账单API等。
+route：这是指Kong Routes实体。路由是进入Kong的入口点，并为要匹配的请求定义规则，并路由到给定的Service。
+plugin：这是指Kong的“插件”，它是在代理生命周期中运行的业务逻辑。可以通过ADMIN API配置插件 - 全局（所有传入流量）或特定的路由和服务。
+
+从上层角度看，Kong在其配置的代理端口（默认情况下为8000和8443）上侦听HTTP流量。 Kong会根据你配置的路由评估任何传入的HTTP请求，并尝试找到匹配的路由。如果某个请求符合特定路由的规则，Kong将处理代理请求。由于每条路由都与一个服务链接，因此Kong将运行您在路由及其相关服务上配置的插件，然后向上游代理请求。
+您可以通过Kong的Admin API管理routes，路由的hosts，paths和methods属性定义匹配传入HTTP请求的规则。
+如果Kong收到无法匹配任何已配置路由的请求（或者没有配置路由），则它将以下列情况作出响应：
+{
+	"message": "no route and no API found with those values"
+}
+
+### 路由匹配规则
+现在看下Kong如何将请求与路由的配置hosts, paths and methods属性（或字段）进行匹配，注意：这三个字段都是可选的，但至少必须指定其中的一个。
+匹配一个route的请求：
+-- 该请求必须包含所有配置的字段
+-- 请求中字段的值必须至少匹配一个配置的值（虽然字段配置接受一个或多个值，但请求只需要其中一个值被视为匹配）
+例子：如下配置的route如何匹配：
+{
+    "hosts": ["example.com", "foo-service.com"],
+    "paths": ["/foo", "/bar"],
+    "methods": ["GET"]
+}
+
+下面是与此路由匹配的一些请求：
+GET /foo HTTP/1.1
+Host: example.com
+
+GET /bar HTTP/1.1
+Host: foo-service.com
+
+GET /foo/hello/world HTTP/1.1
+Host: example.com
+
+以下请求不符合配置的条件：
+# 未指定paths
+GET / HTTP/1.1
+Host: example.com
+
+# method不匹配
+POST /foo HTTP/1.1
+Host: example.com
+
+# request host header不匹配
+GET /foo HTTP/1.1
+Host: foo.com
+
+
+### 请求主机头-Request Host header
+1. 根据Host头来路由请求是通过Kong代理流量的最直接的方式，这是HTTP Host头的预期用法。 Kong通过
+主机接受多个值，当通过管理API指定时，它们必须以逗号分隔。
+$ curl -i -X POST http://localhost:8001/routes/ \
+    -H 'Content-Type: application/json' \
+    -d '{"hosts":["example.com", "foo-service.com"]}'
+HTTP/1.1 201 Created
+
+2. 但由于Admin API也支持form-urlencoded content types，所以可以通过[]表示法指定一个数组：
+$ curl -i -X POST http://localhost:8001/routes/ \
+    -d 'hosts[]=example.com' \
+    -d 'hosts[]=foo-service.com'
+HTTP/1.1 201 Created
+
+3. 为了满足此route的hosts条件，来自客户端的任何传入请求现在必须将其主机头设置为以下之一：
+Host: example.com 或 Host: foo-service.com
+
+
+### 请求路径-Request path
+路由匹配的另一种方式是通过请求路径，为了满足此路由条件，客户端请求的路径必须以路径属性值之一作为前缀。
+例如，使用如下配置的Route：
+{
+    "paths": ["/service", "/hello/world"]
+}
+下面这些请求将会匹配：
+GET /service HTTP/1.1
+Host: example.com
+GET /service/resource?param=value HTTP/1.1
+Host: example.com
+GET /hello/world/resource HTTP/1.1
+Host: anything.com
+
+
+
+
+
+

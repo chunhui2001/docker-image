@@ -1,0 +1,21 @@
+# chunhui2001/ubuntu_20.04_dev:confluence-wiki-5.4.4
+# Version 0.0.1
+FROM chunhui2001/ubuntu_1804_dev:java13
+MAINTAINER Chunhui.Zhang "chunhui2001@gmail.com"
+
+# COPY Confluence-5.4.4-language-pack-zh_CN.jar /usr/local/soft/
+# COPY confluence_keygen.jar /usr/local/soft/
+# COPY mysql-connector-java-5.1.32-bin.jar /usr/local/soft/
+# COPY atlassian-confluence-5.4.4-x64.bin /usr/local/soft/
+# ADD confluence5.1-crack.zip /usr/local/soft/
+
+# docker build -f Dockerfile-5.4.4 . -t 'chunhui2001/ubuntu_20.04_dev:confluence-wiki-5.4.4'
+# docker run -dit --entrypoint="top" -p 8090:8090 --name confluence-wiki-5.4.4 chunhui2001/ubuntu_20.04_dev:confluence-wiki-5.4.4
+# docker run -dit -p 8080:8080 --name confluence-wiki chunhui2001/ubuntu_20.04_dev:confluence-wiki-5.4.4
+# docker push chunhui2001/ubuntu_20.04_dev:confluence-wiki-5.4.4
+# docker pull chunhui2001/ubuntu_20.04_dev:confluence-wiki-5.4.4
+
+# /opt/atlassian/confluence/bin/start-confluence.sh -fg
+
+# Open ports
+EXPOSE 8090

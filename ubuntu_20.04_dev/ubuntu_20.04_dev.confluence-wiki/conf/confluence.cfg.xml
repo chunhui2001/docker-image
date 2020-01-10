@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<confluence-configuration>
+  <setupStep>complete</setupStep>
+  <setupType>custom</setupType>
+  <buildNumber>4733</buildNumber>
+  <properties>
+    <property name="admin.ui.allow.daily.backup.custom.location">false</property>
+    <property name="admin.ui.allow.manual.backup.download">false</property>
+    <property name="admin.ui.allow.site.support.email">false</property>
+    <property name="attachments.dir">${confluenceHome}/attachments</property>
+    <property name="confluence.license.hash">pONmUPKlnSFpjrfGdQJMaRKFRoMBtxojjjhpDsQvsEkqSTmi2Ki&lt;ojyAHJSaxD7GNxkPye2KGF8TJvEpwamjJ4a1&gt;Dx0</property>
+    <property name="confluence.license.message">QpQOqwFSAXUjqOaiLmavvpbUuGGClNtOSPKxBnWtojUAguRfQGIvNCmIIDOVOUpFJrdtvGgoquRtcMqwOSPecaJhlltNFFQLjLKDRLPDuCntqvpOrvdOPgmgAPvFirFgiUaqmMCujrhGSemxPcfhojHEdUbKlLOJMSKNaHEhmmXNKMLJnMJbnaDBSteNanbFAKLFLvlEuKgTvkXOvBOthmCAKRTpJIbBkorhPDNiOUSESvlgQDKBDIFrdghsOvbuEMjdoLOoWfJQsJtWsttaKEjuIkHScvJiBJExgTTjGkoMjenDECAFuSjGTF2mK6lxhQuTo733I4nM4Tta3Zbf7jIwIsByxBJRZbx&lt;UydSqzWXFuTXqPFdpi1NDR3QW6UvzCwpqeiUqWLWg&gt;i0LxD7dfv553vUYo0zlIaZfC5TWLea1eGArSZLvJOK3GWwuEnXrXQEQhT17l024Q47fwBUkbnmIATxUQJHkuYM2lBbUY8o1iCgyxeTfKQEl9jAIi4SFeCl3ugx0FJKmA&lt;NRioNE57vko6Nv5o9gTdqQFowQg6lAERUBK0R0jPTKh5XFFtaRalaD57&lt;Q6kvaNq&gt;SgtgBwupBVBJ93</property>
+    <property name="confluence.setup.server.id">BLRB-DJF4-VC5Q-WD20</property>
+    <property name="confluence.webapp.context.path"></property>
+    <property name="hibernate.c3p0.acquire_increment">1</property>
+    <property name="hibernate.c3p0.idle_test_period">100</property>
+    <property name="hibernate.c3p0.max_size">30</property>
+    <property name="hibernate.c3p0.max_statements">0</property>
+    <property name="hibernate.c3p0.min_size">0</property>
+    <property name="hibernate.c3p0.timeout">30</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.isolation">2</property>
+    <property name="hibernate.connection.password">Cc</property>
+    <!-- jdbc:mysql://172.16.197.13:3306/confluence_wiki?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&failOverReadOnly=false -->
+    <property name="hibernate.connection.url">jdbc:mysql://172.16.197.13:3306/confluence_wiki?useUnicode=true&amp;characterEncoding=UTF-8&amp;autoReconnect=true&amp;useSSL=false&amp;failOverReadOnly=false</property>
+    <property name="hibernate.connection.username">keesh</property>
+    <property name="hibernate.database.lower_non_ascii_supported">true</property>
+    <property name="hibernate.dialect">com.atlassian.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.setup">true</property>
+    <property name="lucene.index.dir">${confluenceHome}/index</property>
+    <property name="webwork.multipart.saveDir">${confluenceHome}/temp</property>
+  </properties>
+</confluence-configuration>

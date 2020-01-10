@@ -1,0 +1,33 @@
+## 安装Docker Compose
+# curl -L https://github.com/docker/compose/releases/download/1.24.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+# chmod +x /usr/local/bin/docker-compose
+# docker-compose --version
+# docker-compose up -d
+
+version: '2.4'
+
+networks:
+    br0:
+      external: true
+
+services:
+  binance-chain_mainnet:
+    container_name: binance-chain_mainnet
+    image: chunhui2001/ubuntu_20.04_dev:binance-chain_v1.1.0
+    #entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
+    entrypoint: ["/binance-chain/entrypoint.sh"]
+    volumes:
+      - ./entrypoint.sh:/binance-chain/entrypoint.sh:rw
+      - ./mainnet_conf/config.toml:/binance-chain/config.toml:ro
+      - ./mainnet_conf/genesis.json:/binance-chain/genesis.json:ro
+    restart: always
+    ports:
+      - 8545:8545
+    networks:
+        br0:
+          ipv4_address: 172.16.197.99
+
+### 查询块高
+# curl -vX POST -H "Content-Type:application/json; charset=utf-8" -d '{"id":"13","jsonrpc":"2.0","method":"eth_blockNumber","params":[]}' "http://172.26.33.14:8545/"
+
+# curl -vX POST -H "Content-Type:application/json; charset=utf-8" -d '{"id":"14","jsonrpc":"2.0","method":"eth_chainId","params":[]}' "http://172.26.33.14:8545/"

@@ -1,0 +1,7 @@
+1. 安装mysql，且ip地址是 172.16.197.13:3306 keesh/Cc OR root/Cc
+2. 用 atlassian_jira.sql 脚本初始化 atlassian_jira 数据库
+3. 启动 chunhui2001/ubuntu_20.04_dev:atlassian-jira-8.9.0 容器
+4. 如出现 server Id, 执行 
+$ java -jar atlassian-agent.jar -d -m chunhui2001@gmail.com -n MicroEE -p jira -o microee.com -s BY9B-GWD1-1C78-K2DE
+5. 登录名和密码: keesh/Cc
+6. 创建任务和项目

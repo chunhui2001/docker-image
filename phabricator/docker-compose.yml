@@ -1,0 +1,43 @@
+
+## 安装Docker Compose
+# curl -L https://github.com/docker/compose/releases/download/1.24.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+# chmod +x /usr/local/bin/docker-compose
+# docker-compose --version
+# docker-compose up -d
+
+version: '2.4'
+networks:
+  br0:
+    external: true
+    # aliases: net1
+
+services:
+  phabricator:
+    container_name: phabricator
+    # image: chunhui2001/ubuntu_1804:php8.2
+    image: chunhui2001/ubuntu_1804:php7.4
+    hostname: phabricator
+    platform: linux/amd64
+    mem_limit: 300m
+    ports:
+      - 80:80
+    #entrypoint: ["apache2ctl", "-DFOREGROUND", "-e", "debug"]
+    #entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
+    entrypoint: ["make", "-f", "/root/Makefile", "start"]
+    volumes:
+      - ./apache2.conf:/etc/apache2/apache2.conf:ro
+      - ./000-default.conf:/etc/apache2/sites-enabled/000-default.conf:ro
+      - ./phabricator.conf:/etc/apache2/sites-available/phabricator.conf:ro
+      - ./php.ini:/etc/php/7.4/apache2/php.ini:ro
+      - ./index.php:/var/www/index.php:ro
+      - ./index.php:/var/phabricator/webroot/phpinfo.php:ro
+      - ./Makefile:/root/Makefile:ro
+      #- ./favicon.png:/var/www/favicon.ico:ro
+      - ./phabricator:/var/phabricator:rw
+      - ./arcanist:/var/arcanist:ro
+      - ./repo:/var/repo:rw
+    restart: always
+    networks:
+        br0:
+          ipv4_address: 172.16.197.175
+      

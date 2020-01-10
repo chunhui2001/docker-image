@@ -17,17 +17,28 @@ services:
     privileged: true
     image: chunhui2001/ubuntu_1804_dev:kafka_2.4.0
     hostname: kafka
-    mem_limit: 600m
+    #mem_limit: 600m
     ports: 
       - 9092:9092
+    expose:
+      - "9093"
+    environment:
+      - "KAFKA_HEAP_OPTS=-Xmx600m -Xms600m"
+    #  - "KAFKA_ADVERTISED_LISTENERS=INSIDE://kafka:9093,OUTSIDE://172.16.197.65:9092"
+    #  KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
+    #  KAFKA_LISTENERS: INSIDE://0.0.0.0:9093,OUTSIDE://0.0.0.0:9092
+    #  KAFKA_INTER_BROKER_LISTENER_NAME: INSIDE
+    #  KAFKA_ZOOKEEPER_CONNECT: zk1:2181,zk2:2181,zk3:2181/_kafkas_197_65
     entrypoint: ["/usr/local/kafka/bin/kafka-server-start.sh", "/usr/local/kafka/config/server.properties"]
     #command: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
     volumes:
       # centos7 as the host and container with selinux enabled.
       # 在 centos7 下需执行: chcon -Rt svirt_sandbox_file_t config/
-    #  - ./conf/redis-5.0.5.conf:/usr/local/redis/redis.conf:ro
+      # - ./conf/redis-5.0.5.conf:/usr/local/redis/redis.conf:ro
       - ./conf_kafka/server.properties:/usr/local/kafka/config/server.properties:ro
     restart: always
     networks:
         br0:
           ipv4_address: 172.16.197.65
+
+          

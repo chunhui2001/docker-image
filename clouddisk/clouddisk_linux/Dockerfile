@@ -1,7 +1,7 @@
 # chunhui2001/clouddisk:linux
 # Version 0.0.1
 #FROM alpine
-FROM 7036f727c94b
+FROM b25156d6be11
 MAINTAINER Chunhui.Zhang "chunhui2001@gmail.com"
 
 # curl 下载文件
@@ -41,6 +41,7 @@ MAINTAINER Chunhui.Zhang "chunhui2001@gmail.com"
 
 ### COPY eclipse-jee-neon-3-linux-gtk-x86_64.tar.gz /soft 
 ### COPY netbeans-11.2-bin.zip /soft 							# 7036f727c94b
+### COPY smartgit-linux-18_1_5.tar.gz /soft  # b25156d6be11
 
 # docker build . -t 'chunhui2001/clouddisk:linux'
 # docker run -dit --entrypoint="top" --name clouddisk_linux chunhui2001/clouddisk:linux

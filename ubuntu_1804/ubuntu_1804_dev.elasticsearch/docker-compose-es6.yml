@@ -1,0 +1,41 @@
+
+## 安装Docker Compose
+# curl -L https://github.com/docker/compose/releases/download/1.24.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+# chmod +x /usr/local/bin/docker-compose
+# docker-compose --version
+# docker-compose up -d
+
+# https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html
+### ulimit -Hn && ulimit -Sn && ulimit -Hu && ulimit -Su
+### cat /etc/*elease
+### elasticsearch -d
+version: '2.4'
+networks:
+  br0:
+    external: true
+
+services:
+  es01:
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.5.4
+    container_name: es01
+    #mem_limit: 600m
+    environment:
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    #volumes:
+    #  - esdata01:/usr/share/elasticsearch/data
+    #  - ./config/jvm.options-for-es7.3.1:/usr/share/elasticsearch/config/jvm.options:ro
+    ports:
+      - 9200:9200
+      - 9300:9300
+    #entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
+    networks:
+        br0:
+          ipv4_address: 172.16.197.77
+
+
+    

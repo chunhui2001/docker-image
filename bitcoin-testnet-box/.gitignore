@@ -1,0 +1,12 @@
+.project
+
+?/blocks
+?/regtest/*
+!?/regtest/server.pem
+!?/regtest/server.cert
+
+/regtest/?/blocks
+/regtest/*/regtest/*
+
+/testnet/?/blocks
+/testnet/*/testnet3/*

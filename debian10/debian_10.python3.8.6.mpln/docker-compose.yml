@@ -1,0 +1,35 @@
+## 安装Docker Compose
+# curl -L https://github.com/docker/compose/releases/download/1.24.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+# chmod +x /usr/local/bin/docker-compose
+# docker-compose --version
+# docker-compose up -d
+
+version: '2.4'
+
+networks:
+    br0:
+      external: true
+
+services:
+  mpln:
+    container_name: mpln
+    image: chunhui2001/debian_10:python3.8.6.mpln
+    mem_limit: 100m
+    ports:
+      - 8008:5000
+    entrypoint: ["/usr/bin/supervisord"]
+    #entrypoint: ["/usr/local/nginx/sbin/nginx", "-g", "daemon off;"]
+    #entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
+    volumes:
+      - ./supervisord.config:/etc/supervisor/conf.d/supervisord.conf:ro
+      # 在 centos7 下需执行: chcon -Rt svirt_sandbox_file_t config/
+      - ./uwsgi.ini:/root/uwsgi.ini:ro
+      - ./www:/www:rw
+      #- ./ssl:/usr/local/nginx/ssl:ro
+      - ./nginx.sample.default:/usr/local/nginx/sites-enabled/default:ro
+      #- ./nginx.sample.default.ssl:/usr/local/nginx/sites-enabled/default:ro
+      #- /my_directories:/usr/local/nginx/html/:rw
+    restart: always
+    networks:
+        br0:
+          ipv4_address: 172.16.197.61

@@ -5,53 +5,87 @@
 # docker-compose --version
 # docker-compose up -d
 
+# https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html
+### ulimit -Hn && ulimit -Sn && ulimit -Hu && ulimit -Su
+### cat /etc/*elease
+### elasticsearch -d
+
+
+#### sudo sysctl -w vm.max_map_count=262144
+#### For macOS
+# screen ~/Library/Containers/com.docker.docker/Data/vms/0/tty
+# sysctl -w vm.max_map_count=262144
+# To exit the screen session, type Ctrl a d.
+
 version: '2.4'
 networks:
-  nets:
-    external: false
-    # aliases: net1
+  br0:
+    external: true
 
 services:
   es01:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.3.1
+    #image: docker.elastic.co/elasticsearch/elasticsearch:7.6.2
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.10.0
     container_name: es01
-    mem_limit: 300m
+    mem_limit: 800m
     environment:
       - node.name=es01
       - discovery.seed_hosts=es02
       - cluster.initial_master_nodes=es01,es02
-      - cluster.name=docker-cluster
+      - cluster.name=es-docker-cluster
       - bootstrap.memory_lock=true
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - ES_JAVA_OPTS=-server -Xms128m -Xmx128m -Xmn64m
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
     volumes:
-      - esdata01:/usr/share/elasticsearch/data
+      #- ./esdata01:/usr/share/elasticsearch/data
+      # 在 centos7 下需执行: chcon -Rt svirt_sandbox_file_t config/
+      - ./config/jvm.options-for-es7.10:/usr/share/elasticsearch/config/jvm.options:ro
     ports:
       - 9200:9200
+      - 9300:9300
+    #entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
+    restart: always
     networks:
-      - esnet
+        br0:
+          ipv4_address: 172.16.197.77
   es02:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.3.1
+    #image: docker.elastic.co/elasticsearch/elasticsearch:7.6.2
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.10.0
     container_name: es02
-    mem_limit: 300m
+    mem_limit: 800m
     environment:
       - node.name=es02
       - discovery.seed_hosts=es01
       - cluster.initial_master_nodes=es01,es02
-      - cluster.name=docker-cluster
+      - cluster.name=es-docker-cluster
       - bootstrap.memory_lock=true
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      #- path.data=/data/
+      - ES_JAVA_OPTS=-server -Xms128m -Xmx128m -Xmn64m
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
     volumes:
-      - esdata02:/usr/share/elasticsearch/data
+      #- ./esdata02:/usr/share/elasticsearch/data
+      # 在 centos7 下需执行: chcon -Rt svirt_sandbox_file_t config/
+      - ./config/jvm.options-for-es7.10:/usr/share/elasticsearch/config/jvm.options:ro
+    ports:
+      - 9201:9200
+      - 9301:9300
+    #entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
+    restart: always
     networks:
-      - esnet
+        br0:
+          ipv4_address: 172.16.197.78
 
-volumes:
-  esdata01:
-    driver: local
-  esdata02:
-    driver: local
+# volumes:
+#   esdata01:
+#     driver: local
+#   esdata02:
+#     driver: local
 
-networks:
-  esnet:
 
     

@@ -1,0 +1,164 @@
+### 删除索引
+# curl -XDELETE http://127.0.0.1:9200/a_simple_template_1*
+### 查看索引
+# curl -v http://127.0.0.1:9200/a_simple_template_1/_mapping
+### 统计数量
+# curl -v http://127.0.0.1:9200/a_simple_template_1/_count
+### 统计数量
+# curl -v http://127.0.0.1:9200/a_simple_template_1/_count
+
+ mappings: {
+    "a_simple_template_1": {
+        "order": 0,
+        "aliases": {},
+        "index_patterns": [
+            "a_simple_template_*"
+        ],
+        "settings": {
+            "index": {
+                "codec": "best_compression",
+                "search": {
+                    "slowlog": {
+                        "level": "info",
+                        "threshold": {
+                            "fetch": {
+                                "warn": "1s",
+                                "trace": "200ms",
+                                "debug": "500ms",
+                                "info": "800ms"
+                            },
+                            "query": {
+                                "warn": "10s",
+                                "trace": "500ms",
+                                "debug": "2s",
+                                "info": "5s"
+                            }
+                        }
+                    }
+                },
+                "refresh_interval": "2s",
+                "indexing": {
+                    "slowlog": {
+                        "level": "info",
+                        "threshold": {
+                            "index": {
+                                "warn": "10s",
+                                "trace": "500ms",
+                                "debug": "2s",
+                                "info": "5s"
+                            }
+                        },
+                        "source": "1000"
+                    }
+                },
+                "number_of_shards": "3",
+                "number_of_replicas": "1"
+            }
+        },
+        "mappings": {
+            "properties": {
+                "chainId": {
+                    "type": "short"
+                },
+                "price": {
+                    "type": "double"
+                },
+                "id": {
+                    "type": "keyword"
+                },
+                "name": {
+                    "type": "keyword"
+                },
+                "symbol": {
+                    "type": "keyword"
+                },
+                "my_counter": {
+                    "type": "unsigned_long"
+                },
+                "@timestamp": {
+                    "type": "long"
+                }
+            }
+        }
+    }
+}
+
+#### 创建一个商品的索引模板的示例:
+(1) ES 6.0之前的版本:
+PUT _template/shop_template
+{
+    "template": "shop*",       // 可以通过"shop*"来适配
+    "order": 0,                // 模板的权重, 多个模板的时候优先匹配用, 值越大, 权重越高
+    "settings": {
+        "number_of_shards": 1  // 分片数量, 可以定义其他配置项
+    },
+    "aliases": {
+        "alias_1": {}          // 索引对应的别名
+    },
+    "mappings": {
+        "_default": {          // 默认的配置, ES 6.0开始不再支持
+            "_source": { "enabled": false },  // 是否保存字段的原始值
+            "_all": { "enabled": false },     // 禁用_all字段
+            "dynamic": "strict"               // 只用定义的字段, 关闭默认的自动类型推断
+        },
+        "type1": {             // 默认的文档类型设置为type1, ES 6.0开始只支持一种type, 所以这里不需要指出
+            "_source": {"enabled": false},
+            "properties": {        // 字段的映射
+                "@timestamp": {    // 具体的字段映射
+                    "type": "date",           
+                    "format": "yyyy-MM-dd HH:mm:ss"
+                },
+                "@version": {
+                    "doc_values": true,
+                    "index": "not_analyzed",  // 不索引
+                    "type": "string"          // string类型
+                },
+                "logLevel": {
+                    "type": "long"
+                }
+            }
+        }
+    }
+}
+
+(2) ES 6.0之后的版本:
+PUT _template/shop_template
+{
+    "index_patterns": ["shop*", "bar*"],       // 可以通过"shop*"和"bar*"来适配, template字段已过期
+    "order": 0,                // 模板的权重, 多个模板的时候优先匹配用, 值越大, 权重越高
+    "settings": {
+        "number_of_shards": 1  // 分片数量, 可以定义其他配置项
+    },
+    "aliases": {
+        "alias_1": {}          // 索引对应的别名
+    },
+    "mappings": {
+        // ES 6.0开始只支持一种type, 名称为“_doc”
+        "_doc": {
+            "_source": {            // 是否保存字段的原始值
+                "enabled": false
+            },
+            "properties": {        // 字段的映射
+                "@timestamp": {    // 具体的字段映射
+                    "type": "date",           
+                    "format": "yyyy-MM-dd HH:mm:ss"
+                },
+                "@version": {
+                    "doc_values": true,
+                    "index": "false",   // 设置为false, 不索引
+                    "type": "text"      // text类型
+                },
+                "logLevel": {
+                    "type": "long"
+                }
+            }
+        }
+    }
+}
+
+#### 查看索引模板
+GET _template                // 查看所有模板
+GET _template/temp*          // 查看与通配符相匹配的模板
+GET _template/temp1,temp2    // 查看多个模板
+GET _template/shop_template  // 查看指定模板
+

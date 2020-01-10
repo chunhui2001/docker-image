@@ -3,8 +3,11 @@
 FROM chunhui2001/ubuntu_1804_dev:zh-CN
 MAINTAINER Chunhui.Zhang "chunhui2001@gmail.com"
 
-RUN apt-get update -y && apt-get install -y apache2
-
+RUN apt-get update -y &&\
+ apt-get install -y apache2 apache2-utils git &&\
+ a2enmod env cgi alias rewrite &&\
+ apt clean autoclean && apt --purge autoremove --yes && rm -rf /var/lib/{apt,dpkg,cache,log} &&\
+ ln -s /usr/lib/git-core/git-http-backend /usr/bin/git-http-backend
 
 
 

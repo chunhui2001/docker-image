@@ -1,0 +1,24 @@
+# chunhui2001/ubuntu_20.04_dev:golang_1.23
+# Version 0.0.1
+FROM chunhui2001/ubuntu_20.04_dev:zh-CN
+MAINTAINER Chunhui.Zhang "chunhui2001@gmail.com"
+
+ENV GOLANG_VERSION=1.23.3
+
+RUN apt-get update -y && apt-get install -y autoconf automake libtool curl make g++ unzip git cmake fontconfig libxml2-dev libxslt1-dev liblzma-dev zlib1g-dev
+
+RUN curl -L "https://golang.org/dl/go${GOLANG_VERSION}.linux-amd64.tar.gz" > /usr/local/go${GOLANG_VERSION}.linux-amd64.tar.gz &&\
+tar -xvf /usr/local/go${GOLANG_VERSION}.linux-amd64.tar.gz -C /usr/local/ &&\
+mv /usr/local/go /usr/local/go${GOLANG_VERSION}.linux-amd64 &&\
+ln -s /usr/local/go${GOLANG_VERSION}.linux-amd64 /usr/local/go &&\
+rm -rf /usr/local/go${GOLANG_VERSION}.linux-amd64.tar.gz
+
+ENV PATH="$PATH:/usr/local/go/bin"
+
+# docker build -f Dockerfile-1.23 . -t 'chunhui2001/ubuntu_20.04_dev:golang_1.23'
+# docker run -dit --entrypoint="top" --name golang_1.23 chunhui2001/ubuntu_20.04_dev:golang_1.23
+# docker push chunhui2001/ubuntu_20.04_dev:golang_1.23
+# docker pull chunhui2001/ubuntu_20.04_dev:golang_1.23
+
+# Open ports
+EXPOSE 8080

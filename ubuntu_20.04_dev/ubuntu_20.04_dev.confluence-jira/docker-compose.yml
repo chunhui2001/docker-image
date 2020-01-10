@@ -1,0 +1,32 @@
+
+## 安装Docker Compose
+# curl -L https://github.com/docker/compose/releases/download/3.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+# chmod +x /usr/local/bin/docker-compose
+# docker-compose --version
+# docker-compose up -d
+
+version: '2.4'
+networks:
+    br0:
+      external: true
+
+services:
+  atlassian-jira-8.9.0:
+    container_name: atlassian-jira-8.9.0
+    image: chunhui2001/ubuntu_20.04_dev:atlassian-jira-8.9.0
+    hostname: atlassian-jira-8.9.0
+    restart: always
+    mem_limit: 2048m
+    #entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
+    entrypoint: ["/opt/atlassian/jira/bin/start-jira.sh", "-fg"]
+    # jdbc:mysql://address=(protocol=tcp)(host=172.16.197.13)(port=3306)/atlassian_jira?useUnicode=true&characterEncoding=UTF8&sessionVariables=default_storage_engine=InnoDB
+    volumes:
+      # centos7 as the host and container with selinux enabled.
+      # 在 centos7 下需执行: chcon -Rt svirt_sandbox_file_t config/
+      - ./conf/atlassian-agent-v1.2.3.jar:/opt/atlassian/jira/atlassian-agent.jar:ro
+      - ./conf/setenv.sh:/opt/atlassian/jira/bin/setenv.sh:ro
+    ports:
+      - 8190:8080
+    networks:
+      br0:
+        ipv4_address: 172.16.197.185

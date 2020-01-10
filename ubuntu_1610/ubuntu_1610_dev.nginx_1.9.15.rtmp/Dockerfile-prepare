@@ -1,0 +1,16 @@
+# chunhui2001/ubuntu_1610_dev:nginx_1.9.15.rtmp.prepare
+# Version 0.0.1
+FROM chunhui2001/ubuntu_1804_dev:zh-CN 
+MAINTAINER Chunhui.Zhang "chunhui2001@gmail.com"
+
+# install dependencies
+RUN apt-get -y update 
+RUN apt-get install -y build-essential autoconf libssl-dev curl \
+ 	libcurl4-gnutls-dev zlib1g zlib1g-dev libxml2 libxml2-dev libxslt-dev libreadline6-dev \
+ 	libpcre3 libpcre3-dev libssl-dev openssl libssl-dev libperl-dev libgd-dev libgeoip-dev \
+ 	libpam-dev libatomic-ops-dev lua5.1 liblua5.1-0 liblua5.1-0-dev
+
+### run nginx
+# docker build -f Dockerfile-prepare . -t "chunhui2001/ubuntu_1804_dev:nginx_1.9.15.rtmp.prepare"
+# $ docker pull chunhui2001/ubuntu_1610_dev:nginx_1.9.15.rtmp.prepare
+# $ docker run -dit --entrypoint="top" --name nginx_rtmp chunhui2001/ubuntu_1610_dev:nginx_1.9.15.rtmp.prepare

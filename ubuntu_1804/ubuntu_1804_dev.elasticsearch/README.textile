@@ -1,3 +1,7 @@
+
+### How to Install Elasticsearch on Mac OS X
+# https://chartio.com/resources/tutorials/how-to-install-elasticsearch-on-mac-os-x/
+
 h1. Elasticsearch
 
 h2. A Distributed RESTful Search Engine
@@ -212,3 +216,121 @@ See the "TESTING":TESTING.asciidoc file for more information about running the E
 h3. Upgrading from older Elasticsearch versions
 
 In order to ensure a smooth upgrade process from earlier versions of Elasticsearch, please see our "upgrade documentation":https://www.elastic.co/guide/en/elasticsearch/reference/current/setup-upgrade.html for more details on the upgrade process.
+
+
+# 增加用户
+curl -XPUT 'http://localhost:9200/users/employee/3'  -H 'Content-Type: application/json' -d '                                                                                                          
+{
+  "userId" :"1",
+  "name" : "Rajesh",
+   "userSettings" : {
+   "gender" : "male",
+   "occupation" : "CA",
+   "hobby" : "chess"
+   }
+}'
+
+curl -XPUT 'http://localhost:9200/users/employee/2'  -H 'Content-Type: application/json' -d '                                                                                                          
+{
+  "userId" :"2",
+  "name" : "张春辉",
+   "userSettings" : {
+   "gender" : "male",
+   "occupation" : "CA",
+   "hobby" : "chess"
+   }
+}'
+
+# 查询用户
+<pre>
+curl -XGET 'http://localhost:9200/users/employee/1?pretty=true'
+</pre>
+
+# 查看索引
+# curl -v http://localhost:9200/test/_mapping
+
+# 删除索引
+# curl -XDELETE http://localhost:9200/test*
+
+# 更新索引定义
+In later Elasticsearch versions (7.x), types were removed. Updating a mapping can becomes:
+
+curl -XPUT "http://localhost:9200/test/_mapping" -H 'Content-Type: application/json' -d'{
+  "properties": {
+    "new_geo_field": {
+      "type": "geo_point"
+    }
+  }
+}'
+
+As others have pointed out, if the field exists, you typically have to reindex. There are exceptions, such as adding a new sub-field or changing analysis settings.
+
+You can't "create a mapping", as the mapping is created with the index. Typically, you'd define the mapping when creating the index (or via index templates):
+
+curl -XPUT "http://localhost:9200/test" -H 'Content-Type: application/json' -d'{
+  "mappings": {
+    "properties": {
+      "foo_field": {
+        "type": "text"
+      }
+    }
+  }
+}'
+That's because, in production at least, you'd want to avoid letting Elasticsearch "guess" new fields. Which is what generated this question: geo data was read as an array of long values.
+
+
+
+curl -XPUT 'http://localhost:9200/my-index-000001/_doc/0x16e490'  -H 'Content-Type: application/json' -d '                                                                                                          
+{
+    "difficulty": "0x4",
+    "extraData": "0xd883010004846765746888676f312e31332e34856c696e757800000000000000ab94ffc29c1ca79bdf2c06c469c4f2a8da80caf28c5f8a2f908863b62b95c3e6542080242c0ec65936adc65b9433f47c8ac4ffc224892d35889200d8eb46561201",
+    "gasLimit": "0xba9614",
+    "gasUsed": "0xa9fc2c",
+    "hash": "0xa28089c516f2ba25ad8eb60171202f5166af7a87de091b60f35a5a5b7a9850e6",
+    "logsBloom": "0x02231014010001001804040880800020100000008c000200020000000200000000041000000040080804000000100000080200180410800000041800022c008500200002810800000200906810880220120800008806100820084000000412004400081902200a0000080408020808200001140480400c20900445540810008000900001000000000000a100080000000002b000108300080000004000008000060000220028000008100200200000000010014001a0020201d080080104000060000802000100000002000c0000c0000040000100000c1000080000020060400030000000000008000000130000120180004000440020300000008800800801",
+    "miner": "0x7d008abe2613ef08d3d63900973d77daa1101b3f",
+    "mixHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "nonce": "0x0000000000000000",
+    "number": "0x16e490",
+    "parentHash": "0xa12680b05e393797d5009a5ca56822091909d81f1ca7106e1a86bc7c50b64fde",
+    "receiptsRoot": "0xf459876afea73c8114d574acc25a97f3472c0a5b774307ce11abc638e3a08fdb",
+    "sha3Uncles": "0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347",
+    "size": "0x383d",
+    "stateRoot": "0x6a3325e4ddd437401e6c8782fb375d7d59eb6ef28857f1d08a3599218daab374",
+    "timestamp": "0x600bed64",
+    "totalDifficulty": "0x2dbfc8",
+    "transactionsRoot": "0x5627d06d5e07f1ae8c8e32be20fa16e80d58b36336c6e3c56ce717f70f9e48e5",
+    "uncles": []
+}'
+
+# 删文档
+curl -XDELETE 'http://localhost:9200/my-index-000001/_doc/1'
+
+# 删索引
+curl -XDELETE localhost:9200/.mar* 
+curl -XDELETE localhost:9200/shop
+
+### 一定时间间隔内允许编译的唯一动态脚本的数量限制
+script.max_compilations_rate（动态） 一定时间间隔内允许编译的唯一动态脚本的数量限制。默认为150/5m，表示每 5 分钟 150 个。
+
+PUT /_cluster/settings
+{
+ "persistent" : {
+   "script.max_compilations_rate" : "50mb"
+ }
+}
+
+# 查询所有索引模版(新版)
+http://localhost:9200/_index_template?pretty
+
+# 查询所有索引模版(老版)
+# curl -X GET "http://localhost:9201/_template?pretty"
+
+# 查询某一个模版
+# curl http://localhost:9200/_index_template/.kibana-reporting?pretty
+
+# 快速判断当前集群有哪些模版
+http://localhost:9211/_cat/templates?v
+
+
+

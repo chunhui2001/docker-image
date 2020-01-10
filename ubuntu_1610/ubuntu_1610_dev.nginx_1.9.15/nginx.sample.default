@@ -1,7 +1,7 @@
+
 server {
 	listen 80 default_server;
 	listen [::]:80 default_server;
-
 	# SSL configuration
 	#
 	# listen 443 ssl default_server;
@@ -31,30 +31,34 @@ server {
 		return 200 $hostname;
 	}
 
-	location ~ ^/lua(/)?$ {
-            default_type text/html;
-            content_by_lua '
-                ngx.say("<p>Build Nginx 1.91.5 by 张春辉.</p>")
-            ';
-            # content_by_lua_file {nginx_root_here}jenknis_notify/main.lua;
-        }
+	##location ~ ^/lua(/)?$ {
+    ##    default_type text/html;
+    ##    content_by_lua '
+    ##        ngx.say("<p>Build Nginx 1.91.5 by 张春辉.</p>")
+    ##    ';
+    ##    # content_by_lua_file {nginx_root_here}jenknis_notify/main.lua;
+	##}
 
-	location / {
-		
-		# 允许跨域访问
-		add_header Access-Control-Allow-Origin *;
-	    add_header Access-Control-Allow-Methods 'GET, POST, OPTIONS';
-	    add_header Access-Control-Allow-Headers 'DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization';
-
-	    if ($request_method = 'OPTIONS') {
-	        return 204;
-	    }
-
-		# First attempt to serve request as file, then
-		# as directory, then fall back to displaying a 404.
-		try_files $uri $uri/ =404;
+	location /files/ {
+    	default_type text/plain;
+	    autoindex on;
+	    autoindex_exact_size on;
+	    autoindex_format html;
+	    autoindex_localtime on;
 	}
 
+	### location / {
+	### 	# 允许跨域访问
+	### 	add_header Access-Control-Allow-Origin *;
+	###     add_header Access-Control-Allow-Methods 'GET, POST, OPTIONS';
+	###     add_header Access-Control-Allow-Headers ### 'DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization';
+	###     if ($request_method = 'OPTIONS') {
+	###         return 204;
+	###     }
+	### 	# First attempt to serve request as file, then
+	### 	# as directory, then fall back to displaying a 404.
+	### 	try_files $uri $uri/ =404;
+	### }
 
 	# pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
 	#

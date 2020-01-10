@@ -49,6 +49,6 @@ tunnels:
   ttcp:
     addr: 9188
     proto: tcp
-    remote_addr: 1.tcp.ngrok.io:12345
+    #remote_addr: 1.tcp.ngrok.io:12345
 
 

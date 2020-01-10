@@ -48,3 +48,10 @@ WORKDIR /root/
 
 # Open ports
 # EXPOSE 80
+
+# 修复
+# -bash: warning: setlocale: LC_CTYPE: cannot change locale (UTF-8): No such file or directory
+# vi /etc/environment
+# LANG=zh_CN.UTF-8
+# LANGUAGE=zh_CN:zh
+# LC_ALL=zh_CN.UTF-8

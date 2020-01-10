@@ -9,7 +9,8 @@ cn_name
 cn_run
 cn_update
 
-
+esdata01
+esdata02
 
 
 *.swp
@@ -61,3 +62,20 @@ testem.log
 Thumbs.db
 
 docker-config.yml
+
+*.tar.gz
+
+*.zip
+chain-node/binance-chain/geth_linux
+__pycache__
+package-lock.json
+dist
+blkchain1
+blkchain2
+blkchain3
+mysql_data
+mysql_data2
+
+phabricator/phabricator/webroot/*.log
+nginx-work
+osdata

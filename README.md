@@ -2,6 +2,9 @@
 ## 官方镜像中心
 https://hub.docker.com
 
+### 找出系统大文件
+## sudo du -a / 2>/dev/null | sort -n -r | head -n 20
+
 ## 可以使用下面的命令列出所有在指定 image 之后创建的 image 的父 image
 $ docker image inspect --format='{{.RepoTags}} {{.Id}} {{.Parent}}' $(docker image ls -q --filter since=xxxxxx)
 
@@ -25,6 +28,19 @@ $ docker run -d -P --net=supercard_network --name daemon_dave chunhui2001/ubuntu
 ## 将 mysql_dev 容器加入 net1
 $ docker network connect net1 mysql_dev
 
+## docker 镜像导出与导入 export and import 
+$ docker save [image id] [image id] > images.tar
+$ docker load < images.tar
+$ docker tag 0e5574283393 chunhui2001/ubuntu_1804_dev:redis_cluster
+
+### 检查 Docker 容器空间
+$ docker system df
+
+### 清楚无用镜像
+$ docker image prune -a
+
+### 删除所有未使用的容器、镜像和卷。
+$ docker system prune -a --volumes
 
 ### container name pattern, 
 ## 容器的名字必须是唯一的，当容器删除的时候会删除所有包含该名字的容器
@@ -49,7 +65,7 @@ $ docker run -d -P --name daemon "registry/image name:tag" -g "daemon off;"
 $ docker exec -it "container name or container id" /bin/bash
 
 ### docker commit
-$ sudo docker commit 614122c0aabb 
+$ sudo docker commit [614122c0aabb] chunhui2001/alpine:3.13.python-3.8.7.kline
 
 ### docker cp
 $ docker cp /www/runoob 96f7f14e99ab:/www/
@@ -72,9 +88,6 @@ $ git add README.md
 $ git commit -m "first commit"
 $ git remote add origin git@github.com:chunhui2001/docker-images.git
 $ git push -u origin master
-
-
-
 
 
 ## 将已有容器连接到 docker 网络
@@ -104,12 +117,48 @@ $ docker inspect -f '{{ .NetworkSettings.Networks.supercard_network.IPAddress }}
 # Ubuntu 16.04 安装Docker ，Pull Docker image的时候遇到docker pull TLS handshake timeout
 http://blog.csdn.net/han_cui/article/details/55190319
 
+## docker ps 格式化输出
+## https://genzouw.com/entry/2023/02/07/093453/3218/
+docker ps -a --format "table {{.ID}}\t{{.Names}}\t{{.Ports}}\t{{.Size}}\t{{.Status}}"
+docker ps -a --format "table {{.Names}}\t{{.Ports}}\t{{.Size}}\t{{.Status}}"
+docker ps -a --format "table {{.Names}}\t{{.Status}}\t{{.Command}}\t{{.Image}}\t{{.Ports}}"
+
+--format="TEMPLATE"
+Pretty-print containers using a Go template.
+Valid placeholders:
+.ID - Container ID
+.Image - Image ID
+.Command - Quoted command
+.CreatedAt - Time when the container was created.
+.RunningFor - Elapsed time since the container was started.
+.Ports - Exposed ports.
+.Status - Container status.
+.Size - Container disk size.
+.Names - Container names.
+.Labels - All labels assigned to the container.
+.Label - Value of a specific label for this container. For example {{.Label "com.docker.swarm.cpu"}}
+.Mounts - Names of the volumes mounted in this container.
 
 
+### https://nodejs.org/en/download/releases
+### nvm install
+brew uninstall --ignore-dependencies node
+brew uninstall --force node
+brew install nvm
 
+### add the following line to your shell profile
+source $(brew --prefix nvm)/nvm.sh
 
+nvm install --lts
+nvm install 12.7.0
 
+nvm use 16
+node -v
+v16.17.0
 
+nvm use 12
+node -v
+v12.7.0
 
 
 

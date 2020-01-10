@@ -20,30 +20,23 @@ RUN update-alternatives --install /usr/bin/jps jps /usr/local/java/bin/jps 300
 
 #RUN update-alternatives --config java 
 
-RUN apt-get install -y libc6-i386 lib32gcc1 lib32z1 lib32stdc++6 supervisor
-
-ENV PATH=$PATH:/usr/local/ant/bin
-ENV PATH=$PATH:/usr/local/maven/bin
-ENV JAVA_OPTS="-server -Xms128m -Xmx128m -Xmn64m"
 ENV JAVA_HOME=/usr/local/java
-
-# export JAVA_HOME=/usr/local/java
-# export M2_HOME=/usr/local/maven
-# export ANT_HOME=/usr/local/ant
-# export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
-# export PATH=$PATH:$JAVA_HOME/bin:$ANT_HOME/bin:$M2_HOME/bin
+#ENV JAVA_OPTS="-server -Xms128m -Xmx128m -Xmn64m"
+ENV M2_HOME=/usr/local/maven
+ENV ANT_HOME=/usr/local/ant
+ENV CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+ENV PATH=$PATH:$JAVA_HOME/bin:$ANT_HOME/bin:$M2_HOME/bin
 
 # reset dir
-WORKDIR /root/app
+WORKDIR /root
 
 #ENTRYPOINT ["java", "-jar", "app.jar"]
 #CMD ["java", "-jar", "app.jar"]
-# CMD ["/usr/bin/supervisord"]
 
 # docker build . -t "chunhui2001/ubuntu_1804_dev:java8"
 # docker run -dit --entrypoint="top" chunhui2001/ubuntu_1804_dev:java8 
 
 # Open ports
-EXPOSE 8081
+#EXPOSE 8081
 
 

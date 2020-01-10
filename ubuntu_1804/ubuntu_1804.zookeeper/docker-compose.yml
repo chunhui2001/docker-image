@@ -21,7 +21,7 @@ services:
        - ZOOKEEPER_HOME=/usr/local/zookeeper
        - JAVA_HOME=/usr/local/java
     ports:
-      - 2183:2181
+      - 2181:2181
     # command: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
     command: ["/etc/entrypoint.sh"]
     volumes:
@@ -63,7 +63,7 @@ services:
        - ZOOKEEPER_HOME=/usr/local/zookeeper
        - JAVA_HOME=/usr/local/java
     ports:
-      - 2283:2181
+      - 2183:2181
     # command: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
     command: ["/etc/entrypoint.sh"]
     volumes:

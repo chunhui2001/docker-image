@@ -1,0 +1,18 @@
+# chunhui2001/ubuntu_20.04_dev:confluence-wiki-7.4.0
+# Version 0.0.1
+FROM chunhui2001/ubuntu_1804_dev:java13
+MAINTAINER Chunhui.Zhang "chunhui2001@gmail.com"
+
+COPY atlassian-confluence-7.4.0-x64.bin /usr/local/soft/
+RUN chmod +x /usr/local/soft/atlassian-confluence-7.4.0-x64.bin
+
+# docker build -f Dockerfile-7.4.0 . -t 'chunhui2001/ubuntu_20.04_dev:confluence-wiki-7.4.0'
+# docker run -dit --entrypoint="top" -p 8090:8090 --name confluence-wiki-7.4.0 chunhui2001/ubuntu_20.04_dev:confluence-wiki-7.4.0
+# docker run -dit -p 8080:8080 --name confluence-wiki chunhui2001/ubuntu_20.04_dev:confluence-wiki-7.4.0
+# docker push chunhui2001/ubuntu_20.04_dev:confluence-wiki-7.4.0
+# docker pull chunhui2001/ubuntu_20.04_dev:confluence-wiki-7.4.0
+
+# /opt/atlassian/confluence/bin/start-confluence.sh -fg
+
+# Open ports
+EXPOSE 8090

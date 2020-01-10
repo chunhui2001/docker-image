@@ -3,6 +3,9 @@ $ cat /proc/version
 $ uname -a
 $ lsb_release -a
 
+## 修改 hostname
+$ hostnamectl set-hostname pluto
+
 ## 无法执行命令安装
 $ yum install -y redhat-lsb
 
