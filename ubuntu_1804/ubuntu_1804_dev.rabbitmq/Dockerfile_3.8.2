@@ -27,7 +27,7 @@ RUN /usr/sbin/rabbitmq-plugins enable rabbitmq_management
 ENTRYPOINT ["/usr/sbin/rabbitmq-server"]
 
 # docker build -f Dockerfile_3.8.2 . -t 'chunhui2001/ubuntu_1804_dev:rabbitmq_3.8.2'
-# docker run -dit --entrypoint="top" --name rabbitmq chunhui2001/ubuntu_1804_dev:rabbitmq_3.8.2
+# docker run -dit -p 15672:15672 --entrypoint="top" --name rabbitmq chunhui2001/ubuntu_1804_dev:rabbitmq_3.8.2
 # docker push chunhui2001/ubuntu_1804_dev:rabbitmq_3.8.2
 # docker pull chunhui2001/ubuntu_1804_dev:rabbitmq_3.8.2
 
