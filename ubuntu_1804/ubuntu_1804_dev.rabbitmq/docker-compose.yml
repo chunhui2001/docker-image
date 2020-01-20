@@ -14,7 +14,7 @@ networks:
 services:
   rabbitmq:
     container_name: rabbitmq
-    image: 'bitnami/rabbitmq:3.8.2-r37'
+    image: 'chunhui2001/ubuntu_1804_dev:rabbitmq_3.8.2'
     hostname: rabbitmq
     mem_limit: 600m
     ports:
@@ -22,12 +22,10 @@ services:
       - '5672:5672'
       - '25672:25672'
       - '15672:15672'
-    volumes:
-      - 'rabbitmq_data:/bitnami'
+    #volumes:
+    #  - 'rabbitmq_data:/bitnami'
     restart: always
     networks:
         br0:
           ipv4_address: 172.16.197.70
-volumes:
-  rabbitmq_data:
-    driver: local
+
