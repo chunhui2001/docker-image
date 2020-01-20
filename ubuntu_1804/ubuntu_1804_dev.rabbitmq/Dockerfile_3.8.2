@@ -3,14 +3,28 @@
 FROM chunhui2001/ubuntu_1804_dev:zh-CN
 MAINTAINER Chunhui.Zhang "chunhui2001@gmail.com"
 
-#RUN echo 'deb http://www.rabbitmq.com/debian/ testing main' | tee /etc/apt/sources.list.d/rabbitmq.list
-#RUN wget -O- https://www.rabbitmq.com/rabbitmq-release-signing-key.asc | apt-key add -
-RUN apt update -y && apt -y install rabbitmq-server
+
+RUN wget https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb
+RUN wget -O- https://dl.bintray.com/rabbitmq/Keys/rabbitmq-release-signing-key.asc | apt-key add -
+RUN echo "deb https://dl.bintray.com/rabbitmq/debian $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/rabbitmq.list
+RUN dpkg -i erlang-solutions_1.0_all.deb
+RUN apt-get update -y && apt-get -y install esl-erlang && apt-get -y install rabbitmq-server
+RUN /usr/sbin/rabbitmq-plugins enable rabbitmq_management
+
+# $ rabbitmqctl add_user admin admin
+# $ rabbitmqctl set_user_tags admin administrator
+# $ rabbitmqctl set_permissions -p / admin ".*" ".*" ".*"
+
+# PORTS
+# 15672 		For Management
+# 5672
+# 4369
+# 25672
 
 # 前台启动：rabbitmq-server
 # 后台启动：rabbitmq-server -detached
 
-#ENTRYPOINT ["/usr/local/kafka/bin/kafka-server-start.sh", "/usr/local/kafka/config/server.properties"]
+ENTRYPOINT ["/usr/sbin/rabbitmq-server"]
 
 # docker build -f Dockerfile_3.8.2 . -t 'chunhui2001/ubuntu_1804_dev:rabbitmq_3.8.2'
 # docker run -dit --entrypoint="top" --name rabbitmq chunhui2001/ubuntu_1804_dev:rabbitmq_3.8.2
