@@ -15,12 +15,10 @@ RUN update-alternatives --install /usr/bin/jar jar /usr/local/java/bin/jar 300
 RUN update-alternatives --install /usr/bin/jps jps /usr/local/java/bin/jps 300
 #RUN update-alternatives --config java 
 
-RUN apt-get install -y libc6-i386 lib32gcc1 lib32z1 lib32stdc++6 supervisor
-
 # docker build . -t "chunhui2001/ubuntu_1804_dev:java12"
 # docker run -it chunhui2001/ubuntu_1804_dev:java12 
 
 # Open ports
-EXPOSE 8081
+# EXPOSE 8081
 
 
