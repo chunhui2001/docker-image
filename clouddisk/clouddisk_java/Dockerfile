@@ -30,6 +30,7 @@ WORKDIR /
 ### COPY apr-util-1.6.1.tar.gz / 				>>>>>>> 31881ea9e8e8
 ### COPY kafka_2.11-2.4.0.tgz / 				XXX
 ### COPY jdk-10.0.2_linux-x64_bin.tar.gz /		>>>>>>> b6720bf4c863
+COPY libtool-2.4.6.tar.gz /
 
 # docker build . -t 'chunhui2001/clouddisk:java'
 # docker run -dit --entrypoint="top" --name clouddisk_java chunhui2001/clouddisk:java

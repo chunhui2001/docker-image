@@ -11,11 +11,11 @@ ADD jdk-13.0.2_linux-x64_bin.tar.gz /usr/local/
 ADD apache-ant-1.10.5-bin.tar.gz /usr/local/
 ADD apache-maven-3.6.1-bin.tar.gz /usr/local/
 
-RUN ln -s /usr/local/jdk-12.0.2 /usr/local/java
+RUN ln -s /usr/local/jdk-13.0.2 /usr/local/java
 RUN ln -s /usr/local/apache-ant-1.10.5 /usr/local/ant
 RUN ln -s /usr/local/apache-maven-3.6.1 /usr/local/maven
 
-# execute update-alternatives to use java 12
+# execute update-alternatives to use java 13
 RUN update-alternatives --install /usr/bin/java java /usr/local/java/bin/java 300
 RUN update-alternatives --install /usr/bin/javac javac /usr/local/java/bin/javac 300
 RUN update-alternatives --install /usr/bin/jar jar /usr/local/java/bin/jar 300
