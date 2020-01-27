@@ -86,7 +86,7 @@ ENTRYPOINT ["/usr/local/tomcat/bin/catalina.sh", "run"]
 
 # docker build . -t 'chunhui2001/ubuntu_1804_dev:tomcat9'
 # docker run -dit --entrypoint="top" -P --name tomcat9 chunhui2001/ubuntu_1804_dev:tomcat9
-# docker run -dit -p 80:8080 --name tomcat9 chunhui2001/ubuntu_1804_dev:tomcat9
+# docker run -dit -p 8080:8080 --name tomcat9 chunhui2001/ubuntu_1804_dev:tomcat9
 # docker push chunhui2001/ubuntu_1804_dev:tomcat9
 # docker pull chunhui2001/ubuntu_1804_dev:tomcat9
 

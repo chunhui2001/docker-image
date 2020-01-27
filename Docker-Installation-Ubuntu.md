@@ -102,7 +102,7 @@ $ sudo curl -sSL https://get.daocloud.io/daotools/set_mirror.sh | sh -s http://4
 $ sudo service docker restart
 
 
-## docker 镜像导出与导入
+## docker 镜像导出与导入 export and import 
 $ docker save [image id] [image id] > images.tar
 $ docker load < images.tar
 
