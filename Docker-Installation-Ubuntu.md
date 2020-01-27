@@ -105,7 +105,7 @@ $ sudo service docker restart
 ## docker 镜像导出与导入 export and import 
 $ docker save [image id] [image id] > images.tar
 $ docker load < images.tar
-
+$ docker tag 0e5574283393 chunhui2001/ubuntu_1804_dev:redis_cluster
 
 ## How to auto-restart Docker containers after a host server crash
 https://bobcares.com/blog/auto-restart-docker-containers/2/
