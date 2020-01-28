@@ -12,15 +12,15 @@ networks:
     # aliases: net1
 
 services:
-  rabbitmq:
-    container_name: rabbitmq
+  rabbit.mq1:
+    container_name: rabbit.mq1
     image: 'chunhui2001/ubuntu_1804_dev:rabbitmq_3.8.2'
-    hostname: rabbitmq
+    hostname: rabbit.mq1
     mem_limit: 600m
     ports:
-      - '4369:4369'
+    #  - '4369:4369'
       - '5672:5672'
-      - '25672:25672'
+    #  - '25672:25672'
       - '15672:15672'
     #entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
     entrypoint: ["/usr/sbin/rabbitmq-server"]
