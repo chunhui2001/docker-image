@@ -58,7 +58,6 @@ WORKDIR /usr/local/tomcat-native-src/native
 RUN ./configure --with-apr=/usr/local/apr && make && make install 
 
 # set environments
-ENV JAVA_HOME=/usr/local/java
 ENV CATALINA_BASE=/usr/local/tomcat
 ENV CATALINA_HOME=/usr/local/tomcat
 ENV JAVA_OPTS="-Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom"
@@ -85,7 +84,7 @@ ENTRYPOINT ["/usr/local/tomcat/bin/catalina.sh", "run"]
 # java -Djava.library.path=/usr/local/apr/lib -jar /root/app/app.jar
 
 # docker build . -t 'chunhui2001/ubuntu_1804_dev:tomcat9For13'
-# docker run -dit --entrypoint="top" -P --name tomcat9 chunhui2001/ubuntu_1804_dev:tomcat9For13
+# docker run -dit --entrypoint="top" -P --name tomcat9For13 chunhui2001/ubuntu_1804_dev:tomcat9For13
 # docker run -dit -p 8080:8080 --name tomcat9For13 chunhui2001/ubuntu_1804_dev:tomcat9For13
 # docker push chunhui2001/ubuntu_1804_dev:tomcat9For13
 # docker pull chunhui2001/ubuntu_1804_dev:tomcat9For13

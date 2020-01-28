@@ -25,7 +25,6 @@ ENV ANT_HOME=/usr/local/ant
 ENV CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 ENV PATH=$PATH:$JAVA_HOME/bin:$ANT_HOME/bin:$M2_HOME/bin
 
-
 # docker build . -t "chunhui2001/ubuntu_1804_dev:java12"
 # docker run -dit --entrypoint="top" -P --name java12 chunhui2001/ubuntu_1804_dev:java12
 

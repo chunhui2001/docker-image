@@ -50,7 +50,6 @@ WORKDIR /usr/local/tomcat-native-src/native
 RUN ./configure --with-apr=/usr/local/apr && make && make install 
 
 # set environments
-ENV JAVA_HOME=/usr/local/java
 ENV CATALINA_BASE=/usr/local/tomcat
 ENV CATALINA_HOME=/usr/local/tomcat
 ENV JAVA_OPTS="-Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom"
@@ -69,16 +68,9 @@ VOLUME ["/usr/local/tomcat/webapps/ROOT", "/usr/local/tomcat/logs"]
 RUN cp /usr/local/tomcat/conf/server.xml /usr/local/tomcat/conf/server.xml.backup
 COPY ./conf/server.xml /usr/local/tomcat/conf/server.xml
 
-## install supervisor
-RUN apt-get install -y libc6-i386 lib32gcc1 lib32z1 lib32stdc++6 supervisor
-
 # start tomcat
 #ENTRYPOINT ["/usr/local/tomcat/bin/startup.sh"]
 ENTRYPOINT ["/usr/local/tomcat/bin/catalina.sh", "run"]
-
-# ngrok client
-ADD ./ngrok.tar /usr/local/
-COPY ./conf/ngrok_client.conf /usr/local/ngrok
 
 # docker build . -t 'chunhui2001/ubuntu_1804_dev:tomcat8'
 # docker run -dit --entrypoint="top" -P --name tomcat8 chunhui2001/ubuntu_1804_dev:tomcat8

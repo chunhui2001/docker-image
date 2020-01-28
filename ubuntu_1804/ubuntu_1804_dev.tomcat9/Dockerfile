@@ -58,7 +58,6 @@ WORKDIR /usr/local/tomcat-native-src/native
 RUN ./configure --with-apr=/usr/local/apr && make && make install 
 
 # set environments
-ENV JAVA_HOME=/usr/local/java
 ENV CATALINA_BASE=/usr/local/tomcat
 ENV CATALINA_HOME=/usr/local/tomcat
 ENV JAVA_OPTS="-Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom"
