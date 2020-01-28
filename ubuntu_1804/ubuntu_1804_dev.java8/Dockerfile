@@ -37,6 +37,6 @@ WORKDIR /root
 # docker run -dit --entrypoint="top" chunhui2001/ubuntu_1804_dev:java8 
 
 # Open ports
-EXPOSE 8081
+#EXPOSE 8081
 
 
