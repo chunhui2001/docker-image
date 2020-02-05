@@ -25,6 +25,11 @@ $ docker run -d -P --net=supercard_network --name daemon_dave chunhui2001/ubuntu
 ## 将 mysql_dev 容器加入 net1
 $ docker network connect net1 mysql_dev
 
+## docker 镜像导出与导入 export and import 
+$ docker save [image id] [image id] > images.tar
+$ docker load < images.tar
+$ docker tag 0e5574283393 chunhui2001/ubuntu_1804_dev:redis_cluster
+
 
 ### container name pattern, 
 ## 容器的名字必须是唯一的，当容器删除的时候会删除所有包含该名字的容器
