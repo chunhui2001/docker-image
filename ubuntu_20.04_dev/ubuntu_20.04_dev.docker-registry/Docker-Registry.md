@@ -3,7 +3,7 @@
 $ docker pull registry
 
 #### 运行私服容器
-$ docker run -d -p 5000:5000 --privileged=true --name myregistry --restart=always registry
+$ docker run -d -p 5000:5000 --privileged=true -e REGISTRY_STORAGE_DELETE_ENABLED=true --name myregistry --restart=always registry
 #### 浏览器端访问
 http://ip:5000/v2/
 $ curl http://ip:5000/v2/
@@ -24,15 +24,15 @@ $ vi /etc/docker/daemon.json
 docker info 
 
 ### 镜像推送&拉取
-$ docker push chunhui2001/ubuntu_20.04_dev:confluence-jira
+$ docker push ubuntu_20.04_dev:confluence-jira
 ```
 由于 docker 默认镜像仓库是 dockerhub，所以此命令会默认推送到 docker.io/，
 因此，想要将镜像推送到私服仓库中，需要修改镜像标签。将私服地址作为镜像 tag 的一部分
 ```
 ### 修改镜像标签后再次执行命令
-# docker tag chunhui2001/ubuntu_20.04_dev:confluence-jira 172.28.128.3:5000/chunhui2001/ubuntu_20.04_dev:confluence-jira
-# docker push 172.28.128.3:5000/chunhui2001/ubuntu_20.04_dev:confluence-jira
-# docker pull 172.28.128.3:5000/chunhui2001/ubuntu_20.04_dev:confluence-jira
+# docker tag ubuntu_20.04_dev:confluence-jira 172.28.128.3:5000/ubuntu_20.04_dev:confluence-jira
+# docker push 172.28.128.3:5000/ubuntu_20.04_dev:confluence-jira
+# docker pull 172.28.128.3:5000/ubuntu_20.04_dev:confluence-jira
 
 $ curl http://172.28.128.3:5000/v2/_catalog　　# 查看仓库中全部镜像
 $ curl http://172.28.128.3:5000/v2/{{镜像名}}/tags/list  # 查看镜像版本号
@@ -41,11 +41,21 @@ $ curl http://172.28.128.3:5000/v2/{{镜像名}}/tags/list  # 查看镜像版本
 #### curl http://172.28.128.3:5000/v2/_catalog
 ### 列出镜像的所有 tag
 #### curl http://172.28.128.3:5000/v2/chunhui2001/ubuntu_20.04_dev/tags/list
-#### 获取镜像的 Digest
-#### curl http://172.28.128.3:5000/v2/chunhui2001/ubuntu_20.04_dev/manifests/confluence-jira
-#### curl http://172.28.128.3:5000/v2/{{          镜像名         }}/manifests/{{  镜像名tag  }}
 
-### 删除私服上的镜像 (登录到私服容器所在的宿主服务器)
+### 删除1: 通过 Digest Etag 删除私服上的镜像 (此方式删的不干净, 推荐下面的方法2)
+#### 获取镜像的 Digest
+#### curl --header "Accept: application/vnd.docker.distribution.manifest.v2+json" -I http://ip:port/v2/{{imagename}}/manifests/{{imagetag}}
+>>> HTTP/1.1 200 OK
+>>> Content-Length: 2619
+>>> Content-Type: application/vnd.docker.distribution.manifest.v2+json
+>>> Docker-Content-Digest: sha256:b8d116ba453b2dff37605fa112b0a5b02b880e78eb0adda941e22d0b75890e98
+>>> Docker-Distribution-Api-Version: registry/2.0
+>>> Etag: "sha256:b8d116ba453b2dff37605fa112b0a5b02b880e78eb0adda941e22d0b75890e98"       # 删除镜像时会用到该 Etag
+>>> X-Content-Type-Options: nosniff
+>>> Date: Wed, 05 Feb 2020 13:25:34 GMT
+#### curl -X DELETE http://172.28.128.3:5000/v2/chunhui2001/ubuntu_20.04_dev/manifests/{{Digest_Etag_here}}
+
+### 删除2: 通过私服容器删除私服上的镜像 (登录到私服容器所在的宿主服务器)
 #### 删除镜像 image
 #### docker exec {{私服容器名字}} rm -rf /var/lib/registry/docker/registry/v2/repositories/{{将要删除的镜像名字}}
 #### 清除残留的 blob
