@@ -3,9 +3,13 @@
 FROM chunhui2001/ubuntu_20.04_dev:zh-CN
 MAINTAINER Chunhui.Zhang "chunhui2001@gmail.com"
 
+COPY ./confluence_keygen.jar /root/
+COPY ./Confluence-5.4.4-language-pack-zh_CN.jar /root/
+COPY ./confluence5.1-crack.zip /root/
+COPY ./mysql-connector-java-5.1.32-bin.jar /root/
 COPY ./atlassian-confluence-5.4.4-x64.bin /root/
 RUN chmod +x /root/atlassian-confluence-5.4.4-x64.bin
-RUN /root/atlassian-confluence-5.4.4-x64.bin
+#RUN /root/atlassian-confluence-5.4.4-x64.bin
 # 此时，安装已完成，不应该出现任何错误
 
 ### 破解 confluence
@@ -51,9 +55,8 @@ RUN /root/atlassian-confluence-5.4.4-x64.bin
 # 设置base url，job，创建空间，空间权限，用户等
 
 
-
 # docker build -f Dockerfile-5.4.4 . -t 'chunhui2001/ubuntu_20.04_dev:confluence-wiki'
-# docker run -dit --entrypoint="top" -P --name ubuntu20.04-confluence-wiki chunhui2001/ubuntu_20.04_dev:confluence-wiki
+# docker run -dit --entrypoint="top" -p 8090:8090 --name ubuntu20.04-confluence-wiki chunhui2001/ubuntu_20.04_dev:confluence-wiki
 # docker run -dit -p 8080:8080 --name ubuntu20.04-confluence-wiki chunhui2001/ubuntu_20.04_dev:confluence-wiki
 # docker push chunhui2001/ubuntu_20.04_dev:confluence-wiki
 # docker pull chunhui2001/ubuntu_20.04_dev:confluence-wiki
