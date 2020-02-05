@@ -38,5 +38,12 @@ RUN apt-get update -y && apt-get install -y --no-install-recommends apt-utils in
 
 WORKDIR /var/lib/mysql_data
 
+
+
+# 推送到私服
+# docker tag chunhui2001/debian_8_dev:mysql_5.7 172.28.128.3:5000/chunhui2001/debian_8_dev:mysql_5.7
+# docker push 172.28.128.3:5000/chunhui2001/debian_8_dev:mysql_5.7
+# docker pull 172.28.128.3:5000/chunhui2001/debian_8_dev:mysql_5.7
+
 # Open ports
 EXPOSE 3306

@@ -242,4 +242,8 @@ networks:
 # rabbit mq
 172.16.197.70
 
+# docker registry
+172.16.197.76
+
+
 

@@ -24,8 +24,18 @@ $ vi /etc/docker/daemon.json
 docker info 
 
 ### 镜像推送&拉取
-$ curl 192.168.75.191:5000/v2/_catalog　　# 查看仓库中全部镜像
-$ curl 192.168.75.191:5000/v2/tomcat/tags/list  # 查看镜像版本号
+$ docker push localhost:5000/java:my
+```
+发现报错了
+由于docker默认镜像仓库是dockerhub，所以java:my相当于docker.io/java:my，
+因此，想要将镜像推送到私服仓库中，需要修改镜像标签。
+```
+### 修改镜像标签后再次执行命令
+$ docker tag java:my 172.28.128.3:5000/java:my
+$ docker push 172.28.128.3:5000/java:my
+
+$ curl http://172.28.128.3:5000/v2/_catalog　　# 查看仓库中全部镜像
+$ curl http://172.28.128.3:5000/v2/tomcat/tags/list  # 查看镜像版本号
 
 
 ### 部署 Docker Registry WebUI
