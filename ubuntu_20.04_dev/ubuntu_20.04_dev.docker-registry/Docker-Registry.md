@@ -3,12 +3,12 @@
 $ docker pull registry
 
 #### 运行私服容器
-$ docker run -d -p 5000:5000  --name myregistry --restart=always registry
+$ docker run -d -p 5000:5000 --privileged=true --name myregistry --restart=always registry
 #### 浏览器端访问
 http://ip:5000/v2/
 $ curl http://ip:5000/v2/
 
-### docker 客户端添加私服仓库地址 (如搭建docker集群需要给每台docker环境进行如下操作)
+### docker 客户端添加私服仓库地址 (如搭建docker集群需要给每台docker环境进行如下操作) (可选)
 #### 更新私服仓库地址
 $ vi /etc/docker/daemon.json
 {
@@ -24,18 +24,32 @@ $ vi /etc/docker/daemon.json
 docker info 
 
 ### 镜像推送&拉取
-$ docker push localhost:5000/java:my
+$ docker push chunhui2001/ubuntu_20.04_dev:confluence-jira
 ```
-发现报错了
-由于docker默认镜像仓库是dockerhub，所以java:my相当于docker.io/java:my，
-因此，想要将镜像推送到私服仓库中，需要修改镜像标签。
+由于 docker 默认镜像仓库是 dockerhub，所以此命令会默认推送到 docker.io/，
+因此，想要将镜像推送到私服仓库中，需要修改镜像标签。将私服地址作为镜像 tag 的一部分
 ```
 ### 修改镜像标签后再次执行命令
-$ docker tag java:my 172.28.128.3:5000/java:my
-$ docker push 172.28.128.3:5000/java:my
+# docker tag chunhui2001/ubuntu_20.04_dev:confluence-jira 172.28.128.3:5000/chunhui2001/ubuntu_20.04_dev:confluence-jira
+# docker push 172.28.128.3:5000/chunhui2001/ubuntu_20.04_dev:confluence-jira
+# docker pull 172.28.128.3:5000/chunhui2001/ubuntu_20.04_dev:confluence-jira
 
 $ curl http://172.28.128.3:5000/v2/_catalog　　# 查看仓库中全部镜像
-$ curl http://172.28.128.3:5000/v2/tomcat/tags/list  # 查看镜像版本号
+$ curl http://172.28.128.3:5000/v2/{{镜像名}}/tags/list  # 查看镜像版本号
+
+### 列出私服上的所有镜像
+#### curl http://172.28.128.3:5000/v2/_catalog
+### 列出镜像的所有 tag
+#### curl http://172.28.128.3:5000/v2/chunhui2001/ubuntu_20.04_dev/tags/list
+#### 获取镜像的 Digest
+#### curl http://172.28.128.3:5000/v2/chunhui2001/ubuntu_20.04_dev/manifests/confluence-jira
+#### curl http://172.28.128.3:5000/v2/{{          镜像名         }}/manifests/{{  镜像名tag  }}
+
+### 删除私服上的镜像 (登录到私服容器所在的宿主服务器)
+#### 删除镜像 image
+#### docker exec {{私服容器名字}} rm -rf /var/lib/registry/docker/registry/v2/repositories/{{将要删除的镜像名字}}
+#### 清除残留的 blob
+#### docker exec {{私服容器名字}} bin/registry garbage-collect /etc/docker/registry/config.yml
 
 
 ### 部署 Docker Registry WebUI
@@ -52,12 +66,12 @@ services:
   frontend:
     image: konradkleine/docker-registry-frontend:v2
     ports:
-      - 8080:80
+      - 5001:80
     volumes:
       - ./certs/frontend.crt:/etc/apache2/server.crt:ro
       - ./certs/frontend.key:/etc/apache2/server.key:ro
     environment:
-      - ENV_DOCKER_REGISTRY_HOST=192.168.75.133
+      - ENV_DOCKER_REGISTRY_HOST=172.16.197.76
       - ENV_DOCKER_REGISTRY_PORT=5000
 
 
