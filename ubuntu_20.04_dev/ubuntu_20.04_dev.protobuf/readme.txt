@@ -31,8 +31,8 @@ package protobuf;
 >>>> option java_package = "com.sq.protobuf";
 >>>> option java_outer_classname = "FirstProtobuf";
 >>>> message testBuf  {
->>>>   required int32 ID = 1;
->>>>   required string Url = 2;
+>>>>   required int32 ID 		= 1;
+>>>>   required string Url 		= 2;
 >>>> }
 
 ### 序列化 For Java:
