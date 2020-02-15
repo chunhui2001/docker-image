@@ -109,6 +109,25 @@ $ docker inspect -f '{{ .NetworkSettings.Networks.supercard_network.IPAddress }}
 # Ubuntu 16.04 安装Docker ，Pull Docker image的时候遇到docker pull TLS handshake timeout
 http://blog.csdn.net/han_cui/article/details/55190319
 
+## docker ps 格式化输出
+docker ps -a --format "table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Status}}"
+
+--format="TEMPLATE"
+Pretty-print containers using a Go template.
+Valid placeholders:
+.ID - Container ID
+.Image - Image ID
+.Command - Quoted command
+.CreatedAt - Time when the container was created.
+.RunningFor - Elapsed time since the container was started.
+.Ports - Exposed ports.
+.Status - Container status.
+.Size - Container disk size.
+.Names - Container names.
+.Labels - All labels assigned to the container.
+.Label - Value of a specific label for this container. For example {{.Label "com.docker.swarm.cpu"}}
+.Mounts - Names of the volumes mounted in this container.
+
 
 
 
