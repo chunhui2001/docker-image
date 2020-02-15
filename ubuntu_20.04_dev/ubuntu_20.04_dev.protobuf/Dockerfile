@@ -4,7 +4,7 @@ FROM chunhui2001/ubuntu_20.04_dev:zh-CN
 MAINTAINER Chunhui.Zhang "chunhui2001@gmail.com"
 
 RUN apt-get update -y && apt-get install -y autoconf automake libtool curl make g++ unzip
-RUN copy protobuf-master.zip /root/
+COPY protobuf-master.zip /root/
 RUN unzip /root/protobuf-master.zip -d /root/
 WORKDIR /root/protobuf-master
 RUN ./autogen.sh && ./configure && make && make install && ldconfig
