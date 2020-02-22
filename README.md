@@ -110,7 +110,8 @@ $ docker inspect -f '{{ .NetworkSettings.Networks.supercard_network.IPAddress }}
 http://blog.csdn.net/han_cui/article/details/55190319
 
 ## docker ps 格式化输出
-docker ps -a --format "table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Status}}"
+docker ps -a --format "table {{.ID}}\t{{.Names}}\t{{.Ports}}\t{{.Size}}\t{{.Status}}"
+docker ps -a --format "table {{.Names}}\t{{.Ports}}\t{{.Size}}\t{{.Status}}"
 
 --format="TEMPLATE"
 Pretty-print containers using a Go template.
