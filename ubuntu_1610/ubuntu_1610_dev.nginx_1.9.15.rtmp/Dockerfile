@@ -4,7 +4,9 @@ FROM chunhui2001/ubuntu_1804_dev:nginx_1.9.15.rtmp.prepare
 MAINTAINER Chunhui.Zhang "chunhui2001@gmail.com"
 
 # copy nginx_work folder
-ADD nginx-work.tar /root/
+COPY nginx-work.tar /root/
+WORKDIR /root
+RUN tar -xf nginx-work.tar
 
 # extract files
 WORKDIR /root/nginx-work
@@ -27,6 +29,7 @@ RUN sed -i "s#nginx-0.6.35#nginx-1.9.15#g" modules/nginx-ey-balancer/Makefile
 RUN patch -p0 < modules/nginx-ey-balancer/patches/nginx-1.9.15.patch
 RUN export LUAJIT_LIB=/usr/local/lib && export LUAJIT_INC=/usr/local/include/luajit-2.0
 RUN ../configure.sh 
+COPY ./Makefile /root/nginx-work/nginx-1.9.15/objs/
 RUN make
 RUN make install
 
@@ -53,12 +56,8 @@ RUN sed -i "s#%%DATE%%#`date -d today +"%Y-%m-%d %H:%M:%S.%s"`#g" /usr/local/ngi
 # run nginx with daemon off 
 ENTRYPOINT ["/usr/local/nginx/sbin/nginx", "-g", "daemon off;"]
 
-# remove /root/nginx-work
 WORKDIR /root
 RUN rm -rf /root/nginx-work
-
-# CMD ["-g", "daemon off;"]
-
 
 
 ### run nginx
