@@ -27,13 +27,15 @@ $ protoc -I=$SRC_DIR --cpp_out=$DST_DIR $SRC_DIR/xxx.proto
 
 ### 创建 .proto 文件，定义数据结构, 示例2: for java
 #### 编译后可以找到的一个生成的 FirstProtobuf.java 文件
-package protobuf;
+>>>> syntax = "proto2";
+>>>> package protobuf;
 >>>> option java_package = "com.sq.protobuf";
 >>>> option java_outer_classname = "FirstProtobuf";
->>>> message testBuf  {
->>>>   required int32 ID 		= 1;
->>>>   required string Url 		= 2;
+>>>> message testBuf {
+>>>>     required int32 ID           = 1;
+>>>>     required string Url         = 2;
 >>>> }
+$ protoc --java_out=./ first-protobuf.proto
 
 ### 序列化 For Java:
 FirstProtobuf.testBuf.Builder builder=FirstProtobuf.testBuf.newBuilder();
@@ -45,6 +47,17 @@ FirstProtobuf.testBuf.Builder builder=FirstProtobuf.testBuf.newBuilder();
 ### 反序列化 For Java:
 >>> FirstProtobuf.testBuf testBuf = FirstProtobuf.testBuf.parseFrom(result);
 >>> System.out.println(testBuf.getUrl());
+
+### 
+>>>> syntax = "proto2";
+>>>> package protobuf;
+>>>> option java_package = "com.sq.protobuf";
+>>>> option java_outer_classname = "PersonEntity";//生成的数据访问类的类名  
+>>>> message Person {  
+>>>>   required int32 id = 1;//同上  
+>>>>   required string name = 2;//必须字段，在后面的使用中必须为该段设置值  
+>>>>   optional string email = 3;//可选字段，在后面的使用中可以自由决定是否为该字段设置值
+>>>> }
 
 
 ### 创建 .proto 文件，定义数据结构, 示例3: for C

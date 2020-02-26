@@ -12,6 +12,9 @@ RUN ./autogen.sh && ./configure && make && make install && ldconfig
 ### 查看版本
 # protoc --version
 
+### Protocol Buffers v2.5.0
+
+
 # docker build -f Dockerfile . -t 'chunhui2001/ubuntu_20.04_dev:protobuf'
 # docker run -dit --entrypoint="top" --name ubuntu20.04-protobuf chunhui2001/ubuntu_20.04_dev:protobuf
 # docker push chunhui2001/ubuntu_20.04_dev:protobuf
