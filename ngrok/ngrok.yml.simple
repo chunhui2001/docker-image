@@ -28,6 +28,27 @@ tunnels:
     inspect: false
     proto: http
   #  subdomain: myapp
+  nginx:
+    addr: 8080
+    #auth: keesh:Cc
+    bind_tls: true
+    host_header: "myapp.dev"
+    inspect: false
+    proto: http
+  nginx1:
+    addr: 8081
+    #auth: keesh:Cc
+    bind_tls: true
+    host_header: "myapp.dev"
+    inspect: false
+    proto: http
+  nginx2:
+    addr: 8082
+    #auth: keesh:Cc
+    bind_tls: true
+    host_header: "myapp.dev"
+    inspect: false
+    proto: http
 
   # e2etls:
   #   addr: 9000
@@ -43,3 +64,9 @@ tunnels:
   redis:
     addr: 6380
     proto: tcp
+
+
+# ./ngrok -config=client.conf start-all
+# ./ngrok -config=client.conf start http ssh
+
+# ngrok start -config /Users/zhangchunhui/workspace/docker-image/ngrok/ngrok.yml.simple  mylab2013
