@@ -5,8 +5,17 @@ wget https://codeload.github.com/arut/nginx-rtmp-module/zip/master
 ./configure --add-module=/usr/local/nginx/nginx-rtmp-module-master
 make&make install
 
-# ./nginx -t
+## 查看nginx配置文件路径
+$ ./nginx -t
 
+## 重新加载配置文件
+$ nginx -s reload
+
+## 查看版本
+$ nginx -v
+
+## 查看编译选项
+$ nginx -V
 
 配置及启动服务支持hls
 

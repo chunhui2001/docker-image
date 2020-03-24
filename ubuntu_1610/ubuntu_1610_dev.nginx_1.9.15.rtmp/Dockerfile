@@ -63,9 +63,7 @@ RUN rm -rf /root/nginx-work
 ### run nginx
 # docker build . -t "chunhui2001/ubuntu_1610_dev:nginx_1.9.15.rtmp"
 # $ docker pull chunhui2001/ubuntu_1610_dev:nginx_1.9.15.rtmp
-# $ docker run -d -p 8081:80 \
-#     --name nginx_react chunhui2001/ubuntu_1610_dev:nginx_1.9.15.rtmp
-# $ docker run -dit --entrypoint="top" --name nginx_rtmp chunhui2001/ubuntu_1610_dev:nginx_1.9.15.rtmp
+# $ docker run -dit -p 80:80 --name nginx_rtmp chunhui2001/ubuntu_1610_dev:nginx_1.9.15.rtmp
 # $ docker run --rm --name webserver -p 80:80 -v /var/www:/usr/share/nginx/html:ro -d nginx
 
 # open port
