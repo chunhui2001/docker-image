@@ -39,6 +39,6 @@ ENTRYPOINT ["/usr/local/kafka/bin/kafka-server-start.sh", "/usr/local/kafka/conf
 # docker pull chunhui2001/ubuntu_1804_dev:kafka_2.4.0
 
 # Open ports
-EXPOSE 8081
+EXPOSE 9093
 
 
