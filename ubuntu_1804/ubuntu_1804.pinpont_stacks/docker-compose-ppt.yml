@@ -41,7 +41,7 @@ services:
     container_name: pinpoint.web
     image: chunhui2001/ubuntu_1804_dev:tomcat8
     hostname: pinpoint.web
-    mem_limit: 300m
+    mem_limit: 800m
     depends_on:
       - pinpoint.collector
     environment:
