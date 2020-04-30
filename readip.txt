@@ -250,5 +250,9 @@ networks:
 # docker registry
 172.16.197.76
 
+# elastic
+172.16.197.77
+172.16.197.78
+
 
 
