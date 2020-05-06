@@ -9,6 +9,14 @@
 ### ulimit -Hn && ulimit -Sn && ulimit -Hu && ulimit -Su
 ### cat /etc/*elease
 ### elasticsearch -d
+
+
+#### sudo sysctl -w vm.max_map_count=262144
+#### For macOS
+# screen ~/Library/Containers/com.docker.docker/Data/vms/0/tty
+# sysctl -w vm.max_map_count=262144
+# To exit the screen session, type Ctrl a d.
+
 version: '2.4'
 networks:
   br0:
@@ -16,23 +24,23 @@ networks:
 
 services:
   es01:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.3.1
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.6.2
     container_name: es01
-    #mem_limit: 300m
+    #mem_limit: 600m
     environment:
       - node.name=es01
       - discovery.seed_hosts=es02
       - cluster.initial_master_nodes=es01,es02
       - cluster.name=es-docker-cluster
-      - bootstrap.memory_lock=false
-    #  - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-    # ulimits:
-    #   nofile:
-    #     soft: "65536"
-    #     hard: "65536"
-    volumes:
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms256m -Xmx256m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    #volumes:
     #  - esdata01:/usr/share/elasticsearch/data
-      - ./config/jvm.options-for-es7:/usr/share/elasticsearch/config/jvm.options:ro
+    #  - ./config/jvm.options-for-es7.3.1:/usr/share/elasticsearch/config/jvm.options:ro
     ports:
       - 9200:9200
       - 9300:9300
@@ -41,22 +49,23 @@ services:
         br0:
           ipv4_address: 172.16.197.77
   es02:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.3.1
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.6.2
     container_name: es02
-    #mem_limit: 300m
+    #mem_limit: 600m
     environment:
       - node.name=es02
       - discovery.seed_hosts=es01
       - cluster.initial_master_nodes=es01,es02
       - cluster.name=es-docker-cluster
-      - bootstrap.memory_lock=false
-    # ulimits:
-    #   nofile:
-    #     soft: "65536"
-    #     hard: "65536"
-    volumes:
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms256m -Xmx256m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    #volumes:
     #  - esdata02:/usr/share/elasticsearch/data
-      - ./config/jvm.options-for-es7:/usr/share/elasticsearch/config/jvm.options:ro
+    #  - ./config/jvm.options-for-es7.3.1:/usr/share/elasticsearch/config/jvm.options:ro
     ports:
       - 9201:9200
       - 9301:9300
