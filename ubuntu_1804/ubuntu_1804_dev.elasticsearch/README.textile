@@ -212,3 +212,33 @@ See the "TESTING":TESTING.asciidoc file for more information about running the E
 h3. Upgrading from older Elasticsearch versions
 
 In order to ensure a smooth upgrade process from earlier versions of Elasticsearch, please see our "upgrade documentation":https://www.elastic.co/guide/en/elasticsearch/reference/current/setup-upgrade.html for more details on the upgrade process.
+
+
+# 增加用户
+curl -XPUT 'http://localhost:9200/users/employee/3'  -H 'Content-Type: application/json' -d '                                                                                                          
+{
+  "userId" :"1",
+  "name" : "Rajesh",
+   "userSettings" : {
+   "gender" : "male",
+   "occupation" : "CA",
+   "hobby" : "chess"
+   }
+}'
+
+curl -XPUT 'http://localhost:9200/users/employee/2'  -H 'Content-Type: application/json' -d '                                                                                                          
+{
+  "userId" :"2",
+  "name" : "张春辉",
+   "userSettings" : {
+   "gender" : "male",
+   "occupation" : "CA",
+   "hobby" : "chess"
+   }
+}'
+
+# 查询用户
+<pre>
+curl -XGET 'http://localhost:9200/users/employee/1?pretty=true'
+</pre>
+
