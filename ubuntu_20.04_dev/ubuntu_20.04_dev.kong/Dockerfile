@@ -32,3 +32,41 @@
 $ kong start -c kong.conf --nginx-conf custom_nginx.template
 
 # 在OpenResty中嵌入Kong
+
+### Kong主要有三个组件：
+Kong Server ：基于nginx的服务器，用来接收API请求。
+Cassandra/PostgreSQL ：用来存储操作数据。
+Kong dashboard：官方推荐UI管理工具，当然，也可以使用 restfull 方式 管理admin api
+
+> create database "kong_db"; GRANT ALL PRIVILEGES ON DATABASE "kong_db" to kong_user;
+
+docker run -p 9042:9042 -d --name cassandra cassandra:3.11.6
+
+$ docker run --rm \
+     --network=br0 \
+     -e "KONG_DATABASE=postgres" \
+     -e "KONG_PG_HOST=postgres_9.6" \
+     -e "KONG_PG_PASSWORD=kong" \
+     kong:2.0.4-centos kong migrations bootstrap
+
+docker run -d --name kong \
+     --network=br0 \
+     -e "KONG_DATABASE=postgres" \
+     -e "KONG_PG_HOST=postgres_9.6" \
+     -e "KONG_PG_PASSWORD=kong" \
+     -e "KONG_PROXY_ACCESS_LOG=/dev/stdout" \
+     -e "KONG_ADMIN_ACCESS_LOG=/dev/stdout" \
+     -e "KONG_PROXY_ERROR_LOG=/dev/stderr" \
+     -e "KONG_ADMIN_ERROR_LOG=/dev/stderr" \
+     -e "KONG_ADMIN_LISTEN=0.0.0.0:8001, 0.0.0.0:8444 ssl" \
+     -p 8000:8000 \
+     -p 8443:8443 \
+     -p 127.0.0.1:8001:8001 \
+     -p 127.0.0.1:8444:8444 \
+     kong:2.0.4-centos
+
+
+curl http://127.0.0.1:8001
+
+
+
