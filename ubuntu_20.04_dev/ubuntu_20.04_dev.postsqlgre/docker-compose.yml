@@ -11,8 +11,8 @@ networks:
       external: true
 
 services:
-  kong_database:
-    container_name: kong_database
+  postgres_9.6:
+    container_name: postgres_9.6
     image: postgres:9.6
     mem_limit: 100m
     environment:
@@ -21,7 +21,7 @@ services:
       - POSTGRES_PASSWORD=kong
     ports:
       - 5432:5432
-    command: /docker-entrypoint.sh
+    #entrypoint: ["/docker-entrypoint.sh"]
     #volumes:
     #  - ./my.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf:ro
     restart: always

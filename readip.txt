@@ -171,7 +171,7 @@ networks:
 172.16.197.12
 172.16.197.13
 
-# docker registry
+# postgres
 172.16.197.79
 
 
