@@ -11,16 +11,6 @@ networks:
       external: true
 
 services:
-  # cassandra_3.11.6:
-  #   container_name: cassandra_3.11.6
-  #   image: cassandra:3.11.6
-  #   mem_limit: 2048m
-  #   ports:
-  #     - 9042:9042
-  #   #restart: always
-  #   networks:
-  #       br0:
-  #         ipv4_address: 172.16.197.80
   postgres_9.6:
     container_name: postgres_9.6
     image: postgres:9.6
@@ -43,7 +33,7 @@ services:
 #      -e "KONG_DATABASE=postgres" \
 #      -e "KONG_PG_HOST=postgres_9.6" \
 #      -e "KONG_PG_PASSWORD=kong" \
-#      kong:2.0.4-centos kong_db migrations bootstrap
+#      kong:2.0.4-centos kong migrations bootstrap
   kong_2.0.4:
     container_name: kong_2.0.4
     image: kong:2.0.4-centos
