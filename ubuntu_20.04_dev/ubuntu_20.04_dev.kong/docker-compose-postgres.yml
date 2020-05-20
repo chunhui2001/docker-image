@@ -1,0 +1,72 @@
+## 安装Docker Compose
+# curl -L https://github.com/docker/compose/releases/download/1.24.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+# chmod +x /usr/local/bin/docker-compose
+# docker-compose --version
+# docker-compose up -d
+
+version: '2.4'
+
+networks:
+    br0:
+      external: true
+
+services:
+  # cassandra_3.11.6:
+  #   container_name: cassandra_3.11.6
+  #   image: cassandra:3.11.6
+  #   mem_limit: 2048m
+  #   ports:
+  #     - 9042:9042
+  #   #restart: always
+  #   networks:
+  #       br0:
+  #         ipv4_address: 172.16.197.80
+  postgres_9.6:
+    container_name: postgres_9.6
+    image: postgres:9.6
+    mem_limit: 100m
+    environment:
+      - POSTGRES_USER=kong
+      - POSTGRES_DB=kong
+      - POSTGRES_PASSWORD=kong
+    ports:
+      - 5432:5432
+    #entrypoint: ["/docker-entrypoint.sh"]
+    #volumes:
+    #  - ./my.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf:ro
+    restart: always
+    networks:
+        br0:
+          ipv4_address: 172.16.197.79
+# $ docker run --rm \
+#      --network=br0 \
+#      -e "KONG_DATABASE=postgres" \
+#      -e "KONG_PG_HOST=postgres_9.6" \
+#      -e "KONG_PG_PASSWORD=kong" \
+#      kong:2.0.4-centos kong_db migrations bootstrap
+  kong_2.0.4:
+    container_name: kong_2.0.4
+    image: kong:2.0.4-centos
+    mem_limit: 300m
+    environment:
+      - KONG_DATABASE=postgres
+      - KONG_PG_HOST=postgres_9.6
+      - KONG_PG_PASSWORD=kong
+      - KONG_PROXY_ACCESS_LOG=/dev/stdout
+      - KONG_ADMIN_ACCESS_LOG=/dev/stdout
+      - KONG_PROXY_ERROR_LOG=/dev/stderr
+      - KONG_ADMIN_ERROR_LOG=/dev/stderr
+      - "KONG_ADMIN_LISTEN=0.0.0.0:8001, 0.0.0.0:8444 ssl"
+    #entrypoint: ["/docker-entrypoint.sh"]
+    ports:
+      - 8000:8000
+      - 8443:8443
+      - 127.0.0.1:8001:8001
+      - 127.0.0.1:8444:8444
+    restart: always
+    networks:
+        br0:
+          ipv4_address: 172.16.197.81
+
+
+
