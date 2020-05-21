@@ -55,7 +55,7 @@ services:
     mem_limit: 300m
     entrypoint: ["/app/bin/kong-dashboard.js", "start", "--kong-url", "http://kong_0.14.1:8001", "--basic-auth", "keesh=Cc"]
     ports:
-      - 8080:8080
+      - 8180:8080
     restart: always
     networks:
         br0:
