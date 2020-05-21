@@ -1,12 +1,12 @@
-server {
-    listen 80 default_server;
-    server_name _;
-    return 301 https://$host$request_uri;
-}
+# server {
+#     listen 80 default_server;
+#     server_name _;
+#     return 301 https://$host$request_uri;
+# }
 
 server {
-	listen 443 ssl default_server;
-	listen [::]:443 ssl default_server;
+	listen 18443 ssl default_server;
+	listen [::]:18443 ssl default_server;
 	ssl_certificate      /usr/local/nginx/ssl/server.crt;
 	ssl_certificate_key  /usr/local/nginx/ssl/server.key;
 	ssl_protocols        SSLv3 TLSv1 TLSv1.1 TLSv1.2;

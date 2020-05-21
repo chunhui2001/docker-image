@@ -16,13 +16,13 @@ services:
     image: chunhui2001/ubuntu_1610_dev:nginx_1.9.15
     mem_limit: 100m
     ports:
-      - 80:80
-      - 443:443
+      - 18880:18880
+      - 18443:18443
     #entrypoint: ["/docker-entrypoint.sh"]
     volumes:
       - ./ssl:/usr/local/nginx/ssl:ro
       #- ./nginx.sample.default:/usr/local/nginx/sites-enabled/default:ro
-      - ./nginx.sample.default.txt:/usr/local/nginx/sites-enabled/default:ro
+      - ./nginx.sample.default.ssl:/usr/local/nginx/sites-enabled/default:ro
     restart: always
     networks:
         br0:
