@@ -10,23 +10,10 @@ networks:
     br0:
       external: true
 
-services:
-  postgres_9.6:
-    container_name: postgres_9.6
-    image: postgres:9.6
-    mem_limit: 100m
-    environment:
-      - POSTGRES_USER=kong
-      - POSTGRES_DB=kong
-      - POSTGRES_PASSWORD=kong
-    ports:
-      - 5432:5432
-    restart: always
-    networks:
-        br0:
-          ipv4_address: 172.16.197.79
 # 初始化数据库表
 # $ docker run --rm --network=br0 -e "KONG_DATABASE=postgres" -e "KONG_PG_HOST=postgres_9.6" -e "KONG_PG_PASSWORD=kong" kong:0.14.1-centos kong migrations up
+
+services:
   kong_0.14.1:
     container_name: kong_0.14.1
     image: kong:0.14.1-centos
@@ -52,6 +39,8 @@ services:
   kong.dashboard.v3.5.0:
     container_name: kong.dashboard.v3.5.0
     image: chunhui2001/alpine:kong-dashboard.v3.5.0
+    depends_on:
+      - kong_0.14.1
     mem_limit: 300m
     entrypoint: ["/app/bin/kong-dashboard.js", "start", "--kong-url", "http://kong_0.14.1:8001", "--basic-auth", "keesh=Cc"]
     ports:
