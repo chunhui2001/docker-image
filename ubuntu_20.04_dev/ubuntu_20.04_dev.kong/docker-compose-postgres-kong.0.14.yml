@@ -72,5 +72,42 @@ services:
 # 3.5.x           | >= 0.9, <0.15   | >= 6.0.0
 # 3.6.x           | >= 0.9, <2.0.0  | >= 6.0.0
 
+### 测试 Kong 是否工作正常
+# curl http://127.0.0.1:8001
+
+### 查看所有 service
+# http://127.0.0.1:8001/services
+
+### 创建一个service
+# curl -i -X POST --url http://localhost:8001/services/ -H 'Content-Type: application/json' \
+#                 --data '{"name": "api-v1-customers","url": "http://172.16.197.61"}'
+
+### 在 service 下添加一个router
+# curl -i -X POST --url  http://localhost:8001/services/api-v1-customers/routes/ -H 'Content-Type: application/json' \
+#                 --data '{"hosts": ["mynginx.com"],"paths": ["/nginx"]}'
+
+### 验证代理 (如果想在浏览器中验证需添加系统hosts: 127.0.0.1 mynginx.com)
+# curl http://localhost:8000/nginx -H 'host: mynginx.com'  >>>> http://172.16.197.61
+# curl http://localhost:8000/nginx/lua -H 'host: mynginx.com'  >>>> http://172.16.197.61/lua
+# curl http://localhost:8000/nginx/node -H 'host: mynginx.com'  >>>> http://172.16.197.61/node
+
+### API(Deprecated)
+# curl -i -X POST \
+#         --url  http://localhost:8001/apis/ \
+#         --data 'name=weather-api' \
+#         --data 'hosts=mynginx.com' \
+#         --data 'uris=/nginx' \
+#         --data 'upstream_url=http://172.16.197.61'
+# 上面接口到意思是：这个API注册的名字叫weather-api。它被挂载在网关的/weather路径下，上游转发到 http://localhost:8000 去处理，转发的时候把前面的 /weather 前缀给去掉。
+# 验证: http://mynginx.com:8000/nginx/
+
+
+### For example (Warning: IP might very different for every machine)
+# API server that is live on server http://172.19.0.4:10000/api/v1/customers
+# We set routes path /api/v1/customers
+# And set the service host to http://172.19.0.4:10000, and path /api/v1/customers
+# So, when client request to kong (in this case kong is live at localhost:9000) with path route /api/v1/customer : 
+# in complete client request http://localhost:9000/api/v1/customers , Kong will proxy it to 172.19.0.4:10000/api/v1/customers
+
 
 
