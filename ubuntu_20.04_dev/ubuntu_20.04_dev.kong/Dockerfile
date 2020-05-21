@@ -51,5 +51,11 @@ $ docker run --rm \
 # 测试是否工作正常
 # curl http://127.0.0.1:8001
 
+# 创建一个service
+$ curl -i -X POST --url http://localhost:8001/services/ --data 'name=testApi' --data 'url=http://localhost:5055'
+
+# 查看所有 service
+# http://127.0.0.1:8001/services
+
 
 

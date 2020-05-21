@@ -32,3 +32,9 @@ ENV PATH=$PATH:$JAVA_HOME/bin:$ANT_HOME/bin:$M2_HOME/bin
 # EXPOSE 8081
 
 
+# ZGC
+# https://blog.csdn.net/Aria_Miazzy/article/details/86593684
+# 一语道破Java 11的ZGC为何如此高效
+# https://www.cnblogs.com/Ti1077/p/9626861.html
+# -server -XX:+UnlockExperimentalVMOptions -XX:+UseZGC -Xlog:age*,gc*=info:file=gc-%t.log:time,tid,tags:filecount=3,filesize=20m -Djava.io.tmpdir=/tmp
+
