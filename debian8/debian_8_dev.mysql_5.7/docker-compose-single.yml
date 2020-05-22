@@ -30,3 +30,12 @@ services:
     networks:
         br0:
           ipv4_address: 172.16.197.13
+
+
+### 创建数据库
+# CREATE DATABASE membership_db;
+### 创建 mysql 用户并授权
+# CREATE USER 'keesh'@'localhost' IDENTIFIED BY 'Cc';
+# GRANT ALL PRIVILEGES ON membership_db.* TO 'keesh'@'%' IDENTIFIED BY 'Cc';
+### 刷新权限
+# FLUSH PRIVILEGES;

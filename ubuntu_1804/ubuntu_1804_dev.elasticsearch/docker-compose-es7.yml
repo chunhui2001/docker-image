@@ -46,6 +46,7 @@ services:
       - 9200:9200
       - 9300:9300
     #entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
+    restart: always
     networks:
         br0:
           ipv4_address: 172.16.197.77
@@ -71,6 +72,7 @@ services:
     ports:
       - 9201:9200
       - 9301:9300
+    restart: always
     networks:
         br0:
           ipv4_address: 172.16.197.78
