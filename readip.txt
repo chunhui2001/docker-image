@@ -236,6 +236,7 @@ networks:
 172.16.197.47
 # pinpoint web
 172.16.197.48
+172.16.197.183 For cust
 
 # dubbo admin
 172.16.197.49

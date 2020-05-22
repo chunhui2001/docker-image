@@ -59,6 +59,28 @@ services:
         br0:
           ipv4_address: 172.16.197.48
 
+  pinpoint.web.cust:
+    container_name: pinpoint.web.cust
+    image: chunhui2001/ubuntu_1804_dev:tomcat8
+    hostname: pinpoint.web
+    mem_limit: 800m
+    depends_on:
+      - pinpoint.collector
+    environment:
+      - JAVA_HOME=/usr/local/java
+    ports:
+      - 8282:8080
+    volumes:
+    # pinpoint-web.properties
+    # hbase.properties
+    - ./pinpoint-web-1.7.3_cust:/usr/local/tomcat/webapps/ROOT:ro
+    - ./pinpoint_config/pinpoint-web.properties:/usr/local/tomcat/webapps/ROOT/WEB-INF/classes/pinpoint-web.properties:ro
+    - ./pinpoint_config/hbase.properties:/usr/local/tomcat/webapps/ROOT/WEB-INF/classes/hbase.properties:ro
+    restart: always
+    networks:
+        br0:
+          ipv4_address: 172.16.197.183
+
 
 
 
