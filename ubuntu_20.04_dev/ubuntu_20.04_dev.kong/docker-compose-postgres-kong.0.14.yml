@@ -98,5 +98,31 @@ services:
 # So, when client request to kong (in this case kong is live at localhost:9000) with path route /api/v1/customer : 
 # in complete client request http://localhost:9000/api/v1/customers , Kong will proxy it to 172.19.0.4:10000/api/v1/customers
 
+### kong插件应用（熔断 限流，黑白名单，认证(basic,key,jwt,hmac,)，授权，加密，zipkin链路跟踪，日志, prometheus可视化, 爬虫控制插件）
+
+### Kong 之负载均衡
+# 创建一个名称 hello 的 upstream
+# curl -X POST http://localhost:8001/upstreams --data "name=hello"
+# 为 hello 添加两个负载均衡节点
+# curl -X POST http://localhost:8001/upstreams/hello/targets --data "target=localhost:3000" --data "weight=100"
+# curl -X POST http://localhost:8001/upstreams/hello/targets --data "target=localhost:3001" --data "weight=50"
+
+# 如上的配置对应了 Nginx 的配置
+# upstream hello {
+#   server localhost:3000 weight=100;
+#   server localhost:3001 weight=50;
+# }
+
+### 配置 service 和 route
+# 使用老版本 Kong 的用户可能会接触过 api 这个概念，但是在 Kong v1.3.0 中，已经被废除了，取而代之的是 service 和 route 的配置。
+# 配置一个 service
+# host 的值便对应了 upstream 的名称，配置成功后会返回生成的 service 的 id，我的返回结果：8695cc65-16c1-43b1-95a1-5d30d0a50409
+# curl -X POST http://localhost:8001/services --data "name=hello" --data "host=hello"
+# 为上面的 service 配置路由信息
+# curl -X POST http://localhost:8001/routes --data "paths[]=/hello" --data "service.id=8695cc65-16c1-43b1-95a1-5d30d0a50409"
+# 如上的配置便对应了
+# location /hello {
+#     proxy_pass http://hello;
+# }
 
 
