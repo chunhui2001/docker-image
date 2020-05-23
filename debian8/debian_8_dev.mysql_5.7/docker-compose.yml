@@ -17,7 +17,7 @@ services:
   mysql_node1:
     container_name: mysql_node1
     image: chunhui2001/debian_8_dev:mysql_5.7
-    mem_limit: 100m
+    mem_limit: 300m
     environment:
       - MYSQL_ROOT_PASSWORD=Cc
     ports:
