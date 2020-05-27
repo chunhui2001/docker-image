@@ -20,7 +20,7 @@ services:
     environment:
       - SPRING_PROFILES_ACTIVE=docker
     ports:
-      - 8180:80
+      - 8182:80
     entrypoint: ["/usr/sbin/apache2ctl", "-DFOREGROUND"]
     volumes:
       - ./apache2.conf:/etc/apache2/apache2.conf:ro

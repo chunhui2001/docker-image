@@ -23,7 +23,7 @@ services:
     entrypoint: ["/usr/bin/supervisord"]
     #entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
     ports:
-      - 8180:80
+      - 8181:80
       - "2222:22"
     volumes:
       - ./ssh/ssh_config:/etc/ssh/ssh_config:ro
