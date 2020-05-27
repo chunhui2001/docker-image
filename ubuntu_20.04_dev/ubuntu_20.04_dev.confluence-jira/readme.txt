@@ -33,3 +33,20 @@ MAINTAINER Chunhui.Zhang "chunhui2001@gmail.com"
 
 # Open ports
 EXPOSE 8090
+
+
+### JIRA 7.8 版本的安装与pojie
+# https://www.cnblogs.com/houchaoying/p/9096118.html
+### pojie
+# 先关闭 jira，然后把pojie包里面的 atlassian-extras-3.2.jar 和 mysql-connector-java-5.1.39-bin.jar 两个文件复制到 /opt/atlassian/jira/atlassian-jira/WEB-INF/lib/ 目录下。
+# 其中 atlassian-extras-3.2.jar 是用来替换原来的 atlassian-extras-3.2.jar 文件，用作pojie jira 系统的。
+# 而 mysql-connector-java-5.1.39-bin.jar 是用来连接 mysql 数据库的驱动软件包。
+# 在 /opt/atlassian/jira/atlassian-jira/WEB-INF/lib/ 这个目录下，找到 atlassian-extras- 的包看看是3点几的 然后现在对应的pojie包，替换这个
+### 如何修改内存？
+$ vim /opt/atlassian/jira/bin/setenv.sh
+### 日志查看：
+$ tail -f /opt/atlassian/jira/logs/catalina.out
+
+### agent pojie -- https://www.jianshu.com/p/b95ceabd3e9d
+$ java -jar atlassian-agent.jar -d -m chunhui2001@gmail.com -n MicroEE -p jira -o http://192.168.0.89 -s BY9B-GWD1-1C78-K2DE
+$ java -jar atlassian-agent.jar -d -m chunhui2001@gmail.com -n MicroEE -p jira -o microee.com -s BY9B-GWD1-1C78-K2DE

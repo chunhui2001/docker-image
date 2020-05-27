@@ -1,18 +1,4 @@
-# chunhui2001/ubuntu_20.04_dev:confluence-wiki
-# Version 0.0.1
-FROM chunhui2001/ubuntu_20.04_dev:zh-CN
-MAINTAINER Chunhui.Zhang "chunhui2001@gmail.com"
-
-COPY ./confluence_keygen.jar /root/
-COPY ./Confluence-5.4.4-language-pack-zh_CN.jar /root/
-COPY ./confluence5.1-crack.zip /root/
-COPY ./mysql-connector-java-5.1.32-bin.jar /root/
-COPY ./atlassian-confluence-5.4.4-x64.bin /root/
-RUN chmod +x /root/atlassian-confluence-5.4.4-x64.bin
-#RUN /root/atlassian-confluence-5.4.4-x64.bin
-# 此时，安装已完成，不应该出现任何错误
-
-### 破解 confluence
+### pojie confluence
 # 访问 http://192.168.1.203:8090，获取页面上的 Server ID
 # 停止服务
 # /etc/init.d/confluence stop
@@ -39,7 +25,7 @@ RUN chmod +x /root/atlassian-confluence-5.4.4-x64.bin
 # cd /opt/atlassian/confluence/confluence/WEB-INF/lib
 # mv /root/wsprpm/mysql-connector-java-5.1.32-bin.jar ./
 # 重启 wiki 服务
-# 粘贴上述复制的key值并点击Production Installation
+# 粘贴上述复制的 key 值并点击 Production Installation
 # 在向导中选择外部 mysql 然后选择 Direct JDBC
 # Driver Class Name ：默认无需更改
 # Database URL:修改对应IP，port，database,
@@ -52,14 +38,10 @@ RUN chmod +x /root/atlassian-confluence-5.4.4-x64.bin
 # vim /var/atlassian/application-data/confluence/confluence.cfg.xml
 # 修改完后重启wiki
 
-# 设置base url，job，创建空间，空间权限，用户等
+# 设置 base url，job，创建空间，空间权限，用户等
 
 
-# docker build -f Dockerfile-5.4.4 . -t 'chunhui2001/ubuntu_20.04_dev:confluence-wiki'
-# docker run -dit --entrypoint="top" -p 8090:8090 --name ubuntu20.04-confluence-wiki chunhui2001/ubuntu_20.04_dev:confluence-wiki
-# docker run -dit -p 8080:8080 --name ubuntu20.04-confluence-wiki chunhui2001/ubuntu_20.04_dev:confluence-wiki
-# docker push chunhui2001/ubuntu_20.04_dev:confluence-wiki
-# docker pull chunhui2001/ubuntu_20.04_dev:confluence-wiki
-
-# Open ports
-EXPOSE 8090
+### agent pojie
+# 下载 atlassian-agent.jar 文件，放置在 Dockerfile 同目录下
+# 生成 confluence 许可命令参照如下：
+$ java -jar atlassian-agent.jar -d -m chunhui2001@gmail.com -n MicroEE -p jira -o microee.com -s BY9B-GWD1-1C78-K2DE

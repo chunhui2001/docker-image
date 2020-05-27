@@ -34,6 +34,7 @@ services:
 
 ### 创建数据库
 # CREATE DATABASE membership_db;
+# CREATE DATABASE atlassian_jira default character set utf8 collate utf8_bin;
 ### 创建 mysql 用户并授权
 # CREATE USER 'keesh'@'localhost' IDENTIFIED BY 'Cc';
 # GRANT ALL PRIVILEGES ON membership_db.* TO 'keesh'@'%' IDENTIFIED BY 'Cc';

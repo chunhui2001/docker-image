@@ -12,10 +12,11 @@ networks:
 
 services:
   confluence-wiki-5.4.4:
-    image: chunhui2001/ubuntu_20.04_dev:confluence-wiki-5.4.4
-    restart: always
     container_name: confluence-wiki-5.4.4
-    privileged: true
+    image: chunhui2001/ubuntu_20.04_dev:confluence-wiki-5.4.4
+    hostname: confluence-wiki-5.4.4
+    restart: always
+    mem_limit: 800m
     entrypoint: ["/opt/atlassian/confluence/bin/start-confluence.sh", "-fg"]
     ports:
       - 8090:8090
