@@ -117,7 +117,7 @@ $ apt-get install flannel -y
 >>>>>> $ etcdctl mk /atomic.io/network/config '{ "Network": "10.10.0.0/16" }'    
 >>>>>> { "Network": "10.10.0.0/16" }
 		OR 
->>>>>> $ curl -XPUT http://127.0.0.1:2379/v2/keys/k8s/config -d value="{\"Network\": \"192.168.0.0/16\"}"
+>>>>>> $ curl -XPUT http://127.0.0.1:2379/v2/keys/k8s/config -d value="{\"Network\": \"10.10.0.0/16\"}"
 >>>>>> -- 温馨提示：上面 flannel 设置的 ip 网段可以任意设定，随便设定一个网段都可以。
        -- 容器的 ip 就是根据这个网段进行自动分配的，ip 分配后，容器一般是可以对外联网的（网桥模式，只要宿主机能上网就可以）.
 
