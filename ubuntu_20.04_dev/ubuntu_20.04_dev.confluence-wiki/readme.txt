@@ -42,6 +42,7 @@
 
 
 ### agent pojie
+# wiki 下载地址: https://www.atlassian.com/software/confluence/download-archives
 # 下载 atlassian-agent.jar 文件，放置在 Dockerfile 同目录下
 # 生成 confluence 许可命令参照如下：
 $ java -jar atlassian-agent.jar -d -m chunhui2001@gmail.com -n MicroEE -p jira -o microee.com -s BY9B-GWD1-1C78-K2DE

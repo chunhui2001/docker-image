@@ -37,6 +37,7 @@ EXPOSE 8090
 
 ### JIRA 7.8 版本的安装与pojie
 # https://www.cnblogs.com/houchaoying/p/9096118.html
+# JIRA 下载地址: https://www.atlassian.com/software/jira/update
 ### pojie
 # 先关闭 jira，然后把pojie包里面的 atlassian-extras-3.2.jar 和 mysql-connector-java-5.1.39-bin.jar 两个文件复制到 /opt/atlassian/jira/atlassian-jira/WEB-INF/lib/ 目录下。
 # 其中 atlassian-extras-3.2.jar 是用来替换原来的 atlassian-extras-3.2.jar 文件，用作pojie jira 系统的。

@@ -3,12 +3,8 @@
 FROM chunhui2001/ubuntu_1804_dev:java13
 MAINTAINER Chunhui.Zhang "chunhui2001@gmail.com"
 
-
 COPY atlassian-jira-software-8.9.0-x64.bin /usr/local/soft/
 COPY mysql-connector-java-5.1.32-bin.jar /usr/local/soft/
-COPY atlassian-extras-3.2.jar /usr/local/soft/
-
-# /opt/atlassian/jira/atlassian-jira/WEB-INF/classes/entityengine.xml
 
 # Details on where Jira Software will be installed and the settings that will be used.
 # Installation Directory: /opt/atlassian/jira 
