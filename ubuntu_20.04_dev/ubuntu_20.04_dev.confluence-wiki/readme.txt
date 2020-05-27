@@ -46,3 +46,5 @@
 # 下载 atlassian-agent.jar 文件，放置在 Dockerfile 同目录下
 # 生成 confluence 许可命令参照如下：
 $ java -jar atlassian-agent-v1.2.3.jar -d -m test@test.com -n BAT -p conf -o http://192.168.0.89 -s BEID-7UAO-220M-FQX4
+
+
