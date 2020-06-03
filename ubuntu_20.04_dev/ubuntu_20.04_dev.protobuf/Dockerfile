@@ -15,6 +15,8 @@ RUN ./autogen.sh && ./configure && make && make install && ldconfig
 
 ### Protocol Buffers v2.5.0
 
+### protobuf-c
+# https://github.com/protobuf-c/protobuf-c/wiki/Examples
 
 # docker build -f Dockerfile . -t 'chunhui2001/ubuntu_20.04_dev:protobuf'
 # docker run -dit --entrypoint="top" --name ubuntu20.04-protobuf chunhui2001/ubuntu_20.04_dev:protobuf
