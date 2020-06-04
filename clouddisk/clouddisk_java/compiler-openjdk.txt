@@ -5,6 +5,8 @@
 ### 
 
 # Get the complete source code:
+# 主库列表页
+# http://hg.openjdk.java.net/
 $ hg clone http://hg.openjdk.java.net/jdk/jdk
 
 # Run configure:
