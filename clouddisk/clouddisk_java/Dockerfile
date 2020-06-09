@@ -34,6 +34,8 @@ WORKDIR /
 ### COPY pinpoint-web-1.7.3_cust.tar / 			>>>>>>> 0cc5ba5dc6a4
 ### COPY jdk-14.0.1_linux-x64_bin.tar.gz /
 ### COPY jdk-14.0.1_doc-all.zip / 				>>>>>>> 7013a5e4da5c
+COPY jdk-8u251-docs-all.zip / 
+COPY jdk-11.0.7_doc-all.zip / 
 
 # docker build . -t 'chunhui2001/clouddisk:java'
 # docker run -dit --entrypoint="top" --name clouddisk_java chunhui2001/clouddisk:java
