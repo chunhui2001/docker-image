@@ -1,0 +1,21 @@
+#### https://www.cnblogs.com/bakari/p/10893589.html
+在 Docker 中，macvlan 是众多 Docker 网络模型中的一种，并且是一种跨主机的网络模型，作为一种驱动（driver）启用（-d 参数指定），Docker macvlan 只支持 bridge 模式。
+需要物理父网卡开启混杂模式(本例的物理父网卡使用的是eth0)，不然会 ping 不通。
+
+### 首先使用 docker network create 分别在两台主机上创建两个 macvlan 网络：
+$ docker network create -d macvlan --subnet=172.16.10.0/24 --gateway=172.16.10.1 -o parent=eth1 mac1
+OR 
+$ docker network create -d macvlan --subnet=172.16.10.0/24 --ip-range=172.16.10.0/24 -o macvlan_mode=bridge -o parent=eth1 mac1
+
+### 参数说明
+# -d 指定 Docker 网络 driver
+# --subnet 指定 macvlan 网络所在的网络
+# --gateway 指定网关
+# -o parent 指定用来分配 macvlan 网络的物理网卡
+
+$ docker run -dit --net=mac1 --ip=172.16.10.150 -p 18181:80 --name alpine.nginx chunhui2001/alpine:3.12.nginx
+-- 这个container确实没法ping通host
+-- 利用linux创建一个macvlan类型的link，同时赋予一个与container同网段的ip:
+sudo ip link add mac1 link eth1 type mac1 mode bridge
+sudo ip addr add 172.16.10.0/24 dev mymacvlan
+sudo ifconfig mymacvlan up

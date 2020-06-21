@@ -141,6 +141,20 @@ $ curl -XGET http://127.0.0.1:2379/v2/keys/atomic.io/network/config
 >>>>>> $ curl -XPUT http://127.0.0.1:2379/v2/keys/atomic.io/network/config -d value="{\"Network\": \"10.10.0.0/16\"}"
 
 
+### 配置 Flannel, /etc/sysconfig/flanneld
+----------------------------
+# Flanneld configuration options
+   
+# etcd url location.  Point this to the server where etcd runs
+FLANNEL_ETCD_ENDPOINTS="http://etcd:2379"
+   
+# etcd config key.  This is the configuration key that flannel queries
+# For address range assignment
+FLANNEL_ETCD_PREFIX="/atomic.io/network"
+   
+# Any additional options that you want to pass
+#FLANNEL_OPTIONS=""
+
 ### 启动 Flannel
 ----------------------------
 $ systemctl enable flanneld.service
@@ -155,30 +169,6 @@ $ systemctl enable docker
 ----------------------------
 $ apt-get install docker -y
 $ apt-get install flannel -y
-
-### 配置 Flannel, /etc/sysconfig/flanneld
-----------------------------
-# Flanneld configuration options
-   
-# etcd url location.  Point this to the server where etcd runs
-FLANNEL_ETCD_ENDPOINTS="http://etcd:2379"
-   
-# etcd config key.  This is the configuration key that flannel queries
-# For address range assignment
-FLANNEL_ETCD_PREFIX="/atomic.io/network"
-   
-# Any additional options that you want to pass
-#FLANNEL_OPTIONS=""
-  
-### 启动 Flannel
-----------------------------
-$ systemctl enable flanneld.service
-$ systemctl start flanneld.service
-$ ps -ef|grep flannel 
-  启动 Flannel 后，一定要记得重启docker，这样 Flannel 配置分配的 ip 才能生效，
-  即 docker0 虚拟网卡的 ip 会变成上面 flannel 设定的 ip 段
-$ systemctl restart docker
-$ systemctl enable docker
 
 ### 
 ### flannel启动成功后会生成一个环境变量文件
@@ -304,6 +294,16 @@ $ ps aux|grep docker|grep "bip"
 -- 这个 IP 范围是由 Flannel 自动分配的，由 Flannel 通过保存在 Etcd 服务中的记录确保它们不会重复。
 
 
+### 查看本机默认网关
+$ route -n
 
+### 删除一个网关
+$ route del default gw 192.168.1.45
 
+### 添加默认网关
+$ route add default gw 10.0.2.2
+
+### Making the changes permanent
+/etc/sysconfig/network
+GATEWAY=192.168.1.45 # change value to new Gateway
 

@@ -89,11 +89,16 @@ EOF
 
 ### Configure the etcd on all nodes
 ### 设置全局环境变量
-$ sudo tee -a /etc/profile.d/etcd.sh<<EOF
+###### $ sudo tee -a /etc/profile.d/etcd.sh<<EOF
+###### export INT_NAME="eth1"
+###### export ETCD_HOST_IP=$(ip addr show $INT_NAME | grep "inet\b" | awk '{print $2}' | cut -d/ -f1)
+###### export ETCD_NAME=$(hostname -s)
+###### EOF
+
+### 设置全局环境变量
 export INT_NAME="eth1"
 export ETCD_HOST_IP=$(ip addr show $INT_NAME | grep "inet\b" | awk '{print $2}' | cut -d/ -f1)
 export ETCD_NAME=$(hostname -s)
-EOF
 
 INT_NAME: 
 is the name of your network interface to be used for cluster traffic. Change it to match your server configuration.
