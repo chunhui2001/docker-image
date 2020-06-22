@@ -153,7 +153,7 @@ FLANNEL_ETCD_ENDPOINTS="http://etcd:2379"
 FLANNEL_ETCD_PREFIX="/atomic.io/network"
    
 # Any additional options that you want to pass
-#FLANNEL_OPTIONS=""
+FLANNEL_OPTIONS="--iface=eth1"
 
 ### 启动 Flannel
 ----------------------------
