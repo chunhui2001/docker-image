@@ -165,6 +165,11 @@ $ ps -ef|grep flannel
 $ systemctl restart docker
 $ systemctl enable docker
 
+/usr/bin/flanneld \
+        -etcd-endpoints=http://etcd1.server.com:2379,http://etcd2.server.com:2379,http://etcd3.server.com:2379 \
+        -etcd-prefix=/atomic.io/network \
+        --iface=eth1
+
 ### node2（10.10.172.202）机器操作
 ----------------------------
 $ apt-get install docker -y
