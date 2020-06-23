@@ -3,11 +3,11 @@
 需要物理父网卡开启混杂模式(本例的物理父网卡使用的是eth0)，不然会 ping 不通。
 
 ### 首先使用 docker network create 分别在两台主机上创建两个 macvlan 网络：
-# docker network create -d macvlan --subnet=172.13.0.0/8 --gateway=172.13.0.1 -o parent=enp0s8 mac1
-$ docker network create -d macvlan --subnet=172.13.0.0/8 --gateway=172.13.0.1 -o parent=eth1 mac1
-$ docker network create -d macvlan --subnet=172.13.0.0/8 --gateway=172.13.0.1 -o parent=eth1.50 mac1
-OR 
-$ docker network create -d macvlan --subnet=172.13.0.0/8 --ip-range=172.13.0.0/8 -o macvlan_mode=bridge -o parent=eth1 mac1
+sudo docker network create -d macvlan \
+                           --subnet=192.168.64.0/23 \
+                           --ip-range=192.168.64.192/28 \
+                           -o macvlan_mode=bridge \
+                           -o parent=eth1.10 mac10
 
 ### 参数说明
 # -d 指定 Docker 网络 driver
@@ -15,30 +15,33 @@ $ docker network create -d macvlan --subnet=172.13.0.0/8 --ip-range=172.13.0.0/8
 # --gateway 指定网关
 # -o parent 指定用来分配 macvlan 网络的物理网卡
 
-$ docker run -dit --net=mac1 --ip=172.13.186.1 -p 18181:80 --name alpine.nginx chunhui2001/alpine:3.12.nginx
+### docker-compose.yml
+----------------------------------
+networks:
+  kp-net:
+    external: true
+    name: mac10
+
+services:
+  nginx_1.18.0:
+    container_name: nginx_1.18.0
+    image: chunhui2001/alpine:3.12.nginx
+    mem_limit: 100m
+    volumes:
+      - ./conf/nginx.sample.nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./conf/index.html:/www/index.html:ro
+    restart: always
+    networks:
+      kp-net:
+        ipv4_address: 192.168.64.200
+
 -- 这个container确实没法ping通host
 -- 利用linux创建一个macvlan类型的link，同时赋予一个与container同网段的ip:
 sudo ip link add mac1 link eth1 type mac1 mode bridge
-sudo ip addr add 172.13.0.0/8 dev mymacvlan
+sudo ip addr add 10.10.140.0/24 dev mymacvlan
 sudo ifconfig mymacvlan up
-
-
 
 ### Use macvlan networks
 https://docs.docker.com/network/macvlan/
 
 
-
-For the routing problem , there might be some overlap between host network and the docker network , try to use a different subnet for docker network such as 192.168.10.0/24 or something else like --subnet=10.10.140.0/24.
-
-For the port mapping , remove extra stuff from docker run and do -p 80:4873
-
-docker run -d -net NETNAME1 80:4873 verdaccio/verdaccio
-Testing:
-
-These commands works fine , and I can access port 80 on the host.
-
-docker network create -d macvlan --subnet=10.30.140.0/22 --gateway=10.30.143.254  NETNAME1
-docker network ls
-docker run -it --rm --net=NETNAME1 --name verdaccio -p 80:4873 verdaccio/verdaccio
-docker ps
