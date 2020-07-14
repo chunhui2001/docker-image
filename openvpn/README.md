@@ -299,7 +299,7 @@ $ sudo vi chap-secrets
 # client        server  secret                  IP addresses
 username        *       password                *
 
-$ sudo docker run -d --privileged -p 1723:1723 -v /home/ubuntu/chap-secrets:/etc/ppp/chap-secrets mobtitude/vpn-pptp
+$ sudo docker run -d --privileged --net=host -p 1723:1723 -v /home/ubuntu/chap-secrets:/etc/ppp/chap-secrets mobtitude/vpn-pptp
 
 
 #### Docker L2TP VPN

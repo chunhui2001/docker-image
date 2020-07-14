@@ -7,13 +7,15 @@ sudo docker network create -d macvlan \
                            --subnet=192.168.64.0/23 \
                            --ip-range=192.168.64.192/28 \
                            -o macvlan_mode=bridge \
-                           -o parent=eth1.10 mac10
+                           -o parent=eth0.10 mac10
 
 ### 参数说明
 # -d 指定 Docker 网络 driver
 # --subnet 指定 macvlan 网络所在的网络
 # --gateway 指定网关
 # -o parent 指定用来分配 macvlan 网络的物理网卡
+
+# docker run -itd --name c1 --ip=192.168.64.200 --network mac10 chunhui2001/alpine:3.12.nginx
 
 ### docker-compose.yml
 ----------------------------------
