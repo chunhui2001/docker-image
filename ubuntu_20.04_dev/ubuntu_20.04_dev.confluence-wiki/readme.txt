@@ -48,3 +48,21 @@
 $ java -jar atlassian-agent-v1.2.3.jar -d -m test@test.com -n BAT -p conf -o http://192.168.0.89 -s BEID-7UAO-220M-FQX4
 
 
+### 配置文件
+/var/atlassian/application-data/confluence/confluence.cfg.xml 
+
+### tomcat 跟目录
+/opt/atlassian/confluence/
+
+### 程序跟目录
+/var/atlassian/application-data/confluence/
+
+
+
+
+
+
+
+
+
+
