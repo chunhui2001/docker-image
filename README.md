@@ -2,6 +2,9 @@
 ## 官方镜像中心
 https://hub.docker.com
 
+### 找出系统大文件
+## sudo du -a / 2>/dev/null | sort -n -r | head -n 20
+
 ## 可以使用下面的命令列出所有在指定 image 之后创建的 image 的父 image
 $ docker image inspect --format='{{.RepoTags}} {{.Id}} {{.Parent}}' $(docker image ls -q --filter since=xxxxxx)
 
