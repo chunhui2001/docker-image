@@ -51,3 +51,10 @@ services:
       - ENV_DOCKER_REGISTRY_PORT=5000
 
 
+DEPLOY RED HAT QUAY - BASIC
+https://access.redhat.com/documentation/en-us/red_hat_quay/2.9/html-single/deploy_red_hat_quay_-_basic/index
+
+Setup Red Hat Quay Registry on CentOS / RHEL / Ubuntu
+https://computingforgeeks.com/how-to-setup-red-hat-quay-registry-on-centos-rhel/
+
+

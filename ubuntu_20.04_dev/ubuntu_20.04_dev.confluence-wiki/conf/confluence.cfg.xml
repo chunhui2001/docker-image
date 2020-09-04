@@ -22,7 +22,8 @@
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.isolation">2</property>
     <property name="hibernate.connection.password">Cc</property>
-    <property name="hibernate.connection.url">jdbc:mysql://172.16.197.7:3306/confluence_wiki2?useUnicode=true&amp;characterEncoding=UTF-8&amp;autoReconnect=true&amp;useSSL=false&amp;failOverReadOnly=false</property>
+    <!-- jdbc:mysql://172.16.197.13:3306/confluence_wiki?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&failOverReadOnly=false -->
+    <property name="hibernate.connection.url">jdbc:mysql://172.16.197.13:3306/confluence_wiki?useUnicode=true&amp;characterEncoding=UTF-8&amp;autoReconnect=true&amp;useSSL=false&amp;failOverReadOnly=false</property>
     <property name="hibernate.connection.username">keesh</property>
     <property name="hibernate.database.lower_non_ascii_supported">true</property>
     <property name="hibernate.dialect">com.atlassian.hibernate.dialect.MySQLDialect</property>
