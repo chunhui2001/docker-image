@@ -11,11 +11,18 @@ RUN dpkg -i erlang-solutions_1.0_all.deb
 RUN apt-get update -y && apt-get -y install esl-erlang && apt-get -y install rabbitmq-server
 RUN /usr/sbin/rabbitmq-plugins enable rabbitmq_management
 
+# 查看所有用户
+# $ rabbitmqctl list_users
+
 # 新增管理员用户
 # $ rabbitmqctl add_user admin admin
 # $ rabbitmqctl set_user_tags admin administrator
 # $ rabbitmqctl set_permissions -p / admin ".*" ".*" ".*"
 
+# Virtual Host: /
+# Configure regexp: .*
+# Write regexp: .*
+# Read regexp: .*
 
 # 创建vhost
 # $ rabbitmqctl add_vhost /test
@@ -24,11 +31,6 @@ RUN /usr/sbin/rabbitmq-plugins enable rabbitmq_management
 # $ rabbitmqctl set_user_tags keesh administrator
 # $ rabbitmqctl set_permissions -p /test keesh ".*" ".*" ".*"
 
-
-# 
-# $ rabbitmqctl add_user admin admin
-# $ rabbitmqctl set_user_tags admin administrator
-# $ rabbitmqctl set_permissions -p / admin ".*" ".*" ".*"
 
 # PORTS
 # 15672 	For Management
