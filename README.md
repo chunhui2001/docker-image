@@ -57,7 +57,7 @@ $ docker run -d -P --name daemon "registry/image name:tag" -g "daemon off;"
 $ docker exec -it "container name or container id" /bin/bash
 
 ### docker commit
-$ sudo docker commit 614122c0aabb 
+$ sudo docker commit [614122c0aabb] chunhui2001/alpine:3.13.python-3.8.7.kline
 
 ### docker cp
 $ docker cp /www/runoob 96f7f14e99ab:/www/
