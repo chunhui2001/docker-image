@@ -30,6 +30,11 @@ ENV LANG zh_CN.UTF-8
 ENV LANGUAGE zh_CN:zh
 ENV LC_ALL zh_CN.UTF-8
 
+RUN localedef -c -f UTF-8 -i zh_CN zh_CN.utf8
+RUN python3 -m pip install --upgrade pip
+RUN pip install matplotlib
+RUN pip install mplfinance
+
 WORKDIR /root
 
 # docker build -f Dockerfile . -t 'chunhui2001/debian_10:python3.8.6.mpl'
