@@ -47,8 +47,11 @@ RUN ln -s /usr/local/bin/gulp /usr/sbin/gulp
 # gulp -v
 
 # web3j install
-RUN curl -L get.web3j.io | sh
-RUN source $HOME/.web3j/source.sh
+RUN wget https://github.com/web3j/web3j/releases/download/v3.6.0/web3j-3.6.0.zip -O /usr/local/web3j-3.6.0.zip && unzip web3j-3.6.0.zip && rm -rf web3j-3.6.0.zip && ln -s web3j-3.6.0 web3j
+
+
+ENV PATH=$PATH:/usr/local/ant/bin:/usr/local/web3j/bin
+
 RUN npm install -g solc
 # solcjs --version
 
@@ -66,7 +69,8 @@ RUN rm -rf /usr/local/*.tar.*
 # https://my.oschina.net/duojin/blog/1818096
 # https://github.com/web3j/web3j-cli
 
-
+### remix
+# https://remix.ethereum.org/
 
 
 
