@@ -60,3 +60,15 @@ RUN rm -rf /usr/local/*.tar.*
 # docker push chunhui2001/centos_7_dev:web3j
 # docker pull chunhui2001/centos_7_dev:web3j
 
+
+### 使用 web3j 将 sol 智能合约转换成 java 文件
+# https://my.oschina.net/duojin/blog/1818096
+# https://github.com/web3j/web3j-cli
+
+
+
+
+
+
+
+
