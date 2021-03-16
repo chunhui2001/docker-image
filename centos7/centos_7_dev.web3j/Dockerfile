@@ -50,6 +50,7 @@ RUN ln -s /usr/local/bin/gulp /usr/sbin/gulp
 RUN curl -L get.web3j.io | sh
 RUN source $HOME/.web3j/source.sh
 RUN npm install -g solc
+# solcjs --version
 
 ## Clear files
 RUN rm -rf /usr/local/*.tar.*
