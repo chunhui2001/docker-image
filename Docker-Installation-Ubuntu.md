@@ -31,7 +31,11 @@ $ sudo usermod -aG docker $USER
 $ reboot
 
 
-
+Uninstall Docker Engine
+sudo apt-get remove docker docker-engine docker.io containerd runc
+sudo apt-get purge docker-ce docker-ce-cli containerd.io
+sudo rm -rf /var/lib/docker
+sudo rm -rf /var/lib/containerd
 
 
 **************************************************
