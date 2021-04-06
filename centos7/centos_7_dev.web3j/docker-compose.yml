@@ -15,6 +15,4 @@ services:
     #  - JAVA_OPTS="-server -Xms128m -Xmx128m -Xmn64m -Xss268k"
     command: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
     #entrypoint: ["java", "-Djava.library.path=/usr/local/tomcat/native-jni-lib", "-jar", "/root/app/app.jar"]
-    volumes:
-      - /Users/zhangchunhui/workspace_defibox_new/huobi-defibox/defibox-micros/defibox-ether/defibox-ether-conx/src/main/java/com/huobi/dbox/ether/conx/pancake/pancake-swap-core:/pancake-swap-core:rw
     restart: always
