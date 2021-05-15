@@ -242,6 +242,12 @@ curl -XPUT 'http://localhost:9200/users/employee/2'  -H 'Content-Type: applicati
 curl -XGET 'http://localhost:9200/users/employee/1?pretty=true'
 </pre>
 
+# 查看索引
+# curl -v http://localhost:9200/test/_mapping
+
+# 删除索引
+# curl -XDELETE http://localhost:9200/test*
+
 # 更新索引定义
 In later Elasticsearch versions (7.x), types were removed. Updating a mapping can becomes:
 
@@ -293,7 +299,14 @@ curl -XPUT 'http://localhost:9200/my-index-000001/_doc/0x16e490'  -H 'Content-Ty
     "uncles": []
 }'
 
+# 删文档
 curl -XDELETE 'http://localhost:9200/my-index-000001/_doc/1'
+
+# 删索引
+curl -XDELETE localhost:9200/.mar* 
+curl -XDELETE localhost:9200/shop
+
+
 
 
 
