@@ -5,7 +5,7 @@ MAINTAINER Chunhui.Zhang "chunhui2001@gmail.com"
 
 # install make
 RUN apt-get update && \
-  apt-get install --yes make wget curl vim build-essential lsb-release net-tools iputils-ping apt-utils
+  apt-get install --yes make wget curl vim build-essential lsb-release net-tools iputils-ping apt-utils supervisor
 
 # create a non-root user
 RUN adduser --disabled-login --gecos "" tester
@@ -34,10 +34,10 @@ RUN chown -R tester:tester /home/tester/bitcoin-testnet-box
 
 # color PS1
 RUN mv /home/tester/bitcoin-testnet-box/.bashrc /home/tester/ && \
-  cat /home/tester/.bashrc >> /etc/bash.bashrc
+  cat /home/tester/.bashrc >> /etc/bash.bashrc && cat /home/tester/.bashrc >> /root/.bashrc
 
 # use the tester user when running the image
-USER tester
+# USER tester
 
 # run commands from inside the testnet-box directory
 WORKDIR /home/tester/bitcoin-testnet-box
