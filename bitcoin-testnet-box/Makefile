@@ -45,16 +45,16 @@ getaccount1:
 getaccount2:
 	$(BITCOINCLI) $(B1) getaccount $(ADDRESS)
 ### 创建钱包 
-# >> make wallet1 WALLET_NAME=chunhui.zhang.wallet1
-wallet1:
+# >> make create_wallet1 WALLET_NAME=chunhui.zhang.wallet1
+create_wallet1:
 	$(BITCOINCLI) $(B1) createwallet $(WALLET_NAME)
-wallet2:
+create_wallet2:
 	$(BITCOINCLI) $(B2) createwallet $(WALLET_NAME)
 ### Generate a wallet address for the first wallet
-address1:
+create_address1:
 	$(BITCOINCLI) $(B1) getnewaddress $(ACCOUNT)
 ### Generate a wallet address for the second wallet
-address2:
+create_address2:
 	$(BITCOINCLI) $(B2) getnewaddress $(ACCOUNT)
 stop:
 	$(BITCOINCLI) $(B1) stop

@@ -17,6 +17,7 @@ services:
     volumes:
       - ./1:/home/tester/bitcoin-testnet-box/1:rw
       - ./2:/home/tester/bitcoin-testnet-box/2:rw
+      - ./Makefile:/home/tester/bitcoin-testnet-box/Makefile:ro
     restart: always
     networks:
       br0:
