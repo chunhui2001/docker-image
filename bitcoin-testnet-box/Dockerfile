@@ -5,7 +5,7 @@ MAINTAINER Chunhui.Zhang "chunhui2001@gmail.com"
 
 # install make
 RUN apt-get update && \
-  apt-get install --yes make wget curl vim build-essential lsb-release net-tools iputils-ping apt-utils supervisor
+  apt-get install --yes make vim build-essential lsb-release net-tools iputils-ping apt-utils supervisor curl wget
 
 # create a non-root user
 RUN adduser --disabled-login --gecos "" tester
