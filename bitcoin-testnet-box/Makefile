@@ -25,7 +25,7 @@ getinfo:
 	$(BITCOINCLI) $(B1) -getinfo
 	$(BITCOINCLI) $(B2) -getinfo
 getinfo_by_curl:
-	curl --user admin1:123 --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "getblockchaininfo", "params": []}' -H 'content-type: text/plain;' http://127.0.0.1:19001/
+	curl --user admin1:123 --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "getblockchaininfo", "params": []}' -H 'content-type: text/plain;' http://127.0.0.1:19001
 ### Sending bitcoins
 sendfrom1:
 	$(BITCOINCLI) $(B1) sendtoaddress $(ADDRESS) $(AMOUNT)
