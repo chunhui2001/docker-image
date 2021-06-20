@@ -16,6 +16,7 @@ services:
       - 19011:19011
     volumes:
       - ./supervisord_testnet.conf:/etc/supervisor/conf.d/supervisord.conf:ro
+      - ./supervisord_testnet.conf:/home/tester/bitcoin-testnet-box/supervisord.conf:ro
       - ./testnet/1:/home/tester/bitcoin-testnet-box/1:rw
       #- ./testnet/2:/home/tester/bitcoin-testnet-box/2:rw
       - ./Makefile:/home/tester/bitcoin-testnet-box/Makefile:ro
