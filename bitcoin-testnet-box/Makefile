@@ -24,10 +24,8 @@ generate:
 getinfo:
 	$(BITCOINCLI) $(B1) -getinfo
 	$(BITCOINCLI) $(B2) -getinfo
-getinfo2:
-	curl --user admin1:123 \
-	--data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "getblockchaininfo", "params": []}' \
-	-H 'content-type: text/plain;' http://127.0.0.1:19001/
+getinfo_by_curl:
+	curl --user admin1:123 --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "getblockchaininfo", "params": []}' -H 'content-type: text/plain;' http://127.0.0.1:19001/
 ### Sending bitcoins
 sendfrom1:
 	$(BITCOINCLI) $(B1) sendtoaddress $(ADDRESS) $(AMOUNT)
@@ -36,8 +34,8 @@ sendfrom2:
 ### 列出所有钱包
 listwallets1:
 	$(BITCOINCLI) $(B1) listwallets
-listwallets2:
-	$(BITCOINCLI) $(B2) listwallets
+listwallets1_by_curl:
+	curl --user admin1:123 --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "listwallets", "params": []}' -H 'content-type: text/plain;' http://127.0.0.1:19001
 ### 根据地址查询账户
 # >> make getaccount1 ADDRESS=1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX
 getaccount1:
@@ -48,14 +46,15 @@ getaccount2:
 # >> make create_wallet1 WALLET_NAME=chunhui.zhang.wallet1
 create_wallet1:
 	$(BITCOINCLI) $(B1) createwallet $(WALLET_NAME)
-create_wallet2:
-	$(BITCOINCLI) $(B2) createwallet $(WALLET_NAME)
 ### Generate a wallet address for the first wallet
 create_address1:
 	$(BITCOINCLI) $(B1) getnewaddress $(ACCOUNT)
-### Generate a wallet address for the second wallet
-create_address2:
-	$(BITCOINCLI) $(B2) getnewaddress $(ACCOUNT)
+### 查询余额	
+getbalance1:
+	$(BITCOINCLI) $(B1) getbalance
+### 查询钱包中所有剩余的从之前交易中已确认的支出	
+listunspent1:
+	$(BITCOINCLI) $(B1) listunspent
 stop:
 	$(BITCOINCLI) $(B1) stop
 	$(BITCOINCLI) $(B2) stop
