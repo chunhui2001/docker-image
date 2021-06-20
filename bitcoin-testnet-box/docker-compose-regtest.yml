@@ -4,10 +4,10 @@ networks:
       external: true
 
 services:
-  bitcoin-testnet-box:
-    container_name: bitcoin-testnet-box
+  bitcoin-regtest-box:
+    container_name: bitcoin-regtest-box
     image: chunhui2001/bitcoin-testnet-box:latest
-    hostname: bitcoin-testnet-box
+    hostname: bitcoin-regtest-box
     entrypoint: ["/usr/bin/supervisord"]
     #command: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
     mem_limit: 300m
@@ -16,11 +16,8 @@ services:
       - 19011:19011
     volumes:
       - ./supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
-      #- ./supervisord_testnet.conf:/etc/supervisor/conf.d/supervisord.conf:ro
-      #- ./regtest/1:/home/tester/bitcoin-testnet-box/1:rw
-      #- ./regtest/2:/home/tester/bitcoin-testnet-box/2:rw
-      - ./testnet/1:/home/tester/bitcoin-testnet-box/1:rw
-      - ./testnet/2:/home/tester/bitcoin-testnet-box/2:rw
+      - ./regtest/1:/home/tester/bitcoin-testnet-box/1:rw
+      - ./regtest/2:/home/tester/bitcoin-testnet-box/2:rw
       - ./Makefile:/home/tester/bitcoin-testnet-box/Makefile:ro
     restart: always
     networks:
