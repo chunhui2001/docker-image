@@ -27,7 +27,8 @@ RUN mkdir tmp \
 RUN rm -r tmp
 
 # copy the testnet-box files into the image
-ADD . /home/tester/bitcoin-testnet-box
+ADD ./Makefile /home/tester/bitcoin-testnet-box/Makefile
+ADD ./.bashrc /home/tester/bitcoin-testnet-box/.bashrc
 
 # make tester user own the bitcoin-testnet-box
 RUN chown -R tester:tester /home/tester/bitcoin-testnet-box
