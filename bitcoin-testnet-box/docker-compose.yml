@@ -16,10 +16,10 @@ services:
       - 19011:19011
     volumes:
       #- ./supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
-      #- ./regtest/1:/home/tester/bitcoin-testnet-box/1:rw
-      #- ./regtest/2:/home/tester/bitcoin-testnet-box/2:rw
-      - ./testnet/1:/home/tester/bitcoin-testnet-box/1:rw
-      - ./testnet/2:/home/tester/bitcoin-testnet-box/2:rw
+      - ./regtest/1:/home/tester/bitcoin-testnet-box/1:rw
+      - ./regtest/2:/home/tester/bitcoin-testnet-box/2:rw
+      #- ./testnet/1:/home/tester/bitcoin-testnet-box/1:rw
+      #- ./testnet/2:/home/tester/bitcoin-testnet-box/2:rw
       - ./Makefile:/home/tester/bitcoin-testnet-box/Makefile:ro
     restart: always
     networks:
