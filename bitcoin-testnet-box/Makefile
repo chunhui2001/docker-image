@@ -1,7 +1,7 @@
 BITCOIND=bitcoind
 BITCOINGUI=bitcoin-qt
 BITCOINCLI=bitcoin-cli
-B1_FLAGS=
+B1_FLAGS=-rpcconnect=127.0.0.1 -rpcport=19001 -rpcuser=admin1 -rpcpassword=123
 B2_FLAGS=
 B1=-datadir=1 $(B1_FLAGS)
 B2=-datadir=2 $(B2_FLAGS)
