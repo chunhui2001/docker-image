@@ -53,6 +53,12 @@ create_address1:
 # >> make import_address WALLET_NAME=my-first-wallet-1 ADDRESS=mpQnMXrxbkkQxwfNQqGMyz1mHmrAfiJYCG LABEL=my-primary-address-label1 SCAN=false
 import_address:
 	$(BITCOINCLI) $(B1) -rpcwallet=$(WALLET_NAME) importaddress $(ADDRESS) $(LABEL) $(SCAN)
+# >> make import_address_by_curl WALLET_NAME=my-first-wallet-1 ADDRESS=mpQnMXrxbkkQxwfNQqGMyz1mHmrAfiJYCG LABEL=my-primary-address-label1 SCAN=false
+import_address_by_curl:
+	curl $(ACCOUNT) --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "importaddress", "params": ["$(ADDRESS)","$(LABEL)",$(SCAN)]}' -H 'content-type: text/plain;' "http://127.0.0.1:19001/wallet/$(WALLET_NAME)"
+# >> make import_pubkey_by_curl WALLET_NAME=my-first-wallet-1 PUBKEY=02d61e729c277aa4f28c698f68d9fb68be2166b3f27dec29f0b9eaed118547c86d LABEL=my-primary-address-label1 SCAN=false
+import_pubkey_by_curl:
+	curl $(ACCOUNT) --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "importpubkey", "params": ["$(PUBKEY)","$(LABEL)",$(SCAN)]}' -H 'content-type: text/plain;' "http://127.0.0.1:19001/wallet/$(WALLET_NAME)"
 ### 查询余额    
 # >> make getbalance1 WALLET_NAME=my-first-wallet-1
 getbalance1:
