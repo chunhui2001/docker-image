@@ -4,19 +4,19 @@ networks:
       external: true
 
 services:
-  bitcoin-testnet-box:
-    container_name: bitcoin-testnet-box
+  bitcoin-mainnet-box:
+    container_name: bitcoin-mainnet-box
     image: chunhui2001/bitcoin-testnet-box:latest
     privileged: true
-    hostname: bitcoin-testnet-box
+    hostname: bitcoin-mainnet-box
     entrypoint: ["/usr/bin/supervisord"]
     #command: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
     ports:
-      - 19101:19001
+      - 19102:19002
     volumes:
-      - ./supervisord_testnet.config:/etc/supervisor/conf.d/supervisord.conf:ro
-      - ./testnet/1:/home/tester/bitcoin-testnet-box/1:rw
-      - ./Makefile:/home/tester/bitcoin-testnet-box/Makefile:rw
+      - ./supervisord_mainnet.config:/etc/supervisor/conf.d/supervisord.conf:ro
+      - ./mainnet:/home/tester/bitcoin-mainnet-box/mainnet:rw
+      - ./Makefile:/home/tester/bitcoin-mainnet-box/Makefile:rw
     restart: always
     networks:
       br0:

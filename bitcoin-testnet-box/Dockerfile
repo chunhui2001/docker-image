@@ -27,21 +27,19 @@ RUN mkdir tmp \
 RUN rm -r tmp
 
 # copy the testnet-box files into the image
-ADD ./Makefile /home/tester/bitcoin-testnet-box/Makefile
-ADD ./.bashrc /home/tester/bitcoin-testnet-box/.bashrc
+ADD ./.bashrc /home/tester/.bashrc
 
-# make tester user own the bitcoin-testnet-box
-RUN chown -R tester:tester /home/tester/bitcoin-testnet-box
+# make tester user own the tester
+RUN chown -R tester:tester /home/tester
 
 # color PS1
-RUN mv /home/tester/bitcoin-testnet-box/.bashrc /home/tester/ && \
-  cat /home/tester/.bashrc >> /etc/bash.bashrc && cat /home/tester/.bashrc >> /root/.bashrc
+RUN cat /home/tester/.bashrc >> /etc/bash.bashrc && cat /home/tester/.bashrc >> /root/.bashrc
 
 # use the tester user when running the image
 # USER tester
 
 # run commands from inside the testnet-box directory
-WORKDIR /home/tester/bitcoin-testnet-box
+WORKDIR /home/tester
 
 # expose two rpc ports for the nodes to allow outside container access
 EXPOSE 19001 19011
