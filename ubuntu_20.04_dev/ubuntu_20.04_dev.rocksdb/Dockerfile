@@ -32,6 +32,7 @@ RUN ldconfig
 # Once the installation has finished, you will be able to compile Demos using the following command:
 ### make install DB_BACKEND=rocksdb
 
+WORKDIR /usr/local/go
 
 # docker build -f Dockerfile . -t 'chunhui2001/ubuntu_20.04_dev:rocksdb'
 # docker run -dit --entrypoint="top" --name rocksdb chunhui2001/ubuntu_20.04_dev:rocksdb
