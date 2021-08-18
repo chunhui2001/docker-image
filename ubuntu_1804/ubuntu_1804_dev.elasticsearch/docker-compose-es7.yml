@@ -39,7 +39,7 @@ services:
         soft: -1
         hard: -1
     volumes:
-      #  - esdata01:/usr/share/elasticsearch/data
+      - /data/esdata01:/usr/share/elasticsearch/data
       # 在 centos7 下需执行: chcon -Rt svirt_sandbox_file_t config/
       - ./config/jvm.options-for-es7.3.1:/usr/share/elasticsearch/config/jvm.options:ro
     ports:
@@ -60,13 +60,14 @@ services:
       - cluster.initial_master_nodes=es01,es02
       - cluster.name=es-docker-cluster
       - bootstrap.memory_lock=true
+      #- path.data=/data/
       - "ES_JAVA_OPTS=-Xms256m -Xmx256m"
     ulimits:
       memlock:
         soft: -1
         hard: -1
     volumes:
-      #  - esdata02:/usr/share/elasticsearch/data
+      - /data/esdata02:/usr/share/elasticsearch/data
       # 在 centos7 下需执行: chcon -Rt svirt_sandbox_file_t config/
       - ./config/jvm.options-for-es7.3.1:/usr/share/elasticsearch/config/jvm.options:ro
     ports:
