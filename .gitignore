@@ -64,3 +64,5 @@ docker-config.yml
 
 *.tar.gz
 
+*.zip
+chain-node/binance-chain/geth_linux
