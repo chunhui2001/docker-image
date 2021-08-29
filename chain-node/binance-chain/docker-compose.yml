@@ -26,3 +26,8 @@ services:
     networks:
         br0:
           ipv4_address: 172.16.197.99
+
+### 查询块高
+# curl -vX POST -H "Content-Type:application/json; charset=utf-8" -d '{"id":"13","jsonrpc":"2.0","method":"eth_blockNumber","params":[]}' "http://172.26.33.14:8545/"
+
+# curl -vX POST -H "Content-Type:application/json; charset=utf-8" -d '{"id":"14","jsonrpc":"2.0","method":"eth_chainId","params":[]}' "http://172.26.33.14:8545/"
