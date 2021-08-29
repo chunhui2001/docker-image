@@ -15,10 +15,11 @@ services:
     container_name: binance-chain_mainnet
     image: chunhui2001/ubuntu_20.04_dev:binance-chain_v1.1.0
     #entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
-    entrypoint: ["entrypoint.sh"]
+    entrypoint: ["/binance-chain/entrypoint.sh"]
     volumes:
-      - ./entrypoint.sh:/usr/sbin/entrypoint.sh:ro
-      - ./mainnet_conf:/usr/local/binance-chain/mainnet:ro
+      - ./entrypoint.sh:/binance-chain/entrypoint.sh:rw
+      - ./mainnet_conf/config.toml:/binance-chain/config.toml:ro
+      - ./mainnet_conf/genesis.json:/binance-chain/genesis.json:ro
     restart: always
     ports:
       - 8545:8545

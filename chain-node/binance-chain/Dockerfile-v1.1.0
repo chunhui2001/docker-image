@@ -1,27 +1,29 @@
 # chunhui2001/ubuntu_20.04_dev:binance-chain_v1.1.0
 # Version 0.0.1
-FROM chunhui2001/ubuntu_20.04_dev:golang_1.15.7
+FROM chunhui2001/ubuntu_20.04_dev:rocksdb
 MAINTAINER Chunhui.Zhang "chunhui2001@gmail.com"
 
-RUN apt-get update -y && apt-get install -y unzip libleveldb-dev
+RUN apt-get update -y && apt-get install -y unzip libleveldb-dev curl wget
 
-## wget  https://github.com/binance-chain/bsc/releases/download/v1.1.0-beta/geth_linux
-WORKDIR /usr/local/binance-chain
-ADD ./geth_linux /usr/local/binance-chain
-ADD ./mainnet.zip /usr/local/binance-chain
-ADD ./testnet.zip /usr/local/binance-chain
+## https://docs.binance.org/smart-chain/developer/fullnode.html
+WORKDIR /binance-chain
+ADD ./bsc /binance-chain/bsc
+## wget https://github.com/binance-chain/bsc/releases/download/v1.1.0-beta/mainnet.zip
+ADD ./mainnet.zip /binance-chain/
 
-RUN unzip mainnet.zip -d mainnet && unzip testnet.zip  -d testnet && rm -rf *.zip && chmod +x geth_linux 
-RUN ln -s /usr/local/binance-chain/geth_linux /usr/sbin/geth
-RUN geth --datadir /usr/local/binance-chain/mainnet_node init mainnet/genesis.json
+WORKDIR /binance-chain/bsc
+RUN make geth && ln -s /binance-chain/bsc/build/bin/geth /usr/sbin/geth
 
-ADD ./entrypoint.sh /usr/sbin/entrypoint.sh
-RUN chmod +x /usr/sbin/entrypoint.sh
+WORKDIR /binance-chain
+RUN unzip mainnet.zip && rm -rf *.zip
+RUN geth --datadir node init genesis.json
 
-# geth --config ./mainnet/config.toml --datadir ./mainnet_node --cache 18000 --rpc.allow-unprotected-txs --txlookuplimit 0 --nodiscover false
-# tail -f mainnet_node/bsc.log
+ADD ./entrypoint.sh /binance-chain/entrypoint.sh
+RUN chmod +x /binance-chain/entrypoint.sh
 
-ENTRYPOINT ["entrypoint.sh"]
+# tail -f node/bsc.log
+
+ENTRYPOINT ["/binance-chain/entrypoint.sh"]
 
 # docker build -f Dockerfile-v1.1.0 . -t 'chunhui2001/ubuntu_20.04_dev:binance-chain_v1.1.0'
 # docker run -dit --entrypoint="top" --name binance-chain chunhui2001/ubuntu_20.04_dev:binance-chain_v1.1.0
