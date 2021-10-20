@@ -72,6 +72,7 @@ ADD uwsgi.ini /root/uwsgi.ini
 ADD www /www
 
 RUN apt-get install --yes make net-tools iputils-ping apt-utils supervisor wget
+RUN pip install uwsgi-tools
 
 # run nginx with daemon off 
 ENTRYPOINT ["/usr/local/nginx/sbin/nginx", "-g", "daemon off;"]
@@ -80,6 +81,9 @@ ENTRYPOINT ["/usr/local/nginx/sbin/nginx", "-g", "daemon off;"]
 # nginx -v 查看版本 
 # nginx -V 查看编译配置
 # nginx -t 检查配置文件
+
+## 测试
+# uwsgi_curl 127.0.0.1:5000
 
 ### run nginx
 # docker build -f Dockerfile . -t 'chunhui2001/debian_10:python3.8.6.mpln'

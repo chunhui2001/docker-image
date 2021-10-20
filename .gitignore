@@ -66,3 +66,4 @@ docker-config.yml
 
 *.zip
 chain-node/binance-chain/geth_linux
+__pycache__

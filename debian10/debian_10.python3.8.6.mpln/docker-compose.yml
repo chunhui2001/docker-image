@@ -16,11 +16,10 @@ services:
     image: chunhui2001/debian_10:python3.8.6.mpln
     mem_limit: 100m
     ports:
-      - 8008:80
-      #- 18443:18443
-    #entrypoint: ["/usr/bin/supervisord"]
+      - 8008:5000
+    entrypoint: ["/usr/bin/supervisord"]
     #entrypoint: ["/usr/local/nginx/sbin/nginx", "-g", "daemon off;"]
-    entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
+    #entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
     volumes:
       - ./supervisord.config:/etc/supervisor/conf.d/supervisord.conf:ro
       # 在 centos7 下需执行: chcon -Rt svirt_sandbox_file_t config/
