@@ -18,10 +18,15 @@ services:
     ports:
       - 8008:80
       #- 18443:18443
-    entrypoint: ["/usr/local/nginx/sbin/nginx", "-g", "daemon off;"]
+    #entrypoint: ["/usr/bin/supervisord"]
+    #entrypoint: ["/usr/local/nginx/sbin/nginx", "-g", "daemon off;"]
+    entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
     volumes:
-      #- ./ssl:/usr/local/nginx/ssl:ro
+      - ./supervisord.config:/etc/supervisor/conf.d/supervisord.conf:ro
       # 在 centos7 下需执行: chcon -Rt svirt_sandbox_file_t config/
+      - ./uwsgi.ini:/root/uwsgi.ini:ro
+      - ./www:/www:rw
+      #- ./ssl:/usr/local/nginx/ssl:ro
       - ./nginx.sample.default:/usr/local/nginx/sites-enabled/default:ro
       #- ./nginx.sample.default.ssl:/usr/local/nginx/sites-enabled/default:ro
       #- /my_directories:/usr/local/nginx/html/:rw

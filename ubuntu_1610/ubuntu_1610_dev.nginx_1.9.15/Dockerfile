@@ -59,6 +59,7 @@ RUN rm -rf /root/nginx-work
 
 # nginx -v 查看版本 
 # nginx -V 查看编译配置
+# nginx -t 检查配置文件
 
 
 ### run nginx

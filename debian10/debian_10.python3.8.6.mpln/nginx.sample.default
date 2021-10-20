@@ -38,5 +38,10 @@ server {
         ';
         # content_by_lua_file {nginx_root_here}jenknis_notify/main.lua;
 	}
+
+	location ~ ^/wsgi(/)?$ {
+		include uwsgi_params;
+		uwsgi_pass 10.0.0.37:8080;
+	}
 	
 }

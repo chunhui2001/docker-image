@@ -53,9 +53,25 @@ RUN sed -i "s#%%DATE%%#`date -d today +"%Y-%m-%d %H:%M:%S.%s"`#g" /usr/local/ngi
 
 RUN ln -s /usr/local/nginx/sbin/nginx /usr/local/bin/nginx
 
-# remove /root/nginx-work
+ADD setuptools-19.6.tar.gz2 /root/
+WORKDIR /root/setuptools-19.6
+RUN python setup.py build && python setup.py install
+
+ADD requirements.txt /root/requirements.txt
+RUN pip install -r /root/requirements.txt
+
+ADD uwsgi-2.0.20.tar.gz2 /root/
+WORKDIR /root/uwsgi-2.0.20
+RUN python setup.py install
+
 WORKDIR /root
-RUN rm -rf /root/nginx-work
+RUN rm -rf /root/nginx-work /root/setuptools-19.6 /root/uwsgi-2.0.20
+
+# put files
+ADD uwsgi.ini /root/uwsgi.ini
+ADD www /www
+
+RUN apt-get install --yes make net-tools iputils-ping apt-utils supervisor wget
 
 # run nginx with daemon off 
 ENTRYPOINT ["/usr/local/nginx/sbin/nginx", "-g", "daemon off;"]
@@ -63,6 +79,7 @@ ENTRYPOINT ["/usr/local/nginx/sbin/nginx", "-g", "daemon off;"]
 # CMD ["-g", "daemon off;"]
 # nginx -v 查看版本 
 # nginx -V 查看编译配置
+# nginx -t 检查配置文件
 
 ### run nginx
 # docker build -f Dockerfile . -t 'chunhui2001/debian_10:python3.8.6.mpln'
