@@ -73,11 +73,12 @@ ADD www /www
 
 RUN apt-get install --yes make net-tools iputils-ping apt-utils supervisor wget
 RUN pip install uwsgi-tools
+RUN pip install --no-cache-dir gunicorn && mkdir -p /var/log/gunicorn
 
 # run nginx with daemon off 
-ENTRYPOINT ["/usr/local/nginx/sbin/nginx", "-g", "daemon off;"]
+# ENTRYPOINT ["/usr/local/nginx/sbin/nginx", "-g", "daemon off;"]
+# CMD ["/usr/local/bin/gunicorn", "-w", "2", "-b", ":8000", "manage:app"]
 
-# CMD ["-g", "daemon off;"]
 # nginx -v 查看版本 
 # nginx -V 查看编译配置
 # nginx -t 检查配置文件
