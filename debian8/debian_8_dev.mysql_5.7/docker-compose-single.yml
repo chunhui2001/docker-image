@@ -18,7 +18,7 @@ services:
     container_name: mysql_single
     image: chunhui2001/debian_8_dev:mysql_5.7
     hostname: mysql_single
-    mem_limit: 600m
+    mem_limit: 2600m
     environment:
       - MYSQL_ROOT_PASSWORD=Cc
     ports:
