@@ -26,6 +26,7 @@ $ sudo groupadd docker
 
 # add current user to docker group
 $ sudo usermod -aG docker $USER
+$ sudo gpasswd -a $USER docker
 
 # restart the computer and log back
 $ reboot
