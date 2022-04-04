@@ -1,23 +1,14 @@
 # chunhui2001/trufflesuite:ganache-explorer-0.1
 # Version 0.0.1
-FROM golang:1.14.4-alpine
+FROM chunhui2001/alpine:3.12.protobuf-3.3.0
 MAINTAINER Chunhui.Zhang "chunhui2001@gmail.com"
 
 ### https://github.com/vivekganesan01/ganache-cli-block-explorer
 #RUN git clone https://github.com/vivekganesan01/ganache-cli-block-explorer.git
 ADD ./ganache-cli-block-explorer /root/ganache-cli-block-explorer
 
-WORKDIR /root/ganache-cli-block-explorer
-
-### RUN go mod init ganache-cli-block-explorer
-### RUN go get github.com/ethereum/go-ethereum/common
-### RUN go get github.com/ethereum/go-ethereum/core/types
-### RUN go get github.com/ethereum/go-ethereum/ethclient
-### RUN go get github.com/gorilla/mux
-### RUN go build -o ./dist/app ./router.go
-
 ### 启动服务
-ENTRYPOINT ["/root/ganache-cli-block-explorer/dist/app"]
+# ENTRYPOINT ["go", "run", "/root/ganache-cli-block-explorer/router.go"]
 
 # docker build -f Dockerfile-explorer . -t 'chunhui2001/trufflesuite:ganache-explorer-0.1'
 # docker run -dit --entrypoint="top" -p 17888:8545 --name ganache-explorer chunhui2001/trufflesuite:ganache-explorer-0.1
