@@ -1,0 +1,16 @@
+# chunhui2001/trufflesuite:ganache-cli-0.1
+# Version 0.0.1
+FROM trufflesuite/ganache-cli
+MAINTAINER Chunhui.Zhang "chunhui2001@gmail.com"
+
+ADD ./entrypoint.sh /entrypoint.sh
+
+# docker build -f Dockerfile-cli . -t 'chunhui2001/trufflesuite:ganache-cli-0.1'
+# docker run -dit --entrypoint="top" -p 17888:8545 --name ganache-cli chunhui2001/trufflesuite:ganache-cli-0.1
+# docker run -dit -p 17888:8545 --name ganache-cli chunhui2001/trufflesuite:ganache-cli-0.1
+# docker push chunhui2001/trufflesuite:ganache-cli-0.1
+# docker pull chunhui2001/trufflesuite:ganache-cli-0.1
+
+# Open ports
+EXPOSE 8080
+
