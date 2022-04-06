@@ -19,6 +19,26 @@ III、检查配置：
 小结：如果要达到单个JVM开启100w以上的线程数，需要配置vm.max_map_count=2048000或者以上。
 因为默认vm.max_map_count=65530，因此缺省配置下，单个jvm能开启的最大线程数为其一半，即3w左右，大概32k的量
 实际中，可以通过命令【cat /proc/<pid>/maps |wc -l】来监控，当前进程使用到的vm映射数量。
+
+#### macOS with Docker for Macedit
+## The vm.max_map_count setting must be set within the xhyve virtual machine:
+## From the command line, run:
+$ screen ~/Library/Containers/com.docker.docker/Data/vms/0/tty
+-- Press enter and use sysctl to configure vm.max_map_count:
+>> sysctl -w vm.max_map_count=262144
+-- To exit the screen session, type Ctrl a d.
+
+### Windows and macOS with Docker Desktopedit
+## The vm.max_map_count setting must be set via docker-machine:
+$ docker-machine ssh
+$ sudo sysctl -w vm.max_map_count=262144
+
+### Windows with Docker Desktop WSL 2 backendedit
+## The vm.max_map_count setting must be set in the docker-desktop container:
+$ wsl -d docker-desktop
+> sysctl -w vm.max_map_count=262144
+
+
 4.最大用户进程数：需要在两个配置文件/etc/security/limits.conf和/etc/security/limits.d/90-nproc.conf同时修改
 实际上，仅对nproc参数修改90-nproc.conf即可。
 //////////begin////////
