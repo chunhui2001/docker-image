@@ -25,7 +25,7 @@ III、检查配置：
 ## From the command line, run:
 $ screen ~/Library/Containers/com.docker.docker/Data/vms/0/tty
 -- Press enter and use sysctl to configure vm.max_map_count:
->> sysctl -w vm.max_map_count=262144
+>> sysctl -w vm.max_map_count=2048000
 -- To exit the screen session, type Ctrl a d.
 
 ### Windows and macOS with Docker Desktopedit

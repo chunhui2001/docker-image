@@ -17,6 +17,7 @@ services:
     container_name: ganache-cli
     image: chunhui2001/trufflesuite:ganache-cli-0.1
     hostname: ganache-cli
+    mem_limit: 600m
     #command: ["sh", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
     entrypoint: ["sh", "/entrypoint.sh"]
     volumes:
