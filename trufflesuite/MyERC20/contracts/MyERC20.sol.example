@@ -1,0 +1,20 @@
+pragma solidity 0.6.10;
+
+// SPDX-License-Identifier: UNLICENSED
+
+import "./ERC20Factory.sol";
+
+contract USDT is ERC20, Ownable {
+
+    constructor () public ERC20 ("USDT Token", "USDT", 18) {
+        _mint(msg.sender, 21 * ((10000 * 10000) * (10 ** 18)));
+    }    
+
+    function mint(address account, uint256 value) public onlyOwner {
+        _mint(account, value);
+    }
+
+    function burn(address account, uint256 value) public onlyOwner {
+        _burn(account, value);
+    }
+}

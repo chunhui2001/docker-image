@@ -1,0 +1,20 @@
+pragma solidity 0.6.10;
+
+// SPDX-License-Identifier: UNLICENSED
+
+import "./ERC20Factory.sol";
+
+contract ###TOKEN_SYMBOL### is ERC20, Ownable {
+
+    constructor () public ERC20 ("###TOKEN_TOKEN_NAME###", "###TOKEN_SYMBOL###", ###TOKEN_DECIMAL###) {
+        _mint(msg.sender, ###TOKEN_TOTAL_SUPPLY### * (10 ** ###TOKEN_DECIMAL###)));
+    }    
+
+    function mint(address account, uint256 value) public onlyOwner {
+        _mint(account, value);
+    }
+
+    function burn(address account, uint256 value) public onlyOwner {
+        _burn(account, value);
+    }
+}
