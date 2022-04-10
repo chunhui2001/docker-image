@@ -1,0 +1,15 @@
+{
+  "name": "myerc20",
+  "version": "1.0.0",
+  "description": "",
+  "main": "truffle-config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "truffle-privatekey-provider": "^1.5.0",
+    "yargs": "^17.4.1"
+  }
+}

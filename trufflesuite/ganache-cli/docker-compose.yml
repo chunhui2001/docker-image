@@ -21,23 +21,13 @@ services:
     #command: ["sh", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
     entrypoint: ["sh", "/entrypoint.sh"]
     volumes:
-      - ./entrypoint.sh:/entrypoint.sh:ro
+      # - ./entrypoint.sh:/entrypoint.sh:ro
+      - ./entrypoint-with-accounts.sh:/entrypoint.sh:ro
     ports:
       - 17888:8545
     restart: always
     networks:
         br0:
           ipv4_address: 172.16.197.113
-  # ganache-explorer:
-  #   container_name: ganache-explorer
-  #   image: chunhui2001/trufflesuite:ganache-explorer-0.1
-  #   hostname: ganache-explorer
-  #   entrypoint: ["sh", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
-  #   #entrypoint: ["go", "run", "/root/ganache-cli-block-explorer/router.go", "http://172.16.197.113:8545"]
-  #   ports:
-  #     - 5051:5051
-  #   restart: always
-  #   networks:
-  #       br0:
-  #         ipv4_address: 172.16.197.123
+
 
