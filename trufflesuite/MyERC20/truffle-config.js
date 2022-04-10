@@ -7,9 +7,8 @@ const PrivateKeyProvider = require("truffle-privatekey-provider");
 
 module.exports = {
   
-  contracts_directory: path.join(__dirname, "contracts"),
+  contracts_directory: path.join(__dirname, "contracts_fat"),
   build_directory: path.join(__dirname, "build"),
-  contracts_directory: path.join(__dirname, "contracts"),
   contracts_build_directory: path.join(__dirname, "build/contracts"),
   migrations_directory: path.join(__dirname, "migrations"),
   test_directory: path.join(__dirname, "test"),

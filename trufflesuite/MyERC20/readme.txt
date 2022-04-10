@@ -17,4 +17,8 @@ $ truffle migrate --network=development
 OR 
 $ truffle migrate --reset --network=development --config=MyERC20/truffle-config-docker.js
 
-
+### flattener
+truffle-flattener contracts/MyERC20.sol | \
+	awk '/SPDX-License-Identifier/&&c++>0 {next} 1' | \
+	awk '!/\/\/ File/' | \
+	awk '/pragma/&&c++>0 {next} 1' | uniq > contracts_fat/MyERC20.fat.sol  
