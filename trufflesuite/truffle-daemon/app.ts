@@ -63,7 +63,7 @@ app.get('/home', (req: express.Request, res: express.Response) => {
 
 app.use((req, res, next) => {
     if(res.status(404)) {
-        res.statusMessage = 'Not Found';
+        res.statusMessage = 'Page Not Found';
         res.status(404).json({ code: 404, message: '[TruffleDaemonServer](Not Found)' });
     }
 });
@@ -81,5 +81,4 @@ server.listen(SERVER_PORT, () => {
     routes.forEach((route: CommonRoutesConfig) => {
         Logger.info(`Routes configured for ${route.getName()}`);
     });
-
 });
