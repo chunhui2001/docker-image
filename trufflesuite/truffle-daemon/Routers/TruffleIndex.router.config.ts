@@ -32,7 +32,7 @@ export class TruffleIndexRouter extends CommonRoutesConfig {
                 expect(false, `validate params simple`).to.be.true;
             });
 
-        // 示例参数验证
+        // 示例内部异常
         this.app.route(`/simple-exception`)
             .get((req: express.Request, res: express.Response, next: express.NextFunction) => {
                 const s: any = {};
