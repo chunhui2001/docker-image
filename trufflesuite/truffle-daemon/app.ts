@@ -11,6 +11,7 @@ const slash = require('express-slash');
 import Logger from './config/winston-logger';
 import { ErrorHandler } from './common/error';
 import { CommonRoutesConfig } from './common/common.routes.config';
+import { TruffleIndexRouter } from './Routers/TruffleIndex.router.config'; 
 
 const SERVER_PORT: number = 3000;
 //const Logger = require('./config/logger')(module);
@@ -38,6 +39,8 @@ function skipLog (req: express.Request, res: express.Response) {
     return false;
 }
 
+routes.push(new TruffleIndexRouter(app));
+
 app.use(router);
 app.use(slash());
 app.use(morgan(loggerFormat, { skip: skipLog, stream }));
@@ -46,6 +49,7 @@ app.use(bodyparser.json({ limit: '50mb' }));
 app.use(bodyparser.urlencoded({ extended: true, limit: '50mb' }));
 app.use(cors());
 app.use('/RichMedias', express.static(path.join(__dirname, '..', 'static')));
+
 
 router.get("/favicon.ico", function(req, res) {
     res.statusCode = 200;
@@ -57,21 +61,21 @@ router.get("/favicon.ico", function(req, res) {
 });
 
 router.get('/', (req: express.Request, res: express.Response) => {
-    res.status(200).send(`TruffleDaemonServer running at http://0.0.0.0:${SERVER_PORT}`)
+    return res.status(200).send(`TruffleDaemonServer running at http://0.0.0.0:${SERVER_PORT}`)
 });
 
 router.get('/info', (req: express.Request, res: express.Response) => {
-    res.status(200).send(`This is Info page.`)
+    return res.status(200).send(`This is Info page.`)
 });
 
-router.use((req, res, next) => {
+app.use((req, res, next) => {
     if(res.status(404)) {
         res.statusMessage = 'Page Not Found';
-        res.status(404).json({ code: 404, message: '[TruffleDaemonServer](Not Found)' });
+        return res.status(404).json({ code: 404, message: '[TruffleDaemonServer](Not Found)' });
     }
 });
 
-router.use((err: Error, req: express.Request, res: express.Response, next: express.NextFunction) => {
+app.use((err: Error, req: express.Request, res: express.Response, next: express.NextFunction) => {
     ErrorHandler.handle(400, err, res);
 });
 
@@ -82,6 +86,6 @@ process.on('unhandledRejection', (err: Error) => {
 server.listen(SERVER_PORT, () => {
     Logger.info(`TruffleDaemonServer running [${process.env.NODE_ENV || 'development'}] on http://0.0.0.0:${SERVER_PORT} at ${moment().format('YYYY-MM-DDTHH:mm:ssZ')}`);
     routes.forEach((route: CommonRoutesConfig) => {
-        Logger.info(`Routes configured for ${route.getName()}`);
+        Logger.info(`TruffleDaemonServer Routes configured for ${route.getName()}`);
     });
 });

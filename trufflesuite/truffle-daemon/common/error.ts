@@ -2,7 +2,7 @@ import express from 'express';
 import debug from 'debug';
 import { AssertionError } from 'chai';
 
-const loggerError: debug.IDebugger = debug('app-error');
+import Logger from '../config/winston-logger';
 
 export class ErrorHandler extends Error {
   code: number;
@@ -16,16 +16,14 @@ export class ErrorHandler extends Error {
     if (err instanceof AssertionError) {
       const code = 413;
       const { message } = err;
-      res.status(200).json({ code: code, message: `[TruffleDaemonServer](${message.split(':')[0]})` });
-      return;
+      return res.status(200).json({ code: code, message: `Invalid-Params: \`${message.split(':')[0]}\``, app: 'TruffleDaemonServer' });
     }
     if (err instanceof ErrorHandler) {
       const { code, message } = err;
-      loggerError(`errorCode=${code}, errorMessage=${message}`);
-      res.status(200).json({ code: code, message: `[TruffleDaemonServer](${message})` });
-      return;
+      Logger.info(`ErrorHandler: errorCode=${code}, errorMessage=${message}`);
+      return res.status(200).json({ code: code, message: `Process-Failed: \`${message}\``, app: 'TruffleDaemonServer' });
     }
-    loggerError(`type=${typeof err}, errorCode=${errCode}, errorMessage=${err.message || err.stack?.toString().split('\n')[0]}, stack=${err.stack}`);
-    res.status(errCode).json({ code: errCode, message: `[TruffleDaemonServer](${err.message || err.stack?.toString().split('\n')[0]})` });
+    Logger.error(`ErrorHandler: type=${typeof err}, errorCode=${errCode}, errorMessage=${err.message || err.stack?.toString().split('\n')[0]}, stack=${err.stack}`);
+    return res.status(500).json({ code: 500, message: `Server-Internal-Error: \`${err.message || err.stack?.toString().split('\n')[0]}\``, app: 'TruffleDaemonServer' });
   }
 }
