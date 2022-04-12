@@ -77,7 +77,7 @@ process.on('unhandledRejection', (err: Error) => {
 });
 
 server.listen(SERVER_PORT, () => {
-    Logger.info(`TruffleDaemonServer running [${process.env.ENV || 'development'}] on http://0.0.0.0:${SERVER_PORT} at ${moment().format('YYYY-MM-DDTHH:mm:ssZ')}`);
+    Logger.info(`TruffleDaemonServer running [${process.env.NODE_ENV || 'development'}] on http://0.0.0.0:${SERVER_PORT} at ${moment().format('YYYY-MM-DDTHH:mm:ssZ')}`);
     routes.forEach((route: CommonRoutesConfig) => {
         Logger.info(`Routes configured for ${route.getName()}`);
     });

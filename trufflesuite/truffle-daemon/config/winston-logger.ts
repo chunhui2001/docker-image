@@ -22,7 +22,7 @@ const formatConsole = winston.format.combine(
 const Logger = winston.createLogger({
   transports: [
     new winston.transports.Console({ format: formatConsole }),
-    new winston.transports.File({ format: formatConsole, filename: '/tmp/logs/defi-chainant-dixx/logs.log', level: level() })
+    new winston.transports.File({ format: formatConsole, filename: '/tmp/logs/TruffleDaemonServer/logs.log', level: level() })
   ],
 })
 
