@@ -1,0 +1,23 @@
+
+## 安装Docker Compose
+# curl -L https://github.com/docker/compose/releases/download/1.24.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+# chmod +x /usr/local/bin/docker-compose
+# docker-compose --version
+# docker-compose up -d
+
+version: '2.4'
+networks:
+  nets:
+    external: false
+    # aliases: net1
+
+services:
+  solc:
+    container_name: solc
+    image: chunhui2001/ubuntu_1804_dev:solc
+    mem_limit: 600m
+    entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
+    restart: always
+    networks:
+      - nets
+      
