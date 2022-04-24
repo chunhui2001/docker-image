@@ -29,7 +29,7 @@ RUN tar -zxvf /usr/local/geth-linux-amd64-1.10.17-25c9b49f.tar.gz -C /usr/local 
 # admin.nodeInfo.enode
 
 ## 创建第一个账户
-# ersonal.newAccount()
+# personal.newAccount()
 
 ## 查看账户列表
 # personal.listAccounts
@@ -39,6 +39,9 @@ eth.coinbase
 
 ## 查看账户余额
 # eth.getBalance('your account address here')
+
+## 转账
+# eth.sendTransaction({from: eth.accounts[0], to: eth.accounts[1], value: 500000})
 
 ## 查看种子节点
 # admin.peers
