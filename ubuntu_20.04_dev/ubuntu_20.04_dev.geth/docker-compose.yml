@@ -23,7 +23,7 @@ services:
     #entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
     entrypoint: ["/entrypoint1.sh"]
     volumes:
-      - ./genesis.json:/root/genesis.json:rw
+      - ./genesis1.json:/root/genesis.json:rw
       - ./blkchain1:/root/blkchain1:rw
       - ./entrypoint1.sh:/entrypoint1.sh:ro
     networks:
@@ -39,9 +39,9 @@ services:
       - 30304:30303
       - 8546:8546
     #entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
-    #entrypoint: ["/entrypoint2.sh"]
+    entrypoint: ["/entrypoint2.sh"]
     volumes:
-      - ./genesis.json:/root/genesis.json:rw
+      - ./genesis2.json:/root/genesis.json:rw
       - ./blkchain2:/root/blkchain2:rw
       - ./entrypoint2.sh:/entrypoint2.sh:ro
     networks:

@@ -6,7 +6,7 @@
       "eip158Block": 0,
       "eip150Block": 0
    },
-   "alloc": {},
+   "alloc": { },
    "difficulty" : "0x20000",
    "gasLimit"   : "0x8880000"
 }
