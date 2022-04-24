@@ -28,6 +28,10 @@ RUN tar -zxvf /usr/local/geth-linux-amd64-1.10.17-25c9b49f.tar.gz -C /usr/local 
 ## 查看 enode
 # admin.nodeInfo.enode
 
+## if the block looks identical to the below then your custom genesis block hasn't been created successfully.
+#> delete your data directory and reinitialise
+# eth.getBlock(0)
+
 ## 创建第一个账户
 # personal.newAccount()
 # OR
