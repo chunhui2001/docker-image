@@ -1,6 +1,6 @@
 #!/bin/bash
 
-geth --allow-insecure-unlock \
+geth --identity "blkchain1" --allow-insecure-unlock \
  	 --datadir /root/blkchain1 --verbosity 4 --nodiscover \
 	 --port 30303 \
 	 --nat=extip:172.16.197.179 \

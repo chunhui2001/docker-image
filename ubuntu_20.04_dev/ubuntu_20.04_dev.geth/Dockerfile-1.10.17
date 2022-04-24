@@ -30,15 +30,22 @@ RUN tar -zxvf /usr/local/geth-linux-amd64-1.10.17-25c9b49f.tar.gz -C /usr/local 
 
 ## 创建第一个账户
 # personal.newAccount()
+# OR
+# geth --datadir blkchain1 account new 
 
 ## 查看账户列表
 # personal.listAccounts
+# OR 
+# geth --datadir blkchain1 account list
 
 ## 查看默认账户
 eth.coinbase
 
 ## 查看账户余额
 # eth.getBalance('your account address here')
+
+## 解除锁定账户
+# personal.unlockAccount(eth.accounts[0])
 
 ## 转账
 # eth.sendTransaction({from: eth.accounts[0], to: eth.accounts[1], value: 500000})
