@@ -1,0 +1,33 @@
+
+## 安装Docker Compose
+# curl -L https://github.com/docker/compose/releases/download/3.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+# chmod +x /usr/local/bin/docker-compose
+# docker-compose --version
+# docker-compose up -d
+
+version: '2.4'
+networks:
+    br0:
+      external: true
+
+services:
+  blkchain3:
+    container_name: blkchain3
+    image: chunhui2001/ubuntu_20.04_dev:geth_1.10.17
+    hostname: blkchain3
+    restart: always
+    #mem_limit: 2048m
+    ports:
+      - 30305:30303
+      - 8547:8546
+    entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
+    #entrypoint: ["/entrypoint3.sh"]
+    volumes:
+      - ../genesis.json:/root/genesis.json:rw
+      - ./blkchain3:/root/blkchain3:rw
+      - ./entrypoint3.sh:/entrypoint3.sh:ro
+      - ./entrypoint3-with-miner.sh:/entrypoint3-with-miner.sh:ro
+    networks:
+        br0:
+          ipv4_address: 172.16.197.181
+
