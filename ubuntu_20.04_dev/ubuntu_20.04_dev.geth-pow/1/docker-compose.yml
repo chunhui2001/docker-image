@@ -21,8 +21,9 @@ services:
       - 30303:30303
       - 8545:8545
     #entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
-    #entrypoint: ["make", "bootnode"]
-    entrypoint: ["make", "miner"]
+    entrypoint: ["make", "bootnode"]
+    #entrypoint: ["make", "miner"]
+    #entrypoint: ["make", "rpcnode"]
     volumes:
       - ../genesis.json:/root/genesis.json:rw
       - ./blkchain1:/root/blkchain1:rw

@@ -20,8 +20,8 @@ services:
     ports:
       - 30305:30303
       - 8547:8545
-    entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
-    #entrypoint: ["make", "miner"]
+    #entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
+    entrypoint: ["make", "miner"]
     volumes:
       - ../genesis.json:/root/genesis.json:rw
       - ./blkchain3:/root/blkchain3:rw

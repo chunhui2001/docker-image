@@ -47,3 +47,10 @@ rpcnode:
 			--http.api 'eth,net,web3,txpool' \
 			--networkid 4321 \
 			--syncmode "full" -cache=4096 --http --metrics --maxpeers 30
+
+getCoinbase:
+	geth attach $(IDENTITY)/geth.ipc --exec "eth.coinbase"
+
+getPeers:
+	geth attach $(IDENTITY)/geth.ipc --exec "admin.peers"
+

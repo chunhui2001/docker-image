@@ -37,6 +37,19 @@ miner:
 			--networkid 4321 \
 			--syncmode "full" -cache=4096 --http --metrics --maxpeers 30 console
 
+rpcnode:
+	geth 	--identity $(IDENTITY) \
+			--nodekey='/root/nodekey' \
+			--allow-insecure-unlock \
+			--unlock 0 --password='/root/password.sec' \
+			--datadir /root/$(IDENTITY) --verbosity 6 --nodiscover \
+			--port 30303 \
+			--nat=extip:$(IP) \
+			--http.addr "0.0.0.0" --http.corsdomain "*" --http.port 8545 \
+			--http.api 'eth,net,web3,txpool' \
+			--networkid 4321 \
+			--syncmode "full" -cache=4096 --http --metrics --maxpeers 30
+
 bootnode:
 	geth 	--identity $(IDENTITY) \
 			--nodekey='/root/nodekey' \
@@ -45,5 +58,14 @@ bootnode:
 			--datadir /root/$(IDENTITY) --verbosity 6 --nodiscover \
 			--port 30303 \
 			--nat=extip:$(IP) \
+			--http.addr "0.0.0.0" --http.corsdomain "*" --http.port 8545 \
+			--http.api 'eth,net,web3,txpool' \
 			--networkid 4321 \
 			--syncmode "full" -cache=4096 --http --metrics --maxpeers 30
+
+getCoinbase:
+	geth attach $(IDENTITY)/geth.ipc --exec "eth.coinbase"
+
+getPeers:
+	geth attach $(IDENTITY)/geth.ipc --exec "admin.peers"
+
