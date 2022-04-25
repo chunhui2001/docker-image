@@ -77,8 +77,5 @@ getNodeInfo:
 getLastBlockNumber:
 	geth attach $(IDENTITY)/geth.ipc --exec "eth.blockNumber"
 
-show:
-	echo $(ETHERBASE2)
-
 
 
