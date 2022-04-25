@@ -23,7 +23,6 @@ listAccount:
 
 miner:	
 	geth 	--identity $(IDENTITY) \
-			--bootnodes $(BOOTNODES) \
 			--allow-insecure-unlock \
 			--unlock 0 --password='/root/password.sec' \
 			--datadir /root/$(IDENTITY) --verbosity 6 --nodiscover \
