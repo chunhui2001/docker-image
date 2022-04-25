@@ -3,7 +3,9 @@
 ## 当前文件绝对路径
 SCRIPTPATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 
-### blkchain1 begin
+######################
+### BLKCHAIN1 BEGIN ##
+######################
 ## 如果容器已启动则删除
 docker rm -f blkchain1
 
@@ -34,5 +36,7 @@ echo 'blkchain1账户: '$ETHERBASE2
 
 echo 'blkchain1启动种子节点: '$ETHERBASE2
 docker rm -f blkchain1 && CMD="bootnode" docker-compose -f ${SCRIPTPATH}/1/docker-compose.yml up -d 
-### blkchain1 end
+#####################
+### BLKCHAIN1 END ###
+#####################
 
