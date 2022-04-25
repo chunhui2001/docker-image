@@ -20,8 +20,8 @@ services:
     ports:
       - 30303:30303
       - 8545:8545
-    #entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
-    entrypoint: ["make", "bootnode"]
+    entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
+    #entrypoint: ["make", "bootnode"]
     #entrypoint: ["make", "miner"]
     #entrypoint: ["make", "rpcnode"]
     volumes:
@@ -29,7 +29,7 @@ services:
       - ./blkchain1:/root/blkchain1:rw
       - ./password.sec:/root/password.sec:ro
       - ./nodekey:/root/nodekey:ro
-      - ./Makefile:/root/Makefile:ro
+      - ./Makefile:/root/Makefile:rw
     networks:
         priv-eth-net:
           ipv4_address: 172.16.254.10
