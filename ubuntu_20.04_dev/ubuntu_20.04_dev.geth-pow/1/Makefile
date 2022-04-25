@@ -5,6 +5,8 @@ IP 			?='172.16.254.10'
 IDENTITY 	?='blkchain1'
 ETHERBASE 	:='0xa88aaa4c6f0057ff4f07c740b297567ac946329d'
 
+sleep:
+	while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done
 
 init:
 	geth 	--datadir $(IDENTITY) --nodekey='/root/nodekey' init genesis.json
@@ -71,5 +73,8 @@ getPeers:
 
 getLastBlockNumber:
 	geth attach $(IDENTITY)/geth.ipc --exec "eth.blockNumber"
+
+
+
 
 
