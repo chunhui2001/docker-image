@@ -2,8 +2,8 @@
 ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
 startup:
-	./startup.sh
+	./up-start.sh
 
 clearup:
-	./clearup.sh
+	./up-clear.sh
 
