@@ -1,41 +1,38 @@
 #!/bin/bash
 
-## 当前文件绝对路径
-SCRIPTPATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
-
 ######################
 ### BLKCHAIN1 BEGIN ##
 ######################
 ## 如果容器已启动则删除
-docker rm -f blkchain1
+docker rm -f blkchain1  >/dev/null 2>&1
 
 ## 启动空壳容器
-CMD="sleep" docker-compose -f ${SCRIPTPATH}/1/docker-compose.yml up -d 
+CMD="sleep" docker-compose -f 1/docker-compose.yml up -d 
 
 ## 初始化数据目录
-if [ ! -d `${SCRIPTPATH}/1/blkchain1/geth` ]; then
-	echo '初始化数据目录: blkchain1'
+if [ ! -d 1/blkchain1/geth ]; then
+	echo '>>>>>>>>>>>>>> 初始化数据目录: blkchain1 <<<<<<<<<<<<<<<<<<<<'
 	docker exec -it blkchain1 make init
 fi
 
 ## 创建账户
-if test -n "$(find ${SCRIPTPATH}/1/blkchain1/keystore/ -maxdepth 0 -empty)" ; then
-	echo 'blkchain1创建账户'
+if test -n "$(find 1/blkchain1/keystore/ -maxdepth 0 -empty)" ; then
+	echo '>>>>>>>>>>>>>> blkchain1创建挖矿账户 <<<<<<<<<<<<<<<<<<<<'
 	docker exec -it blkchain1 make newAccount
-	ls ${SCRIPTPATH}/1/blkchain1/keystore/
+	ls 1/blkchain1/keystore/
 fi
 
 ## 计算当前的创世账户
-ETHERBASE1=$(ls -tr ${SCRIPTPATH}/1/blkchain1/keystore/ | tail -n 1)
+ETHERBASE1=$(ls -tr 1/blkchain1/keystore/ | tail -n 1)
 ETHERBASE2=0x$(printf %s\\n "${ETHERBASE1[@]: -40}")
 
 ## 当前节点的账户
-echo 'blkchain1账户: '$ETHERBASE2
+echo '>>>>>>>>>>>>>> blkchain1当前挖矿账户: '$ETHERBASE2' <<<<<<<<<<<<<<<<<<<<'
 
 #docker rm -f blkchain1 && CMD="miner" ETHERBASE=$ETHERBASE docker-compose -f 1/docker-compose.yml up -d 
-
-echo 'blkchain1启动种子节点: '$ETHERBASE2
-docker rm -f blkchain1 && CMD="bootnode" docker-compose -f ${SCRIPTPATH}/1/docker-compose.yml up -d 
+docker rm -f blkchain1  >/dev/null 2>&1 && CMD="bootnode" docker-compose -f 1/docker-compose.yml up -d 
+echo '>>>>>>>>>>>>>> blkchain1种子节点启动成功 <<<<<<<<<<<<<<<<<<<<'
+echo '>>>>>>>>>>>>>> blkchain1-enode: <<<<<<<<<<<<<<<<<<<<'
 #####################
 ### BLKCHAIN1 END ###
 #####################

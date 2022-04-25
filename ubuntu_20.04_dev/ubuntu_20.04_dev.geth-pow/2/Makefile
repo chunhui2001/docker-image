@@ -19,7 +19,7 @@ console:
 			--networkid 4321
 
 newAccount:
-	geth 	--datadir $(IDENTITY) account new 
+	geth 	--datadir $(IDENTITY) account new --password '/root/password.sec'
 
 listAccount:
 	geth 	--datadir $(IDENTITY) account list 
@@ -55,6 +55,9 @@ getCoinbase:
 
 getPeers:
 	geth attach $(IDENTITY)/geth.ipc --exec "admin.peers"
+
+getNodeInfo:
+	geth attach $(IDENTITY)/geth.ipc --exec "admin.nodeInfo"
 
 getLastBlockNumber:
 	geth attach $(IDENTITY)/geth.ipc --exec "eth.blockNumber"

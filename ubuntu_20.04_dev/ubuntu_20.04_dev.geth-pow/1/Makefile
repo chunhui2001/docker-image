@@ -71,6 +71,9 @@ getCoinbase:
 getPeers:
 	geth attach $(IDENTITY)/geth.ipc --exec "admin.peers"
 
+getNodeInfo:
+	geth attach $(IDENTITY)/geth.ipc --exec "admin.nodeInfo"
+
 getLastBlockNumber:
 	geth attach $(IDENTITY)/geth.ipc --exec "eth.blockNumber"
 
