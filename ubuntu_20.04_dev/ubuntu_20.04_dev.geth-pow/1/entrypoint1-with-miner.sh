@@ -1,6 +1,7 @@
 #!/bin/bash
 
 geth --identity "blkchain1" \
+	 --nodekey='/root/nodekey' \
 	 --allow-insecure-unlock \
 	 --unlock 0 --password='/root/password.sec' \
  	 --datadir /root/blkchain1 --verbosity 6 --nodiscover \

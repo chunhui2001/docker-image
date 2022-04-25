@@ -1,7 +1,7 @@
 #!/bin/bash
 
 geth --identity "blkchain2" \
-	 --bootnodes "enode://349bea226789dc71029b20f2d1be40a379d8454a73762e3a628038d039d2e7e7be8fbbe835553717d3c347a214db005bb9dff0ac10ebd4f1296bf49dfd89ebf9@172.16.197.179:30303" \
+	 --bootnodes "enode://3323afadb83a002a8f77766ded46fadceed29fd47b2c83b1d9ed038ffb9dafaecd506decc865facc1cab12245f77378356e4b53e5c5682257c9cb9670a2ed618@172.16.197.179:30303" \
 	 --allow-insecure-unlock \
 	 --unlock 0 --password='/root/password.sec' \
  	 --datadir /root/blkchain2 --verbosity 6 --nodiscover \
