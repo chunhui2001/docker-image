@@ -32,7 +32,16 @@ echo '>>>>>>>>>>>>>> blkchain1当前挖矿账户: '$ETHERBASE2' <<<<<<<<<<<<<<<<
 #docker rm -f blkchain1 && CMD="miner" ETHERBASE=$ETHERBASE docker-compose -f 1/docker-compose.yml up -d 
 docker rm -f blkchain1  >/dev/null 2>&1 && CMD="bootnode" docker-compose -f 1/docker-compose.yml up -d 
 echo '>>>>>>>>>>>>>> blkchain1种子节点启动成功 <<<<<<<<<<<<<<<<<<<<'
+
+## 等待2秒查询节点信息
+sleep 2s
+lastblocknumber=`curl --location --request POST 'http://127.0.0.1:8545' --header 'Content-Type: application/json' --data-raw '[{"id":"eth_blockNumber","jsonrpc":"2.0","method":"eth_blockNumber"}]'`
+echo 'blkchain1.lastBlockNumber='$lastblocknumber
+
+enode=`docker exec -it blkchain1 make getNodeInfo | grep enode | cut -d"?" -f1 | awk '{split($0, array, "://"); print array[2]}'`
 echo '>>>>>>>>>>>>>> blkchain1-enode: <<<<<<<<<<<<<<<<<<<<'
+echo 'blkchain1.enode='$enode
+
 #####################
 ### BLKCHAIN1 END ###
 #####################
