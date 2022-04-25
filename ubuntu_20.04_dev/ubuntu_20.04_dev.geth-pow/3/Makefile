@@ -4,7 +4,7 @@ ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 IP 			?='172.16.254.12'
 IDENTITY 	?='blkchain3'
 BOOTNODES 	?='enode://3323afadb83a002a8f77766ded46fadceed29fd47b2c83b1d9ed038ffb9dafaecd506decc865facc1cab12245f77378356e4b53e5c5682257c9cb9670a2ed618@172.16.254.10:30303'
-ETHERBASE 	?='0x79160c630d092ef1c4c8e0c33388e9f3ffb4602d'
+ETHERBASE 	:='0xa88aaa4c6f0057ff4f07c740b297567ac946329d'
 
 init:
 	geth 	--datadir $(IDENTITY) init genesis.json

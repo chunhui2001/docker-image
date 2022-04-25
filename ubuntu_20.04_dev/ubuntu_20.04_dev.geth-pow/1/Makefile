@@ -3,7 +3,7 @@ ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
 IP 			?='172.16.254.10'
 IDENTITY 	?='blkchain1'
-ETHERBASE 	?='0x603230b2fb15d97d0c1fbdecc46537019fb43a94'
+ETHERBASE 	:='0xa88aaa4c6f0057ff4f07c740b297567ac946329d'
 
 
 init:
