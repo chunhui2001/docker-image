@@ -27,6 +27,7 @@ services:
       - ./blkchain3:/root/blkchain3:rw
       - ./entrypoint3.sh:/entrypoint3.sh:ro
       - ./entrypoint3-with-miner.sh:/entrypoint3-with-miner.sh:ro
+      - ./password.sec:/root/password.sec:ro
     networks:
         br0:
           ipv4_address: 172.16.197.181

@@ -32,16 +32,6 @@ INFO [11-15|10:05:56] mined potential block number=132 hash=aaf21e…bbd961
 ## 进入控制台
 # geth --datadir blkchain1 --nodiscover --networkid 4321 console
 
-## 查看节点信息
-# admin.nodeInfo
-
-## 查看 enode
-# admin.nodeInfo.enode
-
-## if the block looks identical to the below then your custom genesis block hasn't been created successfully.
-#> delete your data directory and reinitialise
-# eth.getBlock(0)
-
 ## 创建第一个账户
 # personal.newAccount()
 # OR
@@ -51,6 +41,19 @@ INFO [11-15|10:05:56] mined potential block number=132 hash=aaf21e…bbd961
 # personal.listAccounts
 # OR 
 # geth --datadir blkchain1 account list
+
+## 设置 etherbase
+# miner.setEtherbase(eth.coinbase)
+
+## 查看节点信息
+# admin.nodeInfo
+
+## 查看 enode
+# admin.nodeInfo.enode
+
+## if the block looks identical to the below then your custom genesis block hasn't been created successfully.
+#> delete your data directory and reinitialise
+# eth.getBlock(0)
 
 ## 查看默认账户
 eth.coinbase

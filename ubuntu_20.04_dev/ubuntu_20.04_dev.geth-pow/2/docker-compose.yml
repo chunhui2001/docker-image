@@ -26,6 +26,7 @@ services:
       - ../genesis.json:/root/genesis.json:rw
       - ./blkchain2:/root/blkchain2:rw
       - ./entrypoint2.sh:/entrypoint2.sh:ro
+      - ./password.sec:/root/password.sec:ro
     networks:
         br0:
           ipv4_address: 172.16.197.180
