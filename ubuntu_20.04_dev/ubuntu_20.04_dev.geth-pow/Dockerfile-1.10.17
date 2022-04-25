@@ -12,63 +12,6 @@ RUN tar -zxvf /usr/local/geth-linux-amd64-1.10.17-25c9b49f.tar.gz -C /usr/local 
 	ln -s /usr/local/geth-linux-amd64-1.10.17-25c9b49f/geth /usr/local/bin/geth && \
 	rm -rf /usr/local/geth-linux-amd64-1.10.17-25c9b49f.tar.gz
 
-## 查看版本
-# go version
-# geth version
-
-## 根据创世文件初始化区块链
-# geth --datadir blkchain1 init genesis.json
-
-## 进入控制台
-# geth --datadir blkchain1 --nodiscover --networkid 4321 console
-
-## 查看节点信息
-# admin.nodeInfo
-
-## 查看 enode
-# admin.nodeInfo.enode
-
-## if the block looks identical to the below then your custom genesis block hasn't been created successfully.
-#> delete your data directory and reinitialise
-# eth.getBlock(0)
-
-## 创建第一个账户
-# personal.newAccount()
-# OR
-# geth --datadir blkchain1 account new 
-
-## 查看账户列表
-# personal.listAccounts
-# OR 
-# geth --datadir blkchain1 account list
-
-## 查看默认账户
-eth.coinbase
-
-## 查看账户余额
-# eth.getBalance('your account address here')
-
-## 解除锁定账户
-# personal.unlockAccount(eth.accounts[0])
-
-## 转账
-# eth.sendTransaction({from: eth.accounts[0], to: eth.accounts[1], value: 500000})
-
-## 查看种子节点
-# admin.peers
-
-## 手动添加种子节点
-# admin.addPeer(“//enode id”):
-
-## 启动挖矿进程
-# miner.start(1)
-
-## 查看当前块高
-# eth.blockNumber
-
-## 通过ipc进程连接
-# geth attach geth.ipc
-
 # docker build -f Dockerfile-1.10.17 . -t 'chunhui2001/ubuntu_20.04_dev:geth_1.10.17'
 # docker run -dit --entrypoint="top" --name geth_1.10.17 chunhui2001/ubuntu_20.04_dev:geth_1.10.17
 # docker push chunhui2001/ubuntu_20.04_dev:geth_1.10.17
