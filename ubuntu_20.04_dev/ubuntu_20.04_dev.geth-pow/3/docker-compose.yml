@@ -21,14 +21,11 @@ services:
       - 30305:30303
       - 8547:8546
     entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
-    #entrypoint: ["/entrypoint3.sh"]
-    #entrypoint: ["/entrypoint3-with-miner.sh"]
+    #entrypoint: ["make", "miner"]
     volumes:
       - ../genesis.json:/root/genesis.json:rw
       - ./blkchain3:/root/blkchain3:rw
       - ./password.sec:/root/password.sec:ro
-      - ./entrypoint3-console.sh:/entrypoint3-console.sh:ro
-      - ./entrypoint3-with-miner.sh:/entrypoint3-with-miner.sh:ro
     networks:
         br0:
           ipv4_address: 172.16.197.181
