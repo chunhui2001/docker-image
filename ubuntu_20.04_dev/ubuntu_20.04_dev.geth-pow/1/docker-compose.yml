@@ -7,9 +7,9 @@
 
 version: '2.4'
 networks:
-    br0:
-      external: true
-
+  priv-eth-net:
+    external: true
+      
 services:
   blkchain1:
     container_name: blkchain1
@@ -20,14 +20,16 @@ services:
     ports:
       - 30303:30303
       - 8545:8545
-    entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
+    #entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
     #entrypoint: ["make", "bootnode"]
+    entrypoint: ["make", "miner"]
     volumes:
       - ../genesis.json:/root/genesis.json:rw
       - ./blkchain1:/root/blkchain1:rw
       - ./password.sec:/root/password.sec:ro
       - ./nodekey:/root/nodekey:ro
+      - ./Makefile:/root/Makefile:ro
     networks:
-        br0:
-          ipv4_address: 172.16.197.179
+        priv-eth-net:
+          ipv4_address: 172.16.254.10
 

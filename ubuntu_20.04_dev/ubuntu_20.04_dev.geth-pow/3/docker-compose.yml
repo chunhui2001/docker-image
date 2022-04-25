@@ -7,8 +7,8 @@
 
 version: '2.4'
 networks:
-    br0:
-      external: true
+  priv-eth-net:
+    external: true
 
 services:
   blkchain3:
@@ -26,7 +26,8 @@ services:
       - ../genesis.json:/root/genesis.json:rw
       - ./blkchain3:/root/blkchain3:rw
       - ./password.sec:/root/password.sec:ro
+      - ./Makefile:/root/Makefile:ro
     networks:
-        br0:
-          ipv4_address: 172.16.197.181
+        priv-eth-net:
+          ipv4_address: 172.16.254.12
 

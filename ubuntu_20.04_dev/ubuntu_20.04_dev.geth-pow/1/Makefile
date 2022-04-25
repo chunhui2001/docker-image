@@ -1,9 +1,9 @@
 ### 当前 Makefile 文件物理路径
 ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
-IP 			?='172.16.197.179'
+IP 			?='172.16.254.10'
 IDENTITY 	?='blkchain1'
-ETHERBASE 	?='0x79160c630d092ef1c4c8e0c33388e9f3ffb4602d'
+ETHERBASE 	?='0x603230b2fb15d97d0c1fbdecc46537019fb43a94'
 
 
 init:
@@ -15,6 +15,12 @@ console:
 			--datadir /root/$(IDENTITY) --verbosity 6 --nodiscover \
 			--nat=extip:$(IP) \
 			--networkid 4321 console
+
+newAccount:
+	geth 	--datadir $(IDENTITY) account new 
+
+listAccount:
+	geth 	--datadir $(IDENTITY) account list 
 
 miner:	
 	geth 	--identity $(IDENTITY) \
@@ -41,16 +47,3 @@ bootnode:
 			--nat=extip:$(IP) \
 			--networkid 4321 \
 			--syncmode "full" -cache=4096 --http --metrics --maxpeers 30
-
-
-
-
-
-
-
-
-
-
-
-
-
