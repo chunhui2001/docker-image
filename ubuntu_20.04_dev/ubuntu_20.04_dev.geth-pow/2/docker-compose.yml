@@ -22,11 +22,13 @@ services:
       - 8546:8546
     entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
     #entrypoint: ["/entrypoint2.sh"]
+    #entrypoint: ["/entrypoint2-with-miner.sh"]
     volumes:
       - ../genesis.json:/root/genesis.json:rw
       - ./blkchain2:/root/blkchain2:rw
-      - ./entrypoint2.sh:/entrypoint2.sh:ro
       - ./password.sec:/root/password.sec:ro
+      - ./entrypoint2.sh:/entrypoint2.sh:ro
+      - ./entrypoint2-with-miner.sh:/entrypoint2-with-miner.sh:ro
     networks:
         br0:
           ipv4_address: 172.16.197.180
