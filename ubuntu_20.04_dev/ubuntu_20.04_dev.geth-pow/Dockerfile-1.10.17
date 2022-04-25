@@ -17,3 +17,5 @@ RUN tar -zxvf /usr/local/geth-linux-amd64-1.10.17-25c9b49f.tar.gz -C /usr/local 
 # docker push chunhui2001/ubuntu_20.04_dev:geth_1.10.17
 ### docker pull chunhui2001/ubuntu_20.04_dev:geth_1.10.17
 
+### docker run -it --rm --entrypoint="top" --name geth_1.10.17 chunhui2001/ubuntu_20.04_dev:geth_1.10.17
+

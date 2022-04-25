@@ -1,9 +1,9 @@
 ### 当前 Makefile 文件物理路径
 ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
-IP 			?='172.16.254.10'
-IDENTITY 	?='blkchain1'
-ETHERBASE 	:='0xa88aaa4c6f0057ff4f07c740b297567ac946329d'
+IP 			?=172.16.254.10
+IDENTITY 	?=blkchain1
+ETHERBASE 	:=
 
 sleep:
 	while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done
@@ -16,10 +16,10 @@ console:
 			--nodekey='/root/nodekey' \
 			--datadir /root/$(IDENTITY) --verbosity 6 --nodiscover \
 			--nat=extip:$(IP) \
-			--networkid 4321 console
+			--networkid 4321
 
 newAccount:
-	geth 	--datadir $(IDENTITY) account new 
+	geth 	--datadir $(IDENTITY) account new --password '/root/password.sec'
 
 listAccount:
 	geth 	--datadir $(IDENTITY) account list 
@@ -37,7 +37,7 @@ miner:
 			--mine --miner.threads=1 \
 			--miner.etherbase=$(ETHERBASE) \
 			--networkid 4321 \
-			--syncmode "full" -cache=4096 --http --metrics --maxpeers 30 console
+			--syncmode "full" -cache=4096 --http --metrics --maxpeers 30
 
 rpcnode:
 	geth 	--identity $(IDENTITY) \
@@ -74,7 +74,8 @@ getPeers:
 getLastBlockNumber:
 	geth attach $(IDENTITY)/geth.ipc --exec "eth.blockNumber"
 
-
+show:
+	echo $(ETHERBASE2)
 
 
 

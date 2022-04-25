@@ -21,7 +21,7 @@ services:
       - 30303:30303
       - 8545:8545
     entrypoint: ["make"]
-    command: ["sleep"]
+    command: ["$CMD"]
     #command: ["bootnode"]
     #command: ["miner"]
     #command: ["rpcnode"]
