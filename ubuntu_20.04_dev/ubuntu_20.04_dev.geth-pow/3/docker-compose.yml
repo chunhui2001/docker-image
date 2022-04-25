@@ -27,7 +27,7 @@ services:
       - ../genesis.json:/root/genesis.json:rw
       - ./blkchain3:/root/blkchain3:rw
       - ./password.sec:/root/password.sec:ro
-      - ./entrypoint3.sh:/entrypoint3.sh:ro
+      - ./entrypoint3-console.sh:/entrypoint3-console.sh:ro
       - ./entrypoint3-with-miner.sh:/entrypoint3-with-miner.sh:ro
     networks:
         br0:

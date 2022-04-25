@@ -9,7 +9,7 @@ geth --identity "blkchain1" \
 	 --http.addr "0.0.0.0" --http.corsdomain "*" --http.port 8545 \
 	 --http.api 'personal,eth,net,web3,txpool,miner' \
 	 --mine --miner.threads=1 \
-	 --miner.etherbase='0x79160c630d092ef1c4c8e0c33388e9f3ffb4602d' \
+	 --miner.etherbase='0x2392c61e0a318dc0c7b7314bf190fbf0ca3ede33' \
 	 --networkid 4321 \
 	 --syncmode "full" -cache=4096 --http --metrics --maxpeers 30
 
