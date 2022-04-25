@@ -22,11 +22,11 @@ if test -n "$(find 1/blkchain1/keystore/ -maxdepth 0 -empty)" ; then
 	ls 1/blkchain1/keystore/
 fi
 
-## 计算当前的创世账户
+## 当前的挖矿账户密钥文件路径
 ETHERBASE1=$(ls -tr 1/blkchain1/keystore/ | tail -n 1)
 ETHERBASE2=0x$(printf %s\\n "${ETHERBASE1[@]: -40}")
 
-## 当前节点的账户
+## 当前节点的挖矿账户
 echo '>>>>>>>>>>>>>> blkchain1当前挖矿账户: '$ETHERBASE2' <<<<<<<<<<<<<<<<<<<<'
 
 #docker rm -f blkchain1 && CMD="miner" ETHERBASE=$ETHERBASE docker-compose -f 1/docker-compose.yml up -d 
