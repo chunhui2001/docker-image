@@ -19,7 +19,7 @@ services:
     #mem_limit: 2048m
     ports:
       - 30305:30303
-      - 8547:8546
+      - 8547:8545
     entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
     #entrypoint: ["make", "miner"]
     volumes:

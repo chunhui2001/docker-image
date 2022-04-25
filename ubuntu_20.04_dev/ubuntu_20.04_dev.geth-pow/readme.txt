@@ -81,3 +81,7 @@ eth.coinbase
 
 ## 通过ipc进程连接
 # geth attach geth.ipc
+
+## 修复数据库
+geth removedb
+
