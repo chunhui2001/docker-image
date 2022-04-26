@@ -13,7 +13,9 @@ IDENTITY=blkchain1
 docker rm -f $IDENTITY  >/dev/null 2>&1
 
 ## 启动空壳容器
-CMD="sleep" docker-compose -f 1/docker-compose.yml up -d 
+current_random_name=`CMD="sleep" docker-compose -f 1/docker-compose.yml up -d 2>&1 | tail -n 1 | awk '{split($0, array, " "); print array[2]}'`
+echo $current_random_name
+docker rename $current_random_name $IDENTITY
 
 ## 初始化数据目录
 if [ ! -d 1/$IDENTITY/geth ]; then

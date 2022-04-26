@@ -11,7 +11,7 @@ start:
 	./scripts/start_bootnode.sh $(runargs)
 
 clear:
-	docker rm -f blkchain1 >/dev/null 2>&1 && rm -rf 1/blkchain1 >/dev/null 2>&1
+	docker rm -f blkchain* >/dev/null 2>&1 && rm -rf */blkchain* >/dev/null 2>&1
 
 %:
 	@:

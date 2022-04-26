@@ -12,7 +12,7 @@ networks:
       
 services:
   blkchain1:
-    container_name: blkchain1
+    #container_name: blkchain1
     image: chunhui2001/ubuntu_20.04_dev:geth_1.10.17
     hostname: blkchain1
     restart: always
