@@ -29,7 +29,6 @@ ETHERBASE2=0x$(printf %s\\n "${ETHERBASE1[@]: -40}")
 ## 当前节点的挖矿账户
 echo '>>>>>>>>>>>>>> blkchain1当前挖矿账户: '$ETHERBASE2' <<<<<<<<<<<<<<<<<<<<'
 
-#docker rm -f blkchain1 && CMD="miner" ETHERBASE=$ETHERBASE docker-compose -f 1/docker-compose.yml up -d 
 docker rm -f blkchain1  >/dev/null 2>&1 && CMD="bootnode" docker-compose -f 1/docker-compose.yml up -d 
 echo '>>>>>>>>>>>>>> blkchain1种子节点启动成功 <<<<<<<<<<<<<<<<<<<<'
 
@@ -46,3 +45,5 @@ echo 'blkchain1.enode='$enode
 ### BLKCHAIN1 END ###
 #####################
 
+
+#docker rm -f blkchain1 && CMD="miner" ETHERBASE=$ETHERBASE docker-compose -f 1/docker-compose.yml up -d 
