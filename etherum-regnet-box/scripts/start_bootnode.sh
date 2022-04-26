@@ -3,43 +3,46 @@
 ## 创建容器网络
 docker network create --driver=bridge --subnet=172.16.254.0/28 priv-eth-net  >/dev/null 2>&1
 
+
+IDENTITY=blkchain1
+
 ######################
 ### BLKCHAIN1 BEGIN ##
 ######################
 ## 如果容器已启动则删除
-docker rm -f blkchain1  >/dev/null 2>&1
+docker rm -f $IDENTITY  >/dev/null 2>&1
 
 ## 启动空壳容器
 CMD="sleep" docker-compose -f 1/docker-compose.yml up -d 
 
 ## 初始化数据目录
-if [ ! -d 1/blkchain1/geth ]; then
-	echo '>>>>>>>>>>>>>> [blkchain1]初始化节点数据目录 <<<<<<<<<<<<<<<<<<<<'
-	docker exec -it blkchain1 make init
+if [ ! -d 1/$IDENTITY/geth ]; then
+	echo '>>>>>>>>>>>>>> ['$IDENTITY']初始化节点数据目录 <<<<<<<<<<<<<<<<<<<<'
+	docker exec -it $IDENTITY make init
 fi
 
 ## 创建账户
-if test -n "$(find 1/blkchain1/keystore/ -maxdepth 0 -empty)" ; then
-	echo '>>>>>>>>>>>>>> [blkchain1]创建节点账户 <<<<<<<<<<<<<<<<<<<<'
-	docker exec -it blkchain1 make newAccount
-	ls 1/blkchain1/keystore/
+if test -n "$(find 1/$IDENTITY/keystore/ -maxdepth 0 -empty)" ; then
+	echo '>>>>>>>>>>>>>> [$IDENTITY]创建节点账户 <<<<<<<<<<<<<<<<<<<<'
+	docker exec -it $IDENTITY make newAccount
+	ls 1/$IDENTITY/keystore/
 fi
 
 ## 当前的挖矿账户密钥文件路径
-ETHERBASE1=$(ls -tr 1/blkchain1/keystore/ | tail -n 1)
+ETHERBASE1=$(ls -tr 1/$IDENTITY/keystore/ | tail -n 1)
 ETHERBASE2=0x$(printf %s\\n "${ETHERBASE1[@]: -40}")
 
 ## 当前节点的挖矿账户
-echo '>>>>>>>>>>>>>> [blkchain1]当前节点账户: '$ETHERBASE2' <<<<<<<<<<<<<<<<<<<<'
+echo '>>>>>>>>>>>>>> ['$IDENTITY']当前节点账户: '$ETHERBASE2' <<<<<<<<<<<<<<<<<<<<'
 
-docker rm -f blkchain1  >/dev/null 2>&1 && CMD="bootnode" docker-compose -f 1/docker-compose.yml up -d 
-echo '>>>>>>>>>>>>>> [blkchain1]节点启动成功 <<<<<<<<<<<<<<<<<<<<'
-lastblocknumber=`docker exec -it blkchain1 make getLastBlockNumber`
-echo 'blkchain1.lastBlockNumber='$lastblocknumber
+docker rm -f $IDENTITY  >/dev/null 2>&1 && CMD="bootnode" docker-compose -f 1/docker-compose.yml up -d 
+echo '>>>>>>>>>>>>>> ['$IDENTITY']节点启动成功 <<<<<<<<<<<<<<<<<<<<'
+lastblocknumber=`docker exec -it $IDENTITY make getLastBlockNumber`
+echo $IDENTITY'.lastBlockNumber='$lastblocknumber
 
-enode=`docker exec -it blkchain1 make getNodeInfo | grep enode | cut -d"?" -f1 | awk '{split($0, array, "://"); print array[2]}'`
-echo '>>>>>>>>>>>>>> blkchain1-enode: <<<<<<<<<<<<<<<<<<<<'
-echo 'blkchain1.enode='$enode
+enode=`docker exec -it $IDENTITY make getNodeInfo | grep enode | cut -d"?" -f1 | awk '{split($0, array, "://"); print array[2]}'`
+echo '>>>>>>>>>>>>>> '$IDENTITY'-enode: <<<<<<<<<<<<<<<<<<<<'
+echo $IDENTITY'.enode='$enode
 
 #####################
 ### BLKCHAIN1 END ###

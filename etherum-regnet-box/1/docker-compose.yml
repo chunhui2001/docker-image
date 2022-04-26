@@ -17,6 +17,8 @@ services:
     hostname: blkchain1
     restart: always
     #mem_limit: 2048m
+    env_file:
+      - .env
     ports:
       - 30303:30303
       - 8545:8545
@@ -30,7 +32,7 @@ services:
       - ./blkchain1:/root/blkchain1:rw
       - ../password.sec:/root/password.sec:ro
       - ./nodekey:/root/nodekey:ro
-      - ./Makefile:/root/Makefile:rw
+      - ../BuiltMakefile:/root/Makefile:rw
     networks:
         priv-eth-net:
           ipv4_address: 172.16.254.10
