@@ -26,44 +26,26 @@ listAccount:
 
 miner:	
 	geth 	--identity $(IDENTITY) \
-			--nodekey='/root/nodekey' \
-			--allow-insecure-unlock \
-			--unlock 0 --password='/root/password.sec' \
+			--networkid 4321 --port 30303 --nat=extip:$(IP) \
 			--datadir /root/$(IDENTITY) --verbosity 6 --nodiscover \
-			--port 30303 \
-			--nat=extip:$(IP) \
-			--http.addr "0.0.0.0" --http.corsdomain "*" --http.port 8545 \
-			--http.api 'personal,eth,net,web3,txpool,miner' \
-			--mine --miner.threads=1 \
-			--miner.etherbase=$(ETHERBASE) \
-			--networkid 4321 \
-			--syncmode "full" -cache=4096 --http --metrics --maxpeers 30
+			--syncmode "full" -cache=4096 --http --metrics --maxpeers 30 \
+			--allow-insecure-unlock --unlock 0 --password='/root/password.sec' \
+			--mine --miner.threads=1 --miner.etherbase=$(ETHERBASE)
 
 rpcnode:
 	geth 	--identity $(IDENTITY) \
-			--nodekey='/root/nodekey' \
-			--allow-insecure-unlock \
-			--unlock 0 --password='/root/password.sec' \
+			--networkid 4321 --port 30303 --nat=extip:$(IP) \
 			--datadir /root/$(IDENTITY) --verbosity 6 --nodiscover \
-			--port 30303 \
-			--nat=extip:$(IP) \
+			--syncmode "full" -cache=4096 --http --metrics --maxpeers 30 \
 			--http.addr "0.0.0.0" --http.corsdomain "*" --http.port 8545 \
-			--http.api 'eth,net,web3,txpool' \
-			--networkid 4321 \
-			--syncmode "full" -cache=4096 --http --metrics --maxpeers 30
+			--http.api 'eth,net,web3,txpool'
 
 bootnode:
 	geth 	--identity $(IDENTITY) \
-			--nodekey='/root/nodekey' \
-			--allow-insecure-unlock \
-			--unlock 0 --password='/root/password.sec' \
+			--networkid 4321 --port 30303 --nat=extip:$(IP) \
 			--datadir /root/$(IDENTITY) --verbosity 6 --nodiscover \
-			--port 30303 \
-			--nat=extip:$(IP) \
-			--http.addr "0.0.0.0" --http.corsdomain "*" --http.port 8545 \
-			--http.api 'eth,net,web3,txpool' \
-			--networkid 4321 \
-			--syncmode "full" -cache=4096 --http --metrics --maxpeers 30
+			--syncmode "full" -cache=4096 --http --metrics --maxpeers 30 \
+			--nodekey='/root/nodekey' 
 
 getCoinbase:
 	geth attach $(IDENTITY)/geth.ipc --exec "eth.coinbase"
@@ -75,7 +57,7 @@ getNodeInfo:
 	geth attach $(IDENTITY)/geth.ipc --exec "admin.nodeInfo"
 
 getLastBlockNumber:
-	geth attach $(IDENTITY)/geth.ipc --exec "eth.blockNumber"
+	@geth attach $(IDENTITY)/geth.ipc --exec "eth.blockNumber"
 
 
 
