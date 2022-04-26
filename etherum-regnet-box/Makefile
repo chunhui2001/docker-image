@@ -7,8 +7,11 @@ ifeq (start, $(firstword $(MAKECMDGOALS)))
   $(eval $(runargs):;@true)
 endif
 
+#start:
+#	./scripts/start_bootnode.sh $(runargs)
+
 start:
-	./scripts/start_bootnode.sh $(runargs)
+	./scripts/start_bootnode.sh blkchain1
 
 clear:
 	docker rm -f blkchain* >/dev/null 2>&1 && rm -rf */blkchain* >/dev/null 2>&1
