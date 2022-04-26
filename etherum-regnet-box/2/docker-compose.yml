@@ -26,7 +26,7 @@ services:
     volumes:
       - ../genesis.json:/root/genesis.json:rw
       - ./blkchain2:/root/blkchain2:rw
-      - ./password.sec:/root/password.sec:ro
+      - ../password.sec:/root/password.sec:ro
       - ./static-nodes.json:/root/blkchain2/static-nodes.json:ro
       - ./Makefile:/root/Makefile:rw
     networks:
