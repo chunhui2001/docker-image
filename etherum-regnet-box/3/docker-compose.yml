@@ -22,7 +22,6 @@ services:
       - 8547:8545
     entrypoint: ["make"]
     command: ["sleep"]
-    #command: ["bootnode"]
     #command: ["miner"]
     #command: ["rpcnode"]
     volumes:
