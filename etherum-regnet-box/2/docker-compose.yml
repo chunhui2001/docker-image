@@ -28,7 +28,7 @@ services:
       - ./blkchain2:/root/blkchain2:rw
       - ../password.sec:/root/password.sec:ro
       - ./static-nodes.json:/root/blkchain2/static-nodes.json:ro
-      - ./Makefile:/root/Makefile:rw
+      - ../BuiltMakefile:/root/Makefile:rw
     networks:
         priv-eth-net:
           ipv4_address: 172.16.254.11
