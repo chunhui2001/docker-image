@@ -1,9 +1,10 @@
 ### 当前 Makefile 文件物理路径
 ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
-startup:
-	./up-start.sh
+start:
+	./scripts/start_bootnode.sh
 
-clearup:
-	./up-clear.sh
+clear:
+	docker rm -f blkchain1 >/dev/null 2>&1 && rm -rf 1/blkchain1 >/dev/null 2>&1
+
 
