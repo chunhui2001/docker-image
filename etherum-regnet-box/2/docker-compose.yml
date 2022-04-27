@@ -17,6 +17,8 @@ services:
     hostname: blkchain2
     restart: always
     #mem_limit: 2048m
+    env_file:
+      - .env
     ports:
       - 30304:30303
       - 8546:8545
