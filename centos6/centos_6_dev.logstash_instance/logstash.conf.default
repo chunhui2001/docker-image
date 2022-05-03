@@ -1,9 +1,6 @@
 input {
-	stdin {
-
-	}
 	file {
-		type => "syslog"
+		type => "applog"
 		path => [
 			"/tmp/*.log"
 		]
@@ -11,7 +8,8 @@ input {
 }
 
 output {
-	stdout {
-		codec => rubydebug
+	elasticsearch {
+		hosts => "http://172.23.18.82:9200"
+		index => "logstash-simple2-%{+yyyy-MM-dd}"
 	}
 }

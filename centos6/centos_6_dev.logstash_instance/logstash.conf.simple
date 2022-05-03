@@ -3,11 +3,9 @@ input {
 
 	},
 	file {
-		type => "syslog"
+		type => "applog"
 		path => [
-			"/root/nodejs/app/logs/*.log",
-			"/var/log/redis/app-redis-primary.log",
-			"/usr/local/tomcat/logs/catalina.*.out"
+			"/tmp/*.log"
 		]
 	}
 }
@@ -15,8 +13,9 @@ input {
 output {
 	stdout {
 		codec => rubydebug
-	},
+	}
 	elasticsearch {
-		host = 127.0.0.1:9200
+		hosts => "http://127.0.0.1:9200"
+		index => "logstash-simple-%{+yyyy-MM-dd}"
 	}
 }
