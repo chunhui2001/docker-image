@@ -1,4 +1,7 @@
 input {
+	stdin {
+
+	}
 	file {
 		type => "syslog"
 		path => [
@@ -12,5 +15,8 @@ input {
 output {
 	stdout {
 		codec => rubydebug
+	}
+	elasticsearch {
+		host = 127.0.0.1:9200
 	}
 }

@@ -14,9 +14,11 @@ services:
   logstash:
     container_name: logstash
     image: chunhui2001/centos_6_dev:logstash_instance
-    #entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
+    entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
     volumes:
-      - ./logstash.conf:/etc/logstash.conf:ro
+      #- ./logstash.conf:/etc/logstash.conf:ro
+      - ./logstash.conf.default:/etc/logstash.conf:ro
+      - ./jvm.options:/usr/local/logstash/config/jvm.options:ro
     restart: always
     ports:
       - 9600:9600
@@ -24,4 +26,7 @@ services:
         br0:
           ipv4_address: 172.16.197.99
 
+
+## 验证配置文件语法格式
+# /usr/local/logstash/bin/logstash -configtest /etc/logstash.conf
 
