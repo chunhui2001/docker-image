@@ -1,0 +1,27 @@
+
+## 安装Docker Compose
+# curl -L https://github.com/docker/compose/releases/download/1.24.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+# chmod +x /usr/local/bin/docker-compose
+# docker-compose --version
+# docker-compose up -d
+
+version: '2.4'
+
+services:
+  myl2tp:                
+    container_name: myl2tp
+    privileged: true
+    image: siomiz/softethervpn
+    hostname: myl2tp
+    #mem_limit: 50m
+    ports: 
+      - "500:500/udp"
+      - "4500:4500/udp"
+      - "1194:1194/udp"
+      - "1701:1701/tcp"
+      - "443:443/tcp"
+    env_file:
+      - ./vpn.env
+    restart: always
+
+## 1701
