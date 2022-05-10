@@ -9,6 +9,8 @@ ENODE_PORT	?=$(ENODE_PORT)
 HTTP_PORT	?=$(HTTP_PORT)
 VERBOSITY 	?=$(VERBOSITY)
 MAXPEERS 	?=$(MAXPEERS)
+SYNC_MODE	?=$(SYNC_MODE)
+CACHE 		?=$(CACHE)
 
 sleep:
 	while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done
@@ -16,12 +18,19 @@ sleep:
 init:
 	geth 	--datadir $(IDENTITY) --nodekey='/root/nodekey' init genesis.json
 
-console:
+cli:
 	geth 	--identity $(IDENTITY) \
 			--nodekey='/root/nodekey' \
 			--datadir /root/$(IDENTITY) --verbosity $(VERBOSITY) --nodiscover \
 			--nat=extip:$(IP) \
 			--networkid $(NETWORK_ID)
+
+console:
+	geth 	--identity $(IDENTITY) \
+			--nodekey='/root/nodekey' \
+			--datadir /root/$(IDENTITY) --verbosity $(VERBOSITY) --nodiscover \
+			--nat=extip:$(IP) \
+			--networkid $(NETWORK_ID) console
 
 newAccount:
 	geth 	--datadir $(IDENTITY) account new --password '/root/password.sec'
@@ -33,7 +42,7 @@ miner:
 	geth 	--identity $(IDENTITY) \
 			--networkid $(NETWORK_ID) --port $(ENODE_PORT) --nat=extip:$(IP) \
 			--datadir /root/$(IDENTITY) --verbosity $(VERBOSITY) --nodiscover \
-			--syncmode "$(SYNC_MODE)" -cache=$(CACHE) --http --metrics --maxpeers $(MAXPEERS) \
+			--syncmode "$(SYNC_MODE)" -cache=$(CACHE) --maxpeers $(MAXPEERS) \
 			--allow-insecure-unlock --unlock 0 --password='/root/password.sec' \
 			--mine --miner.threads=1 --miner.etherbase=$(ETHERBASE)
 
@@ -41,18 +50,16 @@ rpcnode:
 	geth 	--identity $(IDENTITY) \
 			--networkid $(NETWORK_ID) --port $(ENODE_PORT) --nat=extip:$(IP) \
 			--datadir /root/$(IDENTITY) --verbosity $(VERBOSITY) --nodiscover \
-			--syncmode "$(SYNC_MODE)" -cache=$(CACHE) --http --metrics --maxpeers $(MAXPEERS) \
-			--http.addr "0.0.0.0" --http.corsdomain "*" --http.port $(HTTP_PORT) \
+			--syncmode "$(SYNC_MODE)" -cache=$(CACHE) --maxpeers $(MAXPEERS) \
+			--http --metrics --http.addr "0.0.0.0" --http.corsdomain "*" --http.port $(HTTP_PORT) \
 			--http.api 'eth,net,web3,txpool'
 
 bootnode:
 	geth 	--identity $(IDENTITY) \
 			--networkid $(NETWORK_ID) --port $(ENODE_PORT) --nat=extip:$(IP) \
 			--datadir /root/$(IDENTITY) --verbosity $(VERBOSITY) --nodiscover \
-			--syncmode "$(SYNC_MODE)" -cache=$(CACHE) --http --metrics --maxpeers $(MAXPEERS) \
-			--nodekey='/root/nodekey' \
-			--http.addr "0.0.0.0" --http.corsdomain "*" --http.port $(HTTP_PORT) \
-			--http.api 'eth,net,web3,txpool'
+			--syncmode "$(SYNC_MODE)" -cache=$(CACHE) --maxpeers $(MAXPEERS) \
+			--nodekey='/root/nodekey'
 
 getCoinbase:
 	geth attach $(IDENTITY)/geth.ipc --exec "eth.coinbase"
