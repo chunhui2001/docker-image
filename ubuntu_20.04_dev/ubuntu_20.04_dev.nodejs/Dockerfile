@@ -26,12 +26,13 @@ RUN npm config set unsafe-perm true
 RUN npm config set prefix /usr/local
 RUN npm install -g sm
 RUN npm install -g --unsafe-perm node-gyp
-RUN npm install -g gulp gulp-cli
+RUN npm install -g gulp gulp-cli truffle
 RUN ln -s /usr/local/bin/gulp /usr/sbin/gulp
 
 # gulp -v
 # node -v
 # npm -v
+# triffle --version
 
 WORKDIR /root
 
