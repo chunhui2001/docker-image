@@ -23,7 +23,7 @@ services:
       - MYSQL_ROOT_PASSWORD=Cc
     ports:
       - 3306:3306
-    #command: /usr/local/elasticsearch/bin/elasticsearch
+    #entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
     volumes:
       - ./my.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf:ro
     restart: always

@@ -12,10 +12,10 @@ networks:
     # aliases: net1
 
 services:
-  ubuntu_apache24:
-    container_name: ubuntu_apache24
-    image: chunhui2001/ubuntu_1804:apache24
-    hostname: gitweb
+  php7.2:
+    container_name: php7.2
+    image: chunhui2001/ubuntu_1804:php7.2
+    hostname: php7.2
     mem_limit: 300m
     ports:
       - 8182:80
@@ -23,6 +23,9 @@ services:
     #entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
     volumes:
       - ./apache2.conf:/etc/apache2/apache2.conf:ro
+      - ./000-default-fpm.conf:/etc/apache2/sites-enabled/000-default.conf:ro
+      #- ./fastcgi.conf:/etc/apache2/mods-enabled/fastcgi.conf:ro
+      - ./info.php:/var/www/html/info.php:ro
     restart: always
     networks:
         br0:
