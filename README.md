@@ -33,6 +33,8 @@ $ docker save [image id] [image id] > images.tar
 $ docker load < images.tar
 $ docker tag 0e5574283393 chunhui2001/ubuntu_1804_dev:redis_cluster
 
+### 清楚无用镜像
+$ docker image prune -a
 
 ### container name pattern, 
 ## 容器的名字必须是唯一的，当容器删除的时候会删除所有包含该名字的容器
