@@ -28,6 +28,7 @@ CMD ["--config=/etc/logstash.conf"]
 
 ### 构建镜像
 # docker build -t chunhui2001/ubuntu_1610_dev:logstash_instance .
+# docker run -dit --entrypoint="top" --name logstash chunhui2001/ubuntu_1610_dev:logstash_instance
 
 ## Open ports
 #EXPOSE $HTTP_PORT
