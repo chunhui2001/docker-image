@@ -4,7 +4,7 @@ FROM chunhui2001/ubuntu_1610_dev:zh-CN
 MAINTAINER Chunhui.Zhang "chunhui2001@gmail.com"
 
 # copy files
-# COPY jdk-8u221-linux-x64.tar.gz /usr/local/
+COPY jdk-8u221-linux-x64.tar.gz /usr/local/
 
 # download files
 WORKDIR /usr/local
