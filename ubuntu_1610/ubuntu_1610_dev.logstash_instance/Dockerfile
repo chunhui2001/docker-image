@@ -18,6 +18,14 @@ ENTRYPOINT ["bin/logstash"]
 
 CMD ["--config=/etc/logstash.conf"]
 
+### 查看版本
+# logstash version
+
+### 安装插件
+# logstash-plugin install -h
+# logstash-plugin list
+# logstash-plugin install --no-verify logstash-output-jdbc
+
 ### 构建镜像
 # docker build -t chunhui2001/ubuntu_1610_dev:logstash_instance .
 
