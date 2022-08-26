@@ -29,6 +29,7 @@ RUN mkdir /tmp/kafka-logs
 # 运行生产者并写入消息
 # /usr/local/kafka/bin/kafka-console-producer.sh --bootstrap-server 172.16.197.65:9093 --topic first-topic
 # 运行消费者并消费消息
+# /usr/local/kafka/bin/kafka-console-consumer.sh --bootstrap-server 172.16.197.65:9093 --topic first-topic
 # /usr/local/kafka/bin/kafka-console-consumer.sh --bootstrap-server 172.16.197.65:9093 --topic first-topic --from-beginning
 
 ENTRYPOINT ["/usr/local/kafka/bin/kafka-server-start.sh", "/usr/local/kafka/config/server.properties"]
