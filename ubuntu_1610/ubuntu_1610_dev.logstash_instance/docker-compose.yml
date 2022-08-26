@@ -15,9 +15,12 @@ services:
     container_name: logstash
     image: chunhui2001/ubuntu_1610_dev:logstash_instance
     hostname: logstash
-    entrypoint: ["/bin/sh", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
+    #entrypoint: ["/bin/sh", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
+    entrypoint: ["logstash", "--path.settings", "/etc/logstash"]
     volumes:
-      - ./logstash.conf.kafka-input:/etc/logstash.conf:ro
+      - ./logstash.conf.kafka-input:/etc/logstash/conf.d/logstash.conf:ro
+      #- ./logstash.conf:/etc/logstash/conf.d/logstash.conf:ro
+      #- ./logstash.yml:/etc/logstash/logstash.yml:ro
     restart: always
     networks:
       br0:

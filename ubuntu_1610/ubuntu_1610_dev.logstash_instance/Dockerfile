@@ -9,17 +9,18 @@ MAINTAINER Chunhui.Zhang "chunhui2001@gmail.com"
 ### logstash多个mysql的input导出到多个output
 # http://m.blog.csdn.net/lilongsy/article/details/78283122
 
+ADD logstash.conf /etc/logstash/conf.d/logstash.conf
+#ADD logstash.yml /etc/logstash
+ENV LS_HOME=/usr/share/logstash
 
-ADD logstash.conf /etc/
-
-WORKDIR /opt/logstash
+WORKDIR /usr/share/logstash
 
 ENTRYPOINT ["bin/logstash"]
 
-CMD ["--config=/etc/logstash.conf"]
+CMD ["--path.settings", "/etc/logstash"]
 
 ### 查看版本
-# logstash version
+# logstash --version
 
 ### 安装插件
 # logstash-plugin install -h

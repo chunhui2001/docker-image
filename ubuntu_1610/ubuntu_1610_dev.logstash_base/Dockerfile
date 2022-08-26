@@ -16,6 +16,9 @@ RUN apt-get -y update && apt-get install -y logstash vim
 #RUN update-alternatives --install /usr/bin/javah javah /usr/local/java/bin/javah 300
 #RUN update-alternatives --install /usr/bin/jps jps /usr/local/java/bin/jps 300
 
+ENV LS_JAVA_HOME=/usr/local/java
+ENV PATH=$PATH:/usr/share/logstash/bin
+
 ## remove openjdk
 # RUN apt-get purge openjdk*
 
