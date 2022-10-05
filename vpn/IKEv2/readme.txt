@@ -32,6 +32,20 @@ $ docker run \
 
 #####
 ===============
+Learn how to manage IKEv2 clients.
+You can manage IKEv2 clients using the helper script. See examples below. To customize client options, run the script without arguments.
+# Add a new client (using default options)
+docker exec -it ipsec-vpn-server ikev2.sh --addclient [client name]
+# Export configuration for an existing client
+docker exec -it ipsec-vpn-server ikev2.sh --exportclient [client name]
+# List existing clients
+docker exec -it ipsec-vpn-server ikev2.sh --listclients
+# Show usage
+docker exec -it ipsec-vpn-server ikev2.sh -h
+
+
+#####
+===============
 >>>> OS X (macOS)
 >>>> First, securely transfer the generated .mobileconfig file to your Mac, then double-click and follow the prompts to import as a macOS profile. If your Mac runs macOS Big Sur or newer, open System Preferences and go to the Profiles section to finish importing. When finished, check to make sure "IKEv2 VPN" is listed under System Preferences -> Profiles.
 
@@ -57,19 +71,6 @@ $ docker run \
 >>>> Go to Settings -> VPN. Select the VPN connection with Your VPN Server IP (or DNS name).
 >>>> Slide the VPN switch ON.
 
-
-#####
-===============
-Learn how to manage IKEv2 clients.
-You can manage IKEv2 clients using the helper script. See examples below. To customize client options, run the script without arguments.
-# Add a new client (using default options)
-docker exec -it ipsec-vpn-server ikev2.sh --addclient [client name]
-# Export configuration for an existing client
-docker exec -it ipsec-vpn-server ikev2.sh --exportclient [client name]
-# List existing clients
-docker exec -it ipsec-vpn-server ikev2.sh --listclients
-# Show usage
-docker exec -it ipsec-vpn-server ikev2.sh -h
 
 
 
