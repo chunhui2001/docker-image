@@ -1,0 +1,38 @@
+1. 查看表的索引存储空间
+   -- 使用系统库 information_schema 来查询，这个系统库中有一个 TABLES 表，这个表是用来记录数据库中表的大小、行数、索引大小等信息
+   	  > use information_schema;
+   	  > show create table TABLES\G;
+   	  > desc TABLES;
+   	  > select * from tables where TABLE_SCHEMA='cloudbox_device';
+
+		TABLE_SCHEMA　数据库名
+		  TABLE_NAME　表名
+		      ENGINE　所使用的存储引擎
+		 TABLES_ROWS　记录行数
+		 DATA_LENGTH　表大小/kb		(一个表的大小 = 数据量 + 索引大小)
+		INDEX_LENGTH　索引大小/kb
+
+# 建立联合索引（a，b，c）
+==================================================
+explain select * from test where a<10 ;
+explain select * from test where a<10 and b <10;
+explain select * from test where a<10 and b <10 and c<10;
+explain select * from test where b<10 and a <10;
+explain select * from test where b<10 and a <10 and c<10;
+-- mysql查询优化器会判断纠正这条 sql 语句该以什么样的顺序执行效率最高
+
+==================================================
+explain select * from test where b<10 and c <10;
+explain select * from test where a<10 and c <10;
+
+-- 为什么 b<10 and c <10,没有用到索引？而 a<10 and c <10用到了？
+-- 1. 当 b+ 树的数据项是复合的数据结构，比如(name,age,sex)的时候，b+ 数是按照从左到右的顺序来建立搜索树的
+-- 2. 比如当 (张三,20,F) 这样的数据来检索的时候，b+ 树会优先比较 name 来确定下一步的所搜方向，如果 name 相同再依次比较 age 和 sex，最后得到检索的数据；
+-- 3. 但当 (20,F) 这样的没有 name 的数据来的时候，b+ 树就不知道下一步该查哪个节点，因为建立搜索树的时候 name 就是第一个比较因子，
+-- 4. 必须要先根据 name 来搜索才能知道下一步去哪里查询。比如当 (张三,F) 这样的数据来检索时，b+ 树可以用 name 来指定搜索方向，但下一个字段age的缺失，
+-- 5. 所以只能把名字等于张三的数据都找到，然后再匹配性别是F的数据了， 这个是非常重要的性质，即索引的最左匹配特性。
+
+btree 索引
+
+
+
