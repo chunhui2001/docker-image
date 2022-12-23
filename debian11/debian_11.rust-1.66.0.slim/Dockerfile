@@ -38,6 +38,8 @@ RUN localedef -c -f UTF-8 -i zh_CN zh_CN.utf8
 
 WORKDIR /root
 
+# rustup target list
+# rustup default
 # rustc --version  > rustc 1.66.0 (69f9c33d7 2022-12-12)
 # cargo --list
 # openssl version  > OpenSSL 3.0.7 1 Nov 2022 (Library: OpenSSL 3.0.7 1 Nov 2022)
