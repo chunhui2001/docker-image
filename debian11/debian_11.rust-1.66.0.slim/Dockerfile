@@ -12,13 +12,17 @@ MAINTAINER Chunhui.Zhang "chunhui2001@gmail.com"
 ### Install dev tools
 RUN apt-get -qq update -y &&\
  apt-get install -y vim build-essential lsb-release net-tools iputils-ping wget ttf-wqy-microhei locales iproute2 &&\
- apt-get -y install apt-transport-https ca-certificates curl software-properties-common autoconf libssl-dev libcurl4-gnutls-dev zlib1g zlib1g-dev libxml2 libxml2-dev libxslt-dev\
+ apt-get -y install apt-transport-https ca-certificates curl software-properties-common autoconf libssl-dev musl-tools libudev-dev librust-openssl-sys-dev libcurl4-gnutls-dev zlib1g zlib1g-dev libxml2 libxml2-dev libxslt-dev\
  libreadline6-dev libpcre3 libpcre3-dev libssl-dev openssl libssl-dev libperl-dev libgd-dev libgeoip-dev libpam-dev libatomic-ops-dev lua5.1 liblua5.1-0 liblua5.1-0-dev &&\
- curl -L "https://www.openssl.org/source/openssl-3.0.7.tar.gz" > /usr/src/openssl-3.0.7.tar.gz && cd /usr/src && tar -zxvf openssl-3.0.7.tar.gz &&\
- cd openssl-3.0.7 && ./config && make && make install && ldconfig && ldconfig /usr/local/lib64 && mv /usr/bin/openssl /usr/bin/openssl.bak &&\
- ln -s /usr/local/bin/openssl /usr/bin/openssl &&\
- apt-get clean && apt-get autoclean && rm -rf /var/lib/apt/lists/* && rm -rf /usr/src/openssl-3.0.7.tar.gz && rm -rf /usr/src/openssl-3.0.7 &&\
+ ln -s /usr/include/x86_64-linux-gnu/asm /usr/include/x86_64-linux-musl/asm && ln -s /usr/include/asm-generic /usr/include/x86_64-linux-musl/asm-generic && ln -s /usr/include/linux /usr/include/x86_64-linux-musl/linux &&\
+ mkdir /musl && cd /musl && wget https://github.com/openssl/openssl/archive/OpenSSL_1_1_1f.tar.gz && tar zxvf OpenSSL_1_1_1f.tar.gz && cd openssl-OpenSSL_1_1_1f/ &&\
+ ldconfig && CC="musl-gcc -fPIE -pie" ./Configure no-shared no-async no-engine -DOPENSSL_NO_SECURE_MEMORY --prefix=/musl --openssldir=/musl/ssl linux-x86_64 && make depend && make -j$(nproc) && make install &&\
+ apt-get clean && apt-get autoclean && rm -rf /var/lib/apt/lists/* && rm -rf /musl/OpenSSL_1_1_1f.tar.gz && rm -rf /musl/OpenSSL_1_1_1f &&\
  cd /root
+
+ENV PKG_CONFIG_ALLOW_CROSS=1
+ENV OPENSSL_STATIC=true
+ENV OPENSSL_DIR=/musl
 
 # 设定时区
 ENV TZ=Asia/Shanghai
@@ -34,7 +38,7 @@ ENV LANGUAGE zh_CN:zh
 ENV LC_ALL zh_CN.UTF-8
 
 #RUN localedef -v -c -i zh_CN -f UTF-8 zh_CN.UTF-8
-RUN localedef -c -f UTF-8 -i zh_CN zh_CN.utf8
+RUN localedef -c -f UTF-8 -i zh_CN zh_CN.utf8 && rustup target add x86_64-unknown-linux-musl
 
 WORKDIR /root
 
