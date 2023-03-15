@@ -5,11 +5,17 @@ server.xml	Mycat的配置文件，设置账号、参数等
 schema.xml	Mycat对应的物理数据库和数据库表的配置
 rule.xml	Mycat分片（分库分表）规则
 
+### Mycat安装与使用
+https://github.com/MyCATApache/Mycat-Server
+
 ### 学会数据库读写分离、分表分库——用Mycat，这一篇就够了！
 https://www.cnblogs.com/fyy-hhzzj/p/9044775.html
 
 ### 最全的mycat配置教程
 https://blog.csdn.net/qq_45563131/article/details/124058007
+
+### MyCat分库分表之逻辑库、逻辑表及分片规则
+https://blog.51cto.com/u_15848894/5800434
 
 ## 启动
 $ mycat start
