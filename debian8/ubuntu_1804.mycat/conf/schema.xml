@@ -8,7 +8,9 @@
 	<!-- sqlMaxLimit: 		select 时默认的 limit，避免查询全表 -->
 	<!-- dataNode: 			指定该属性时, 对于主从数据库有用, 
 							但是对于需要分表的没有用, 需要分表时需增加 table 子节点 -->
-	<schema name="cloudbox_device" dataNode="dn1" checkSQLschema="false" sqlMaxLimit="100">
+	<schema name="mydb_cat" checkSQLschema="false" sqlMaxLimit="100">
+		<table name="t_user" dataNode="dn1" />
+		<table name="t_album" dataNode="dn1" />
 		<!-- auto sharding by id (long) -->
 		<!-- name: 			表名，物理数据库中表名 -->
 		<!-- dataNode: 		表存储到哪些节点，多个节点用逗号分隔。节点为下文dataNode设置的name -->
@@ -34,15 +36,15 @@
 		<!-- <table name="oc_call" primaryKey="ID" dataNode="dn1$0-743" rule="latest-month-calldate" /> -->
 		<!-- <table name="device" dataNode="dn1" /> -->
 	</schema>
-	<schema name="cloudbox_member" dataNode="dn2" checkSQLschema="false" sqlMaxLimit="100"></schema>
+	<!-- <schema name="mydb2" dataNode="dn2" checkSQLschema="false" sqlMaxLimit="100"></schema> -->
 
 	<!-- <dataNode name="dn1$0-743" dataHost="localhost1" database="db$0-743" /> -->
 	<!-- 分片信息，也就是分库相关配置 -->
 	<!-- name:		节点名，与 table 中 dataNode 对应 -->
 	<!-- datahost:	物理数据库名，与 datahost 中 name 对应 -->
 	<!-- database:	物理数据库中数据库名 -->
-	<dataNode name="dn1" dataHost="localhost1" database="cloudbox_device" />
-	<dataNode name="dn2" dataHost="localhost1" database="cloudbox_member" />
+	<dataNode name="dn1" dataHost="localhost1" database="mydb" />
+	<!-- <dataNode name="dn2" dataHost="localhost1" database="mydb2" /> -->
 	<!-- <dataNode name="dn2" dataHost="localhost1" database="db2" /> -->
 	<!-- <dataNode name="dn3" dataHost="localhost1" database="db3" /> -->
 	<!-- <dataNode name="dn4" dataHost="sequoiadb1" database="SAMPLE" /> -->
@@ -59,9 +61,9 @@
 	<dataHost name="localhost1" maxCon="1000" minCon="10" balance="1" writeType="0" dbType="mysql" dbDriver="native" switchType="1"  slaveThreshold="100">
 		<heartbeat>select user();</heartbeat>
 		<!-- can have multi write hosts -->
-		<writeHost host="hostM1" url="mysql_node1:3318" user="root" password="Cc">
+		<writeHost host="hostM1" url="172.16.197.13:3306" user="keesh" password="Cc">
 			<!-- can have multi read hosts -->
-			<readHost host="hostS2" url="mysql_node2:3319" user="root" password="Cc" />
+			<readHost host="hostS2" url="172.16.197.13:3306" user="keesh" password="Cc" />
 		</writeHost>
 		<!-- <writeHost host="hostS1" url="localhost:3316" user="root" password="Cc" /> -->
 		<!-- <writeHost host="hostM2" url="localhost:3316" user="root" password="Cc"/> -->
