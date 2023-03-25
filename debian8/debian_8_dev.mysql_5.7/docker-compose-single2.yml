@@ -12,25 +12,23 @@ networks:
     br0:
       external: true
 
+
 services:
-  mycat:
-    container_name: mycat
-    image: chunhui2001/ubuntu_1804:mycat-1.6.7.3
-    hostname: mycat
-    #mem_limit: 2600m
-    #environment:
-    #  - MYSQL_ROOT_PASSWORD=Cc
+  mysql_single2:
+    container_name: mysql_single2
+    image: chunhui2001/debian_8_dev:mysql_5.7
+    hostname: mysql_single2
+    mem_limit: 2600m
+    environment:
+      - MYSQL_ROOT_PASSWORD=Cc
     ports:
-      - 8066:8066
-      - 9066:9066
+      - 3316:3306
     #entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
-    entrypoint: ["mycat", "console"]
     volumes:
-      - ./conf/server.xml:/usr/local/mycat/conf/server.xml:ro
-      - ./conf/schema.xml:/usr/local/mycat/conf/schema.xml:ro
-      #- ./conf/rule.xml:/usr/local/mycat/conf/rule.xml:ro
+      - ./my.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf:ro
+      - ./mysql_data2:/var/lib/mysql_data:rw
     restart: always
     networks:
         br0:
-          ipv4_address: 172.16.197.103
+          ipv4_address: 172.16.197.117
 
