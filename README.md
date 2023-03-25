@@ -115,8 +115,10 @@ $ docker inspect -f '{{ .NetworkSettings.Networks.supercard_network.IPAddress }}
 http://blog.csdn.net/han_cui/article/details/55190319
 
 ## docker ps 格式化输出
+## https://genzouw.com/entry/2023/02/07/093453/3218/
 docker ps -a --format "table {{.ID}}\t{{.Names}}\t{{.Ports}}\t{{.Size}}\t{{.Status}}"
 docker ps -a --format "table {{.Names}}\t{{.Ports}}\t{{.Size}}\t{{.Status}}"
+docker ps -a --format "table {{.Names}}\t{{.Status}}\t{{.Command}}\t{{.Image}}\t{{.Ports}}"
 
 --format="TEMPLATE"
 Pretty-print containers using a Go template.
@@ -135,11 +137,25 @@ Valid placeholders:
 .Mounts - Names of the volumes mounted in this container.
 
 
+### https://nodejs.org/en/download/releases
+### nvm install
+brew uninstall --ignore-dependencies node
+brew uninstall --force node
+brew install nvm
 
+### add the following line to your shell profile
+source $(brew --prefix nvm)/nvm.sh
 
+nvm install --lts
+nvm install 12.7.0
 
+nvm use 16
+node -v
+v16.17.0
 
-
+nvm use 12
+node -v
+v12.7.0
 
 
 
