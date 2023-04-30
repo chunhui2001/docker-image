@@ -23,7 +23,7 @@ services:
     #entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
     volumes:
       - ./apache2.conf:/etc/apache2/apache2.conf:ro
-      - ./000-default-fpm.conf:/etc/apache2/sites-enabled/000-default.conf:ro
+      #- ./000-default-fpm.conf:/etc/apache2/sites-enabled/000-default.conf:ro
       #- ./fastcgi.conf:/etc/apache2/mods-enabled/fastcgi.conf:ro
       - ./index.php:/var/www/html/index.php:ro
       - ./siafu.png:/var/www/html/favicon.ico:ro
