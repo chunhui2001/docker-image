@@ -14,13 +14,14 @@ networks:
 services:
   phabricator:
     container_name: phabricator
-    image: chunhui2001/ubuntu_1804:php8.2
+    # image: chunhui2001/ubuntu_1804:php8.2
+    image: chunhui2001/ubuntu_1804:php7.4
     hostname: phabricator
     mem_limit: 300m
     ports:
       - 80:80
-    entrypoint: ["make", "-f", "/var/phabricator/Makefile", "start"]
-    #entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
+    #entrypoint: ["make", "-f", "/var/phabricator/Makefile", "start"]
+    entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
     volumes:
       - ./apache2.conf:/etc/apache2/apache2.conf:ro
       - ./000-default.conf:/etc/apache2/sites-enabled/000-default.conf:ro
@@ -32,7 +33,6 @@ services:
       #- ./favicon.png:/var/www/favicon.ico:ro
       - ./phabricator:/var/phabricator:rw
       - ./arcanist:/var/arcanist:rw
-      - ./libphutil:/var/libphutil:rw
     restart: always
     networks:
         br0:
