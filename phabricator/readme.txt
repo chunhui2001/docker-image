@@ -14,3 +14,6 @@ $ ./bin/auth lock
 
 ### Arcanist User Guide
 https://secure.phabricator.com/book/phabricator/article/arcanist/
+
+$ arc set-config editor "vim"
+
