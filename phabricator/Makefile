@@ -13,4 +13,6 @@ start:
 	a2ensite phabricator.conf && a2enmod rewrite
 	apache2ctl -DFOREGROUND -e debug
 
-set-config:
+up:
+	docker-compose -f docker-compose.yml up -d
+	docker logs -f phabricator

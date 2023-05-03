@@ -20,13 +20,13 @@ services:
     mem_limit: 300m
     ports:
       - 80:80
-    #entrypoint: ["make", "-f", "/var/phabricator/Makefile", "start"]
-    entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
+    entrypoint: ["make", "-f", "/var/phabricator/Makefile", "start"]
+    #entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
     volumes:
       - ./apache2.conf:/etc/apache2/apache2.conf:ro
       - ./000-default.conf:/etc/apache2/sites-enabled/000-default.conf:ro
       - ./phabricator.conf:/etc/apache2/sites-available/phabricator.conf:ro
-      - ./php.ini:/etc/php/8.2/apache2/php.ini:ro
+      - ./php.ini:/etc/php/7.4/apache2/php.ini:ro
       #- ./index.html:/var/www/index.html:ro
       #- ./index.php:/var/www/index.php:rw
       - ./Makefile:/var/phabricator/Makefile:rw
