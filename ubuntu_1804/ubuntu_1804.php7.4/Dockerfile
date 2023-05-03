@@ -46,3 +46,4 @@ RUN update-alternatives --set php-config /usr/bin/php-config7.4
 # docker pull chunhui2001/ubuntu_1804:php7.4
 
 EXPOSE 80
+

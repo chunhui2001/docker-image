@@ -38,3 +38,4 @@ RUN apt-get update -y &&\
 # docker pull chunhui2001/ubuntu_1804:php8.2
 
 EXPOSE 80
+

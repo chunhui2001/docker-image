@@ -32,3 +32,4 @@ RUN a2enconf php7.2-fpm && a2enmod proxy_fcgi setenvif php7.2 mpm_prefork && a2d
 # docker pull chunhui2001/ubuntu_1804:php7.2
 
 EXPOSE 80
+
