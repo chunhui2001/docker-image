@@ -12,23 +12,23 @@ networks:
     # aliases: net1
 
 services:
-  php7.2:
-    container_name: php7.2
-    image: chunhui2001/ubuntu_1804:php7.2
-    hostname: php7.2
+  php8.2:
+    container_name: php8.2
+    image: chunhui2001/ubuntu_1804:php8.2
+    hostname: php8.2
     mem_limit: 300m
-    ports:
-      - 8182:80
-    entrypoint: ["apache2ctl", "-DFOREGROUND", "-e", "debug"]
-    #entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
-    volumes:
-      - ./apache2.conf:/etc/apache2/apache2.conf:ro
+    #ports:
+    #  - 8182:80
+    #entrypoint: ["apache2ctl", "-DFOREGROUND", "-e", "debug"]
+    entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
+    #volumes:
+      #- ./apache2.conf:/etc/apache2/apache2.conf:ro
       #- ./000-default-fpm.conf:/etc/apache2/sites-enabled/000-default.conf:ro
       #- ./fastcgi.conf:/etc/apache2/mods-enabled/fastcgi.conf:ro
-      - ./index.php:/var/www/html/index.php:ro
-      - ./siafu.png:/var/www/html/favicon.ico:ro
+      #- ./index.php:/var/www/html/index.php:ro
+      #- ./siafu.png:/var/www/html/favicon.ico:ro
     restart: always
     networks:
         br0:
-          ipv4_address: 172.16.197.145
+          ipv4_address: 172.16.197.165
       
