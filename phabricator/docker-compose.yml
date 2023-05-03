@@ -18,17 +18,21 @@ services:
     hostname: phabricator
     mem_limit: 300m
     ports:
-      - 8184:80
-    entrypoint: ["apache2ctl", "-DFOREGROUND", "-e", "debug"]
+      - 80:80
+    entrypoint: ["make", "-f", "/var/phabricator/Makefile", "start"]
     #entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
     volumes:
       - ./apache2.conf:/etc/apache2/apache2.conf:ro
       - ./000-default.conf:/etc/apache2/sites-enabled/000-default.conf:ro
-      - ./index.html:/var/www/index.html:ro
-      - ./index.php:/var/www/index.php:rw
-      - ./favicon.png:/var/www/favicon.ico:ro
-      #- ./phabricator:/var/www:ro
-      #- ./Makefile:/var/www/Makefile:ro
+      - ./phabricator.conf:/etc/apache2/sites-available/phabricator.conf:ro
+      - ./php.ini:/etc/php/8.2/apache2/php.ini:ro
+      #- ./index.html:/var/www/index.html:ro
+      #- ./index.php:/var/www/index.php:rw
+      - ./Makefile:/var/phabricator/Makefile:rw
+      #- ./favicon.png:/var/www/favicon.ico:ro
+      - ./phabricator:/var/phabricator:rw
+      - ./arcanist:/var/arcanist:rw
+      - ./libphutil:/var/libphutil:rw
     restart: always
     networks:
         br0:

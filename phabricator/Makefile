@@ -3,4 +3,9 @@
 ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
 upgrade:
-	/var/phabricator/bin/storage upgrade
+	/var/www/bin/storage upgrade
+
+start:
+	#cp -rf /var/arcanist/* /var/phabricator/
+	a2ensite phabricator.conf && a2enmod rewrite
+	apache2ctl -DFOREGROUND -e debug
