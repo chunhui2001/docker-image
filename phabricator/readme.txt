@@ -15,5 +15,9 @@ $ ./bin/auth lock
 ### Arcanist User Guide
 https://secure.phabricator.com/book/phabricator/article/arcanist/
 
+# 设置默认编辑器
 $ arc set-config editor "vim"
+
+# 设置 arc token
+$ arc install-certificate
 
