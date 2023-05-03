@@ -9,7 +9,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
 RUN apt-get update -y &&\
  apt install lsb-release ca-certificates apt-transport-https software-properties-common -y &&\
  add-apt-repository ppa:ondrej/php -y && apt-get update -y &&\
- apt install php8.2 -y &&\
+ apt install php8.2 python python-pip git -y && pip install Pygments &&\
  apt install -y php8.2-common php8.2-fpm php8.2-dev php8.2-mysql php8.2-curl php8.2-gd php8.2-imagick php8.2-phpdbg &&\
  apt install -y php8.2-mbstring php8.2-soap php8.2-intl libapache2-mod-php8.2 php-http php-xml php8.2-xml &&\
  apt install -y libphp-phpmailer php8.2-bcmath php8.2-bz2 php8.2-intl php8.2-zip php-dev libmcrypt-dev &&\
