@@ -21,10 +21,6 @@ RUN apt-get update -y &&\
  apt --purge autoremove &&\
  a2enmod proxy_fcgi setenvif php8.2 mpm_prefork && a2dismod mpm_event
 
-## Enable extension for apache
-#RUN echo "extension=mcrypt.so" | tee -a /etc/php/8.2/apache2/conf.d/mcrypt.ini
-#RUN echo "extension=mcrypt.so" >> /etc/php/7.2/cli/php.ini
-
 # Verify PHP
 #php --version
 
