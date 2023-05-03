@@ -9,7 +9,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
 RUN apt-get update -y &&\
  apt install lsb-release ca-certificates apt-transport-https software-properties-common -y &&\
  add-apt-repository ppa:ondrej/php -y && apt-get update -y &&\
- apt install php7.4 -y &&\
+ apt install php7.4 python python-pip -y && pip install Pygments &&\
  apt install -y php7.4-common php7.4-fpm php7.4-dev php7.4-mysql php7.4-curl php7.4-gd php7.4-imagick php7.4-phpdbg &&\
  apt install -y php7.4-mbstring php7.4-soap php7.4-intl libapache2-mod-php7.4 php-http php7.4-xml &&\
  apt install -y libphp-phpmailer php7.4-bcmath php7.4-bz2 php7.4-intl php7.4-zip php-zip php-dev libmcrypt-dev &&\

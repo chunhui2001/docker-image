@@ -17,6 +17,8 @@ services:
   mysql_single:
     container_name: mysql_8.0
     image: chunhui2001/debian_10_dev:mysql_8.0
+    cap_add:
+      - SYS_NICE
     hostname: mysql_single
     mem_limit: 2600m
     environment:
@@ -25,6 +27,7 @@ services:
       - 3307:3306
     #entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
     volumes:
+      - ./my.cnf0:/etc/mysql/my.cnf:ro
       - ./my.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf:ro
       - ./mysql_data:/var/lib/mysql_data:rw
     restart: always
