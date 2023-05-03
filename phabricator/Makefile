@@ -13,6 +13,9 @@ start:
 	a2ensite phabricator.conf && a2enmod rewrite
 	apache2ctl -DFOREGROUND -e debug
 
+recover:
+	./bin/auth recover $(u)
+
 up:
 	docker-compose -f docker-compose.yml up -d
 	docker logs -f phabricator

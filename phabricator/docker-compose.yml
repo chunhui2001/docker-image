@@ -33,6 +33,7 @@ services:
       #- ./favicon.png:/var/www/favicon.ico:ro
       - ./phabricator:/var/phabricator:rw
       - ./arcanist:/var/arcanist:rw
+      - ./repo:/var/repo:rw
     restart: always
     networks:
         br0:
