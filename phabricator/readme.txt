@@ -12,4 +12,5 @@ git clone https://github.com/phacility/phabricator.git
 ### set auth provider and then:
 $ ./bin/auth lock
 
-### 
+### Arcanist User Guide
+https://secure.phabricator.com/book/phabricator/article/arcanist/
