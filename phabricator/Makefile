@@ -18,4 +18,4 @@ recover:
 
 up:
 	docker-compose -f docker-compose.yml up -d
-	docker logs -f phabricator
+	docker exec -it phabricator tail -f /var/phabricator/webroot/error.log

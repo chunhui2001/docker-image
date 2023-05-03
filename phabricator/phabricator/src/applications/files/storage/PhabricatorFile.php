@@ -204,7 +204,7 @@ final class PhabricatorFile extends PhabricatorFileDAO
     if (ini_get('enable_post_data_reading')) {
       $is_valid = @is_uploaded_file($tmp_name);
       if (!$is_valid) {
-        throw new Exception(pht('File is not an uploaded file.'));
+        #throw new Exception(pht('File is not an uploaded file.'));
       }
     }
 
