@@ -15,6 +15,9 @@ $ ./bin/auth lock
 ### Arcanist User Guide
 https://secure.phabricator.com/book/phabricator/article/arcanist/
 
+### Arcanist Quick Start
+https://secure.phabricator.com/book/phabricator/article/arcanist_quick_start/
+
 # 设置默认编辑器
 $ arc set-config editor "vim"
 
