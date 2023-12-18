@@ -16,6 +16,7 @@ networks:
 services:
   mysql_single:
     container_name: mysql_8.0
+    platform: linux/amd64
     image: chunhui2001/debian_10_dev:mysql_8.0
     cap_add:
       - SYS_NICE
