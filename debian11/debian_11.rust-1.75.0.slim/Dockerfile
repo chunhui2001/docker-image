@@ -1,6 +1,6 @@
-# chunhui2001/debian11:rust-1.73.0.slim
+# chunhui2001/debian11:rust-1.75.0.slim
 # Version 0.0.1
-FROM rust:1.73.0-slim
+FROM rust:1.75.0-slim
 MAINTAINER Chunhui.Zhang "chunhui2001@gmail.com"
 
 ### 查看系统版本
@@ -49,11 +49,12 @@ WORKDIR /root
 # openssl version  > OpenSSL 3.0.7 1 Nov 2022 (Library: OpenSSL 3.0.7 1 Nov 2022)
 # openssl version -a
 
-# docker build -f Dockerfile . -t 'chunhui2001/debian11:rust-1.73.0.slim'
-# docker run -dit --entrypoint="top" -P --name rust1.73 chunhui2001/debian11:rust-1.73.0.slim
-# docker run -dit -p 8080:8080 --name rust1.73 chunhui2001/debian11:rust-1.73.0.slim
-# docker push chunhui2001/debian11:rust-1.73.0.slim
-# docker pull chunhui2001/debian11:rust-1.73.0.slim
+## https://zenn.dev/kinzal/articles/9ee60ebbebc29c
+# docker build --platform linux/amd64 -f Dockerfile . -t 'chunhui2001/debian11:rust-1.75.0.slim'
+# docker run -dit --entrypoint="top" -P --name rust1.75 chunhui2001/debian11:rust-1.75.0.slim
+# docker run -dit -p 8080:8080 --name rust1.75 chunhui2001/debian11:rust-1.75.0.slim
+# docker push chunhui2001/debian11:rust-1.75.0.slim
+# docker pull chunhui2001/debian11:rust-1.75.0.slim
 
 # Open ports
 EXPOSE 8000
