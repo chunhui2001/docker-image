@@ -33,7 +33,7 @@ cd openssl-OpenSSL_1_1_1f/ &&\
 ldconfig && CC="musl-gcc -fPIE -pie" ./Configure no-shared no-async no-engine -DOPENSSL_NO_SECURE_MEMORY --prefix=/musl --openssldir=/musl/ssl linux-x86_64 &&\
 make depend && make -j$(nproc) && make install &&\
 mkdir ~/openssl_backup && mv /usr/bin/openssl ~/openssl_backup/ && mv /usr/include/openssl ~/openssl_backup/openssl_include &&\
-ln -s /musl/bin/openssl /usr/bin/openssl && ln -s /musl/include/openssl /usr/include/openssl &&\
+ln -s /musl/bin/openssl /usr/bin/openssl && ln -s /musl/include/openssl /usr/include/openssl && ldconfig &&\
 apt-get clean && apt-get autoclean && rm -rf /var/lib/apt/lists/* &&\
 rm -rf /musl/OpenSSL_1_1_1f.tar.gz && rm -rf /musl/openssl-OpenSSL_1_1_1f &&\
 apt clean autoclean && apt --purge autoremove --yes && rm -rf /var/lib/{apt,dpkg,cache,log} &&\
