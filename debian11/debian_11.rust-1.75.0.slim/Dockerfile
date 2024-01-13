@@ -49,7 +49,7 @@ cd /root
 
 # rustup target list
 # rustup default
-# rustc --version  > rustc 1.73.0 (69f9c33d7 2022-12-12)
+# rustc --version  > rustc 1.75.0 (69f9c33d7 2022-12-12)
 # cargo --list
 # openssl version  > OpenSSL 3.0.7 1 Nov 2022 (Library: OpenSSL 3.0.7 1 Nov 2022)
 # openssl version -a
