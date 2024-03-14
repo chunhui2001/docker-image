@@ -77,7 +77,11 @@ ENV LC_ALL zh_CN.UTF-8
 
 RUN localedef -c -f UTF-8 -i zh_CN zh_CN.utf8 && rustup target add x86_64-unknown-linux-musl
 
-WORKDIR /root
+RUN adduser --disabled-password --gecos '' rurst
+RUN adduser rurst sudo
+#RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+
+#USER rurst
 
 ## https://zenn.dev/kinzal/articles/9ee60ebbebc29c
 # docker build --platform linux/amd64 -f Dockerfile . -t 'chunhui2001/debian11:rust-1.76.0.slim'
