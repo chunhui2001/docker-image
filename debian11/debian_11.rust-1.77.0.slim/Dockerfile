@@ -23,7 +23,7 @@ vim build-essential lsb-release net-tools iputils-ping wget ttf-wqy-microhei loc
 clang apt-transport-https ca-certificates curl software-properties-common autoconf libssl-dev libsasl2-dev libzstd-dev musl-tools \
 libudev-dev librust-openssl-sys-dev libcurl4-gnutls-dev zlib1g zlib1g-dev cmake libxml2 libxml2-dev libxslt-dev \
 libreadline6-dev libpcre3 libpcre3-dev openssl pkg-config libperl-dev libgd-dev libgeoip-dev libpam-dev \
-libatomic-ops-dev lua5.1 liblua5.1-0 liblua5.1-0-dev checkinstall llvm nettle-dev &&\
+libatomic-ops-dev lua5.1 liblua5.1-0 liblua5.1-0-dev checkinstall llvm nettle-dev libavutil-dev &&\
 ln -s /usr/include/x86_64-linux-gnu/asm /usr/include/x86_64-linux-musl/asm &&\
 ln -s /usr/include/asm-generic /usr/include/x86_64-linux-musl/asm-generic &&\
 ln -s /usr/include/linux /usr/include/x86_64-linux-musl/linux &&\
