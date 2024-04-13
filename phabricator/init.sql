@@ -230,5 +230,11 @@ Grant all privileges on phabricator_phortune.* to 'keesh'@'%';
 FLUSH PRIVILEGES;
 
 
+### phabricator_phortune (mysql8.0)
+CREATE DATABASE phabricator_nuance default character set utf8 collate utf8_general_ci;
+Grant all privileges on phabricator_nuance.* to 'keesh'@'%';
+FLUSH PRIVILEGES;
+
+
 
 

@@ -485,11 +485,6 @@ video.phabricator-media {
   max-width: 100%;
 }
 
-.phabricator-remarkup-embed-image > img {
-  width: auto;
-  height: auto;
-}
-
 .phabricator-remarkup .remarkup-table-wrap {
   overflow-x: auto;
 }

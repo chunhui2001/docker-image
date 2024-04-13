@@ -6,7 +6,7 @@ USE `{$NAMESPACE}_almanac`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `almanac_binding` (
+CREATE TABLE `almanac_binding` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `servicePHID` varbinary(64) NOT NULL,
@@ -29,7 +29,7 @@ USE `{$NAMESPACE}_almanac`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `almanac_bindingtransaction` (
+CREATE TABLE `almanac_bindingtransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -56,7 +56,7 @@ USE `{$NAMESPACE}_almanac`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `almanac_device` (
+CREATE TABLE `almanac_device` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `name` varchar(128) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -79,7 +79,7 @@ USE `{$NAMESPACE}_almanac`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `almanac_devicename_ngrams` (
+CREATE TABLE `almanac_devicename_ngrams` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectID` int(10) unsigned NOT NULL,
   `ngram` char(3) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -94,7 +94,7 @@ USE `{$NAMESPACE}_almanac`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `almanac_devicetransaction` (
+CREATE TABLE `almanac_devicetransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -121,7 +121,7 @@ USE `{$NAMESPACE}_almanac`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `almanac_interface` (
+CREATE TABLE `almanac_interface` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `devicePHID` varbinary(64) NOT NULL,
@@ -143,7 +143,7 @@ USE `{$NAMESPACE}_almanac`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `almanac_interfacetransaction` (
+CREATE TABLE `almanac_interfacetransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -170,7 +170,7 @@ USE `{$NAMESPACE}_almanac`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `almanac_namespace` (
+CREATE TABLE `almanac_namespace` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `name` varchar(128) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -192,7 +192,7 @@ USE `{$NAMESPACE}_almanac`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `almanac_namespacename_ngrams` (
+CREATE TABLE `almanac_namespacename_ngrams` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectID` int(10) unsigned NOT NULL,
   `ngram` char(3) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -207,7 +207,7 @@ USE `{$NAMESPACE}_almanac`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `almanac_namespacetransaction` (
+CREATE TABLE `almanac_namespacetransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -234,7 +234,7 @@ USE `{$NAMESPACE}_almanac`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `almanac_network` (
+CREATE TABLE `almanac_network` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `name` varchar(128) CHARACTER SET {$CHARSET_SORT} COLLATE {$COLLATE_SORT} NOT NULL,
@@ -254,7 +254,7 @@ USE `{$NAMESPACE}_almanac`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `almanac_networkname_ngrams` (
+CREATE TABLE `almanac_networkname_ngrams` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectID` int(10) unsigned NOT NULL,
   `ngram` char(3) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -269,7 +269,7 @@ USE `{$NAMESPACE}_almanac`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `almanac_networktransaction` (
+CREATE TABLE `almanac_networktransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -296,7 +296,7 @@ USE `{$NAMESPACE}_almanac`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `almanac_property` (
+CREATE TABLE `almanac_property` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectPHID` varbinary(64) NOT NULL,
   `fieldIndex` binary(12) NOT NULL,
@@ -312,7 +312,7 @@ USE `{$NAMESPACE}_almanac`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `almanac_service` (
+CREATE TABLE `almanac_service` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `name` varchar(128) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -336,7 +336,7 @@ USE `{$NAMESPACE}_almanac`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `almanac_servicename_ngrams` (
+CREATE TABLE `almanac_servicename_ngrams` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectID` int(10) unsigned NOT NULL,
   `ngram` char(3) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -351,7 +351,7 @@ USE `{$NAMESPACE}_almanac`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `almanac_servicetransaction` (
+CREATE TABLE `almanac_servicetransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -378,7 +378,7 @@ USE `{$NAMESPACE}_almanac`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edge` (
+CREATE TABLE `edge` (
   `src` varbinary(64) NOT NULL,
   `type` int(10) unsigned NOT NULL,
   `dst` varbinary(64) NOT NULL,
@@ -396,7 +396,7 @@ USE `{$NAMESPACE}_almanac`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edgedata` (
+CREATE TABLE `edgedata` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `data` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   PRIMARY KEY (`id`)
@@ -410,7 +410,7 @@ USE `{$NAMESPACE}_application`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `application_application` (
+CREATE TABLE `application_application` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `dateCreated` int(10) unsigned NOT NULL,
@@ -425,7 +425,7 @@ USE `{$NAMESPACE}_application`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `application_applicationtransaction` (
+CREATE TABLE `application_applicationtransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -452,7 +452,7 @@ USE `{$NAMESPACE}_application`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edge` (
+CREATE TABLE `edge` (
   `src` varbinary(64) NOT NULL,
   `type` int(10) unsigned NOT NULL,
   `dst` varbinary(64) NOT NULL,
@@ -470,7 +470,7 @@ USE `{$NAMESPACE}_application`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edgedata` (
+CREATE TABLE `edgedata` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `data` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   PRIMARY KEY (`id`)
@@ -484,7 +484,7 @@ USE `{$NAMESPACE}_audit`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `audit_transaction` (
+CREATE TABLE `audit_transaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -511,7 +511,7 @@ USE `{$NAMESPACE}_audit`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `audit_transaction_comment` (
+CREATE TABLE `audit_transaction_comment` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `transactionPHID` varbinary(64) DEFAULT NULL,
@@ -550,7 +550,7 @@ USE `{$NAMESPACE}_auth`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `auth_challenge` (
+CREATE TABLE `auth_challenge` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `userPHID` varbinary(64) NOT NULL,
@@ -577,7 +577,7 @@ USE `{$NAMESPACE}_auth`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `auth_contactnumber` (
+CREATE TABLE `auth_contactnumber` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `objectPHID` varbinary(64) NOT NULL,
@@ -600,7 +600,7 @@ USE `{$NAMESPACE}_auth`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `auth_contactnumbertransaction` (
+CREATE TABLE `auth_contactnumbertransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -627,7 +627,7 @@ USE `{$NAMESPACE}_auth`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `auth_factorconfig` (
+CREATE TABLE `auth_factorconfig` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `userPHID` varbinary(64) NOT NULL,
@@ -648,7 +648,7 @@ USE `{$NAMESPACE}_auth`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `auth_factorprovider` (
+CREATE TABLE `auth_factorprovider` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `providerFactorKey` varchar(64) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -667,7 +667,7 @@ USE `{$NAMESPACE}_auth`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `auth_factorprovidertransaction` (
+CREATE TABLE `auth_factorprovidertransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -694,7 +694,7 @@ USE `{$NAMESPACE}_auth`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `auth_hmackey` (
+CREATE TABLE `auth_hmackey` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `keyName` varchar(64) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `keyValue` varchar(128) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -710,7 +710,7 @@ USE `{$NAMESPACE}_auth`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `auth_message` (
+CREATE TABLE `auth_message` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `messageKey` varchar(64) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -728,7 +728,7 @@ USE `{$NAMESPACE}_auth`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `auth_messagetransaction` (
+CREATE TABLE `auth_messagetransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -755,7 +755,7 @@ USE `{$NAMESPACE}_auth`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `auth_password` (
+CREATE TABLE `auth_password` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `objectPHID` varbinary(64) NOT NULL,
@@ -777,7 +777,7 @@ USE `{$NAMESPACE}_auth`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `auth_passwordtransaction` (
+CREATE TABLE `auth_passwordtransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -804,7 +804,7 @@ USE `{$NAMESPACE}_auth`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `auth_providerconfig` (
+CREATE TABLE `auth_providerconfig` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `providerClass` varchar(128) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -832,7 +832,7 @@ USE `{$NAMESPACE}_auth`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `auth_providerconfigtransaction` (
+CREATE TABLE `auth_providerconfigtransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -859,7 +859,7 @@ USE `{$NAMESPACE}_auth`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `auth_sshkey` (
+CREATE TABLE `auth_sshkey` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `objectPHID` varbinary(64) NOT NULL,
@@ -885,7 +885,7 @@ USE `{$NAMESPACE}_auth`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `auth_sshkeytransaction` (
+CREATE TABLE `auth_sshkeytransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -912,7 +912,7 @@ USE `{$NAMESPACE}_auth`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `auth_temporarytoken` (
+CREATE TABLE `auth_temporarytoken` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `tokenResource` varbinary(64) NOT NULL,
   `tokenType` varchar(64) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -934,7 +934,7 @@ USE `{$NAMESPACE}_badges`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `badges_award` (
+CREATE TABLE `badges_award` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `badgePHID` varbinary(64) NOT NULL,
   `recipientPHID` varbinary(64) NOT NULL,
@@ -952,7 +952,7 @@ USE `{$NAMESPACE}_badges`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `badges_badge` (
+CREATE TABLE `badges_badge` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `name` varchar(255) CHARACTER SET {$CHARSET_SORT} COLLATE {$COLLATE_SORT} NOT NULL,
@@ -977,7 +977,7 @@ USE `{$NAMESPACE}_badges`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `badges_badgename_ngrams` (
+CREATE TABLE `badges_badgename_ngrams` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectID` int(10) unsigned NOT NULL,
   `ngram` char(3) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -992,7 +992,7 @@ USE `{$NAMESPACE}_badges`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `badges_transaction` (
+CREATE TABLE `badges_transaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -1019,7 +1019,7 @@ USE `{$NAMESPACE}_badges`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `badges_transaction_comment` (
+CREATE TABLE `badges_transaction_comment` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `transactionPHID` varbinary(64) DEFAULT NULL,
@@ -1043,7 +1043,7 @@ USE `{$NAMESPACE}_badges`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edge` (
+CREATE TABLE `edge` (
   `src` varbinary(64) NOT NULL,
   `type` int(10) unsigned NOT NULL,
   `dst` varbinary(64) NOT NULL,
@@ -1061,7 +1061,7 @@ USE `{$NAMESPACE}_badges`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edgedata` (
+CREATE TABLE `edgedata` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `data` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   PRIMARY KEY (`id`)
@@ -1075,7 +1075,7 @@ USE `{$NAMESPACE}_cache`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `cache_general` (
+CREATE TABLE `cache_general` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `cacheKeyHash` binary(12) NOT NULL,
   `cacheKey` varchar(128) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -1095,7 +1095,7 @@ USE `{$NAMESPACE}_cache`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `cache_markupcache` (
+CREATE TABLE `cache_markupcache` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `cacheKey` varchar(128) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `cacheData` longblob NOT NULL,
@@ -1115,7 +1115,7 @@ USE `{$NAMESPACE}_calendar`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `calendar_event` (
+CREATE TABLE `calendar_event` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `hostPHID` varbinary(64) NOT NULL,
@@ -1158,7 +1158,7 @@ USE `{$NAMESPACE}_calendar`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `calendar_event_fdocument` (
+CREATE TABLE `calendar_event_fdocument` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectPHID` varbinary(64) NOT NULL,
   `isClosed` tinyint(1) NOT NULL,
@@ -1180,7 +1180,7 @@ USE `{$NAMESPACE}_calendar`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `calendar_event_ffield` (
+CREATE TABLE `calendar_event_ffield` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `documentID` int(10) unsigned NOT NULL,
   `fieldKey` varchar(4) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -1197,7 +1197,7 @@ USE `{$NAMESPACE}_calendar`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `calendar_event_fngrams` (
+CREATE TABLE `calendar_event_fngrams` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `documentID` int(10) unsigned NOT NULL,
   `ngram` char(3) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -1212,7 +1212,7 @@ USE `{$NAMESPACE}_calendar`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `calendar_event_fngrams_common` (
+CREATE TABLE `calendar_event_fngrams_common` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `ngram` char(3) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `needsCollection` tinyint(1) NOT NULL,
@@ -1227,7 +1227,7 @@ USE `{$NAMESPACE}_calendar`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `calendar_eventinvitee` (
+CREATE TABLE `calendar_eventinvitee` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `eventPHID` varbinary(64) NOT NULL,
   `inviteePHID` varbinary(64) NOT NULL,
@@ -1247,7 +1247,7 @@ USE `{$NAMESPACE}_calendar`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `calendar_eventtransaction` (
+CREATE TABLE `calendar_eventtransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -1274,7 +1274,7 @@ USE `{$NAMESPACE}_calendar`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `calendar_eventtransaction_comment` (
+CREATE TABLE `calendar_eventtransaction_comment` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `transactionPHID` varbinary(64) DEFAULT NULL,
@@ -1298,7 +1298,7 @@ USE `{$NAMESPACE}_calendar`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `calendar_export` (
+CREATE TABLE `calendar_export` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `name` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -1321,7 +1321,7 @@ USE `{$NAMESPACE}_calendar`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `calendar_exporttransaction` (
+CREATE TABLE `calendar_exporttransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -1348,7 +1348,7 @@ USE `{$NAMESPACE}_calendar`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `calendar_externalinvitee` (
+CREATE TABLE `calendar_externalinvitee` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `name` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -1369,7 +1369,7 @@ USE `{$NAMESPACE}_calendar`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `calendar_import` (
+CREATE TABLE `calendar_import` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `name` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -1394,7 +1394,7 @@ USE `{$NAMESPACE}_calendar`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `calendar_importlog` (
+CREATE TABLE `calendar_importlog` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `importPHID` varbinary(64) NOT NULL,
   `parameters` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -1410,7 +1410,7 @@ USE `{$NAMESPACE}_calendar`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `calendar_importtransaction` (
+CREATE TABLE `calendar_importtransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -1437,7 +1437,7 @@ USE `{$NAMESPACE}_calendar`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `calendar_notification` (
+CREATE TABLE `calendar_notification` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `eventPHID` varbinary(64) NOT NULL,
   `utcInitialEpoch` int(10) unsigned NOT NULL,
@@ -1453,7 +1453,7 @@ USE `{$NAMESPACE}_calendar`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edge` (
+CREATE TABLE `edge` (
   `src` varbinary(64) NOT NULL,
   `type` int(10) unsigned NOT NULL,
   `dst` varbinary(64) NOT NULL,
@@ -1471,7 +1471,7 @@ USE `{$NAMESPACE}_calendar`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edgedata` (
+CREATE TABLE `edgedata` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `data` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   PRIMARY KEY (`id`)
@@ -1485,7 +1485,7 @@ USE `{$NAMESPACE}_chatlog`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `chatlog_channel` (
+CREATE TABLE `chatlog_channel` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `serviceName` varchar(64) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `serviceType` varchar(32) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -1504,7 +1504,7 @@ USE `{$NAMESPACE}_chatlog`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `chatlog_event` (
+CREATE TABLE `chatlog_event` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `epoch` int(10) unsigned NOT NULL,
   `author` varchar(64) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -1524,7 +1524,7 @@ USE `{$NAMESPACE}_conduit`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `conduit_certificatetoken` (
+CREATE TABLE `conduit_certificatetoken` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `userPHID` varbinary(64) NOT NULL,
   `token` varchar(64) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} DEFAULT NULL,
@@ -1541,7 +1541,7 @@ USE `{$NAMESPACE}_conduit`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `conduit_methodcalllog` (
+CREATE TABLE `conduit_methodcalllog` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `connectionID` bigint(20) unsigned DEFAULT NULL,
   `method` varchar(64) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -1562,7 +1562,7 @@ USE `{$NAMESPACE}_conduit`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `conduit_token` (
+CREATE TABLE `conduit_token` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectPHID` varbinary(64) NOT NULL,
   `tokenType` varchar(32) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -1584,7 +1584,7 @@ USE `{$NAMESPACE}_config`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `config_entry` (
+CREATE TABLE `config_entry` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `namespace` varchar(64) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -1604,7 +1604,7 @@ USE `{$NAMESPACE}_config`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `config_manualactivity` (
+CREATE TABLE `config_manualactivity` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `activityType` varchar(64) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `parameters` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -1618,7 +1618,7 @@ USE `{$NAMESPACE}_config`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `config_transaction` (
+CREATE TABLE `config_transaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -1647,7 +1647,7 @@ USE `{$NAMESPACE}_conpherence`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `conpherence_index` (
+CREATE TABLE `conpherence_index` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `threadPHID` varbinary(64) NOT NULL,
   `transactionPHID` varbinary(64) NOT NULL,
@@ -1666,7 +1666,7 @@ USE `{$NAMESPACE}_conpherence`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `conpherence_participant` (
+CREATE TABLE `conpherence_participant` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `participantPHID` varbinary(64) NOT NULL,
   `conpherencePHID` varbinary(64) NOT NULL,
@@ -1685,7 +1685,7 @@ USE `{$NAMESPACE}_conpherence`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `conpherence_thread` (
+CREATE TABLE `conpherence_thread` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `title` varchar(255) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} DEFAULT NULL,
@@ -1708,7 +1708,7 @@ USE `{$NAMESPACE}_conpherence`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `conpherence_threadtitle_ngrams` (
+CREATE TABLE `conpherence_threadtitle_ngrams` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectID` int(10) unsigned NOT NULL,
   `ngram` char(3) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -1723,7 +1723,7 @@ USE `{$NAMESPACE}_conpherence`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `conpherence_transaction` (
+CREATE TABLE `conpherence_transaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -1750,7 +1750,7 @@ USE `{$NAMESPACE}_conpherence`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `conpherence_transaction_comment` (
+CREATE TABLE `conpherence_transaction_comment` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `transactionPHID` varbinary(64) DEFAULT NULL,
@@ -1776,7 +1776,7 @@ USE `{$NAMESPACE}_conpherence`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edge` (
+CREATE TABLE `edge` (
   `src` varbinary(64) NOT NULL,
   `type` int(10) unsigned NOT NULL,
   `dst` varbinary(64) NOT NULL,
@@ -1794,7 +1794,7 @@ USE `{$NAMESPACE}_conpherence`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edgedata` (
+CREATE TABLE `edgedata` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `data` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   PRIMARY KEY (`id`)
@@ -1808,7 +1808,7 @@ USE `{$NAMESPACE}_countdown`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `countdown` (
+CREATE TABLE `countdown` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `title` varchar(255) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -1834,7 +1834,7 @@ USE `{$NAMESPACE}_countdown`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `countdown_transaction` (
+CREATE TABLE `countdown_transaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -1861,7 +1861,7 @@ USE `{$NAMESPACE}_countdown`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `countdown_transaction_comment` (
+CREATE TABLE `countdown_transaction_comment` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `transactionPHID` varbinary(64) DEFAULT NULL,
@@ -1885,7 +1885,7 @@ USE `{$NAMESPACE}_countdown`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edge` (
+CREATE TABLE `edge` (
   `src` varbinary(64) NOT NULL,
   `type` int(10) unsigned NOT NULL,
   `dst` varbinary(64) NOT NULL,
@@ -1903,7 +1903,7 @@ USE `{$NAMESPACE}_countdown`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edgedata` (
+CREATE TABLE `edgedata` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `data` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   PRIMARY KEY (`id`)
@@ -1917,7 +1917,7 @@ USE `{$NAMESPACE}_daemon`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `daemon_locklog` (
+CREATE TABLE `daemon_locklog` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `lockName` varchar(64) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `lockReleased` int(10) unsigned DEFAULT NULL,
@@ -1936,7 +1936,7 @@ USE `{$NAMESPACE}_daemon`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `daemon_log` (
+CREATE TABLE `daemon_log` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `daemon` varchar(255) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `host` varchar(255) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -1960,7 +1960,7 @@ USE `{$NAMESPACE}_daemon`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `daemon_logevent` (
+CREATE TABLE `daemon_logevent` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `logID` int(10) unsigned NOT NULL,
   `logType` varchar(4) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -1979,7 +1979,7 @@ USE `{$NAMESPACE}_dashboard`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `dashboard` (
+CREATE TABLE `dashboard` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `name` varchar(255) CHARACTER SET {$CHARSET_SORT} COLLATE {$COLLATE_SORT} NOT NULL,
@@ -2001,7 +2001,7 @@ USE `{$NAMESPACE}_dashboard`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `dashboard_dashboard_fdocument` (
+CREATE TABLE `dashboard_dashboard_fdocument` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectPHID` varbinary(64) NOT NULL,
   `isClosed` tinyint(1) NOT NULL,
@@ -2023,7 +2023,7 @@ USE `{$NAMESPACE}_dashboard`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `dashboard_dashboard_ffield` (
+CREATE TABLE `dashboard_dashboard_ffield` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `documentID` int(10) unsigned NOT NULL,
   `fieldKey` varchar(4) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -2040,7 +2040,7 @@ USE `{$NAMESPACE}_dashboard`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `dashboard_dashboard_fngrams` (
+CREATE TABLE `dashboard_dashboard_fngrams` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `documentID` int(10) unsigned NOT NULL,
   `ngram` char(3) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -2055,7 +2055,7 @@ USE `{$NAMESPACE}_dashboard`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `dashboard_dashboard_fngrams_common` (
+CREATE TABLE `dashboard_dashboard_fngrams_common` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `ngram` char(3) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `needsCollection` tinyint(1) NOT NULL,
@@ -2070,7 +2070,7 @@ USE `{$NAMESPACE}_dashboard`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `dashboard_panel` (
+CREATE TABLE `dashboard_panel` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `name` varchar(255) CHARACTER SET {$CHARSET_SORT} COLLATE {$COLLATE_SORT} NOT NULL,
@@ -2092,7 +2092,7 @@ USE `{$NAMESPACE}_dashboard`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `dashboard_panel_fdocument` (
+CREATE TABLE `dashboard_panel_fdocument` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectPHID` varbinary(64) NOT NULL,
   `isClosed` tinyint(1) NOT NULL,
@@ -2114,7 +2114,7 @@ USE `{$NAMESPACE}_dashboard`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `dashboard_panel_ffield` (
+CREATE TABLE `dashboard_panel_ffield` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `documentID` int(10) unsigned NOT NULL,
   `fieldKey` varchar(4) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -2131,7 +2131,7 @@ USE `{$NAMESPACE}_dashboard`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `dashboard_panel_fngrams` (
+CREATE TABLE `dashboard_panel_fngrams` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `documentID` int(10) unsigned NOT NULL,
   `ngram` char(3) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -2146,7 +2146,7 @@ USE `{$NAMESPACE}_dashboard`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `dashboard_panel_fngrams_common` (
+CREATE TABLE `dashboard_panel_fngrams_common` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `ngram` char(3) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `needsCollection` tinyint(1) NOT NULL,
@@ -2161,7 +2161,7 @@ USE `{$NAMESPACE}_dashboard`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `dashboard_paneltransaction` (
+CREATE TABLE `dashboard_paneltransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -2188,7 +2188,7 @@ USE `{$NAMESPACE}_dashboard`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `dashboard_portal` (
+CREATE TABLE `dashboard_portal` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `name` varchar(255) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -2208,7 +2208,7 @@ USE `{$NAMESPACE}_dashboard`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `dashboard_portal_fdocument` (
+CREATE TABLE `dashboard_portal_fdocument` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectPHID` varbinary(64) NOT NULL,
   `isClosed` tinyint(1) NOT NULL,
@@ -2230,7 +2230,7 @@ USE `{$NAMESPACE}_dashboard`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `dashboard_portal_ffield` (
+CREATE TABLE `dashboard_portal_ffield` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `documentID` int(10) unsigned NOT NULL,
   `fieldKey` varchar(4) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -2247,7 +2247,7 @@ USE `{$NAMESPACE}_dashboard`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `dashboard_portal_fngrams` (
+CREATE TABLE `dashboard_portal_fngrams` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `documentID` int(10) unsigned NOT NULL,
   `ngram` char(3) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -2262,7 +2262,7 @@ USE `{$NAMESPACE}_dashboard`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `dashboard_portal_fngrams_common` (
+CREATE TABLE `dashboard_portal_fngrams_common` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `ngram` char(3) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `needsCollection` tinyint(1) NOT NULL,
@@ -2277,7 +2277,7 @@ USE `{$NAMESPACE}_dashboard`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `dashboard_portaltransaction` (
+CREATE TABLE `dashboard_portaltransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -2304,7 +2304,7 @@ USE `{$NAMESPACE}_dashboard`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `dashboard_transaction` (
+CREATE TABLE `dashboard_transaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -2331,7 +2331,7 @@ USE `{$NAMESPACE}_dashboard`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edge` (
+CREATE TABLE `edge` (
   `src` varbinary(64) NOT NULL,
   `type` int(10) unsigned NOT NULL,
   `dst` varbinary(64) NOT NULL,
@@ -2349,7 +2349,7 @@ USE `{$NAMESPACE}_dashboard`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edgedata` (
+CREATE TABLE `edgedata` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `data` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   PRIMARY KEY (`id`)
@@ -2363,7 +2363,7 @@ USE `{$NAMESPACE}_differential`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `differential_affectedpath` (
+CREATE TABLE `differential_affectedpath` (
   `repositoryID` int(10) unsigned NOT NULL,
   `pathID` int(10) unsigned NOT NULL,
   `epoch` int(10) unsigned NOT NULL,
@@ -2378,7 +2378,7 @@ USE `{$NAMESPACE}_differential`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `differential_changeset` (
+CREATE TABLE `differential_changeset` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `diffID` int(10) unsigned NOT NULL,
   `oldFile` longblob,
@@ -2403,7 +2403,7 @@ USE `{$NAMESPACE}_differential`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `differential_changeset_parse_cache` (
+CREATE TABLE `differential_changeset_parse_cache` (
   `id` int(10) unsigned NOT NULL,
   `cache` longblob NOT NULL,
   `dateCreated` int(10) unsigned NOT NULL,
@@ -2417,7 +2417,7 @@ USE `{$NAMESPACE}_differential`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `differential_commit` (
+CREATE TABLE `differential_commit` (
   `revisionID` int(10) unsigned NOT NULL,
   `commitPHID` varbinary(64) NOT NULL,
   PRIMARY KEY (`revisionID`,`commitPHID`),
@@ -2430,7 +2430,7 @@ USE `{$NAMESPACE}_differential`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `differential_customfieldnumericindex` (
+CREATE TABLE `differential_customfieldnumericindex` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectPHID` varbinary(64) NOT NULL,
   `indexKey` binary(12) NOT NULL,
@@ -2446,7 +2446,7 @@ USE `{$NAMESPACE}_differential`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `differential_customfieldstorage` (
+CREATE TABLE `differential_customfieldstorage` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectPHID` varbinary(64) NOT NULL,
   `fieldIndex` binary(12) NOT NULL,
@@ -2461,7 +2461,7 @@ USE `{$NAMESPACE}_differential`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `differential_customfieldstringindex` (
+CREATE TABLE `differential_customfieldstringindex` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectPHID` varbinary(64) NOT NULL,
   `indexKey` binary(12) NOT NULL,
@@ -2477,7 +2477,7 @@ USE `{$NAMESPACE}_differential`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `differential_diff` (
+CREATE TABLE `differential_diff` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `revisionID` int(10) unsigned DEFAULT NULL,
@@ -2512,7 +2512,7 @@ USE `{$NAMESPACE}_differential`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `differential_diffproperty` (
+CREATE TABLE `differential_diffproperty` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `diffID` int(10) unsigned NOT NULL,
   `name` varchar(128) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -2529,7 +2529,7 @@ USE `{$NAMESPACE}_differential`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `differential_difftransaction` (
+CREATE TABLE `differential_difftransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -2556,7 +2556,7 @@ USE `{$NAMESPACE}_differential`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `differential_hiddencomment` (
+CREATE TABLE `differential_hiddencomment` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `userPHID` varbinary(64) NOT NULL,
   `commentID` int(10) unsigned NOT NULL,
@@ -2571,7 +2571,7 @@ USE `{$NAMESPACE}_differential`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `differential_hunk` (
+CREATE TABLE `differential_hunk` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `changesetID` int(10) unsigned NOT NULL,
   `oldOffset` int(10) unsigned NOT NULL,
@@ -2595,7 +2595,7 @@ USE `{$NAMESPACE}_differential`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `differential_reviewer` (
+CREATE TABLE `differential_reviewer` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `revisionPHID` varbinary(64) NOT NULL,
   `reviewerPHID` varbinary(64) NOT NULL,
@@ -2618,7 +2618,7 @@ USE `{$NAMESPACE}_differential`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `differential_revision` (
+CREATE TABLE `differential_revision` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `phid` varbinary(64) NOT NULL,
@@ -2651,7 +2651,7 @@ USE `{$NAMESPACE}_differential`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `differential_revision_fdocument` (
+CREATE TABLE `differential_revision_fdocument` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectPHID` varbinary(64) NOT NULL,
   `isClosed` tinyint(1) NOT NULL,
@@ -2673,7 +2673,7 @@ USE `{$NAMESPACE}_differential`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `differential_revision_ffield` (
+CREATE TABLE `differential_revision_ffield` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `documentID` int(10) unsigned NOT NULL,
   `fieldKey` varchar(4) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -2690,7 +2690,7 @@ USE `{$NAMESPACE}_differential`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `differential_revision_fngrams` (
+CREATE TABLE `differential_revision_fngrams` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `documentID` int(10) unsigned NOT NULL,
   `ngram` char(3) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -2705,7 +2705,7 @@ USE `{$NAMESPACE}_differential`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `differential_revision_fngrams_common` (
+CREATE TABLE `differential_revision_fngrams_common` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `ngram` char(3) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `needsCollection` tinyint(1) NOT NULL,
@@ -2720,7 +2720,7 @@ USE `{$NAMESPACE}_differential`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `differential_revisionhash` (
+CREATE TABLE `differential_revisionhash` (
   `revisionID` int(10) unsigned NOT NULL,
   `type` binary(4) NOT NULL,
   `hash` binary(40) NOT NULL,
@@ -2734,7 +2734,7 @@ USE `{$NAMESPACE}_differential`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `differential_transaction` (
+CREATE TABLE `differential_transaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -2761,7 +2761,7 @@ USE `{$NAMESPACE}_differential`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `differential_transaction_comment` (
+CREATE TABLE `differential_transaction_comment` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `transactionPHID` varbinary(64) DEFAULT NULL,
@@ -2796,7 +2796,7 @@ USE `{$NAMESPACE}_differential`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edge` (
+CREATE TABLE `edge` (
   `src` varbinary(64) NOT NULL,
   `type` int(10) unsigned NOT NULL,
   `dst` varbinary(64) NOT NULL,
@@ -2814,7 +2814,7 @@ USE `{$NAMESPACE}_differential`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edgedata` (
+CREATE TABLE `edgedata` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `data` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   PRIMARY KEY (`id`)
@@ -2828,7 +2828,7 @@ USE `{$NAMESPACE}_diviner`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `diviner_liveatom` (
+CREATE TABLE `diviner_liveatom` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `symbolPHID` varbinary(64) NOT NULL,
   `content` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -2843,7 +2843,7 @@ USE `{$NAMESPACE}_diviner`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `diviner_livebook` (
+CREATE TABLE `diviner_livebook` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `name` varchar(64) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -2864,7 +2864,7 @@ USE `{$NAMESPACE}_diviner`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `diviner_livebooktransaction` (
+CREATE TABLE `diviner_livebooktransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -2891,7 +2891,7 @@ USE `{$NAMESPACE}_diviner`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `diviner_livesymbol` (
+CREATE TABLE `diviner_livesymbol` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `bookPHID` varbinary(64) NOT NULL,
@@ -2924,7 +2924,7 @@ USE `{$NAMESPACE}_diviner`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edge` (
+CREATE TABLE `edge` (
   `src` varbinary(64) NOT NULL,
   `type` int(10) unsigned NOT NULL,
   `dst` varbinary(64) NOT NULL,
@@ -2942,7 +2942,7 @@ USE `{$NAMESPACE}_diviner`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edgedata` (
+CREATE TABLE `edgedata` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `data` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   PRIMARY KEY (`id`)
@@ -2956,7 +2956,7 @@ USE `{$NAMESPACE}_doorkeeper`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `doorkeeper_externalobject` (
+CREATE TABLE `doorkeeper_externalobject` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `objectKey` binary(12) NOT NULL,
@@ -2982,7 +2982,7 @@ USE `{$NAMESPACE}_doorkeeper`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edge` (
+CREATE TABLE `edge` (
   `src` varbinary(64) NOT NULL,
   `type` int(10) unsigned NOT NULL,
   `dst` varbinary(64) NOT NULL,
@@ -3000,7 +3000,7 @@ USE `{$NAMESPACE}_doorkeeper`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edgedata` (
+CREATE TABLE `edgedata` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `data` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   PRIMARY KEY (`id`)
@@ -3014,7 +3014,7 @@ USE `{$NAMESPACE}_draft`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `draft` (
+CREATE TABLE `draft` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `authorPHID` varbinary(64) NOT NULL,
   `draftKey` varchar(64) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -3032,7 +3032,7 @@ USE `{$NAMESPACE}_draft`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `draft_versioneddraft` (
+CREATE TABLE `draft_versioneddraft` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectPHID` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -3052,7 +3052,7 @@ USE `{$NAMESPACE}_drydock`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `drydock_authorization` (
+CREATE TABLE `drydock_authorization` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `blueprintPHID` varbinary(64) NOT NULL,
@@ -3074,7 +3074,7 @@ USE `{$NAMESPACE}_drydock`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `drydock_blueprint` (
+CREATE TABLE `drydock_blueprint` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `className` varchar(255) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -3095,7 +3095,7 @@ USE `{$NAMESPACE}_drydock`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `drydock_blueprintname_ngrams` (
+CREATE TABLE `drydock_blueprintname_ngrams` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectID` int(10) unsigned NOT NULL,
   `ngram` char(3) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -3110,7 +3110,7 @@ USE `{$NAMESPACE}_drydock`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `drydock_blueprinttransaction` (
+CREATE TABLE `drydock_blueprinttransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -3137,7 +3137,7 @@ USE `{$NAMESPACE}_drydock`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `drydock_command` (
+CREATE TABLE `drydock_command` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `authorPHID` varbinary(64) NOT NULL,
   `targetPHID` varbinary(64) NOT NULL,
@@ -3156,7 +3156,7 @@ USE `{$NAMESPACE}_drydock`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `drydock_lease` (
+CREATE TABLE `drydock_lease` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `status` varchar(32) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -3183,7 +3183,7 @@ USE `{$NAMESPACE}_drydock`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `drydock_log` (
+CREATE TABLE `drydock_log` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `epoch` int(10) unsigned NOT NULL,
   `blueprintPHID` varbinary(64) DEFAULT NULL,
@@ -3206,7 +3206,7 @@ USE `{$NAMESPACE}_drydock`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `drydock_repositoryoperation` (
+CREATE TABLE `drydock_repositoryoperation` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -3231,7 +3231,7 @@ USE `{$NAMESPACE}_drydock`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `drydock_resource` (
+CREATE TABLE `drydock_resource` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `ownerPHID` varbinary(64) DEFAULT NULL,
@@ -3255,7 +3255,7 @@ USE `{$NAMESPACE}_drydock`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `drydock_slotlock` (
+CREATE TABLE `drydock_slotlock` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `ownerPHID` varbinary(64) NOT NULL,
   `lockIndex` binary(12) NOT NULL,
@@ -3271,7 +3271,7 @@ USE `{$NAMESPACE}_drydock`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edge` (
+CREATE TABLE `edge` (
   `src` varbinary(64) NOT NULL,
   `type` int(10) unsigned NOT NULL,
   `dst` varbinary(64) NOT NULL,
@@ -3289,7 +3289,7 @@ USE `{$NAMESPACE}_drydock`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edgedata` (
+CREATE TABLE `edgedata` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `data` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   PRIMARY KEY (`id`)
@@ -3303,7 +3303,7 @@ USE `{$NAMESPACE}_fact`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `fact_aggregate` (
+CREATE TABLE `fact_aggregate` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `factType` varchar(32) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `objectPHID` varbinary(64) NOT NULL,
@@ -3318,7 +3318,7 @@ USE `{$NAMESPACE}_fact`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `fact_chart` (
+CREATE TABLE `fact_chart` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `chartKey` binary(12) NOT NULL,
   `chartParameters` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -3332,7 +3332,7 @@ USE `{$NAMESPACE}_fact`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `fact_cursor` (
+CREATE TABLE `fact_cursor` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(64) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `position` varchar(64) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -3346,7 +3346,7 @@ USE `{$NAMESPACE}_fact`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `fact_intdatapoint` (
+CREATE TABLE `fact_intdatapoint` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `keyID` int(10) unsigned NOT NULL,
   `objectID` int(10) unsigned NOT NULL,
@@ -3364,7 +3364,7 @@ USE `{$NAMESPACE}_fact`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `fact_keydimension` (
+CREATE TABLE `fact_keydimension` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `factKey` varchar(64) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   PRIMARY KEY (`id`),
@@ -3377,7 +3377,7 @@ USE `{$NAMESPACE}_fact`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `fact_objectdimension` (
+CREATE TABLE `fact_objectdimension` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectPHID` varbinary(64) NOT NULL,
   PRIMARY KEY (`id`),
@@ -3390,7 +3390,7 @@ USE `{$NAMESPACE}_fact`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `fact_raw` (
+CREATE TABLE `fact_raw` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `factType` varchar(32) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `objectPHID` varbinary(64) NOT NULL,
@@ -3412,7 +3412,7 @@ USE `{$NAMESPACE}_feed`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `feed_storydata` (
+CREATE TABLE `feed_storydata` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `chronologicalKey` bigint(20) unsigned NOT NULL,
@@ -3432,7 +3432,7 @@ USE `{$NAMESPACE}_feed`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `feed_storynotification` (
+CREATE TABLE `feed_storynotification` (
   `userPHID` varbinary(64) NOT NULL,
   `primaryObjectPHID` varbinary(64) NOT NULL,
   `chronologicalKey` bigint(20) unsigned NOT NULL,
@@ -3449,7 +3449,7 @@ USE `{$NAMESPACE}_feed`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `feed_storyreference` (
+CREATE TABLE `feed_storyreference` (
   `objectPHID` varbinary(64) NOT NULL,
   `chronologicalKey` bigint(20) unsigned NOT NULL,
   UNIQUE KEY `objectPHID` (`objectPHID`,`chronologicalKey`),
@@ -3464,7 +3464,7 @@ USE `{$NAMESPACE}_file`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edge` (
+CREATE TABLE `edge` (
   `src` varbinary(64) NOT NULL,
   `type` int(10) unsigned NOT NULL,
   `dst` varbinary(64) NOT NULL,
@@ -3482,7 +3482,7 @@ USE `{$NAMESPACE}_file`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edgedata` (
+CREATE TABLE `edgedata` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `data` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   PRIMARY KEY (`id`)
@@ -3494,7 +3494,7 @@ USE `{$NAMESPACE}_file`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `file` (
+CREATE TABLE `file` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `name` varchar(255) CHARACTER SET {$CHARSET_SORT} COLLATE {$COLLATE_SORT} DEFAULT NULL,
@@ -3533,7 +3533,7 @@ USE `{$NAMESPACE}_file`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `file_chunk` (
+CREATE TABLE `file_chunk` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `chunkHandle` binary(12) NOT NULL,
   `byteStart` bigint(20) unsigned NOT NULL,
@@ -3550,7 +3550,7 @@ USE `{$NAMESPACE}_file`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `file_externalrequest` (
+CREATE TABLE `file_externalrequest` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `filePHID` varbinary(64) DEFAULT NULL,
   `ttl` int(10) unsigned NOT NULL,
@@ -3572,7 +3572,7 @@ USE `{$NAMESPACE}_file`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `file_filename_ngrams` (
+CREATE TABLE `file_filename_ngrams` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectID` int(10) unsigned NOT NULL,
   `ngram` char(3) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -3587,7 +3587,7 @@ USE `{$NAMESPACE}_file`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `file_imagemacro` (
+CREATE TABLE `file_imagemacro` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) DEFAULT NULL,
@@ -3612,7 +3612,7 @@ USE `{$NAMESPACE}_file`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `file_storageblob` (
+CREATE TABLE `file_storageblob` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `data` longblob NOT NULL,
   `dateCreated` int(10) unsigned NOT NULL,
@@ -3626,7 +3626,7 @@ USE `{$NAMESPACE}_file`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `file_transaction` (
+CREATE TABLE `file_transaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -3653,7 +3653,7 @@ USE `{$NAMESPACE}_file`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `file_transaction_comment` (
+CREATE TABLE `file_transaction_comment` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `transactionPHID` varbinary(64) DEFAULT NULL,
@@ -3677,7 +3677,7 @@ USE `{$NAMESPACE}_file`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `file_transformedfile` (
+CREATE TABLE `file_transformedfile` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `originalPHID` varbinary(64) NOT NULL,
   `transform` varchar(128) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -3695,7 +3695,7 @@ USE `{$NAMESPACE}_file`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `macro_transaction` (
+CREATE TABLE `macro_transaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -3722,7 +3722,7 @@ USE `{$NAMESPACE}_file`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `macro_transaction_comment` (
+CREATE TABLE `macro_transaction_comment` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `transactionPHID` varbinary(64) DEFAULT NULL,
@@ -3748,7 +3748,7 @@ USE `{$NAMESPACE}_flag`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `flag` (
+CREATE TABLE `flag` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `ownerPHID` varbinary(64) NOT NULL,
   `type` varchar(4) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -3771,7 +3771,7 @@ USE `{$NAMESPACE}_fund`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edge` (
+CREATE TABLE `edge` (
   `src` varbinary(64) NOT NULL,
   `type` int(10) unsigned NOT NULL,
   `dst` varbinary(64) NOT NULL,
@@ -3789,7 +3789,7 @@ USE `{$NAMESPACE}_fund`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edgedata` (
+CREATE TABLE `edgedata` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `data` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   PRIMARY KEY (`id`)
@@ -3801,7 +3801,7 @@ USE `{$NAMESPACE}_fund`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `fund_backer` (
+CREATE TABLE `fund_backer` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `initiativePHID` varbinary(64) NOT NULL,
@@ -3823,7 +3823,7 @@ USE `{$NAMESPACE}_fund`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `fund_backertransaction` (
+CREATE TABLE `fund_backertransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -3850,7 +3850,7 @@ USE `{$NAMESPACE}_fund`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `fund_initiative` (
+CREATE TABLE `fund_initiative` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `name` varchar(255) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -3877,7 +3877,7 @@ USE `{$NAMESPACE}_fund`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `fund_initiative_fdocument` (
+CREATE TABLE `fund_initiative_fdocument` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectPHID` varbinary(64) NOT NULL,
   `isClosed` tinyint(1) NOT NULL,
@@ -3899,7 +3899,7 @@ USE `{$NAMESPACE}_fund`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `fund_initiative_ffield` (
+CREATE TABLE `fund_initiative_ffield` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `documentID` int(10) unsigned NOT NULL,
   `fieldKey` varchar(4) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -3916,7 +3916,7 @@ USE `{$NAMESPACE}_fund`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `fund_initiative_fngrams` (
+CREATE TABLE `fund_initiative_fngrams` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `documentID` int(10) unsigned NOT NULL,
   `ngram` char(3) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -3931,7 +3931,7 @@ USE `{$NAMESPACE}_fund`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `fund_initiative_fngrams_common` (
+CREATE TABLE `fund_initiative_fngrams_common` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `ngram` char(3) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `needsCollection` tinyint(1) NOT NULL,
@@ -3946,7 +3946,7 @@ USE `{$NAMESPACE}_fund`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `fund_initiativetransaction` (
+CREATE TABLE `fund_initiativetransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -3973,7 +3973,7 @@ USE `{$NAMESPACE}_fund`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `fund_initiativetransaction_comment` (
+CREATE TABLE `fund_initiativetransaction_comment` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `transactionPHID` varbinary(64) DEFAULT NULL,
@@ -3999,7 +3999,7 @@ USE `{$NAMESPACE}_harbormaster`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edge` (
+CREATE TABLE `edge` (
   `src` varbinary(64) NOT NULL,
   `type` int(10) unsigned NOT NULL,
   `dst` varbinary(64) NOT NULL,
@@ -4017,7 +4017,7 @@ USE `{$NAMESPACE}_harbormaster`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edgedata` (
+CREATE TABLE `edgedata` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `data` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   PRIMARY KEY (`id`)
@@ -4029,7 +4029,7 @@ USE `{$NAMESPACE}_harbormaster`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `harbormaster_build` (
+CREATE TABLE `harbormaster_build` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `buildablePHID` varbinary(64) NOT NULL,
@@ -4056,7 +4056,7 @@ USE `{$NAMESPACE}_harbormaster`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `harbormaster_buildable` (
+CREATE TABLE `harbormaster_buildable` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `buildablePHID` varbinary(64) NOT NULL,
@@ -4078,7 +4078,7 @@ USE `{$NAMESPACE}_harbormaster`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `harbormaster_buildabletransaction` (
+CREATE TABLE `harbormaster_buildabletransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -4105,7 +4105,7 @@ USE `{$NAMESPACE}_harbormaster`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `harbormaster_buildartifact` (
+CREATE TABLE `harbormaster_buildartifact` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `artifactType` varchar(32) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -4130,7 +4130,7 @@ USE `{$NAMESPACE}_harbormaster`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `harbormaster_buildcommand` (
+CREATE TABLE `harbormaster_buildcommand` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `authorPHID` varbinary(64) NOT NULL,
   `targetPHID` varbinary(64) NOT NULL,
@@ -4147,7 +4147,7 @@ USE `{$NAMESPACE}_harbormaster`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `harbormaster_buildlintmessage` (
+CREATE TABLE `harbormaster_buildlintmessage` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `buildTargetPHID` varbinary(64) NOT NULL,
   `path` longtext COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -4169,7 +4169,7 @@ USE `{$NAMESPACE}_harbormaster`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `harbormaster_buildlog` (
+CREATE TABLE `harbormaster_buildlog` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `logSource` varchar(255) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} DEFAULT NULL,
@@ -4194,7 +4194,7 @@ USE `{$NAMESPACE}_harbormaster`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `harbormaster_buildlogchunk` (
+CREATE TABLE `harbormaster_buildlogchunk` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `logID` int(10) unsigned NOT NULL,
   `encoding` varchar(32) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -4212,7 +4212,7 @@ USE `{$NAMESPACE}_harbormaster`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `harbormaster_buildmessage` (
+CREATE TABLE `harbormaster_buildmessage` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `authorPHID` varbinary(64) NOT NULL,
   `receiverPHID` varbinary(64) NOT NULL,
@@ -4230,7 +4230,7 @@ USE `{$NAMESPACE}_harbormaster`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `harbormaster_buildplan` (
+CREATE TABLE `harbormaster_buildplan` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `name` varchar(128) CHARACTER SET {$CHARSET_SORT} COLLATE {$COLLATE_SORT} NOT NULL,
@@ -4254,7 +4254,7 @@ USE `{$NAMESPACE}_harbormaster`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `harbormaster_buildplanname_ngrams` (
+CREATE TABLE `harbormaster_buildplanname_ngrams` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectID` int(10) unsigned NOT NULL,
   `ngram` char(3) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -4269,7 +4269,7 @@ USE `{$NAMESPACE}_harbormaster`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `harbormaster_buildplantransaction` (
+CREATE TABLE `harbormaster_buildplantransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -4296,7 +4296,7 @@ USE `{$NAMESPACE}_harbormaster`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `harbormaster_buildstep` (
+CREATE TABLE `harbormaster_buildstep` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `buildPlanPHID` varbinary(64) NOT NULL,
@@ -4320,7 +4320,7 @@ USE `{$NAMESPACE}_harbormaster`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `harbormaster_buildsteptransaction` (
+CREATE TABLE `harbormaster_buildsteptransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -4347,7 +4347,7 @@ USE `{$NAMESPACE}_harbormaster`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `harbormaster_buildtarget` (
+CREATE TABLE `harbormaster_buildtarget` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `buildPHID` varbinary(64) NOT NULL,
@@ -4373,7 +4373,7 @@ USE `{$NAMESPACE}_harbormaster`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `harbormaster_buildtransaction` (
+CREATE TABLE `harbormaster_buildtransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -4400,7 +4400,7 @@ USE `{$NAMESPACE}_harbormaster`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `harbormaster_buildunitmessage` (
+CREATE TABLE `harbormaster_buildunitmessage` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `buildTargetPHID` varbinary(64) NOT NULL,
   `engine` varchar(255) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -4422,7 +4422,7 @@ USE `{$NAMESPACE}_harbormaster`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `harbormaster_object` (
+CREATE TABLE `harbormaster_object` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `name` varchar(255) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} DEFAULT NULL,
@@ -4438,7 +4438,7 @@ USE `{$NAMESPACE}_harbormaster`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `harbormaster_scratchtable` (
+CREATE TABLE `harbormaster_scratchtable` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `data` varchar(64) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `dateCreated` int(10) unsigned NOT NULL,
@@ -4455,7 +4455,7 @@ USE `{$NAMESPACE}_harbormaster`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `harbormaster_string` (
+CREATE TABLE `harbormaster_string` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `stringIndex` binary(12) NOT NULL,
   `stringValue` longtext COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -4469,7 +4469,7 @@ USE `{$NAMESPACE}_harbormaster`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `lisk_counter` (
+CREATE TABLE `lisk_counter` (
   `counterName` varchar(32) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `counterValue` bigint(20) unsigned NOT NULL,
   PRIMARY KEY (`counterName`)
@@ -4483,7 +4483,7 @@ USE `{$NAMESPACE}_herald`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edge` (
+CREATE TABLE `edge` (
   `src` varbinary(64) NOT NULL,
   `type` int(10) unsigned NOT NULL,
   `dst` varbinary(64) NOT NULL,
@@ -4501,7 +4501,7 @@ USE `{$NAMESPACE}_herald`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edgedata` (
+CREATE TABLE `edgedata` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `data` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   PRIMARY KEY (`id`)
@@ -4513,7 +4513,7 @@ USE `{$NAMESPACE}_herald`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `herald_action` (
+CREATE TABLE `herald_action` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `ruleID` int(10) unsigned NOT NULL,
   `action` varchar(255) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -4528,7 +4528,7 @@ USE `{$NAMESPACE}_herald`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `herald_condition` (
+CREATE TABLE `herald_condition` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `ruleID` int(10) unsigned NOT NULL,
   `fieldName` varchar(255) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -4544,7 +4544,7 @@ USE `{$NAMESPACE}_herald`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `herald_rule` (
+CREATE TABLE `herald_rule` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET {$CHARSET_SORT} COLLATE {$COLLATE_SORT} NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -4572,7 +4572,7 @@ USE `{$NAMESPACE}_herald`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `herald_ruleapplied` (
+CREATE TABLE `herald_ruleapplied` (
   `ruleID` int(10) unsigned NOT NULL,
   `phid` varbinary(64) NOT NULL,
   PRIMARY KEY (`ruleID`,`phid`),
@@ -4585,7 +4585,7 @@ USE `{$NAMESPACE}_herald`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `herald_ruletransaction` (
+CREATE TABLE `herald_ruletransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -4612,7 +4612,7 @@ USE `{$NAMESPACE}_herald`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `herald_savedheader` (
+CREATE TABLE `herald_savedheader` (
   `phid` varbinary(64) NOT NULL,
   `header` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   PRIMARY KEY (`phid`)
@@ -4624,7 +4624,7 @@ USE `{$NAMESPACE}_herald`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `herald_transcript` (
+CREATE TABLE `herald_transcript` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `time` int(10) unsigned NOT NULL,
@@ -4649,7 +4649,7 @@ USE `{$NAMESPACE}_herald`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `herald_webhook` (
+CREATE TABLE `herald_webhook` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `name` varchar(128) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -4671,7 +4671,7 @@ USE `{$NAMESPACE}_herald`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `herald_webhookrequest` (
+CREATE TABLE `herald_webhookrequest` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `webhookPHID` varbinary(64) NOT NULL,
@@ -4694,7 +4694,7 @@ USE `{$NAMESPACE}_herald`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `herald_webhooktransaction` (
+CREATE TABLE `herald_webhooktransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -4723,7 +4723,7 @@ USE `{$NAMESPACE}_legalpad`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edge` (
+CREATE TABLE `edge` (
   `src` varbinary(64) NOT NULL,
   `type` int(10) unsigned NOT NULL,
   `dst` varbinary(64) NOT NULL,
@@ -4741,7 +4741,7 @@ USE `{$NAMESPACE}_legalpad`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edgedata` (
+CREATE TABLE `edgedata` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `data` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   PRIMARY KEY (`id`)
@@ -4753,7 +4753,7 @@ USE `{$NAMESPACE}_legalpad`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `legalpad_document` (
+CREATE TABLE `legalpad_document` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `title` varchar(255) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -4782,7 +4782,7 @@ USE `{$NAMESPACE}_legalpad`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `legalpad_documentbody` (
+CREATE TABLE `legalpad_documentbody` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `creatorPHID` varbinary(64) NOT NULL,
@@ -4803,7 +4803,7 @@ USE `{$NAMESPACE}_legalpad`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `legalpad_documentsignature` (
+CREATE TABLE `legalpad_documentsignature` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `documentPHID` varbinary(64) NOT NULL,
   `documentVersion` int(10) unsigned NOT NULL DEFAULT '0',
@@ -4830,7 +4830,7 @@ USE `{$NAMESPACE}_legalpad`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `legalpad_transaction` (
+CREATE TABLE `legalpad_transaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -4857,7 +4857,7 @@ USE `{$NAMESPACE}_legalpad`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `legalpad_transaction_comment` (
+CREATE TABLE `legalpad_transaction_comment` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `transactionPHID` varbinary(64) DEFAULT NULL,
@@ -4890,7 +4890,7 @@ USE `{$NAMESPACE}_maniphest`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edge` (
+CREATE TABLE `edge` (
   `src` varbinary(64) NOT NULL,
   `type` int(10) unsigned NOT NULL,
   `dst` varbinary(64) NOT NULL,
@@ -4908,7 +4908,7 @@ USE `{$NAMESPACE}_maniphest`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edgedata` (
+CREATE TABLE `edgedata` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `data` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   PRIMARY KEY (`id`)
@@ -4920,7 +4920,7 @@ USE `{$NAMESPACE}_maniphest`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `maniphest_customfieldnumericindex` (
+CREATE TABLE `maniphest_customfieldnumericindex` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectPHID` varbinary(64) NOT NULL,
   `indexKey` binary(12) NOT NULL,
@@ -4936,7 +4936,7 @@ USE `{$NAMESPACE}_maniphest`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `maniphest_customfieldstorage` (
+CREATE TABLE `maniphest_customfieldstorage` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectPHID` varbinary(64) NOT NULL,
   `fieldIndex` binary(12) NOT NULL,
@@ -4951,7 +4951,7 @@ USE `{$NAMESPACE}_maniphest`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `maniphest_customfieldstringindex` (
+CREATE TABLE `maniphest_customfieldstringindex` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectPHID` varbinary(64) NOT NULL,
   `indexKey` binary(12) NOT NULL,
@@ -4967,7 +4967,7 @@ USE `{$NAMESPACE}_maniphest`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `maniphest_nameindex` (
+CREATE TABLE `maniphest_nameindex` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `indexedObjectPHID` varbinary(64) NOT NULL,
   `indexedObjectName` varchar(128) CHARACTER SET {$CHARSET_SORT} COLLATE {$COLLATE_SORT} NOT NULL,
@@ -4982,7 +4982,7 @@ USE `{$NAMESPACE}_maniphest`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `maniphest_task` (
+CREATE TABLE `maniphest_task` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -5030,7 +5030,7 @@ USE `{$NAMESPACE}_maniphest`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `maniphest_task_fdocument` (
+CREATE TABLE `maniphest_task_fdocument` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectPHID` varbinary(64) NOT NULL,
   `isClosed` tinyint(1) NOT NULL,
@@ -5052,7 +5052,7 @@ USE `{$NAMESPACE}_maniphest`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `maniphest_task_ffield` (
+CREATE TABLE `maniphest_task_ffield` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `documentID` int(10) unsigned NOT NULL,
   `fieldKey` varchar(4) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -5069,7 +5069,7 @@ USE `{$NAMESPACE}_maniphest`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `maniphest_task_fngrams` (
+CREATE TABLE `maniphest_task_fngrams` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `documentID` int(10) unsigned NOT NULL,
   `ngram` char(3) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -5084,7 +5084,7 @@ USE `{$NAMESPACE}_maniphest`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `maniphest_task_fngrams_common` (
+CREATE TABLE `maniphest_task_fngrams_common` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `ngram` char(3) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `needsCollection` tinyint(1) NOT NULL,
@@ -5099,7 +5099,7 @@ USE `{$NAMESPACE}_maniphest`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `maniphest_transaction` (
+CREATE TABLE `maniphest_transaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -5126,7 +5126,7 @@ USE `{$NAMESPACE}_maniphest`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `maniphest_transaction_comment` (
+CREATE TABLE `maniphest_transaction_comment` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `transactionPHID` varbinary(64) DEFAULT NULL,
@@ -5152,7 +5152,7 @@ USE `{$NAMESPACE}_meta_data`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `hoststate` (
+CREATE TABLE `hoststate` (
   `stateKey` varchar(128) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `stateValue` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   PRIMARY KEY (`stateKey`)
@@ -5164,7 +5164,7 @@ USE `{$NAMESPACE}_meta_data`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `patch_status` (
+CREATE TABLE `patch_status` (
   `patch` varchar(128) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `applied` int(10) unsigned NOT NULL,
   `duration` bigint(20) unsigned DEFAULT NULL,
@@ -5181,7 +5181,7 @@ USE `{$NAMESPACE}_metamta`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edge` (
+CREATE TABLE `edge` (
   `src` varbinary(64) NOT NULL,
   `type` int(10) unsigned NOT NULL,
   `dst` varbinary(64) NOT NULL,
@@ -5199,7 +5199,7 @@ USE `{$NAMESPACE}_metamta`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edgedata` (
+CREATE TABLE `edgedata` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `data` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   PRIMARY KEY (`id`)
@@ -5211,7 +5211,7 @@ USE `{$NAMESPACE}_metamta`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `metamta_applicationemail` (
+CREATE TABLE `metamta_applicationemail` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `applicationPHID` varbinary(64) NOT NULL,
@@ -5233,7 +5233,7 @@ USE `{$NAMESPACE}_metamta`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `metamta_applicationemailtransaction` (
+CREATE TABLE `metamta_applicationemailtransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -5260,7 +5260,7 @@ USE `{$NAMESPACE}_metamta`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `metamta_mail` (
+CREATE TABLE `metamta_mail` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `actorPHID` varbinary(64) DEFAULT NULL,
@@ -5284,7 +5284,7 @@ USE `{$NAMESPACE}_metamta`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `metamta_mailproperties` (
+CREATE TABLE `metamta_mailproperties` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectPHID` varbinary(64) NOT NULL,
   `mailProperties` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -5300,7 +5300,7 @@ USE `{$NAMESPACE}_metamta`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `metamta_receivedmail` (
+CREATE TABLE `metamta_receivedmail` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `headers` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `bodies` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -5327,7 +5327,7 @@ USE `{$NAMESPACE}_multimeter`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `multimeter_context` (
+CREATE TABLE `multimeter_context` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `nameHash` binary(12) NOT NULL,
@@ -5341,7 +5341,7 @@ USE `{$NAMESPACE}_multimeter`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `multimeter_event` (
+CREATE TABLE `multimeter_event` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `eventType` int(10) unsigned NOT NULL,
   `eventLabelID` int(10) unsigned NOT NULL,
@@ -5363,7 +5363,7 @@ USE `{$NAMESPACE}_multimeter`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `multimeter_host` (
+CREATE TABLE `multimeter_host` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `nameHash` binary(12) NOT NULL,
@@ -5377,7 +5377,7 @@ USE `{$NAMESPACE}_multimeter`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `multimeter_label` (
+CREATE TABLE `multimeter_label` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `nameHash` binary(12) NOT NULL,
@@ -5391,7 +5391,7 @@ USE `{$NAMESPACE}_multimeter`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `multimeter_viewer` (
+CREATE TABLE `multimeter_viewer` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `nameHash` binary(12) NOT NULL,
@@ -5407,7 +5407,7 @@ USE `{$NAMESPACE}_nuance`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edge` (
+CREATE TABLE `edge` (
   `src` varbinary(64) NOT NULL,
   `type` int(10) unsigned NOT NULL,
   `dst` varbinary(64) NOT NULL,
@@ -5425,7 +5425,7 @@ USE `{$NAMESPACE}_nuance`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edgedata` (
+CREATE TABLE `edgedata` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `data` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   PRIMARY KEY (`id`)
@@ -5437,7 +5437,7 @@ USE `{$NAMESPACE}_nuance`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `nuance_importcursordata` (
+CREATE TABLE `nuance_importcursordata` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `sourcePHID` varbinary(64) NOT NULL,
@@ -5457,7 +5457,7 @@ USE `{$NAMESPACE}_nuance`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `nuance_item` (
+CREATE TABLE `nuance_item` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `ownerPHID` varbinary(64) DEFAULT NULL,
@@ -5488,7 +5488,7 @@ USE `{$NAMESPACE}_nuance`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `nuance_itemcommand` (
+CREATE TABLE `nuance_itemcommand` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `itemPHID` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -5508,7 +5508,7 @@ USE `{$NAMESPACE}_nuance`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `nuance_itemtransaction` (
+CREATE TABLE `nuance_itemtransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -5535,7 +5535,7 @@ USE `{$NAMESPACE}_nuance`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `nuance_itemtransaction_comment` (
+CREATE TABLE `nuance_itemtransaction_comment` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `transactionPHID` varbinary(64) DEFAULT NULL,
@@ -5559,7 +5559,7 @@ USE `{$NAMESPACE}_nuance`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `nuance_queue` (
+CREATE TABLE `nuance_queue` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `name` varchar(255) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} DEFAULT NULL,
@@ -5578,7 +5578,7 @@ USE `{$NAMESPACE}_nuance`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `nuance_queuetransaction` (
+CREATE TABLE `nuance_queuetransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -5605,7 +5605,7 @@ USE `{$NAMESPACE}_nuance`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `nuance_queuetransaction_comment` (
+CREATE TABLE `nuance_queuetransaction_comment` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `transactionPHID` varbinary(64) DEFAULT NULL,
@@ -5629,7 +5629,7 @@ USE `{$NAMESPACE}_nuance`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `nuance_source` (
+CREATE TABLE `nuance_source` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `name` varchar(255) CHARACTER SET {$CHARSET_SORT} COLLATE {$COLLATE_SORT} NOT NULL,
@@ -5653,7 +5653,7 @@ USE `{$NAMESPACE}_nuance`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `nuance_sourcename_ngrams` (
+CREATE TABLE `nuance_sourcename_ngrams` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectID` int(10) unsigned NOT NULL,
   `ngram` char(3) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -5668,7 +5668,7 @@ USE `{$NAMESPACE}_nuance`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `nuance_sourcetransaction` (
+CREATE TABLE `nuance_sourcetransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -5695,7 +5695,7 @@ USE `{$NAMESPACE}_nuance`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `nuance_sourcetransaction_comment` (
+CREATE TABLE `nuance_sourcetransaction_comment` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `transactionPHID` varbinary(64) DEFAULT NULL,
@@ -5721,7 +5721,7 @@ USE `{$NAMESPACE}_oauth_server`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edge` (
+CREATE TABLE `edge` (
   `src` varbinary(64) NOT NULL,
   `type` int(10) unsigned NOT NULL,
   `dst` varbinary(64) NOT NULL,
@@ -5739,7 +5739,7 @@ USE `{$NAMESPACE}_oauth_server`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edgedata` (
+CREATE TABLE `edgedata` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `data` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   PRIMARY KEY (`id`)
@@ -5751,7 +5751,7 @@ USE `{$NAMESPACE}_oauth_server`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `oauth_server_oauthclientauthorization` (
+CREATE TABLE `oauth_server_oauthclientauthorization` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `userPHID` varbinary(64) NOT NULL,
@@ -5770,7 +5770,7 @@ USE `{$NAMESPACE}_oauth_server`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `oauth_server_oauthserveraccesstoken` (
+CREATE TABLE `oauth_server_oauthserveraccesstoken` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `token` varchar(32) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `userPHID` varbinary(64) NOT NULL,
@@ -5787,7 +5787,7 @@ USE `{$NAMESPACE}_oauth_server`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `oauth_server_oauthserverauthorizationcode` (
+CREATE TABLE `oauth_server_oauthserverauthorizationcode` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `code` varchar(32) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `clientPHID` varbinary(64) NOT NULL,
@@ -5806,7 +5806,7 @@ USE `{$NAMESPACE}_oauth_server`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `oauth_server_oauthserverclient` (
+CREATE TABLE `oauth_server_oauthserverclient` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `name` varchar(255) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -5830,7 +5830,7 @@ USE `{$NAMESPACE}_oauth_server`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `oauth_server_transaction` (
+CREATE TABLE `oauth_server_transaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -5859,7 +5859,7 @@ USE `{$NAMESPACE}_owners`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edge` (
+CREATE TABLE `edge` (
   `src` varbinary(64) NOT NULL,
   `type` int(10) unsigned NOT NULL,
   `dst` varbinary(64) NOT NULL,
@@ -5877,7 +5877,7 @@ USE `{$NAMESPACE}_owners`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edgedata` (
+CREATE TABLE `edgedata` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `data` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   PRIMARY KEY (`id`)
@@ -5889,7 +5889,7 @@ USE `{$NAMESPACE}_owners`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `owners_customfieldnumericindex` (
+CREATE TABLE `owners_customfieldnumericindex` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectPHID` varbinary(64) NOT NULL,
   `indexKey` binary(12) NOT NULL,
@@ -5905,7 +5905,7 @@ USE `{$NAMESPACE}_owners`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `owners_customfieldstorage` (
+CREATE TABLE `owners_customfieldstorage` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectPHID` varbinary(64) NOT NULL,
   `fieldIndex` binary(12) NOT NULL,
@@ -5920,7 +5920,7 @@ USE `{$NAMESPACE}_owners`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `owners_customfieldstringindex` (
+CREATE TABLE `owners_customfieldstringindex` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectPHID` varbinary(64) NOT NULL,
   `indexKey` binary(12) NOT NULL,
@@ -5936,7 +5936,7 @@ USE `{$NAMESPACE}_owners`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `owners_name_ngrams` (
+CREATE TABLE `owners_name_ngrams` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectID` int(10) unsigned NOT NULL,
   `ngram` char(3) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -5951,7 +5951,7 @@ USE `{$NAMESPACE}_owners`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `owners_owner` (
+CREATE TABLE `owners_owner` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `packageID` int(10) unsigned NOT NULL,
   `userPHID` varbinary(64) NOT NULL,
@@ -5966,7 +5966,7 @@ USE `{$NAMESPACE}_owners`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `owners_package` (
+CREATE TABLE `owners_package` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `name` longtext CHARACTER SET {$CHARSET_SORT} COLLATE {$COLLATE_SORT} NOT NULL,
@@ -5988,7 +5988,7 @@ USE `{$NAMESPACE}_owners`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `owners_package_fdocument` (
+CREATE TABLE `owners_package_fdocument` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectPHID` varbinary(64) NOT NULL,
   `isClosed` tinyint(1) NOT NULL,
@@ -6010,7 +6010,7 @@ USE `{$NAMESPACE}_owners`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `owners_package_ffield` (
+CREATE TABLE `owners_package_ffield` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `documentID` int(10) unsigned NOT NULL,
   `fieldKey` varchar(4) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -6027,7 +6027,7 @@ USE `{$NAMESPACE}_owners`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `owners_package_fngrams` (
+CREATE TABLE `owners_package_fngrams` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `documentID` int(10) unsigned NOT NULL,
   `ngram` char(3) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -6042,7 +6042,7 @@ USE `{$NAMESPACE}_owners`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `owners_package_fngrams_common` (
+CREATE TABLE `owners_package_fngrams_common` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `ngram` char(3) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `needsCollection` tinyint(1) NOT NULL,
@@ -6057,7 +6057,7 @@ USE `{$NAMESPACE}_owners`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `owners_packagetransaction` (
+CREATE TABLE `owners_packagetransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -6084,7 +6084,7 @@ USE `{$NAMESPACE}_owners`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `owners_path` (
+CREATE TABLE `owners_path` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `packageID` int(10) unsigned NOT NULL,
   `repositoryPHID` varbinary(64) NOT NULL,
@@ -6105,7 +6105,7 @@ USE `{$NAMESPACE}_packages`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edge` (
+CREATE TABLE `edge` (
   `src` varbinary(64) NOT NULL,
   `type` int(10) unsigned NOT NULL,
   `dst` varbinary(64) NOT NULL,
@@ -6123,7 +6123,7 @@ USE `{$NAMESPACE}_packages`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edgedata` (
+CREATE TABLE `edgedata` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `data` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   PRIMARY KEY (`id`)
@@ -6135,7 +6135,7 @@ USE `{$NAMESPACE}_packages`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `packages_package` (
+CREATE TABLE `packages_package` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `name` varchar(64) CHARACTER SET {$CHARSET_SORT} COLLATE {$COLLATE_SORT} NOT NULL,
@@ -6156,7 +6156,7 @@ USE `{$NAMESPACE}_packages`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `packages_packagename_ngrams` (
+CREATE TABLE `packages_packagename_ngrams` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectID` int(10) unsigned NOT NULL,
   `ngram` char(3) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -6171,7 +6171,7 @@ USE `{$NAMESPACE}_packages`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `packages_packagetransaction` (
+CREATE TABLE `packages_packagetransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -6198,7 +6198,7 @@ USE `{$NAMESPACE}_packages`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `packages_publisher` (
+CREATE TABLE `packages_publisher` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `name` varchar(64) CHARACTER SET {$CHARSET_SORT} COLLATE {$COLLATE_SORT} NOT NULL,
@@ -6217,7 +6217,7 @@ USE `{$NAMESPACE}_packages`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `packages_publishername_ngrams` (
+CREATE TABLE `packages_publishername_ngrams` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectID` int(10) unsigned NOT NULL,
   `ngram` char(3) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -6232,7 +6232,7 @@ USE `{$NAMESPACE}_packages`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `packages_publishertransaction` (
+CREATE TABLE `packages_publishertransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -6259,7 +6259,7 @@ USE `{$NAMESPACE}_packages`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `packages_version` (
+CREATE TABLE `packages_version` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `name` varchar(64) CHARACTER SET {$CHARSET_SORT} COLLATE {$COLLATE_SORT} NOT NULL,
@@ -6277,7 +6277,7 @@ USE `{$NAMESPACE}_packages`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `packages_versionname_ngrams` (
+CREATE TABLE `packages_versionname_ngrams` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectID` int(10) unsigned NOT NULL,
   `ngram` char(3) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -6292,7 +6292,7 @@ USE `{$NAMESPACE}_packages`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `packages_versiontransaction` (
+CREATE TABLE `packages_versiontransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -6321,7 +6321,7 @@ USE `{$NAMESPACE}_passphrase`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edge` (
+CREATE TABLE `edge` (
   `src` varbinary(64) NOT NULL,
   `type` int(10) unsigned NOT NULL,
   `dst` varbinary(64) NOT NULL,
@@ -6339,7 +6339,7 @@ USE `{$NAMESPACE}_passphrase`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edgedata` (
+CREATE TABLE `edgedata` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `data` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   PRIMARY KEY (`id`)
@@ -6351,7 +6351,7 @@ USE `{$NAMESPACE}_passphrase`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `passphrase_credential` (
+CREATE TABLE `passphrase_credential` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `name` varchar(255) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -6383,7 +6383,7 @@ USE `{$NAMESPACE}_passphrase`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `passphrase_credential_fdocument` (
+CREATE TABLE `passphrase_credential_fdocument` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectPHID` varbinary(64) NOT NULL,
   `isClosed` tinyint(1) NOT NULL,
@@ -6405,7 +6405,7 @@ USE `{$NAMESPACE}_passphrase`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `passphrase_credential_ffield` (
+CREATE TABLE `passphrase_credential_ffield` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `documentID` int(10) unsigned NOT NULL,
   `fieldKey` varchar(4) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -6422,7 +6422,7 @@ USE `{$NAMESPACE}_passphrase`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `passphrase_credential_fngrams` (
+CREATE TABLE `passphrase_credential_fngrams` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `documentID` int(10) unsigned NOT NULL,
   `ngram` char(3) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -6437,7 +6437,7 @@ USE `{$NAMESPACE}_passphrase`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `passphrase_credential_fngrams_common` (
+CREATE TABLE `passphrase_credential_fngrams_common` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `ngram` char(3) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `needsCollection` tinyint(1) NOT NULL,
@@ -6452,7 +6452,7 @@ USE `{$NAMESPACE}_passphrase`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `passphrase_credentialtransaction` (
+CREATE TABLE `passphrase_credentialtransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -6479,7 +6479,7 @@ USE `{$NAMESPACE}_passphrase`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `passphrase_secret` (
+CREATE TABLE `passphrase_secret` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `secretData` longblob NOT NULL,
   PRIMARY KEY (`id`)
@@ -6493,7 +6493,7 @@ USE `{$NAMESPACE}_pastebin`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edge` (
+CREATE TABLE `edge` (
   `src` varbinary(64) NOT NULL,
   `type` int(10) unsigned NOT NULL,
   `dst` varbinary(64) NOT NULL,
@@ -6511,7 +6511,7 @@ USE `{$NAMESPACE}_pastebin`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edgedata` (
+CREATE TABLE `edgedata` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `data` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   PRIMARY KEY (`id`)
@@ -6523,7 +6523,7 @@ USE `{$NAMESPACE}_pastebin`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `pastebin_paste` (
+CREATE TABLE `pastebin_paste` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `phid` varbinary(64) NOT NULL,
@@ -6553,7 +6553,7 @@ USE `{$NAMESPACE}_pastebin`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `pastebin_pastetransaction` (
+CREATE TABLE `pastebin_pastetransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -6580,7 +6580,7 @@ USE `{$NAMESPACE}_pastebin`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `pastebin_pastetransaction_comment` (
+CREATE TABLE `pastebin_pastetransaction_comment` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `transactionPHID` varbinary(64) DEFAULT NULL,
@@ -6608,7 +6608,7 @@ USE `{$NAMESPACE}_phame`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edge` (
+CREATE TABLE `edge` (
   `src` varbinary(64) NOT NULL,
   `type` int(10) unsigned NOT NULL,
   `dst` varbinary(64) NOT NULL,
@@ -6626,7 +6626,7 @@ USE `{$NAMESPACE}_phame`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edgedata` (
+CREATE TABLE `edgedata` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `data` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   PRIMARY KEY (`id`)
@@ -6638,7 +6638,7 @@ USE `{$NAMESPACE}_phame`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `phame_blog` (
+CREATE TABLE `phame_blog` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `name` varchar(64) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -6669,7 +6669,7 @@ USE `{$NAMESPACE}_phame`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `phame_blog_fdocument` (
+CREATE TABLE `phame_blog_fdocument` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectPHID` varbinary(64) NOT NULL,
   `isClosed` tinyint(1) NOT NULL,
@@ -6691,7 +6691,7 @@ USE `{$NAMESPACE}_phame`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `phame_blog_ffield` (
+CREATE TABLE `phame_blog_ffield` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `documentID` int(10) unsigned NOT NULL,
   `fieldKey` varchar(4) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -6708,7 +6708,7 @@ USE `{$NAMESPACE}_phame`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `phame_blog_fngrams` (
+CREATE TABLE `phame_blog_fngrams` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `documentID` int(10) unsigned NOT NULL,
   `ngram` char(3) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -6723,7 +6723,7 @@ USE `{$NAMESPACE}_phame`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `phame_blog_fngrams_common` (
+CREATE TABLE `phame_blog_fngrams_common` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `ngram` char(3) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `needsCollection` tinyint(1) NOT NULL,
@@ -6738,7 +6738,7 @@ USE `{$NAMESPACE}_phame`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `phame_blogtransaction` (
+CREATE TABLE `phame_blogtransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -6765,7 +6765,7 @@ USE `{$NAMESPACE}_phame`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `phame_post` (
+CREATE TABLE `phame_post` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `bloggerPHID` varbinary(64) NOT NULL,
@@ -6792,7 +6792,7 @@ USE `{$NAMESPACE}_phame`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `phame_post_fdocument` (
+CREATE TABLE `phame_post_fdocument` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectPHID` varbinary(64) NOT NULL,
   `isClosed` tinyint(1) NOT NULL,
@@ -6814,7 +6814,7 @@ USE `{$NAMESPACE}_phame`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `phame_post_ffield` (
+CREATE TABLE `phame_post_ffield` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `documentID` int(10) unsigned NOT NULL,
   `fieldKey` varchar(4) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -6831,7 +6831,7 @@ USE `{$NAMESPACE}_phame`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `phame_post_fngrams` (
+CREATE TABLE `phame_post_fngrams` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `documentID` int(10) unsigned NOT NULL,
   `ngram` char(3) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -6846,7 +6846,7 @@ USE `{$NAMESPACE}_phame`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `phame_post_fngrams_common` (
+CREATE TABLE `phame_post_fngrams_common` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `ngram` char(3) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `needsCollection` tinyint(1) NOT NULL,
@@ -6861,7 +6861,7 @@ USE `{$NAMESPACE}_phame`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `phame_posttransaction` (
+CREATE TABLE `phame_posttransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -6888,7 +6888,7 @@ USE `{$NAMESPACE}_phame`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `phame_posttransaction_comment` (
+CREATE TABLE `phame_posttransaction_comment` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `transactionPHID` varbinary(64) DEFAULT NULL,
@@ -6914,7 +6914,7 @@ USE `{$NAMESPACE}_phlux`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edge` (
+CREATE TABLE `edge` (
   `src` varbinary(64) NOT NULL,
   `type` int(10) unsigned NOT NULL,
   `dst` varbinary(64) NOT NULL,
@@ -6932,7 +6932,7 @@ USE `{$NAMESPACE}_phlux`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edgedata` (
+CREATE TABLE `edgedata` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `data` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   PRIMARY KEY (`id`)
@@ -6944,7 +6944,7 @@ USE `{$NAMESPACE}_phlux`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `phlux_transaction` (
+CREATE TABLE `phlux_transaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -6971,7 +6971,7 @@ USE `{$NAMESPACE}_phlux`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `phlux_variable` (
+CREATE TABLE `phlux_variable` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `variableKey` varchar(64) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -6993,7 +6993,7 @@ USE `{$NAMESPACE}_pholio`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edge` (
+CREATE TABLE `edge` (
   `src` varbinary(64) NOT NULL,
   `type` int(10) unsigned NOT NULL,
   `dst` varbinary(64) NOT NULL,
@@ -7011,7 +7011,7 @@ USE `{$NAMESPACE}_pholio`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edgedata` (
+CREATE TABLE `edgedata` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `data` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   PRIMARY KEY (`id`)
@@ -7023,7 +7023,7 @@ USE `{$NAMESPACE}_pholio`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `pholio_image` (
+CREATE TABLE `pholio_image` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `filePHID` varbinary(64) NOT NULL,
@@ -7047,7 +7047,7 @@ USE `{$NAMESPACE}_pholio`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `pholio_mock` (
+CREATE TABLE `pholio_mock` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `name` varchar(128) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -7072,7 +7072,7 @@ USE `{$NAMESPACE}_pholio`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `pholio_mock_fdocument` (
+CREATE TABLE `pholio_mock_fdocument` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectPHID` varbinary(64) NOT NULL,
   `isClosed` tinyint(1) NOT NULL,
@@ -7094,7 +7094,7 @@ USE `{$NAMESPACE}_pholio`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `pholio_mock_ffield` (
+CREATE TABLE `pholio_mock_ffield` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `documentID` int(10) unsigned NOT NULL,
   `fieldKey` varchar(4) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -7111,7 +7111,7 @@ USE `{$NAMESPACE}_pholio`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `pholio_mock_fngrams` (
+CREATE TABLE `pholio_mock_fngrams` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `documentID` int(10) unsigned NOT NULL,
   `ngram` char(3) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -7126,7 +7126,7 @@ USE `{$NAMESPACE}_pholio`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `pholio_mock_fngrams_common` (
+CREATE TABLE `pholio_mock_fngrams_common` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `ngram` char(3) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `needsCollection` tinyint(1) NOT NULL,
@@ -7141,7 +7141,7 @@ USE `{$NAMESPACE}_pholio`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `pholio_transaction` (
+CREATE TABLE `pholio_transaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -7168,7 +7168,7 @@ USE `{$NAMESPACE}_pholio`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `pholio_transaction_comment` (
+CREATE TABLE `pholio_transaction_comment` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `transactionPHID` varbinary(64) DEFAULT NULL,
@@ -7200,7 +7200,7 @@ USE `{$NAMESPACE}_phortune`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edge` (
+CREATE TABLE `edge` (
   `src` varbinary(64) NOT NULL,
   `type` int(10) unsigned NOT NULL,
   `dst` varbinary(64) NOT NULL,
@@ -7218,7 +7218,7 @@ USE `{$NAMESPACE}_phortune`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edgedata` (
+CREATE TABLE `edgedata` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `data` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   PRIMARY KEY (`id`)
@@ -7230,7 +7230,7 @@ USE `{$NAMESPACE}_phortune`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `phortune_account` (
+CREATE TABLE `phortune_account` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `name` varchar(255) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -7248,7 +7248,7 @@ USE `{$NAMESPACE}_phortune`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `phortune_accounttransaction` (
+CREATE TABLE `phortune_accounttransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -7275,7 +7275,7 @@ USE `{$NAMESPACE}_phortune`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `phortune_cart` (
+CREATE TABLE `phortune_cart` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `accountPHID` varbinary(64) NOT NULL,
@@ -7302,7 +7302,7 @@ USE `{$NAMESPACE}_phortune`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `phortune_carttransaction` (
+CREATE TABLE `phortune_carttransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -7329,7 +7329,7 @@ USE `{$NAMESPACE}_phortune`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `phortune_charge` (
+CREATE TABLE `phortune_charge` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `accountPHID` varbinary(64) NOT NULL,
@@ -7360,7 +7360,7 @@ USE `{$NAMESPACE}_phortune`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `phortune_merchant` (
+CREATE TABLE `phortune_merchant` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `name` varchar(255) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -7382,7 +7382,7 @@ USE `{$NAMESPACE}_phortune`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `phortune_merchanttransaction` (
+CREATE TABLE `phortune_merchanttransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -7409,7 +7409,7 @@ USE `{$NAMESPACE}_phortune`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `phortune_paymentmethod` (
+CREATE TABLE `phortune_paymentmethod` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `name` varchar(255) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -7436,7 +7436,7 @@ USE `{$NAMESPACE}_phortune`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `phortune_paymentproviderconfig` (
+CREATE TABLE `phortune_paymentproviderconfig` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `merchantPHID` varbinary(64) NOT NULL,
@@ -7457,7 +7457,7 @@ USE `{$NAMESPACE}_phortune`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `phortune_paymentproviderconfigtransaction` (
+CREATE TABLE `phortune_paymentproviderconfigtransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -7484,7 +7484,7 @@ USE `{$NAMESPACE}_phortune`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `phortune_product` (
+CREATE TABLE `phortune_product` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `metadata` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -7505,7 +7505,7 @@ USE `{$NAMESPACE}_phortune`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `phortune_purchase` (
+CREATE TABLE `phortune_purchase` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `productPHID` varbinary(64) NOT NULL,
@@ -7529,7 +7529,7 @@ USE `{$NAMESPACE}_phortune`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `phortune_subscription` (
+CREATE TABLE `phortune_subscription` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `accountPHID` varbinary(64) NOT NULL,
@@ -7560,7 +7560,7 @@ USE `{$NAMESPACE}_phrequent`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `phrequent_usertime` (
+CREATE TABLE `phrequent_usertime` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `userPHID` varbinary(64) NOT NULL,
   `objectPHID` varbinary(64) DEFAULT NULL,
@@ -7580,7 +7580,7 @@ USE `{$NAMESPACE}_phriction`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edge` (
+CREATE TABLE `edge` (
   `src` varbinary(64) NOT NULL,
   `type` int(10) unsigned NOT NULL,
   `dst` varbinary(64) NOT NULL,
@@ -7598,7 +7598,7 @@ USE `{$NAMESPACE}_phriction`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edgedata` (
+CREATE TABLE `edgedata` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `data` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   PRIMARY KEY (`id`)
@@ -7610,7 +7610,7 @@ USE `{$NAMESPACE}_phriction`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `phriction_content` (
+CREATE TABLE `phriction_content` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `version` int(10) unsigned NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -7637,7 +7637,7 @@ USE `{$NAMESPACE}_phriction`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `phriction_document` (
+CREATE TABLE `phriction_document` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `slug` varchar(128) CHARACTER SET {$CHARSET_SORT} COLLATE {$COLLATE_SORT} NOT NULL,
@@ -7662,7 +7662,7 @@ USE `{$NAMESPACE}_phriction`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `phriction_document_fdocument` (
+CREATE TABLE `phriction_document_fdocument` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectPHID` varbinary(64) NOT NULL,
   `isClosed` tinyint(1) NOT NULL,
@@ -7684,7 +7684,7 @@ USE `{$NAMESPACE}_phriction`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `phriction_document_ffield` (
+CREATE TABLE `phriction_document_ffield` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `documentID` int(10) unsigned NOT NULL,
   `fieldKey` varchar(4) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -7701,7 +7701,7 @@ USE `{$NAMESPACE}_phriction`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `phriction_document_fngrams` (
+CREATE TABLE `phriction_document_fngrams` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `documentID` int(10) unsigned NOT NULL,
   `ngram` char(3) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -7716,7 +7716,7 @@ USE `{$NAMESPACE}_phriction`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `phriction_document_fngrams_common` (
+CREATE TABLE `phriction_document_fngrams_common` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `ngram` char(3) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `needsCollection` tinyint(1) NOT NULL,
@@ -7731,7 +7731,7 @@ USE `{$NAMESPACE}_phriction`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `phriction_transaction` (
+CREATE TABLE `phriction_transaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -7758,7 +7758,7 @@ USE `{$NAMESPACE}_phriction`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `phriction_transaction_comment` (
+CREATE TABLE `phriction_transaction_comment` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `transactionPHID` varbinary(64) DEFAULT NULL,
@@ -7784,7 +7784,7 @@ USE `{$NAMESPACE}_phurl`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edge` (
+CREATE TABLE `edge` (
   `src` varbinary(64) NOT NULL,
   `type` int(10) unsigned NOT NULL,
   `dst` varbinary(64) NOT NULL,
@@ -7802,7 +7802,7 @@ USE `{$NAMESPACE}_phurl`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edgedata` (
+CREATE TABLE `edgedata` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `data` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   PRIMARY KEY (`id`)
@@ -7814,7 +7814,7 @@ USE `{$NAMESPACE}_phurl`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `phurl_phurlname_ngrams` (
+CREATE TABLE `phurl_phurlname_ngrams` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectID` int(10) unsigned NOT NULL,
   `ngram` char(3) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -7829,7 +7829,7 @@ USE `{$NAMESPACE}_phurl`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `phurl_url` (
+CREATE TABLE `phurl_url` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `name` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -7856,7 +7856,7 @@ USE `{$NAMESPACE}_phurl`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `phurl_urltransaction` (
+CREATE TABLE `phurl_urltransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -7883,7 +7883,7 @@ USE `{$NAMESPACE}_phurl`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `phurl_urltransaction_comment` (
+CREATE TABLE `phurl_urltransaction_comment` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `transactionPHID` varbinary(64) DEFAULT NULL,
@@ -7909,7 +7909,7 @@ USE `{$NAMESPACE}_policy`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `policy` (
+CREATE TABLE `policy` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `rules` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -7928,7 +7928,7 @@ USE `{$NAMESPACE}_ponder`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edge` (
+CREATE TABLE `edge` (
   `src` varbinary(64) NOT NULL,
   `type` int(10) unsigned NOT NULL,
   `dst` varbinary(64) NOT NULL,
@@ -7946,7 +7946,7 @@ USE `{$NAMESPACE}_ponder`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edgedata` (
+CREATE TABLE `edgedata` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `data` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   PRIMARY KEY (`id`)
@@ -7958,7 +7958,7 @@ USE `{$NAMESPACE}_ponder`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `ponder_answer` (
+CREATE TABLE `ponder_answer` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `questionID` int(10) unsigned NOT NULL,
   `phid` varbinary(64) NOT NULL,
@@ -7983,7 +7983,7 @@ USE `{$NAMESPACE}_ponder`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `ponder_answertransaction` (
+CREATE TABLE `ponder_answertransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -8010,7 +8010,7 @@ USE `{$NAMESPACE}_ponder`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `ponder_answertransaction_comment` (
+CREATE TABLE `ponder_answertransaction_comment` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `transactionPHID` varbinary(64) DEFAULT NULL,
@@ -8034,7 +8034,7 @@ USE `{$NAMESPACE}_ponder`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `ponder_question` (
+CREATE TABLE `ponder_question` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `phid` varbinary(64) NOT NULL,
@@ -8062,7 +8062,7 @@ USE `{$NAMESPACE}_ponder`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `ponder_question_fdocument` (
+CREATE TABLE `ponder_question_fdocument` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectPHID` varbinary(64) NOT NULL,
   `isClosed` tinyint(1) NOT NULL,
@@ -8084,7 +8084,7 @@ USE `{$NAMESPACE}_ponder`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `ponder_question_ffield` (
+CREATE TABLE `ponder_question_ffield` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `documentID` int(10) unsigned NOT NULL,
   `fieldKey` varchar(4) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -8101,7 +8101,7 @@ USE `{$NAMESPACE}_ponder`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `ponder_question_fngrams` (
+CREATE TABLE `ponder_question_fngrams` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `documentID` int(10) unsigned NOT NULL,
   `ngram` char(3) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -8116,7 +8116,7 @@ USE `{$NAMESPACE}_ponder`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `ponder_question_fngrams_common` (
+CREATE TABLE `ponder_question_fngrams_common` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `ngram` char(3) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `needsCollection` tinyint(1) NOT NULL,
@@ -8131,7 +8131,7 @@ USE `{$NAMESPACE}_ponder`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `ponder_questiontransaction` (
+CREATE TABLE `ponder_questiontransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -8158,7 +8158,7 @@ USE `{$NAMESPACE}_ponder`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `ponder_questiontransaction_comment` (
+CREATE TABLE `ponder_questiontransaction_comment` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `transactionPHID` varbinary(64) DEFAULT NULL,
@@ -8184,7 +8184,7 @@ USE `{$NAMESPACE}_project`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edge` (
+CREATE TABLE `edge` (
   `src` varbinary(64) NOT NULL,
   `type` int(10) unsigned NOT NULL,
   `dst` varbinary(64) NOT NULL,
@@ -8202,7 +8202,7 @@ USE `{$NAMESPACE}_project`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edgedata` (
+CREATE TABLE `edgedata` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `data` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   PRIMARY KEY (`id`)
@@ -8214,7 +8214,7 @@ USE `{$NAMESPACE}_project`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `project` (
+CREATE TABLE `project` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(128) CHARACTER SET {$CHARSET_SORT} COLLATE {$COLLATE_SORT} NOT NULL,
   `phid` varbinary(64) NOT NULL,
@@ -8259,7 +8259,7 @@ USE `{$NAMESPACE}_project`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `project_column` (
+CREATE TABLE `project_column` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `name` varchar(255) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -8285,7 +8285,7 @@ USE `{$NAMESPACE}_project`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `project_columnposition` (
+CREATE TABLE `project_columnposition` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `boardPHID` varbinary(64) NOT NULL,
   `columnPHID` varbinary(64) NOT NULL,
@@ -8303,7 +8303,7 @@ USE `{$NAMESPACE}_project`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `project_columntransaction` (
+CREATE TABLE `project_columntransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -8330,7 +8330,7 @@ USE `{$NAMESPACE}_project`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `project_customfieldnumericindex` (
+CREATE TABLE `project_customfieldnumericindex` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectPHID` varbinary(64) NOT NULL,
   `indexKey` binary(12) NOT NULL,
@@ -8346,7 +8346,7 @@ USE `{$NAMESPACE}_project`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `project_customfieldstorage` (
+CREATE TABLE `project_customfieldstorage` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectPHID` varbinary(64) NOT NULL,
   `fieldIndex` binary(12) NOT NULL,
@@ -8361,7 +8361,7 @@ USE `{$NAMESPACE}_project`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `project_customfieldstringindex` (
+CREATE TABLE `project_customfieldstringindex` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectPHID` varbinary(64) NOT NULL,
   `indexKey` binary(12) NOT NULL,
@@ -8377,7 +8377,7 @@ USE `{$NAMESPACE}_project`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `project_datasourcetoken` (
+CREATE TABLE `project_datasourcetoken` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `projectID` int(10) unsigned NOT NULL,
   `token` varchar(128) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -8392,7 +8392,7 @@ USE `{$NAMESPACE}_project`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `project_project_fdocument` (
+CREATE TABLE `project_project_fdocument` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectPHID` varbinary(64) NOT NULL,
   `isClosed` tinyint(1) NOT NULL,
@@ -8414,7 +8414,7 @@ USE `{$NAMESPACE}_project`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `project_project_ffield` (
+CREATE TABLE `project_project_ffield` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `documentID` int(10) unsigned NOT NULL,
   `fieldKey` varchar(4) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -8431,7 +8431,7 @@ USE `{$NAMESPACE}_project`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `project_project_fngrams` (
+CREATE TABLE `project_project_fngrams` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `documentID` int(10) unsigned NOT NULL,
   `ngram` char(3) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -8446,7 +8446,7 @@ USE `{$NAMESPACE}_project`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `project_project_fngrams_common` (
+CREATE TABLE `project_project_fngrams_common` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `ngram` char(3) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `needsCollection` tinyint(1) NOT NULL,
@@ -8461,7 +8461,7 @@ USE `{$NAMESPACE}_project`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `project_slug` (
+CREATE TABLE `project_slug` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `projectPHID` varbinary(64) NOT NULL,
   `slug` varchar(128) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -8478,7 +8478,7 @@ USE `{$NAMESPACE}_project`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `project_transaction` (
+CREATE TABLE `project_transaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -8505,7 +8505,7 @@ USE `{$NAMESPACE}_project`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `project_trigger` (
+CREATE TABLE `project_trigger` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `name` varchar(255) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -8523,7 +8523,7 @@ USE `{$NAMESPACE}_project`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `project_triggertransaction` (
+CREATE TABLE `project_triggertransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -8550,7 +8550,7 @@ USE `{$NAMESPACE}_project`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `project_triggerusage` (
+CREATE TABLE `project_triggerusage` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `triggerPHID` varbinary(64) NOT NULL,
   `examplePHID` varbinary(64) DEFAULT NULL,
@@ -8568,7 +8568,7 @@ USE `{$NAMESPACE}_repository`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edge` (
+CREATE TABLE `edge` (
   `src` varbinary(64) NOT NULL,
   `type` int(10) unsigned NOT NULL,
   `dst` varbinary(64) NOT NULL,
@@ -8586,7 +8586,7 @@ USE `{$NAMESPACE}_repository`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edgedata` (
+CREATE TABLE `edgedata` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `data` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   PRIMARY KEY (`id`)
@@ -8598,7 +8598,7 @@ USE `{$NAMESPACE}_repository`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `repository` (
+CREATE TABLE `repository` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `name` varchar(255) CHARACTER SET {$CHARSET_SORT} COLLATE {$COLLATE_SORT} NOT NULL,
@@ -8633,7 +8633,7 @@ USE `{$NAMESPACE}_repository`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `repository_auditrequest` (
+CREATE TABLE `repository_auditrequest` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `auditorPHID` varbinary(64) NOT NULL,
   `commitPHID` varbinary(64) NOT NULL,
@@ -8651,7 +8651,7 @@ USE `{$NAMESPACE}_repository`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `repository_branch` (
+CREATE TABLE `repository_branch` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `repositoryID` int(10) unsigned NOT NULL,
   `name` varchar(128) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -8668,7 +8668,7 @@ USE `{$NAMESPACE}_repository`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `repository_commit` (
+CREATE TABLE `repository_commit` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `repositoryID` int(10) unsigned NOT NULL,
   `phid` varbinary(64) NOT NULL,
@@ -8696,7 +8696,7 @@ USE `{$NAMESPACE}_repository`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `repository_commit_fdocument` (
+CREATE TABLE `repository_commit_fdocument` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectPHID` varbinary(64) NOT NULL,
   `isClosed` tinyint(1) NOT NULL,
@@ -8718,7 +8718,7 @@ USE `{$NAMESPACE}_repository`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `repository_commit_ffield` (
+CREATE TABLE `repository_commit_ffield` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `documentID` int(10) unsigned NOT NULL,
   `fieldKey` varchar(4) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -8735,7 +8735,7 @@ USE `{$NAMESPACE}_repository`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `repository_commit_fngrams` (
+CREATE TABLE `repository_commit_fngrams` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `documentID` int(10) unsigned NOT NULL,
   `ngram` char(3) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -8750,7 +8750,7 @@ USE `{$NAMESPACE}_repository`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `repository_commit_fngrams_common` (
+CREATE TABLE `repository_commit_fngrams_common` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `ngram` char(3) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `needsCollection` tinyint(1) NOT NULL,
@@ -8765,7 +8765,7 @@ USE `{$NAMESPACE}_repository`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `repository_commitdata` (
+CREATE TABLE `repository_commitdata` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `commitID` int(10) unsigned NOT NULL,
   `authorName` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -8781,7 +8781,7 @@ USE `{$NAMESPACE}_repository`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `repository_commithint` (
+CREATE TABLE `repository_commithint` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `repositoryPHID` varbinary(64) NOT NULL,
   `oldCommitIdentifier` varchar(40) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -8797,7 +8797,7 @@ USE `{$NAMESPACE}_repository`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `repository_coverage` (
+CREATE TABLE `repository_coverage` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `branchID` int(10) unsigned NOT NULL,
   `commitID` int(10) unsigned NOT NULL,
@@ -8813,7 +8813,7 @@ USE `{$NAMESPACE}_repository`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `repository_filesystem` (
+CREATE TABLE `repository_filesystem` (
   `repositoryID` int(10) unsigned NOT NULL,
   `parentID` int(10) unsigned NOT NULL,
   `svnCommit` int(10) unsigned NOT NULL,
@@ -8830,7 +8830,7 @@ USE `{$NAMESPACE}_repository`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `repository_gitlfsref` (
+CREATE TABLE `repository_gitlfsref` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `repositoryPHID` varbinary(64) NOT NULL,
   `objectHash` binary(64) NOT NULL,
@@ -8849,7 +8849,7 @@ USE `{$NAMESPACE}_repository`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `repository_identity` (
+CREATE TABLE `repository_identity` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `dateCreated` int(10) unsigned NOT NULL,
@@ -8872,7 +8872,7 @@ USE `{$NAMESPACE}_repository`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `repository_identitytransaction` (
+CREATE TABLE `repository_identitytransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -8899,7 +8899,7 @@ USE `{$NAMESPACE}_repository`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `repository_lintmessage` (
+CREATE TABLE `repository_lintmessage` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `branchID` int(10) unsigned NOT NULL,
   `path` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -8921,7 +8921,7 @@ USE `{$NAMESPACE}_repository`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `repository_mirror` (
+CREATE TABLE `repository_mirror` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `repositoryPHID` varbinary(64) NOT NULL,
@@ -8940,7 +8940,7 @@ USE `{$NAMESPACE}_repository`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `repository_oldref` (
+CREATE TABLE `repository_oldref` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `repositoryPHID` varbinary(64) NOT NULL,
   `commitIdentifier` varchar(40) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -8954,7 +8954,7 @@ USE `{$NAMESPACE}_repository`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `repository_parents` (
+CREATE TABLE `repository_parents` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `childCommitID` int(10) unsigned NOT NULL,
   `parentCommitID` int(10) unsigned NOT NULL,
@@ -8969,7 +8969,7 @@ USE `{$NAMESPACE}_repository`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `repository_path` (
+CREATE TABLE `repository_path` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `path` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `pathHash` binary(32) NOT NULL,
@@ -8983,7 +8983,7 @@ USE `{$NAMESPACE}_repository`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `repository_pathchange` (
+CREATE TABLE `repository_pathchange` (
   `repositoryID` int(10) unsigned NOT NULL,
   `pathID` int(10) unsigned NOT NULL,
   `commitID` int(10) unsigned NOT NULL,
@@ -9003,7 +9003,7 @@ USE `{$NAMESPACE}_repository`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `repository_pullevent` (
+CREATE TABLE `repository_pullevent` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `repositoryPHID` varbinary(64) DEFAULT NULL,
@@ -9026,7 +9026,7 @@ USE `{$NAMESPACE}_repository`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `repository_pushevent` (
+CREATE TABLE `repository_pushevent` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `repositoryPHID` varbinary(64) NOT NULL,
@@ -9054,7 +9054,7 @@ USE `{$NAMESPACE}_repository`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `repository_pushlog` (
+CREATE TABLE `repository_pushlog` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `epoch` int(10) unsigned NOT NULL,
@@ -9086,7 +9086,7 @@ USE `{$NAMESPACE}_repository`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `repository_refcursor` (
+CREATE TABLE `repository_refcursor` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `repositoryPHID` varbinary(64) NOT NULL,
@@ -9105,7 +9105,7 @@ USE `{$NAMESPACE}_repository`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `repository_refposition` (
+CREATE TABLE `repository_refposition` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `cursorID` int(10) unsigned NOT NULL,
   `commitIdentifier` varchar(40) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -9120,7 +9120,7 @@ USE `{$NAMESPACE}_repository`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `repository_repository_fdocument` (
+CREATE TABLE `repository_repository_fdocument` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectPHID` varbinary(64) NOT NULL,
   `isClosed` tinyint(1) NOT NULL,
@@ -9142,7 +9142,7 @@ USE `{$NAMESPACE}_repository`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `repository_repository_ffield` (
+CREATE TABLE `repository_repository_ffield` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `documentID` int(10) unsigned NOT NULL,
   `fieldKey` varchar(4) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -9159,7 +9159,7 @@ USE `{$NAMESPACE}_repository`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `repository_repository_fngrams` (
+CREATE TABLE `repository_repository_fngrams` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `documentID` int(10) unsigned NOT NULL,
   `ngram` char(3) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -9174,7 +9174,7 @@ USE `{$NAMESPACE}_repository`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `repository_repository_fngrams_common` (
+CREATE TABLE `repository_repository_fngrams_common` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `ngram` char(3) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `needsCollection` tinyint(1) NOT NULL,
@@ -9189,7 +9189,7 @@ USE `{$NAMESPACE}_repository`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `repository_statusmessage` (
+CREATE TABLE `repository_statusmessage` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `repositoryID` int(10) unsigned NOT NULL,
   `statusType` varchar(32) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -9207,7 +9207,7 @@ USE `{$NAMESPACE}_repository`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `repository_summary` (
+CREATE TABLE `repository_summary` (
   `repositoryID` int(10) unsigned NOT NULL,
   `size` int(10) unsigned NOT NULL,
   `lastCommitID` int(10) unsigned NOT NULL,
@@ -9222,7 +9222,7 @@ USE `{$NAMESPACE}_repository`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `repository_symbol` (
+CREATE TABLE `repository_symbol` (
   `repositoryPHID` varbinary(64) NOT NULL,
   `symbolContext` varchar(128) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `symbolName` varchar(128) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -9239,7 +9239,7 @@ USE `{$NAMESPACE}_repository`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `repository_syncevent` (
+CREATE TABLE `repository_syncevent` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `repositoryPHID` varbinary(64) NOT NULL,
@@ -9264,7 +9264,7 @@ USE `{$NAMESPACE}_repository`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `repository_transaction` (
+CREATE TABLE `repository_transaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -9291,7 +9291,7 @@ USE `{$NAMESPACE}_repository`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `repository_uri` (
+CREATE TABLE `repository_uri` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `repositoryPHID` varbinary(64) NOT NULL,
@@ -9315,7 +9315,7 @@ USE `{$NAMESPACE}_repository`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `repository_uriindex` (
+CREATE TABLE `repository_uriindex` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `repositoryPHID` varbinary(64) NOT NULL,
   `repositoryURI` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -9330,7 +9330,7 @@ USE `{$NAMESPACE}_repository`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `repository_uritransaction` (
+CREATE TABLE `repository_uritransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -9357,7 +9357,7 @@ USE `{$NAMESPACE}_repository`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `repository_workingcopyversion` (
+CREATE TABLE `repository_workingcopyversion` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `repositoryPHID` varbinary(64) NOT NULL,
   `devicePHID` varbinary(64) NOT NULL,
@@ -9377,7 +9377,7 @@ USE `{$NAMESPACE}_search`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edge` (
+CREATE TABLE `edge` (
   `src` varbinary(64) NOT NULL,
   `type` int(10) unsigned NOT NULL,
   `dst` varbinary(64) NOT NULL,
@@ -9395,7 +9395,7 @@ USE `{$NAMESPACE}_search`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edgedata` (
+CREATE TABLE `edgedata` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `data` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   PRIMARY KEY (`id`)
@@ -9407,7 +9407,7 @@ USE `{$NAMESPACE}_search`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `search_document` (
+CREATE TABLE `search_document` (
   `phid` varbinary(64) NOT NULL,
   `documentType` varchar(4) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `documentTitle` varchar(255) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -9424,7 +9424,7 @@ USE `{$NAMESPACE}_search`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `search_documentfield` (
+CREATE TABLE `search_documentfield` (
   `phid` varbinary(64) NOT NULL,
   `phidType` varchar(4) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `field` varchar(4) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -9441,7 +9441,7 @@ USE `{$NAMESPACE}_search`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `search_documentrelationship` (
+CREATE TABLE `search_documentrelationship` (
   `phid` varbinary(64) NOT NULL,
   `relatedPHID` varbinary(64) NOT NULL,
   `relation` varchar(4) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -9458,7 +9458,7 @@ USE `{$NAMESPACE}_search`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `search_editengineconfiguration` (
+CREATE TABLE `search_editengineconfiguration` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `engineKey` varchar(64) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -9487,7 +9487,7 @@ USE `{$NAMESPACE}_search`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `search_editengineconfigurationtransaction` (
+CREATE TABLE `search_editengineconfigurationtransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -9514,7 +9514,7 @@ USE `{$NAMESPACE}_search`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `search_indexversion` (
+CREATE TABLE `search_indexversion` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectPHID` varbinary(64) NOT NULL,
   `extensionKey` varchar(64) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -9529,7 +9529,7 @@ USE `{$NAMESPACE}_search`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `search_namedquery` (
+CREATE TABLE `search_namedquery` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `userPHID` varbinary(64) NOT NULL,
   `engineClassName` varchar(128) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -9550,7 +9550,7 @@ USE `{$NAMESPACE}_search`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `search_namedqueryconfig` (
+CREATE TABLE `search_namedqueryconfig` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `engineClassName` varchar(128) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `scopePHID` varbinary(64) NOT NULL,
@@ -9567,7 +9567,7 @@ USE `{$NAMESPACE}_search`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `search_profilepanelconfiguration` (
+CREATE TABLE `search_profilepanelconfiguration` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `profilePHID` varbinary(64) NOT NULL,
@@ -9590,7 +9590,7 @@ USE `{$NAMESPACE}_search`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `search_profilepanelconfigurationtransaction` (
+CREATE TABLE `search_profilepanelconfigurationtransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -9617,7 +9617,7 @@ USE `{$NAMESPACE}_search`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `search_savedquery` (
+CREATE TABLE `search_savedquery` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `engineClassName` varchar(255) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `parameters` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -9634,7 +9634,7 @@ USE `{$NAMESPACE}_search`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `stopwords` (
+CREATE TABLE `stopwords` (
   `value` varchar(32) CHARACTER SET {$CHARSET_SORT} COLLATE {$COLLATE_SORT} NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET={$CHARSET} COLLATE={$COLLATE_TEXT};
 
@@ -9648,7 +9648,7 @@ USE `{$NAMESPACE}_slowvote`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edge` (
+CREATE TABLE `edge` (
   `src` varbinary(64) NOT NULL,
   `type` int(10) unsigned NOT NULL,
   `dst` varbinary(64) NOT NULL,
@@ -9666,7 +9666,7 @@ USE `{$NAMESPACE}_slowvote`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edgedata` (
+CREATE TABLE `edgedata` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `data` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   PRIMARY KEY (`id`)
@@ -9678,7 +9678,7 @@ USE `{$NAMESPACE}_slowvote`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `slowvote_choice` (
+CREATE TABLE `slowvote_choice` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `pollID` int(10) unsigned NOT NULL,
   `optionID` int(10) unsigned NOT NULL,
@@ -9696,7 +9696,7 @@ USE `{$NAMESPACE}_slowvote`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `slowvote_option` (
+CREATE TABLE `slowvote_option` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `pollID` int(10) unsigned NOT NULL,
   `name` varchar(255) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -9712,7 +9712,7 @@ USE `{$NAMESPACE}_slowvote`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `slowvote_poll` (
+CREATE TABLE `slowvote_poll` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `question` varchar(255) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `phid` varbinary(64) NOT NULL,
@@ -9738,7 +9738,7 @@ USE `{$NAMESPACE}_slowvote`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `slowvote_transaction` (
+CREATE TABLE `slowvote_transaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -9765,7 +9765,7 @@ USE `{$NAMESPACE}_slowvote`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `slowvote_transaction_comment` (
+CREATE TABLE `slowvote_transaction_comment` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `transactionPHID` varbinary(64) DEFAULT NULL,
@@ -9791,7 +9791,7 @@ USE `{$NAMESPACE}_spaces`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edge` (
+CREATE TABLE `edge` (
   `src` varbinary(64) NOT NULL,
   `type` int(10) unsigned NOT NULL,
   `dst` varbinary(64) NOT NULL,
@@ -9809,7 +9809,7 @@ USE `{$NAMESPACE}_spaces`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edgedata` (
+CREATE TABLE `edgedata` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `data` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   PRIMARY KEY (`id`)
@@ -9821,7 +9821,7 @@ USE `{$NAMESPACE}_spaces`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `spaces_namespace` (
+CREATE TABLE `spaces_namespace` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `namespaceName` varchar(255) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -9843,7 +9843,7 @@ USE `{$NAMESPACE}_spaces`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `spaces_namespacetransaction` (
+CREATE TABLE `spaces_namespacetransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -9872,7 +9872,7 @@ USE `{$NAMESPACE}_system`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `system_actionlog` (
+CREATE TABLE `system_actionlog` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `actorHash` binary(12) NOT NULL,
   `actorIdentity` varchar(255) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -9890,7 +9890,7 @@ USE `{$NAMESPACE}_system`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `system_destructionlog` (
+CREATE TABLE `system_destructionlog` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectClass` varchar(128) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `rootLogID` int(10) unsigned DEFAULT NULL,
@@ -9909,7 +9909,7 @@ USE `{$NAMESPACE}_token`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `token_count` (
+CREATE TABLE `token_count` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectPHID` varbinary(64) NOT NULL,
   `tokenCount` int(10) unsigned NOT NULL,
@@ -9924,7 +9924,7 @@ USE `{$NAMESPACE}_token`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `token_given` (
+CREATE TABLE `token_given` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectPHID` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -9943,7 +9943,7 @@ USE `{$NAMESPACE}_token`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `token_token` (
+CREATE TABLE `token_token` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `name` varchar(64) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -9968,7 +9968,7 @@ USE `{$NAMESPACE}_user`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edge` (
+CREATE TABLE `edge` (
   `src` varbinary(64) NOT NULL,
   `type` int(10) unsigned NOT NULL,
   `dst` varbinary(64) NOT NULL,
@@ -9986,7 +9986,7 @@ USE `{$NAMESPACE}_user`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edgedata` (
+CREATE TABLE `edgedata` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `data` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   PRIMARY KEY (`id`)
@@ -9998,7 +9998,7 @@ USE `{$NAMESPACE}_user`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `phabricator_session` (
+CREATE TABLE `phabricator_session` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `userPHID` varbinary(64) NOT NULL,
   `type` varchar(32) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -10022,7 +10022,7 @@ USE `{$NAMESPACE}_user`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `user` (
+CREATE TABLE `user` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `userName` varchar(64) CHARACTER SET {$CHARSET_SORT} COLLATE {$COLLATE_SORT} NOT NULL,
@@ -10056,7 +10056,7 @@ USE `{$NAMESPACE}_user`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `user_authinvite` (
+CREATE TABLE `user_authinvite` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `authorPHID` varbinary(64) NOT NULL,
   `emailAddress` varchar(128) CHARACTER SET {$CHARSET_SORT} COLLATE {$COLLATE_SORT} NOT NULL,
@@ -10077,7 +10077,7 @@ USE `{$NAMESPACE}_user`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `user_cache` (
+CREATE TABLE `user_cache` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `userPHID` varbinary(64) NOT NULL,
   `cacheIndex` binary(12) NOT NULL,
@@ -10096,7 +10096,7 @@ USE `{$NAMESPACE}_user`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `user_configuredcustomfieldstorage` (
+CREATE TABLE `user_configuredcustomfieldstorage` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectPHID` varbinary(64) NOT NULL,
   `fieldIndex` binary(12) NOT NULL,
@@ -10111,7 +10111,7 @@ USE `{$NAMESPACE}_user`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `user_customfieldnumericindex` (
+CREATE TABLE `user_customfieldnumericindex` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectPHID` varbinary(64) NOT NULL,
   `indexKey` binary(12) NOT NULL,
@@ -10127,7 +10127,7 @@ USE `{$NAMESPACE}_user`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `user_customfieldstringindex` (
+CREATE TABLE `user_customfieldstringindex` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectPHID` varbinary(64) NOT NULL,
   `indexKey` binary(12) NOT NULL,
@@ -10143,7 +10143,7 @@ USE `{$NAMESPACE}_user`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `user_email` (
+CREATE TABLE `user_email` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `userPHID` varbinary(64) NOT NULL,
   `address` varchar(128) CHARACTER SET {$CHARSET_SORT} COLLATE {$COLLATE_SORT} NOT NULL,
@@ -10163,7 +10163,7 @@ USE `{$NAMESPACE}_user`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `user_externalaccount` (
+CREATE TABLE `user_externalaccount` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `userPHID` varbinary(64) DEFAULT NULL,
@@ -10194,7 +10194,7 @@ USE `{$NAMESPACE}_user`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `user_log` (
+CREATE TABLE `user_log` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `actorPHID` varbinary(64) DEFAULT NULL,
   `userPHID` varbinary(64) NOT NULL,
@@ -10221,7 +10221,7 @@ USE `{$NAMESPACE}_user`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `user_nametoken` (
+CREATE TABLE `user_nametoken` (
   `token` varchar(255) CHARACTER SET {$CHARSET_SORT} COLLATE {$COLLATE_SORT} NOT NULL,
   `userID` int(10) unsigned NOT NULL,
   KEY `token` (`token`(128)),
@@ -10234,7 +10234,7 @@ USE `{$NAMESPACE}_user`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `user_preferences` (
+CREATE TABLE `user_preferences` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `userPHID` varbinary(64) DEFAULT NULL,
   `preferences` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -10254,7 +10254,7 @@ USE `{$NAMESPACE}_user`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `user_preferencestransaction` (
+CREATE TABLE `user_preferencestransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -10281,7 +10281,7 @@ USE `{$NAMESPACE}_user`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `user_profile` (
+CREATE TABLE `user_profile` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `userPHID` varbinary(64) NOT NULL,
   `title` varchar(255) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -10300,7 +10300,7 @@ USE `{$NAMESPACE}_user`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `user_transaction` (
+CREATE TABLE `user_transaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -10327,7 +10327,7 @@ USE `{$NAMESPACE}_user`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `user_user_fdocument` (
+CREATE TABLE `user_user_fdocument` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `objectPHID` varbinary(64) NOT NULL,
   `isClosed` tinyint(1) NOT NULL,
@@ -10349,7 +10349,7 @@ USE `{$NAMESPACE}_user`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `user_user_ffield` (
+CREATE TABLE `user_user_ffield` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `documentID` int(10) unsigned NOT NULL,
   `fieldKey` varchar(4) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -10366,7 +10366,7 @@ USE `{$NAMESPACE}_user`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `user_user_fngrams` (
+CREATE TABLE `user_user_fngrams` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `documentID` int(10) unsigned NOT NULL,
   `ngram` char(3) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -10381,7 +10381,7 @@ USE `{$NAMESPACE}_user`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `user_user_fngrams_common` (
+CREATE TABLE `user_user_fngrams_common` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `ngram` char(3) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `needsCollection` tinyint(1) NOT NULL,
@@ -10398,7 +10398,7 @@ USE `{$NAMESPACE}_worker`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edge` (
+CREATE TABLE `edge` (
   `src` varbinary(64) NOT NULL,
   `type` int(10) unsigned NOT NULL,
   `dst` varbinary(64) NOT NULL,
@@ -10416,7 +10416,7 @@ USE `{$NAMESPACE}_worker`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `edgedata` (
+CREATE TABLE `edgedata` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `data` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   PRIMARY KEY (`id`)
@@ -10428,7 +10428,7 @@ USE `{$NAMESPACE}_worker`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `lisk_counter` (
+CREATE TABLE `lisk_counter` (
   `counterName` varchar(32) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `counterValue` bigint(20) unsigned NOT NULL,
   PRIMARY KEY (`counterName`)
@@ -10442,7 +10442,7 @@ USE `{$NAMESPACE}_worker`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `worker_activetask` (
+CREATE TABLE `worker_activetask` (
   `id` int(10) unsigned NOT NULL,
   `taskClass` varchar(64) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `leaseOwner` varchar(64) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} DEFAULT NULL,
@@ -10470,7 +10470,7 @@ USE `{$NAMESPACE}_worker`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `worker_archivetask` (
+CREATE TABLE `worker_archivetask` (
   `id` int(10) unsigned NOT NULL,
   `taskClass` varchar(64) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   `leaseOwner` varchar(64) CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} DEFAULT NULL,
@@ -10496,7 +10496,7 @@ USE `{$NAMESPACE}_worker`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `worker_bulkjob` (
+CREATE TABLE `worker_bulkjob` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -10520,7 +10520,7 @@ USE `{$NAMESPACE}_worker`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `worker_bulkjobtransaction` (
+CREATE TABLE `worker_bulkjobtransaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `authorPHID` varbinary(64) NOT NULL,
@@ -10547,7 +10547,7 @@ USE `{$NAMESPACE}_worker`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `worker_bulktask` (
+CREATE TABLE `worker_bulktask` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `bulkJobPHID` varbinary(64) NOT NULL,
   `objectPHID` varbinary(64) NOT NULL,
@@ -10564,7 +10564,7 @@ USE `{$NAMESPACE}_worker`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `worker_taskdata` (
+CREATE TABLE `worker_taskdata` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `data` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
   PRIMARY KEY (`id`)
@@ -10578,7 +10578,7 @@ USE `{$NAMESPACE}_worker`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `worker_trigger` (
+CREATE TABLE `worker_trigger` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `phid` varbinary(64) NOT NULL,
   `triggerVersion` int(10) unsigned NOT NULL,
@@ -10597,7 +10597,7 @@ USE `{$NAMESPACE}_worker`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `worker_triggerevent` (
+CREATE TABLE `worker_triggerevent` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `triggerID` int(10) unsigned NOT NULL,
   `lastEventEpoch` int(10) unsigned DEFAULT NULL,
@@ -10615,7 +10615,7 @@ USE `{$NAMESPACE}_xhpast`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `xhpast_parsetree` (
+CREATE TABLE `xhpast_parsetree` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `authorPHID` varbinary(64) DEFAULT NULL,
   `input` longtext CHARACTER SET {$CHARSET} COLLATE {$COLLATE_TEXT} NOT NULL,
@@ -10635,7 +10635,7 @@ USE `{$NAMESPACE}_xhprof`;
 
  SET character_set_client = {$CHARSET} ;
 
-CREATE TABLE IF NOT EXISTS `xhprof_sample` (
+CREATE TABLE `xhprof_sample` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `filePHID` varbinary(64) NOT NULL,
   `sampleRate` int(10) unsigned NOT NULL,
