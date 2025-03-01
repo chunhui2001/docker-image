@@ -1,12 +1,12 @@
-# chunhui2001/ubuntu_20.04_dev:zh-CN 
+# chunhui2001/ubuntu_20.04_dev:zh-CN
 # Version 0.0.1
 FROM ubuntu:20.04
-MAINTAINER Chunhui.Zhang "chunhui2001@gmail.com"
+#MAINTAINER Chunhui.Zhang "chunhui2001@gmail.com"
 
 ### 查看系统版本
 # cat /etc/issue
 ### Linux内核版本
-# cat /proc/version 
+# cat /proc/version
 # uname -a
 
 ### Install dev tools
@@ -15,7 +15,7 @@ RUN apt-get install -y vim build-essential lsb-release net-tools iputils-ping ap
 # 清理无用的包
 RUN apt-get clean && apt-get autoclean
 # 检查是否有损坏的依赖
-RUN apt-get check  	
+RUN apt-get check
 
 # 设定时区
 ENV TZ=Asia/Shanghai
