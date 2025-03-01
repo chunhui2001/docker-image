@@ -12,7 +12,7 @@ FROM chunhui2001/ubuntu_20.04_dev:zh-CN
 ### Install dev tools
 RUN apt-get update -y
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y curl git pkg-config libssl-dev clang nettle-dev cmake
-RUN apt-get install -y libsasl2-dev
+RUN apt-get install -y libsasl2-dev binutils
 RUN apt-get clean && apt-get autoclean
 
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --default-toolchain 1.85.0
