@@ -26,6 +26,8 @@ ENV CXX=clang++
 
 ENV RUSTFLAGS="-C target-cpu=generic"
 
+ENV PATH="/root/.cargo/bin:$PATH"
+
 WORKDIR /root
 
 # docker build -f Dockerfile . -t 'chunhui2001/ubuntu_20.04_dev:rust-1.85'
