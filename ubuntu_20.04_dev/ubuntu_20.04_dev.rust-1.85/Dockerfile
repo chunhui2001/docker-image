@@ -24,8 +24,6 @@ ENV OPENSSL_INCLUDE_DIR=/usr/include
 ENV CC=clang
 ENV CXX=clang++
 
-ENV RUSTFLAGS="-C target-cpu=generic"
-
 ENV PATH="/root/.cargo/bin:$PATH"
 
 RUN adduser --disabled-password --gecos '' rurst
