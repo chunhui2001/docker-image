@@ -28,6 +28,9 @@ ENV RUSTFLAGS="-C target-cpu=generic"
 
 ENV PATH="/root/.cargo/bin:$PATH"
 
+RUN adduser --disabled-password --gecos '' rurst
+RUN adduser rurst sudo
+
 WORKDIR /root
 
 # docker build -f Dockerfile . -t 'chunhui2001/ubuntu_20.04_dev:rust-1.85'
