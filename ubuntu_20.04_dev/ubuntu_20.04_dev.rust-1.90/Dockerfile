@@ -11,14 +11,18 @@ FROM chunhui2001/ubuntu_20.04_dev:zh-CN
 
 ### Install dev tools
 RUN apt-get update -y
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y curl git pkg-config libssl-dev clang nettle-dev cmake
-RUN apt-get install -y libsasl2-dev binutils
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y curl git pkg-config libssl-dev clang nettle-dev cmake libsasl2-dev binutils libvips-dev fakeroot libgflags-dev libsnappy-dev zlib1g-dev libbz2-dev liblz4-dev libzstd-dev devscripts debhelper g++
 RUN apt-get clean && apt-get autoclean
-
 
 ### check openssl version
 # openssl version -a
 # OpenSSL 1.1.1d  10 Sep 2019 (Library: OpenSSL 1.1.1f  31 Mar 2020)
+
+### 验证系统 vips 版本
+# vips --version
+
+### 验证 pkg-config
+# pkg-config --cflags --libs vips
 
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --default-toolchain 1.90.0
 
@@ -36,7 +40,6 @@ RUN rustup default 1.90.0-x86_64-unknown-linux-gnu
 RUN adduser --disabled-password --gecos '' rurst
 RUN adduser rurst sudo
 
-
 WORKDIR /root
 
 # docker build -f Dockerfile . -t 'chunhui2001/ubuntu_20.04_dev:rust-1.90'
@@ -47,3 +50,6 @@ WORKDIR /root
 
 # Open ports
 # EXPOSE 80
+
+
+
