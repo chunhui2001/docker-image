@@ -11,7 +11,7 @@ FROM chunhui2001/ubuntu_20.04_dev:zh-CN
 
 ### Install dev tools
 RUN apt-get update -y
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y curl git pkg-config libssl-dev clang nettle-dev cmake libsasl2-dev binutils libvips-dev fakeroot libgflags-dev libsnappy-dev zlib1g-dev libbz2-dev liblz4-dev libzstd-dev devscripts debhelper g++
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y curl git pkg-config libssl-dev clang nettle-dev cmake libsasl2-dev binutils libvips-dev fakeroot libgflags-dev libsnappy-dev zlib1g-dev libbz2-dev liblz4-dev libzstd-dev devscripts debhelper g++ exiftool
 RUN apt-get clean && apt-get autoclean
 
 ### check openssl version
