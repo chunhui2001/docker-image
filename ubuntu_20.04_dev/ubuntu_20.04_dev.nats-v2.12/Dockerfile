@@ -33,18 +33,18 @@ RUN go install github.com/nats-io/natscli/nats@latest
 ENV PATH="$PATH:/root/go/bin"
 
 ### 常用命令速查表
-# | 操作           	 | 命令                                     		|
-# | ---------------- | --------------------------------------------	|
-# | 发布消息         	 | `nats pub subject "msg"`                 	|
-# | 订阅消息         	 | `nats sub subject`                       	|
-# | 测试连接         	 | `nats ping`                              	|
-# | 查看服务器状态   	 | `nats server check`                      	|
-# | 创建 stream    	 | `nats stream add`                        	|
-# | 查看 stream 列表 	 | `nats stream ls`                         	|
-# | 查看 stream 详情 	 | `nats stream info <name>`                	|
-# | 创建 consumer  	 | `nats consumer add <stream> <name>`      	|
-# | 拉取消息         	 | `nats consumer next <stream> <consumer>` 	|
-# | 删除 stream    	 | `nats stream rm <name>`                  	|
+# | 操作           	 	| 命令                                  		|
+# | ------------------- | -----------------------------------------	|
+# | 发布消息         	| `nats pub subject "msg"`                 	|
+# | 订阅消息         	| `nats sub subject`                       	|
+# | 测试连接         	| `nats ping`                              	|
+# | 查看服务器状态   	 	| `nats server check`                      	|
+# | 创建 stream    	 	| `nats stream add`                        	|
+# | 查看 stream 列表 	| `nats stream ls`                         	|
+# | 查看 stream 详情 	| `nats stream info <name>`                	|
+# | 创建 consumer  	 	| `nats consumer add <stream> <name>`      	|
+# | 拉取消息         	| `nats consumer next <stream> <consumer>` 	|
+# | 删除 stream    	 	| `nats stream rm <name>`                  	|
 
 ## nats-cli
 # check the connection to the server
