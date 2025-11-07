@@ -30,6 +30,26 @@ ENV LC_ALL=zh_CN.UTF-8
 ENV TZ=Asia/Shanghai
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
+RUN cat <<'EOF' >> /root/.vimrc
+set nocompatible              " be iMproved, required
+set encoding=utf-8 			  " 一打开就有中文界面或 UTF-8 支持
+set fileencodings=utf-8,gbk,gb2312,cp936
+
+filetype off                  " required
+filetype plugin indent on     " 默认启用文件类型检测（自动缩进、语法规则等）
+
+syntax on                     " 启用语法高亮
+set tabstop=4                 " 一个 Tab = 4 个空格
+set softtabstop=4             " 退格时回退 4 个空格
+set shiftwidth=4              " 缩进宽度 4
+set expandtab                 " 用空格代替 Tab
+set nu                        " 显示行号
+set hlsearch                  " 高亮搜索
+set cursorline                " 高亮当前行
+hi CursorLine term=none cterm=BOLD
+hi CursorLineNR cterm=BOLD ctermbg=brown ctermfg=cyan
+EOF
+
 WORKDIR /root
 
 # docker build -f Dockerfile . -t 'chunhui2001/ubuntu_25.10:zh-CN'
