@@ -27,7 +27,7 @@ RUN adduser rurst sudo
 
 WORKDIR /root
 
-# docker build -f Dockerfile . -t 'chunhui2001/ubuntu_25.10:rust-1.90'
+# docker build --platform linux/amd64 -f Dockerfile . -t 'chunhui2001/ubuntu_25.10:rust-1.90'
 # docker run --platform linux/amd64 -dit --entrypoint="top" -P --name rust-1.90 chunhui2001/ubuntu_25.10:rust-1.90
 # docker run -dit -p 8080:8080 --name rust-1.90 chunhui2001/ubuntu_25.10:rust-1.90
 # docker push chunhui2001/ubuntu_25.10:rust-1.90
