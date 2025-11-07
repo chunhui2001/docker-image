@@ -9,26 +9,26 @@ FROM ubuntu:25.10
 # uname -a
 
 ### Install dev tools
-RUN apt-get update -y
-RUN apt-get install -y curl git pkg-config libssl-dev clang nettle-dev \
+RUN apt-get update -y && \
+apt-get install -y --no-install-recommends \
+curl git pkg-config libssl-dev clang nettle-dev \
 cmake libsasl2-dev binutils libvips-dev fakeroot \
 libgflags-dev libsnappy-dev zlib1g-dev libbz2-dev \
 liblz4-dev libzstd-dev devscripts debhelper g++ \
 exiftool vim build-essential lsb-release net-tools \
 iputils-ping apt-utils wget fonts-wqy-microhei \
-locales iproute2 && apt-get clean && apt-get autoclean
-
-# 设定时区
-ENV TZ=Asia/Shanghai
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-
-# 开启中文支持
-RUN locale-gen zh_CN.UTF-8 && DEBIAN_FRONTEND=noninteractive dpkg-reconfigure locales
-RUN locale-gen zh_CN.UTF-8
+locales iproute2 && apt-get clean && \
+rm -rf /var/lib/apt/lists/* && apt-get autoclean && \
+# 生成中文语言环境
+locale-gen zh_CN.UTF-8 && DEBIAN_FRONTEND=noninteractive dpkg-reconfigure locales
 
 ENV LANG=zh_CN.UTF-8
 ENV LANGUAGE=zh_CN:zh
 ENV LC_ALL=zh_CN.UTF-8
+
+# 设定时区
+ENV TZ=Asia/Shanghai
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 WORKDIR /root
 
