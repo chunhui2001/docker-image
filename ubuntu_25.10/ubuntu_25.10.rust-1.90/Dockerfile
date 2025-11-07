@@ -1,6 +1,6 @@
 # chunhui2001/ubuntu_25.10:rust-1.90
 # Version 0.0.1
-FROM chunhui2001/ubuntu_20.04_dev:zh-CN
+FROM chunhui2001/ubuntu_25.10:zh-CN
 #MAINTAINER Chunhui.Zhang "chunhui2001@gmail.com"
 
 ### 查看系统版本
