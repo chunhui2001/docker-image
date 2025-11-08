@@ -24,7 +24,7 @@ ln -s /usr/local/go${GOLANG_VERSION}.linux-amd64 /usr/local/go &&\
 rm -rf /usr/local/go${GOLANG_VERSION}.linux-amd64.tar.gz
 
 ENV PATH="$PATH:/usr/local/go/bin"
-#RUN go install github.com/nats-io/natscli/nats@latest
+RUN go install github.com/nats-io/natscli/nats@latest
 #ENV PATH="$PATH:/root/go/bin"
 
 ### 常用命令速查表
