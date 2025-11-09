@@ -57,7 +57,7 @@ RUN go install github.com/nats-io/natscli/nats@latest
 # 默认会在 4222 端口启动 TCP 服务。
 ENTRYPOINT ["./nats-server", "-c", "nats-server.conf"]
 
-# docker build -f Dockerfile . -t 'chunhui2001/ubuntu_25.10:nats-v2.12'
+# docker build --platform linux/amd64 -f Dockerfile . -t 'chunhui2001/ubuntu_25.10:nats-v2.12'
 # docker run --platform linux/amd64 -dit --entrypoint="top" -P --name nats-v2.12 chunhui2001/ubuntu_25.10:nats-v2.12
 # docker run -dit -p 4222:4222 --name nats-v2.12 chunhui2001/ubuntu_25.10:nats-v2.12
 # docker push chunhui2001/ubuntu_25.10:nats-v2.12

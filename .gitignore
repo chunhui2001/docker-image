@@ -77,3 +77,4 @@ mysql_data
 mysql_data2
 
 phabricator/phabricator/webroot/*.log
+nginx-work
