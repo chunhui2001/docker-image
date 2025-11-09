@@ -16,7 +16,7 @@ services:
     image: chunhui2001/ubuntu_1610_dev:nginx_1.9.15
     mem_limit: 100m
     ports:
-      - 8008:80
+      - 8100:80
       #- 18443:18443
     #entrypoint: ["/docker-entrypoint.sh"]
     volumes:
