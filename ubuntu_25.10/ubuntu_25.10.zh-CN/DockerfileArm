@@ -53,11 +53,11 @@ EOF
 
 WORKDIR /root
 
-# docker build --platform linux/amd64 -f Dockerfile . -t 'chunhui2001/ubuntu_25.10:zh-CN'
-# docker run -dit --entrypoint="top" -P --name ubuntu25.10 chunhui2001/ubuntu_25.10:zh-CN
-# docker run -dit -p 8080:8080 --name ubuntu25.10 chunhui2001/ubuntu_25.10:zh-CN
-# docker push chunhui2001/ubuntu_25.10:zh-CN
-# docker pull chunhui2001/ubuntu_25.10:zh-CN
+# docker build --platform linux/arm64 -f Dockerfile . -t 'chunhui2001/ubuntu_25.10:zh-CN_arm'
+# docker run -dit --entrypoint="top" -P --name ubuntu25.10 chunhui2001/ubuntu_25.10:zh-CN_arm
+# docker run -dit -p 8080:8080 --name ubuntu25.10 chunhui2001/ubuntu_25.10:zh-CN_arm
+# docker push chunhui2001/ubuntu_25.10:zh-CN_arm
+# docker pull chunhui2001/ubuntu_25.10:zh-CN_arm
 
 # Open ports
 # EXPOSE 80

@@ -1,0 +1,31 @@
+
+## 安装Docker Compose
+# curl -L https://github.com/docker/compose/releases/download/1.24.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+# chmod +x /usr/local/bin/docker-compose
+# docker-compose --version
+# docker-compose up -d
+
+networks:
+  br0:
+    external: true
+
+services:
+  etcd-3.6.8:
+    image: chunhui2001/ubuntu_25.10:etcd-3.6.8
+    container_name: etcd-3.6.8
+    hostname: etcd-3.6.8
+    ports:
+      - "2379:2379"
+      - "2380:2380"
+    command: >
+      /usr/local/etcd/etcd
+      --name etcd0
+      --data-dir /etcd-data
+      --advertise-client-urls http://etcd:2379
+      --listen-client-urls http://0.0.0.0:2379
+    #volumes:
+    #  - ./data:/etcd-data
+    restart: always
+    networks:
+        br0:
+          ipv4_address: 172.16.197.136

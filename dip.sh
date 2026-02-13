@@ -1,29 +1,84 @@
 #!/bin/bash
-function dip() {
-	_print_container_info() {
-	    local container_id
-	    local container_ports
-	    local container_ip
-	    local container_name
-	    container_id="${1}"
+docker network inspect br0 \
+| jq -r '
+  .[0].Containers
+  | to_entries[]
+  | "\(.value.Name)\t\(.value.IPv4Address | split("/") | .[0])\t\(.key)"
+' \
+| while IFS=$'\t' read -r name ip cid; do
 
-	    container_ports=( $(docker port "$container_id" | grep -o "0.0.0.0:.*" | cut -f2 -d:) )
-	    container_name="$(docker inspect --format "{{ .Name }}" "$container_id" | sed 's/\///')"
-	    container_ip="$(docker inspect --format "{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}" "$container_id")"
-	    printf "%-13s %-40s %-20s %-80s\n" "$container_id" "$container_name" "$container_ip" "${container_ports[*]}"
-	}
+    image=$(docker inspect -f '{{.Config.Image}}' "$cid" \
+        | sed 's#.*/##')
 
-	local container_id
-	container_id="$1"
-	printf "%-13s %-40s %-20s %-80s\n" 'Container Id' 'Container Name' 'Container IP' 'Container Ports'
-	if [ -z "$container_id" ]; then
-	    local container_id
-	    docker ps -a --format "{{.ID}}" | while read -r container_id ; do
-	        _print_container_info  "$container_id"
-	    done
-	else
-	    _print_container_info  "$container_id"
-	fi
+    state=$(docker ps -a --filter id=$cid --format '{{.Status}}')
+
+    ports=$(docker inspect -f '
+      {{range $p, $conf := .NetworkSettings.Ports}}
+        {{if $conf}}{{printf "%-12s->%s;" $p (index $conf 0).HostPort}}{{end}}
+      {{end}}
+    ' "$cid" | tr -d '\n' | sed 's/;$//')
+
+    printf "%s\t%s\t%s\t%s\t%s\n" \
+        "$image" "$name" "$state" "$ip" "${ports:-}"
+
+done \
+| sort -t $'\t' -k4,4V \
+| awk -F'\t' '
+
+function trim(s) {
+    gsub(/^[ \t]+|[ \t]+$/, "", s)
+    return s
 }
 
-dip
+{
+    image[NR]  = $1
+    name[NR]   = $2
+    state[NR]  = $3
+    ip[NR]     = $4
+
+    if ($5 != "") {
+
+        n = split($5, p, ";")
+
+        for (i=1;i<=n;i++) {
+
+            p[i] = trim(p[i])
+
+            if (p[i] != "") {
+                data[NR,i] = p[i]
+                if (i > max) max = i
+            }
+        }
+    }
+}
+
+END {
+
+    printf "+--------------------------------+---------------------------+-------------------+-------------------+"
+    for (i=1;i<=max;i++) printf "----------------------+"
+    print ""
+
+    printf "| %-30s | %-25s | %-17s | %-17s |", "Image", "Container", "Status", "IP"
+    for (i=1;i<=max;i++) printf " %-20s |", sprintf("Port%d", i)
+    print ""
+
+    printf "+--------------------------------+---------------------------+-------------------+-------------------+"
+    for (i=1;i<=max;i++) printf "----------------------+"
+    print ""
+
+    for (i=1;i<=NR;i++) {
+
+        printf "| %-30s | %-25s | %-17s | %-17s |",
+               image[i], name[i], state[i], ip[i]
+
+        for (j=1;j<=max;j++) {
+            printf " %-20s |", data[i,j]
+        }
+
+        print ""
+    }
+
+    printf "+--------------------------------+---------------------------+-------------------+-------------------+"
+    for (i=1;i<=max;i++) printf "----------------------+"
+    print ""
+}'

@@ -2,9 +2,9 @@ node:
   id: tenant-0
   cluster: demo-cluster
   metadata:
-    server_host: 127.0.0.1
+    server_host: host.docker.internal
     server_port: 10000
-    admin_host: 127.0.0.1
+    admin_host: host.docker.internal
     admin_port: 9901
 
   locality:
@@ -110,12 +110,12 @@ static_resources:
                     socket_address:
                       # address: host.docker.internal
                       address: 127.0.0.1
-                      port_value: 18100
+                      port_value: 18000
 
 dynamic_resources:
   ads_config:
-    api_type: GRPC
-    # api_type: DELTA_GRPC
+    # api_type: GRPC
+    api_type: DELTA_GRPC
     # transport_api_version: V3
     grpc_services:
       - envoy_grpc:

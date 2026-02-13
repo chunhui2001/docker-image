@@ -2,9 +2,9 @@ node:
   id: tenant-0
   cluster: demo-cluster
   metadata:
-    server_host: 127.0.0.1
+    server_host: envoy-1.37.0
     server_port: 10000
-    admin_host: 127.0.0.1
+    admin_host: envoy-1.37.0
     admin_port: 9901
 
   locality:
@@ -109,7 +109,7 @@ static_resources:
                   address:
                     socket_address:
                       # address: host.docker.internal
-                      address: 127.0.0.1
+                      address: xds-envoy
                       port_value: 18100
 
 dynamic_resources:

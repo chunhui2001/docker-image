@@ -1,0 +1,38 @@
+
+## 安装Docker Compose
+# curl -L https://github.com/docker/compose/releases/download/1.24.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+# chmod +x /usr/local/bin/docker-compose
+# docker-compose --version
+# docker-compose up -d
+
+
+networks:
+    br0:
+      external: true
+
+services:
+  envoy-1.37.2:
+    container_name: envoy-1.37.2
+    image: chunhui2001/debian_13:envoy-1.37.2_arm
+    platform: linux/arm64
+    hostname: envoy-1.37.2
+    #mem_limit: 300m
+    #entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
+    entrypoint: ["envoy", "-c", "/etc/envoy/envoy.yaml", "--log-level", "info"]
+    ports:
+      - 10000:10000 # envoy server bootstrap 端口
+      - 19901:9901  # envoy server admin 端口
+      - 19936:19936 # listener infura service 端口
+      - 18990:18990 # listener binance stream 端口
+      - 18111:18111 # listener zero4go 端口
+      - 19200:19200 # listener zero4rs 端口
+      - 16600:16600 # listener blog 端口
+    volumes:
+      #- ./envoy-demo.yaml:/etc/envoy/envoy.yaml:ro
+      - ./envoy-docker.yaml:/etc/envoy/envoy.yaml:ro
+      - ./xds_log_wasm.wasm:/etc/envoy/xds_log_wasm.wasm:ro
+      - ./logs:/tmp/logs
+    restart: always
+    networks:
+        br0:
+          ipv4_address: 172.16.197.157

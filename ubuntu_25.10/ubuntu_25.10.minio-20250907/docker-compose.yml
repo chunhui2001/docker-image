@@ -1,0 +1,28 @@
+
+## 安装Docker Compose
+# curl -L https://github.com/docker/compose/releases/download/1.24.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+# chmod +x /usr/local/bin/docker-compose
+# docker-compose --version
+# docker-compose up -d
+
+networks:
+  br0:
+    external: true
+
+services:
+  aistor-server:
+    image: minio/minio
+    container_name: aistor-server
+    hostname: aistor-server
+    ports:
+      - "9100:9000"
+      - "9011:9001"
+    environment:
+      #- TZ=UTC
+      - MINIO_ROOT_USER=minio
+      - MINIO_ROOT_PASSWORD=minio123
+    command: server /data --console-address ":9001"
+    restart: always
+    networks:
+        br0:
+          ipv4_address: 172.16.197.133
