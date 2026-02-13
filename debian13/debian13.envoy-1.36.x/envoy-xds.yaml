@@ -2,12 +2,22 @@ node:
   id: tenant-0
   cluster: demo-cluster
 
-#admin:
-#  access_log_path: "/dev/stdout"
-#  address:
-#    socket_address:
-#      address: 0.0.0.0
-#      port_value: 9901
+admin:
+  access_log_path: "/dev/stdout"
+  address:
+    socket_address:
+      address: 0.0.0.0
+      port_value: 9901
+
+
+stats_config:
+  stats_matcher:
+    inclusion_list:
+      patterns:
+        - prefix: "cluster."
+        - prefix: "http."
+        - prefix: "listener."
+        - prefix: "server."
 
 static_resources:
   listeners:
@@ -69,10 +79,6 @@ dynamic_resources:
     ads: {}
   cds_config:
     ads: {}
-
-
-
-
 
 
 
