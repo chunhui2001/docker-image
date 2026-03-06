@@ -2,8 +2,15 @@ node:
   id: tenant-0
   cluster: demo-cluster
   metadata:
+    server_host: 127.0.0.1
+    server_port: 10000
     admin_host: 127.0.0.1
     admin_port: 9901
+
+  locality:
+    region: us-west
+    zone: us-west-1a
+    sub_zone: rack-a
 
 admin:
   access_log_path: "/dev/stdout"
@@ -110,6 +117,3 @@ dynamic_resources:
     ads: {}
   cds_config:
     ads: {}
-
-
-

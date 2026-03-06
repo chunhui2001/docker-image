@@ -1,6 +1,6 @@
-# chunhui2001/debian_13:envoy-1.36.x
+# chunhui2001/debian_13:clickhouse-26.2
 # Version 0.0.1
-FROM envoyproxy/envoy:v1.36-latest
+FROM clickhouse/clickhouse-server:26.2
 MAINTAINER Chunhui.Zhang "chunhui2001@gmail.com"
 
 ### 查看系统版本
@@ -38,9 +38,15 @@ ENV LC_ALL=zh_CN.UTF-8
 RUN localedef -c -f UTF-8 -i zh_CN zh_CN.utf8
 
 
-# docker build -f Dockerfile . -t 'chunhui2001/debian_13:envoy-1.36.x'
-# docker run -dit --entrypoint="top" -P --name envoy-1.36.x chunhui2001/debian_13:envoy-1.36.x
-# docker run -dit -p 5000:5000 --name envoy-1.36.x chunhui2001/debian_13:envoy-1.36.x
-# docker push chunhui2001/debian_13:envoy-1.36.x
-# docker pull chunhui2001/debian_13:envoy-1.36.x
+# docker build -f Dockerfile . -t 'chunhui2001/debian_13:clickhouse-26.2'
+# docker run -dit --entrypoint="top" -P --name envoy-1.36.x chunhui2001/debian_13:clickhouse-26.2
+# docker run -dit -p 5000:5000 --name envoy-1.36.x chunhui2001/debian_13:clickhouse-26.2
+# docker push chunhui2001/debian_13:clickhouse-26.2
+# docker pull chunhui2001/debian_13:clickhouse-26.2
+
+# docker run -d --name clickhouse-server \
+#     -p 9000:9000 \   # TCP 端口，用于客户端连接
+#     -p 8123:8123 \   # HTTP 接口
+#     -v clickhouse_data:/var/lib/clickhouse \  # 数据持久化
+#     clickhouse/clickhouse-server:latest
 
