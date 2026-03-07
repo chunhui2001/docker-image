@@ -65,6 +65,15 @@ ORDER BY (user_token, remote_ip, day);
 2026-03-07 token1 1.1.1.1 bytes=100 req=1
 2026-03-07 token1 1.1.1.1 bytes=200 req=1
 
+-- Merge 规则核心
+> 按 ORDER BY key 合并
+> Merge 只会把 ORDER BY 定义的 key 相同的行合并
+> 也就是说，user_id、remote_ip、cluster_name、request_path、day 必须完全相同，才会累加 rx/tx/rq
+> 数值列累加: rx, tx, rq 会直接做加法, 后台 merge 后结果 = 所有 part 对应 key 的数值累加
+> 非数值列: ClickHouse 不会累加 String 列
+> 非数值列: 保留第一行的值（在某些版本可通过 summing_merge_tree_use_nulls=1 控制）
+> 所以在合并时非数值列的值不会变
+
 -- merge 后会变成：
 2026-03-07 token1 1.1.1.1 bytes=300 req=2
 
@@ -127,20 +136,35 @@ PARTITION BY toYYYYMM(day)
 CREATE TABLE access_log_daily
 (
     day Date,
-    user_token String,
+    user_id String,
     remote_ip IPv6,
-    bytes_received UInt64,
-    bytes_sent UInt64,
-    request_count UInt64
+
+    cluster_name String,
+    request_path String,
+    upstream_path String,
+    status_code String,
+
+    rx UInt64,
+    tx UInt64,
+    rq UInt64
 )
 ENGINE = SummingMergeTree
 PARTITION BY toYYYYMM(day)
-ORDER BY (user_token, remote_ip, day);
+ORDER BY (user_id, remote_ip, cluster_name, request_path, upstream_path, status_code, day);
 
 > ClickHouse 的 IPv6 类型 可以同时存 IPv4 和 IPv6。
 > INSERT INTO access_log_daily VALUES
   ('2026-03-07','token1','1.2.3.4',1000,2000,1);
 > ClickHouse 会自动存成：::ffff:1.2.3.4
+
+-- Merge 规则核心
+> 按 ORDER BY key 合并
+> Merge 只会把 ORDER BY 定义的 key 相同的行合并
+> 也就是说，user_id、remote_ip、cluster_name、request_path、day 必须完全相同，才会累加 rx/tx/rq
+> 数值列累加: rx, tx, rq 会直接做加法, 后台 merge 后结果 = 所有 part 对应 key 的数值累加
+> 非数值列: ClickHouse 不会累加 String 列
+> 非数值列: 保留第一行的值（在某些版本可通过 summing_merge_tree_use_nulls=1 控制）
+> 所以在合并时非数值列的值不会变
 
 -- 插入 IPv6
 INSERT INTO access_log_daily VALUES
