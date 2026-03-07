@@ -18,6 +18,10 @@ services:
     #mem_limit: 300m
     #entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
     #command: /usr/local/elasticsearch/bin/elasticsearch
+    environment:
+      - CLICKHOUSE_DB=default
+      - CLICKHOUSE_USER=default
+      - CLICKHOUSE_PASSWORD=123456
     ports:
       - 19000:9000
       - 18123:8123
