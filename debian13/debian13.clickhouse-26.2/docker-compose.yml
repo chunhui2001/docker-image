@@ -1,0 +1,30 @@
+
+## 安装Docker Compose
+# curl -L https://github.com/docker/compose/releases/download/1.24.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+# chmod +x /usr/local/bin/docker-compose
+# docker-compose --version
+# docker-compose up -d
+
+
+networks:
+    br0:
+      external: true
+
+services:
+  clickhouse-26.2:
+    container_name: clickhouse-26.2
+    image: chunhui2001/debian_13:clickhouse-26.2
+    hostname: clickhouse-26.2
+    #mem_limit: 300m
+    #entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
+    #command: /usr/local/elasticsearch/bin/elasticsearch
+    ports:
+      - 19000:9000
+      - 18123:8123
+    volumes:
+      - ./entrypoint.sh:/entrypoint.sh:ro
+    restart: always
+    networks:
+        br0:
+          ipv4_address: 172.16.197.212
+
