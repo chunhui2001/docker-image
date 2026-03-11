@@ -16,7 +16,7 @@ cmake libsasl2-dev binutils libvips-dev fakeroot \
 libgflags-dev libsnappy-dev zlib1g-dev libbz2-dev \
 liblz4-dev libzstd-dev devscripts debhelper g++ \
 exiftool vim build-essential lsb-release net-tools \
-iputils-ping apt-utils wget fonts-wqy-microhei \
+iputils-ping apt-utils wget fonts-wqy-microhei autoconf automake libtool make unzip cmake fontconfig libxml2-dev libxslt1-dev liblzma-dev zlib1g-dev \
 locales iproute2 && apt-get clean && \
 rm -rf /var/lib/apt/lists/* && apt-get autoclean && \
 # 生成中文语言环境

@@ -1,0 +1,596 @@
+2026-03-11 17:59:56,517 INFO o.a.j.u.JMeterUtils: Setting Locale to en_EN
+2026-03-11 17:59:56,594 INFO o.a.j.JMeter: Loading user properties from: /opt/apache-jmeter-5.6.3/bin/user.properties
+2026-03-11 17:59:56,595 INFO o.a.j.JMeter: Loading system properties from: /opt/apache-jmeter-5.6.3/bin/system.properties
+2026-03-11 17:59:56,616 INFO o.a.j.JMeter: Copyright (c) 1998-2024 The Apache Software Foundation
+2026-03-11 17:59:56,616 INFO o.a.j.JMeter: Version 5.6.3
+2026-03-11 17:59:56,617 INFO o.a.j.JMeter: java.version=17.0.2
+2026-03-11 17:59:56,619 INFO o.a.j.JMeter: java.vm.name=Java HotSpot(TM) 64-Bit Server VM
+2026-03-11 17:59:56,619 INFO o.a.j.JMeter: os.name=Mac OS X
+2026-03-11 17:59:56,619 INFO o.a.j.JMeter: os.arch=x86_64
+2026-03-11 17:59:56,620 INFO o.a.j.JMeter: os.version=15.7.1
+2026-03-11 17:59:56,620 INFO o.a.j.JMeter: file.encoding=UTF-8
+2026-03-11 17:59:56,621 INFO o.a.j.JMeter: java.awt.headless=null
+2026-03-11 17:59:56,621 INFO o.a.j.JMeter: Max memory     =1073741824
+2026-03-11 17:59:56,622 INFO o.a.j.JMeter: Available Processors =12
+2026-03-11 17:59:56,658 INFO o.a.j.JMeter: Default Locale=English (EN)
+2026-03-11 17:59:56,662 INFO o.a.j.JMeter: JMeter  Locale=English (EN)
+2026-03-11 17:59:56,665 INFO o.a.j.JMeter: JMeterHome=/opt/apache-jmeter-5.6.3
+2026-03-11 17:59:56,666 INFO o.a.j.JMeter: user.dir  =/Users/keesh/workspace/docker-image/ubuntu_25.10/ubuntu_25.10.grafana_7.3
+2026-03-11 17:59:56,667 INFO o.a.j.JMeter: PWD       =/Users/keesh/workspace/docker-image/ubuntu_25.10/ubuntu_25.10.grafana_7.3
+2026-03-11 17:59:57,019 INFO o.a.j.JMeter: IP: 192.168.20.21 Name: C02G2018MD6M FullName: 192.168.20.21
+2026-03-11 17:59:57,044 INFO o.a.j.JMeter: Loaded icon properties from org/apache/jmeter/images/icon.properties
+2026-03-11 18:00:00,372 INFO o.a.j.JMeterGuiLauncher: Setting LAF to: com.github.weisj.darklaf.DarkLaf:com.github.weisj.darklaf.theme.DarculaTheme
+2026-03-11 18:00:13,480 INFO o.a.j.s.FileServer: Default base='/Users/keesh/workspace/docker-image/ubuntu_25.10/ubuntu_25.10.grafana_7.3'
+2026-03-11 18:00:13,483 INFO o.a.j.g.a.Load: Loading file: /Users/keesh/Graph Results.jmx
+2026-03-11 18:00:13,483 INFO o.a.j.s.FileServer: Set new base='/Users/keesh'
+2026-03-11 18:00:13,631 INFO o.a.j.s.SaveService: Testplan (JMX) version: 2.2. Testlog (JTL) version: 2.2
+2026-03-11 18:00:13,661 INFO o.a.j.s.SaveService: Using SaveService properties version 5.0
+2026-03-11 18:00:13,662 INFO o.a.j.s.SaveService: Using SaveService properties file encoding UTF-8
+2026-03-11 18:00:13,663 INFO o.a.j.s.SaveService: Loading file: /Users/keesh/Graph Results.jmx
+2026-03-11 18:00:13,686 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/html is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2026-03-11 18:00:13,686 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xhtml+xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2026-03-11 18:00:13,687 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2026-03-11 18:00:13,687 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2026-03-11 18:00:13,687 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/vnd.wap.wml is org.apache.jmeter.protocol.http.parser.RegexpHTMLParser
+2026-03-11 18:00:13,687 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/css is org.apache.jmeter.protocol.http.parser.CssParser
+2026-03-11 18:00:13,830 INFO o.a.j.s.SampleResult: Note: Sample TimeStamps are START times
+2026-03-11 18:00:13,831 INFO o.a.j.s.SampleResult: sampleresult.default.encoding is set to UTF-8
+2026-03-11 18:00:13,831 INFO o.a.j.s.SampleResult: sampleresult.useNanoTime=true
+2026-03-11 18:00:13,831 INFO o.a.j.s.SampleResult: sampleresult.nanoThreadSleep=5000
+2026-03-11 18:00:14,153 INFO o.a.j.s.FileServer: Set new base='/Users/keesh'
+2026-03-11 18:00:27,310 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2026-03-11 18:00:27,311 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2026-03-11 18:00:27,311 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2026-03-11 18:00:27,312 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must contain the string: '.functions.'
+2026-03-11 18:00:27,312 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must not contain the string: '.gui.'
+2026-03-11 18:00:27,367 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
+2026-03-11 18:00:27,393 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Thread Group
+2026-03-11 18:00:27,393 INFO o.a.j.e.StandardJMeterEngine: Starting 100 threads for group Thread Group.
+2026-03-11 18:00:27,393 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2026-03-11 18:00:27,393 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=100 ramp-up=5 delayedStart=false
+2026-03-11 18:00:27,395 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-1
+2026-03-11 18:00:27,408 INFO o.a.j.p.h.s.HTTPHCAbstractImpl: Local host = C02G2018MD6M
+2026-03-11 18:00:27,412 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2026-03-11 18:00:27,412 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2026-03-11 18:00:27,415 INFO o.a.j.p.h.s.HTTPHC4Impl: HTTP request retry count = 0
+2026-03-11 18:00:27,451 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-2
+2026-03-11 18:00:27,497 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-3
+2026-03-11 18:00:27,548 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-4
+2026-03-11 18:00:27,598 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-5
+2026-03-11 18:00:27,649 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-6
+2026-03-11 18:00:27,698 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-7
+2026-03-11 18:00:27,752 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-8
+2026-03-11 18:00:27,801 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-9
+2026-03-11 18:00:27,848 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-10
+2026-03-11 18:00:27,898 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-11
+2026-03-11 18:00:27,949 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-12
+2026-03-11 18:00:27,997 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-13
+2026-03-11 18:00:28,044 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-14
+2026-03-11 18:00:28,094 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-15
+2026-03-11 18:00:28,144 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-16
+2026-03-11 18:00:28,197 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-17
+2026-03-11 18:00:28,244 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-18
+2026-03-11 18:00:28,294 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-19
+2026-03-11 18:00:28,345 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-20
+2026-03-11 18:00:28,394 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-21
+2026-03-11 18:00:28,445 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-22
+2026-03-11 18:00:28,494 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-23
+2026-03-11 18:00:28,547 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-24
+2026-03-11 18:00:28,594 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-25
+2026-03-11 18:00:28,643 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-26
+2026-03-11 18:00:28,694 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-27
+2026-03-11 18:00:28,751 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-28
+2026-03-11 18:00:28,802 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-29
+2026-03-11 18:00:28,851 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-30
+2026-03-11 18:00:28,898 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-31
+2026-03-11 18:00:28,943 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-32
+2026-03-11 18:00:28,994 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-33
+2026-03-11 18:00:29,044 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-34
+2026-03-11 18:00:29,097 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-35
+2026-03-11 18:00:29,144 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-36
+2026-03-11 18:00:29,193 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-37
+2026-03-11 18:00:29,243 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-38
+2026-03-11 18:00:29,297 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-39
+2026-03-11 18:00:29,350 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-40
+2026-03-11 18:00:29,396 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-41
+2026-03-11 18:00:29,443 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-42
+2026-03-11 18:00:29,500 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-43
+2026-03-11 18:00:29,543 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-44
+2026-03-11 18:00:29,597 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-45
+2026-03-11 18:00:29,644 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-46
+2026-03-11 18:00:29,697 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-47
+2026-03-11 18:00:29,744 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-48
+2026-03-11 18:00:29,795 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-49
+2026-03-11 18:00:29,847 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-50
+2026-03-11 18:00:29,901 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-51
+2026-03-11 18:00:29,944 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-52
+2026-03-11 18:00:29,997 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-53
+2026-03-11 18:00:30,002 INFO o.a.j.r.Summariser: Generate Summary Results +   4007 in 00:00:03 = 1521.8/s Avg:    15 Min:     3 Max:   465 Err:     0 (0.00%) Active: 53 Started: 53 Finished: 0
+2026-03-11 18:00:30,043 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-54
+2026-03-11 18:00:30,096 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-55
+2026-03-11 18:00:30,143 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-56
+2026-03-11 18:00:30,200 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-57
+2026-03-11 18:00:30,248 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-58
+2026-03-11 18:00:30,302 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-59
+2026-03-11 18:00:30,351 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-60
+2026-03-11 18:00:30,393 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-61
+2026-03-11 18:00:30,444 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-62
+2026-03-11 18:00:30,502 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-63
+2026-03-11 18:00:30,544 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-64
+2026-03-11 18:00:30,601 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-65
+2026-03-11 18:00:30,644 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-66
+2026-03-11 18:00:30,698 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-67
+2026-03-11 18:00:30,752 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-68
+2026-03-11 18:00:30,797 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-69
+2026-03-11 18:00:30,845 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-70
+2026-03-11 18:00:30,903 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-71
+2026-03-11 18:00:30,947 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-72
+2026-03-11 18:00:31,003 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-73
+2026-03-11 18:00:31,047 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-74
+2026-03-11 18:00:31,097 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-75
+2026-03-11 18:00:31,144 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-76
+2026-03-11 18:00:31,198 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-77
+2026-03-11 18:00:31,246 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-78
+2026-03-11 18:00:31,300 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-79
+2026-03-11 18:00:31,351 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-80
+2026-03-11 18:00:31,397 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-81
+2026-03-11 18:00:31,445 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-82
+2026-03-11 18:00:31,494 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-83
+2026-03-11 18:00:31,544 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-84
+2026-03-11 18:00:31,594 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-85
+2026-03-11 18:00:31,647 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-86
+2026-03-11 18:00:31,693 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-87
+2026-03-11 18:00:31,748 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-88
+2026-03-11 18:00:31,795 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-89
+2026-03-11 18:00:31,845 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-90
+2026-03-11 18:00:31,894 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-91
+2026-03-11 18:00:31,943 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-92
+2026-03-11 18:00:31,994 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-93
+2026-03-11 18:00:32,048 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-94
+2026-03-11 18:00:32,099 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-95
+2026-03-11 18:00:32,145 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-96
+2026-03-11 18:00:32,197 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-97
+2026-03-11 18:00:32,250 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-98
+2026-03-11 18:00:32,297 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-99
+2026-03-11 18:00:32,344 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-100
+2026-03-11 18:01:00,004 INFO o.a.j.r.Summariser: Generate Summary Results +  87034 in 00:00:30 = 2900.7/s Avg:    32 Min:     3 Max:   312 Err:     0 (0.00%) Active: 100 Started: 100 Finished: 0
+2026-03-11 18:01:00,006 INFO o.a.j.r.Summariser: Generate Summary Results =  91041 in 00:00:33 = 2789.5/s Avg:    31 Min:     3 Max:   465 Err:     0 (0.00%)
+2026-03-11 18:01:30,002 INFO o.a.j.r.Summariser: Generate Summary Results +  90817 in 00:00:30 = 3027.5/s Avg:    32 Min:     6 Max:   167 Err:     0 (0.00%) Active: 100 Started: 100 Finished: 0
+2026-03-11 18:01:30,004 INFO o.a.j.r.Summariser: Generate Summary Results = 181858 in 00:01:03 = 2903.5/s Avg:    32 Min:     3 Max:   465 Err:     0 (0.00%)
+2026-03-11 18:01:31,167 INFO o.a.j.g.a.Start: Stopping test
+2026-03-11 18:01:31,208 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-16
+2026-03-11 18:01:31,209 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-16 sampler: 10005-zero4rs
+2026-03-11 18:01:31,214 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-30
+2026-03-11 18:01:31,214 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-30 sampler: 10005-zero4rs
+2026-03-11 18:01:31,215 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-52
+2026-03-11 18:01:31,215 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-52 sampler: 10005-zero4rs
+2026-03-11 18:01:31,215 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-11
+2026-03-11 18:01:31,215 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-11 sampler: 10005-zero4rs
+2026-03-11 18:01:31,216 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-36
+2026-03-11 18:01:31,216 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-36 sampler: 10005-zero4rs
+2026-03-11 18:01:31,216 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-30
+2026-03-11 18:01:31,216 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-52
+2026-03-11 18:01:31,216 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-83
+2026-03-11 18:01:31,216 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-16
+2026-03-11 18:01:31,216 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-83 sampler: 10005-zero4rs
+2026-03-11 18:01:31,216 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-11
+2026-03-11 18:01:31,217 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-54
+2026-03-11 18:01:31,217 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-54 sampler: 10005-zero4rs
+2026-03-11 18:01:31,217 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-88
+2026-03-11 18:01:31,217 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-36
+2026-03-11 18:01:31,217 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-88 sampler: 10005-zero4rs
+2026-03-11 18:01:31,217 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-83
+2026-03-11 18:01:31,217 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-56
+2026-03-11 18:01:31,218 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-56 sampler: 10005-zero4rs
+2026-03-11 18:01:31,218 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-54
+2026-03-11 18:01:31,218 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-57
+2026-03-11 18:01:31,218 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-57 sampler: 10005-zero4rs
+2026-03-11 18:01:31,218 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-88
+2026-03-11 18:01:31,218 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-31
+2026-03-11 18:01:31,219 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-31 sampler: 10005-zero4rs
+2026-03-11 18:01:31,219 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-56
+2026-03-11 18:01:31,219 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-44
+2026-03-11 18:01:31,219 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-44 sampler: 10005-zero4rs
+2026-03-11 18:01:31,219 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-57
+2026-03-11 18:01:31,219 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-72
+2026-03-11 18:01:31,219 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-72 sampler: 10005-zero4rs
+2026-03-11 18:01:31,220 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-31
+2026-03-11 18:01:31,220 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-82
+2026-03-11 18:01:31,220 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-82 sampler: 10005-zero4rs
+2026-03-11 18:01:31,220 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-44
+2026-03-11 18:01:31,220 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-47
+2026-03-11 18:01:31,220 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-47 sampler: 10005-zero4rs
+2026-03-11 18:01:31,220 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-72
+2026-03-11 18:01:31,221 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-24
+2026-03-11 18:01:31,221 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-24 sampler: 10005-zero4rs
+2026-03-11 18:01:31,221 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-82
+2026-03-11 18:01:31,221 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-84
+2026-03-11 18:01:31,221 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-47
+2026-03-11 18:01:31,221 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-84 sampler: 10005-zero4rs
+2026-03-11 18:01:31,222 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-24
+2026-03-11 18:01:31,222 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-12
+2026-03-11 18:01:31,222 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-12 sampler: 10005-zero4rs
+2026-03-11 18:01:31,222 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-73
+2026-03-11 18:01:31,222 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-73 sampler: 10005-zero4rs
+2026-03-11 18:01:31,222 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-84
+2026-03-11 18:01:31,223 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-61
+2026-03-11 18:01:31,223 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-61 sampler: 10005-zero4rs
+2026-03-11 18:01:31,223 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-12
+2026-03-11 18:01:31,223 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-68
+2026-03-11 18:01:31,223 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-73
+2026-03-11 18:01:31,223 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-68 sampler: 10005-zero4rs
+2026-03-11 18:01:31,223 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-37
+2026-03-11 18:01:31,224 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-61
+2026-03-11 18:01:31,224 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-37 sampler: 10005-zero4rs
+2026-03-11 18:01:31,224 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-39
+2026-03-11 18:01:31,224 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-68
+2026-03-11 18:01:31,224 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-39 sampler: 10005-zero4rs
+2026-03-11 18:01:31,224 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-62
+2026-03-11 18:01:31,225 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-62 sampler: 10005-zero4rs
+2026-03-11 18:01:31,225 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-37
+2026-03-11 18:01:31,225 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-53
+2026-03-11 18:01:31,225 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-39
+2026-03-11 18:01:31,225 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-53 sampler: 10005-zero4rs
+2026-03-11 18:01:31,225 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-64
+2026-03-11 18:01:31,225 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-64 sampler: 10005-zero4rs
+2026-03-11 18:01:31,225 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-62
+2026-03-11 18:01:31,226 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-76
+2026-03-11 18:01:31,226 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-76 sampler: 10005-zero4rs
+2026-03-11 18:01:31,226 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-53
+2026-03-11 18:01:31,226 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-33
+2026-03-11 18:01:31,226 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-64
+2026-03-11 18:01:31,226 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-33 sampler: 10005-zero4rs
+2026-03-11 18:01:31,227 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-51
+2026-03-11 18:01:31,227 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-76
+2026-03-11 18:01:31,227 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-51 sampler: 10005-zero4rs
+2026-03-11 18:01:31,227 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-33
+2026-03-11 18:01:31,227 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-49
+2026-03-11 18:01:31,227 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-49 sampler: 10005-zero4rs
+2026-03-11 18:01:31,228 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-40
+2026-03-11 18:01:31,228 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-51
+2026-03-11 18:01:31,228 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-40 sampler: 10005-zero4rs
+2026-03-11 18:01:31,228 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-5
+2026-03-11 18:01:31,228 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-49
+2026-03-11 18:01:31,228 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-5 sampler: 10005-zero4rs
+2026-03-11 18:01:31,229 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-15
+2026-03-11 18:01:31,229 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-40
+2026-03-11 18:01:31,229 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-15 sampler: 10005-zero4rs
+2026-03-11 18:01:31,229 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-81
+2026-03-11 18:01:31,229 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-5
+2026-03-11 18:01:31,229 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-81 sampler: 10005-zero4rs
+2026-03-11 18:01:31,230 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-50
+2026-03-11 18:01:31,230 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-50 sampler: 10005-zero4rs
+2026-03-11 18:01:31,230 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-15
+2026-03-11 18:01:31,230 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-10
+2026-03-11 18:01:31,230 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-10 sampler: 10005-zero4rs
+2026-03-11 18:01:31,230 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-81
+2026-03-11 18:01:31,230 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-45
+2026-03-11 18:01:31,230 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-50
+2026-03-11 18:01:31,231 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-45 sampler: 10005-zero4rs
+2026-03-11 18:01:31,231 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-23
+2026-03-11 18:01:31,231 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-10
+2026-03-11 18:01:31,231 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-23 sampler: 10005-zero4rs
+2026-03-11 18:01:31,231 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-46
+2026-03-11 18:01:31,231 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-46 sampler: 10005-zero4rs
+2026-03-11 18:01:31,231 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-45
+2026-03-11 18:01:31,232 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-74
+2026-03-11 18:01:31,232 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-74 sampler: 10005-zero4rs
+2026-03-11 18:01:31,232 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-23
+2026-03-11 18:01:31,232 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-9
+2026-03-11 18:01:31,232 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-46
+2026-03-11 18:01:31,232 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-9 sampler: 10005-zero4rs
+2026-03-11 18:01:31,232 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-90
+2026-03-11 18:01:31,233 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-90 sampler: 10005-zero4rs
+2026-03-11 18:01:31,233 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-74
+2026-03-11 18:01:31,233 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-59
+2026-03-11 18:01:31,233 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-9
+2026-03-11 18:01:31,233 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-59 sampler: 10005-zero4rs
+2026-03-11 18:01:31,233 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-63
+2026-03-11 18:01:31,233 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-63 sampler: 10005-zero4rs
+2026-03-11 18:01:31,233 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-90
+2026-03-11 18:01:31,234 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-32
+2026-03-11 18:01:31,234 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-32 sampler: 10005-zero4rs
+2026-03-11 18:01:31,234 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-59
+2026-03-11 18:01:31,234 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-19
+2026-03-11 18:01:31,234 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-19 sampler: 10005-zero4rs
+2026-03-11 18:01:31,234 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-63
+2026-03-11 18:01:31,235 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-29
+2026-03-11 18:01:31,235 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-32
+2026-03-11 18:01:31,235 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-29 sampler: 10005-zero4rs
+2026-03-11 18:01:31,235 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-19
+2026-03-11 18:01:31,235 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-75
+2026-03-11 18:01:31,235 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-75 sampler: 10005-zero4rs
+2026-03-11 18:01:31,235 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-7
+2026-03-11 18:01:31,236 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-29
+2026-03-11 18:01:31,236 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-7 sampler: 10005-zero4rs
+2026-03-11 18:01:31,236 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-79
+2026-03-11 18:01:31,236 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-75
+2026-03-11 18:01:31,236 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-79 sampler: 10005-zero4rs
+2026-03-11 18:01:31,236 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-94
+2026-03-11 18:01:31,236 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-94 sampler: 10005-zero4rs
+2026-03-11 18:01:31,236 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-7
+2026-03-11 18:01:31,237 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-79
+2026-03-11 18:01:31,237 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-100
+2026-03-11 18:01:31,237 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-100 sampler: 10005-zero4rs
+2026-03-11 18:01:31,237 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-94
+2026-03-11 18:01:31,237 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-28
+2026-03-11 18:01:31,237 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-28 sampler: 10005-zero4rs
+2026-03-11 18:01:31,238 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-100
+2026-03-11 18:01:31,238 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-20
+2026-03-11 18:01:31,238 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-20 sampler: 10005-zero4rs
+2026-03-11 18:01:31,238 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-60
+2026-03-11 18:01:31,238 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-28
+2026-03-11 18:01:31,238 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-60 sampler: 10005-zero4rs
+2026-03-11 18:01:31,238 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-20
+2026-03-11 18:01:31,238 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-99
+2026-03-11 18:01:31,239 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-99 sampler: 10005-zero4rs
+2026-03-11 18:01:31,239 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-60
+2026-03-11 18:01:31,239 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-92
+2026-03-11 18:01:31,239 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-92 sampler: 10005-zero4rs
+2026-03-11 18:01:31,239 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-85
+2026-03-11 18:01:31,239 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-99
+2026-03-11 18:01:31,240 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-85 sampler: 10005-zero4rs
+2026-03-11 18:01:31,240 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-92
+2026-03-11 18:01:31,240 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-6
+2026-03-11 18:01:31,240 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-6 sampler: 10005-zero4rs
+2026-03-11 18:01:31,240 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-41
+2026-03-11 18:01:31,240 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-41 sampler: 10005-zero4rs
+2026-03-11 18:01:31,240 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-85
+2026-03-11 18:01:31,241 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-80
+2026-03-11 18:01:31,241 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-6
+2026-03-11 18:01:31,241 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-80 sampler: 10005-zero4rs
+2026-03-11 18:01:31,241 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-41
+2026-03-11 18:01:31,241 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-27
+2026-03-11 18:01:31,241 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-27 sampler: 10005-zero4rs
+2026-03-11 18:01:31,242 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-13
+2026-03-11 18:01:31,242 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-13 sampler: 10005-zero4rs
+2026-03-11 18:01:31,242 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-80
+2026-03-11 18:01:31,242 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-86
+2026-03-11 18:01:31,242 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-86 sampler: 10005-zero4rs
+2026-03-11 18:01:31,242 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-27
+2026-03-11 18:01:31,243 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-78
+2026-03-11 18:01:31,243 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-13
+2026-03-11 18:01:31,243 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-78 sampler: 10005-zero4rs
+2026-03-11 18:01:31,243 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-86
+2026-03-11 18:01:31,243 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-26
+2026-03-11 18:01:31,243 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-26 sampler: 10005-zero4rs
+2026-03-11 18:01:31,243 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-1
+2026-03-11 18:01:31,244 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-78
+2026-03-11 18:01:31,244 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-1 sampler: 10005-zero4rs
+2026-03-11 18:01:31,244 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-26
+2026-03-11 18:01:31,244 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-34
+2026-03-11 18:01:31,244 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-34 sampler: 10005-zero4rs
+2026-03-11 18:01:31,244 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-1
+2026-03-11 18:01:31,244 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-2
+2026-03-11 18:01:31,245 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-2 sampler: 10005-zero4rs
+2026-03-11 18:01:31,245 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-34
+2026-03-11 18:01:31,245 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-43
+2026-03-11 18:01:31,245 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-43 sampler: 10005-zero4rs
+2026-03-11 18:01:31,245 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-2
+2026-03-11 18:01:31,245 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-89
+2026-03-11 18:01:31,246 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-89 sampler: 10005-zero4rs
+2026-03-11 18:01:31,246 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-43
+2026-03-11 18:01:31,246 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-97
+2026-03-11 18:01:31,246 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-97 sampler: 10005-zero4rs
+2026-03-11 18:01:31,246 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-70
+2026-03-11 18:01:31,246 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-89
+2026-03-11 18:01:31,246 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-70 sampler: 10005-zero4rs
+2026-03-11 18:01:31,247 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-97
+2026-03-11 18:01:31,247 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-77
+2026-03-11 18:01:31,247 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-77 sampler: 10005-zero4rs
+2026-03-11 18:01:31,247 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-87
+2026-03-11 18:01:31,247 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-70
+2026-03-11 18:01:31,247 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-87 sampler: 10005-zero4rs
+2026-03-11 18:01:31,247 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-77
+2026-03-11 18:01:31,248 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-66
+2026-03-11 18:01:31,248 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-66 sampler: 10005-zero4rs
+2026-03-11 18:01:31,248 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-87
+2026-03-11 18:01:31,248 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-67
+2026-03-11 18:01:31,248 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-67 sampler: 10005-zero4rs
+2026-03-11 18:01:31,248 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-66
+2026-03-11 18:01:31,248 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-17
+2026-03-11 18:01:31,249 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-17 sampler: 10005-zero4rs
+2026-03-11 18:01:31,249 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-67
+2026-03-11 18:01:31,249 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-35
+2026-03-11 18:01:31,249 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-35 sampler: 10005-zero4rs
+2026-03-11 18:01:31,249 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-17
+2026-03-11 18:01:31,250 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-91
+2026-03-11 18:01:31,250 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-91 sampler: 10005-zero4rs
+2026-03-11 18:01:31,250 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-35
+2026-03-11 18:01:31,250 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-18
+2026-03-11 18:01:31,250 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-18 sampler: 10005-zero4rs
+2026-03-11 18:01:31,250 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-91
+2026-03-11 18:01:31,251 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-95
+2026-03-11 18:01:31,251 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-95 sampler: 10005-zero4rs
+2026-03-11 18:01:31,251 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-18
+2026-03-11 18:01:31,251 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-58
+2026-03-11 18:01:31,251 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-58 sampler: 10005-zero4rs
+2026-03-11 18:01:31,251 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-95
+2026-03-11 18:01:31,252 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-48
+2026-03-11 18:01:31,252 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-48 sampler: 10005-zero4rs
+2026-03-11 18:01:31,252 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-58
+2026-03-11 18:01:31,252 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-93
+2026-03-11 18:01:31,252 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-93 sampler: 10005-zero4rs
+2026-03-11 18:01:31,252 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-48
+2026-03-11 18:01:31,253 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-21
+2026-03-11 18:01:31,253 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-21 sampler: 10005-zero4rs
+2026-03-11 18:01:31,253 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-93
+2026-03-11 18:01:31,253 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-96
+2026-03-11 18:01:31,253 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-96 sampler: 10005-zero4rs
+2026-03-11 18:01:31,253 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-21
+2026-03-11 18:01:31,254 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-55
+2026-03-11 18:01:31,254 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-55 sampler: 10005-zero4rs
+2026-03-11 18:01:31,254 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-96
+2026-03-11 18:01:31,254 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-98
+2026-03-11 18:01:31,255 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-98 sampler: 10005-zero4rs
+2026-03-11 18:01:31,255 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-55
+2026-03-11 18:01:31,255 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-71
+2026-03-11 18:01:31,255 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-71 sampler: 10005-zero4rs
+2026-03-11 18:01:31,255 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-98
+2026-03-11 18:01:31,255 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-25
+2026-03-11 18:01:31,255 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-25 sampler: 10005-zero4rs
+2026-03-11 18:01:31,256 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-71
+2026-03-11 18:01:31,256 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-38
+2026-03-11 18:01:31,256 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-38 sampler: 10005-zero4rs
+2026-03-11 18:01:31,256 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-4
+2026-03-11 18:01:31,256 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-25
+2026-03-11 18:01:31,256 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-4 sampler: 10005-zero4rs
+2026-03-11 18:01:31,257 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-14
+2026-03-11 18:01:31,257 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-38
+2026-03-11 18:01:31,257 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-14 sampler: 10005-zero4rs
+2026-03-11 18:01:31,257 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-4
+2026-03-11 18:01:31,257 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-3
+2026-03-11 18:01:31,257 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-3 sampler: 10005-zero4rs
+2026-03-11 18:01:31,258 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-14
+2026-03-11 18:01:31,258 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-42
+2026-03-11 18:01:31,258 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-42 sampler: 10005-zero4rs
+2026-03-11 18:01:31,258 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-8
+2026-03-11 18:01:31,258 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-3
+2026-03-11 18:01:31,258 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-8 sampler: 10005-zero4rs
+2026-03-11 18:01:31,259 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-65
+2026-03-11 18:01:31,259 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-42
+2026-03-11 18:01:31,259 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-65 sampler: 10005-zero4rs
+2026-03-11 18:01:31,259 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-8
+2026-03-11 18:01:31,259 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-69
+2026-03-11 18:01:31,259 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-69 sampler: 10005-zero4rs
+2026-03-11 18:01:31,259 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-65
+2026-03-11 18:01:31,260 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-22
+2026-03-11 18:01:31,260 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-69
+2026-03-11 18:01:31,260 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-22 sampler: 10005-zero4rs
+2026-03-11 18:01:31,261 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-22
+2026-03-11 18:01:31,261 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
+2026-03-11 18:01:31,262 INFO o.a.j.r.Summariser: Generate Summary Results +   1469 in 00:00:01 = 1165.9/s Avg:    85 Min:     1 Max:   331 Err:   100 (6.81%) Active: 0 Started: 100 Finished: 100
+2026-03-11 18:01:31,262 INFO o.a.j.r.Summariser: Generate Summary Results = 183327 in 00:01:04 = 2869.2/s Avg:    32 Min:     1 Max:   465 Err:   100 (0.05%)
+2026-03-11 18:01:31,262 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
+2026-03-11 18:01:37,365 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2026-03-11 18:01:37,365 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2026-03-11 18:01:37,366 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
+2026-03-11 18:01:37,431 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Thread Group
+2026-03-11 18:01:37,432 INFO o.a.j.e.StandardJMeterEngine: Starting 100 threads for group Thread Group.
+2026-03-11 18:01:37,432 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2026-03-11 18:01:37,432 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=100 ramp-up=5 delayedStart=false
+2026-03-11 18:01:37,433 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-1
+2026-03-11 18:01:37,461 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2026-03-11 18:01:37,461 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2026-03-11 18:01:37,488 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-2
+2026-03-11 18:01:37,537 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-3
+2026-03-11 18:01:37,590 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-4
+2026-03-11 18:01:37,640 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-5
+2026-03-11 18:01:37,691 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-6
+2026-03-11 18:01:37,740 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-7
+2026-03-11 18:01:37,791 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-8
+2026-03-11 18:01:37,837 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-9
+2026-03-11 18:01:37,892 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-10
+2026-03-11 18:01:37,932 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-11
+2026-03-11 18:01:37,990 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-12
+2026-03-11 18:01:38,038 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-13
+2026-03-11 18:01:38,090 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-14
+2026-03-11 18:01:38,140 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-15
+2026-03-11 18:01:38,188 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-16
+2026-03-11 18:01:38,241 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-17
+2026-03-11 18:01:38,283 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-18
+2026-03-11 18:01:38,339 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-19
+2026-03-11 18:01:38,391 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-20
+2026-03-11 18:01:38,441 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-21
+2026-03-11 18:01:38,490 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-22
+2026-03-11 18:01:38,534 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-23
+2026-03-11 18:01:38,591 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-24
+2026-03-11 18:01:38,637 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-25
+2026-03-11 18:01:38,690 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-26
+2026-03-11 18:01:38,737 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-27
+2026-03-11 18:01:38,784 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-28
+2026-03-11 18:01:38,833 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-29
+2026-03-11 18:01:38,891 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-30
+2026-03-11 18:01:38,942 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-31
+2026-03-11 18:01:38,989 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-32
+2026-03-11 18:01:39,033 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-33
+2026-03-11 18:01:39,084 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-34
+2026-03-11 18:01:39,139 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-35
+2026-03-11 18:01:39,183 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-36
+2026-03-11 18:01:39,242 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-37
+2026-03-11 18:01:39,289 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-38
+2026-03-11 18:01:39,333 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-39
+2026-03-11 18:01:39,385 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-40
+2026-03-11 18:01:39,441 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-41
+2026-03-11 18:01:39,488 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-42
+2026-03-11 18:01:39,536 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-43
+2026-03-11 18:01:39,583 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-44
+2026-03-11 18:01:39,633 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-45
+2026-03-11 18:01:39,691 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-46
+2026-03-11 18:01:39,740 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-47
+2026-03-11 18:01:39,791 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-48
+2026-03-11 18:01:39,841 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-49
+2026-03-11 18:01:39,890 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-50
+2026-03-11 18:01:39,940 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-51
+2026-03-11 18:01:39,990 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-52
+2026-03-11 18:01:40,033 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-53
+2026-03-11 18:01:40,088 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-54
+2026-03-11 18:01:40,137 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-55
+2026-03-11 18:01:40,184 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-56
+2026-03-11 18:01:40,234 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-57
+2026-03-11 18:01:40,293 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-58
+2026-03-11 18:01:40,340 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-59
+2026-03-11 18:01:40,390 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-60
+2026-03-11 18:01:40,439 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-61
+2026-03-11 18:01:40,482 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-62
+2026-03-11 18:01:40,532 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-63
+2026-03-11 18:01:40,588 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-64
+2026-03-11 18:01:40,633 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-65
+2026-03-11 18:01:40,684 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-66
+2026-03-11 18:01:40,739 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-67
+2026-03-11 18:01:40,783 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-68
+2026-03-11 18:01:40,839 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-69
+2026-03-11 18:01:40,888 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-70
+2026-03-11 18:01:40,933 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-71
+2026-03-11 18:01:40,983 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-72
+2026-03-11 18:01:41,032 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-73
+2026-03-11 18:01:41,088 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-74
+2026-03-11 18:01:41,142 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-75
+2026-03-11 18:01:41,182 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-76
+2026-03-11 18:01:41,242 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-77
+2026-03-11 18:01:41,285 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-78
+2026-03-11 18:01:41,339 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-79
+2026-03-11 18:01:41,388 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-80
+2026-03-11 18:01:41,436 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-81
+2026-03-11 18:01:41,483 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-82
+2026-03-11 18:01:41,533 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-83
+2026-03-11 18:01:41,582 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-84
+2026-03-11 18:01:41,633 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-85
+2026-03-11 18:01:41,687 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-86
+2026-03-11 18:01:41,733 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-87
+2026-03-11 18:01:41,783 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-88
+2026-03-11 18:01:41,841 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-89
+2026-03-11 18:01:41,889 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-90
+2026-03-11 18:01:41,934 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-91
+2026-03-11 18:01:41,983 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-92
+2026-03-11 18:01:42,032 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-93
+2026-03-11 18:01:42,083 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-94
+2026-03-11 18:01:42,137 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-95
+2026-03-11 18:01:42,189 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-96
+2026-03-11 18:01:42,233 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-97
+2026-03-11 18:01:42,283 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-98
+2026-03-11 18:01:42,332 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-99
+2026-03-11 18:01:42,388 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-100
+2026-03-11 18:02:00,001 INFO o.a.j.r.Summariser: Generate Summary Results +  64640 in 00:00:23 = 2855.9/s Avg:    29 Min:     3 Max:   248 Err:     0 (0.00%) Active: 100 Started: 100 Finished: 0
+2026-03-11 18:02:30,002 INFO o.a.j.r.Summariser: Generate Summary Results +  74731 in 00:00:30 = 2491.0/s Avg:    38 Min:     3 Max:   332 Err:    39 (0.05%) Active: 100 Started: 100 Finished: 0
+2026-03-11 18:02:33,170 INFO o.a.j.r.Summariser: Generate Summary Results = 139371 in 00:00:53 = 2647.9/s Avg:    34 Min:     3 Max:   332 Err:    39 (0.03%)
+2026-03-11 18:03:00,000 INFO o.a.j.r.Summariser: Generate Summary Results +  76895 in 00:00:30 = 2563.3/s Avg:    37 Min:     3 Max:   455 Err:   727 (0.95%) Active: 100 Started: 100 Finished: 0
+2026-03-11 18:03:12,217 INFO o.a.j.r.Summariser: Generate Summary Results = 216266 in 00:01:23 = 2617.2/s Avg:    35 Min:     3 Max:   455 Err:   766 (0.35%)
+2026-03-11 18:03:30,000 INFO o.a.j.r.Summariser: Generate Summary Results +  74603 in 00:00:30 = 2486.8/s Avg:    37 Min:     3 Max:   379 Err:   760 (1.02%) Active: 100 Started: 100 Finished: 0
+2026-03-11 18:03:30,911 INFO o.a.j.r.Summariser: Generate Summary Results = 290869 in 00:01:53 = 2582.4/s Avg:    35 Min:     3 Max:   455 Err:  1526 (0.52%)
+2026-03-11 18:04:00,215 INFO o.a.j.r.Summariser: Generate Summary Results +  65580 in 00:00:30 = 2170.5/s Avg:    40 Min:     3 Max:   681 Err:   672 (1.02%) Active: 100 Started: 100 Finished: 0
+2026-03-11 18:04:00,312 INFO o.a.j.r.Summariser: Generate Summary Results = 356449 in 00:02:23 = 2495.3/s Avg:    36 Min:     3 Max:   681 Err:  2198 (0.62%)
+2026-03-11 18:04:30,002 INFO o.a.j.r.Summariser: Generate Summary Results +  65792 in 00:00:30 = 2208.7/s Avg:    41 Min:     3 Max:   495 Err:   627 (0.95%) Active: 100 Started: 100 Finished: 0
+2026-03-11 18:04:31,000 INFO o.a.j.r.Summariser: Generate Summary Results = 422241 in 00:02:53 = 2445.9/s Avg:    37 Min:     3 Max:   681 Err:  2825 (0.67%)
+2026-03-11 18:05:30,016 INFO o.a.j.r.Summariser: Generate Summary Results +  42826 in 00:01:00 =  713.7/s Avg:   111 Min:     3 Max: 24804 Err:   445 (1.04%) Active: 100 Started: 100 Finished: 0
+2026-03-11 18:05:30,022 INFO o.a.j.r.Summariser: Generate Summary Results = 465067 in 00:03:53 = 1999.0/s Avg:    44 Min:     3 Max: 24804 Err:  3270 (0.70%)
+2026-03-11 18:06:00,002 INFO o.a.j.r.Summariser: Generate Summary Results +  64053 in 00:00:30 = 2135.9/s Avg:    44 Min:     4 Max:   491 Err:     0 (0.00%) Active: 100 Started: 100 Finished: 0
+2026-03-11 18:06:00,002 INFO o.a.j.r.Summariser: Generate Summary Results = 529120 in 00:04:23 = 2014.7/s Avg:    44 Min:     3 Max: 24804 Err:  3270 (0.62%)
+2026-03-11 18:06:30,002 INFO o.a.j.r.Summariser: Generate Summary Results +  65565 in 00:00:30 = 2185.6/s Avg:    42 Min:     4 Max:   307 Err:     0 (0.00%) Active: 100 Started: 100 Finished: 0
+2026-03-11 18:06:30,777 INFO o.a.j.r.Summariser: Generate Summary Results = 594685 in 00:04:53 = 2032.2/s Avg:    44 Min:     3 Max: 24804 Err:  3270 (0.55%)
+2026-03-11 18:07:00,000 INFO o.a.j.r.Summariser: Generate Summary Results +  71472 in 00:00:30 = 2382.5/s Avg:    39 Min:     4 Max:   207 Err:     0 (0.00%) Active: 100 Started: 100 Finished: 0
+2026-03-11 18:07:01,485 INFO o.a.j.r.Summariser: Generate Summary Results = 666157 in 00:05:23 = 2064.7/s Avg:    43 Min:     3 Max: 24804 Err:  3270 (0.49%)
+2026-03-11 18:08:00,223 INFO o.a.j.r.Summariser: Generate Summary Results +  51007 in 00:01:00 =  850.1/s Avg:    59 Min:     4 Max: 18882 Err:   138 (0.27%) Active: 100 Started: 100 Finished: 0
+2026-03-11 18:08:00,263 INFO o.a.j.r.Summariser: Generate Summary Results = 717164 in 00:06:23 = 1874.0/s Avg:    44 Min:     3 Max: 24804 Err:  3408 (0.48%)
+2026-03-11 18:08:13,750 INFO o.a.j.r.ResultCollector: Shutdown hook started
+2026-03-11 18:08:13,756 INFO o.a.j.r.ResultCollector: Shutdown hook ended
