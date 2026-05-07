@@ -18,7 +18,7 @@ services:
     hostname: envoy-1.37.2
     #mem_limit: 300m
     #entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
-    entrypoint: ["envoy", "-c", "/etc/envoy/envoy.yaml", "--log-level", "info"]
+    entrypoint: ["envoy", "--concurrency", "4", "-c", "/etc/envoy/envoy.yaml", "--log-level", "info"]
     ports:
       - 10000:10000 # envoy server bootstrap 端口
       - 19901:9901  # envoy server admin 端口
