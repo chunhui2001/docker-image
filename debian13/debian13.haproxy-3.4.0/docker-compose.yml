@@ -1,0 +1,64 @@
+
+## 安装Docker Compose
+# curl -L https://github.com/docker/compose/releases/download/1.24.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+# chmod +x /usr/local/bin/docker-compose
+# docker-compose --version
+# docker-compose up -d
+
+
+networks:
+    br0:
+      external: true
+
+services:
+  haproxy-3.4.0:
+    container_name: haproxy-3.4.0
+    image: chunhui2001/debian_13:haproxy-3.4.0
+    platform: linux/amd64
+    hostname: haproxy-3.4.0
+    #user: root
+    user: haproxy
+    #mem_limit: 300m
+    #entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
+    command:
+      - haproxy
+      - -f 
+      - /usr/local/etc/haproxy/haproxy.cfg
+      - -f 
+      - /usr/local/etc/haproxy/conf.d/8361.blog_proxy.cfg
+      - -f 
+      - /usr/local/etc/haproxy/conf.d/8362.cdn_proxy.cfg
+      - -f 
+      - /usr/local/etc/haproxy/conf.d/8363.infura_mainnet_proxy.cfg
+      - -f 
+      - /usr/local/etc/haproxy/conf.d/8365-8366.zero4rs_proxy.cfg
+      - -f 
+      - /usr/local/etc/haproxy/conf.d/8367.zero4go_proxy.cfg
+      - -f 
+      - /usr/local/etc/haproxy/conf.d/8368.envoy_proxy.cfg
+      - -f 
+      - /usr/local/etc/haproxy/conf.d/8404.stats.cfg
+    ports:
+      - 8404:8404
+      - 8361:8361
+      - 8362:8362
+      - 8363:8363
+      - 8364:8364
+      - 8365:8365
+      - 8366:8366
+      - 8367:8367
+      - 8368:8368
+      - 8369:8369
+    volumes:
+      - ./config/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
+      - ./config/conf.d/8361.blog_proxy.cfg:/usr/local/etc/haproxy/conf.d/8361.blog_proxy.cfg:ro
+      - ./config/conf.d/8362.cdn_proxy.cfg:/usr/local/etc/haproxy/conf.d/8362.cdn_proxy.cfg:ro
+      - ./config/conf.d/8363.infura_mainnet_proxy.cfg:/usr/local/etc/haproxy/conf.d/8363.infura_mainnet_proxy.cfg:ro
+      - ./config/conf.d/8365-8366.zero4rs_proxy.cfg:/usr/local/etc/haproxy/conf.d/8365-8366.zero4rs_proxy.cfg:ro
+      - ./config/conf.d/8367.zero4go_proxy.cfg:/usr/local/etc/haproxy/conf.d/8367.zero4go_proxy.cfg:ro
+      - ./config/conf.d/8368.envoy_proxy.cfg:/usr/local/etc/haproxy/conf.d/8368.envoy_proxy.cfg:ro
+      - ./config/conf.d/8404.stats.cfg:/usr/local/etc/haproxy/conf.d/8404.stats.cfg:ro
+    restart: always
+    networks:
+        br0:
+          ipv4_address: 172.16.197.96

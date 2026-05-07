@@ -2,13 +2,13 @@ node:
   id: tenant-0
   cluster: demo-cluster
   metadata:
-    server_host: envoy-1.37.2
+    server_host: envoy-1.38.0
     server_port: 10000
-    admin_host: envoy-1.37.2
+    admin_host: envoy-1.38.0
     admin_port: 9901
-
-    listeners_outside: server://127.0.0.1:10110,    admin://127.0.0.1:9911,    http://127.0.0.1:18230,      grpc://127.0.0.1:18100
-    listeners_inside:  server://envoy-1.37.2:10000, admin://envoy-1.37.2:9901, http://xds-envoy-plane:8000, grpc://xds-envoy-plane:18100
+    tenant_id: tenant-0
+    listeners_outside: server://127.0.0.1:10000,    admin://127.0.0.1:19901,    plane://127.0.0.1:18230,      grpc://127.0.0.1:18100
+    listeners_inside:  server://envoy-1.38.0:10000, admin://envoy-1.38.0:9901,  plane://xds-envoy-plane:8000, grpc://xds-envoy-plane:18100
 
   locality:
     region: us-west
@@ -131,8 +131,8 @@ static_resources:
 
 dynamic_resources:
   ads_config:
-    api_type: GRPC
-    # api_type: DELTA_GRPC
+    # api_type: GRPC
+    api_type: DELTA_GRPC
     # transport_api_version: V3
     grpc_services:
       - envoy_grpc:

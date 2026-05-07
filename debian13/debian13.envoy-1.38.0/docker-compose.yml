@@ -11,11 +11,11 @@ networks:
       external: true
 
 services:
-  envoy-1.37.2:
-    container_name: envoy-1.37.2
-    image: chunhui2001/debian_13:envoy-1.37.2
+  envoy-1.38.0:
+    container_name: envoy-1.38.0
+    image: chunhui2001/debian_13:envoy-1.38.0_amd
     platform: linux/amd64
-    hostname: envoy-1.37.2
+    hostname: envoy-1.38.0
     #mem_limit: 300m
     #entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
     entrypoint: ["envoy", "--concurrency", "4", "-c", "/etc/envoy/envoy.yaml", "--log-level", "info"]
@@ -34,7 +34,6 @@ services:
     volumes:
       #- ./envoy-demo.yaml:/etc/envoy/envoy.yaml:ro
       - ./envoy-docker.yaml:/etc/envoy/envoy.yaml:ro
-      - ./xds_log_wasm.wasm:/etc/envoy/xds_log_wasm.wasm:ro
       - ./logs:/tmp/logs
     restart: always
     networks:

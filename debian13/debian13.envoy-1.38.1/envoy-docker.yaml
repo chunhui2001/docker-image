@@ -1,14 +1,10 @@
 node:
-  id: tenant-0
+  id: tenant-0::node-1
   cluster: demo-cluster
   metadata:
-    server_host: envoy-1.37.2
-    server_port: 10000
-    admin_host: envoy-1.37.2
-    admin_port: 9901
-
-    listeners_outside: server://127.0.0.1:10110,    admin://127.0.0.1:9911,    http://127.0.0.1:18230,      grpc://127.0.0.1:18100
-    listeners_inside:  server://envoy-1.37.2:10000, admin://envoy-1.37.2:9901, http://xds-envoy-plane:8000, grpc://xds-envoy-plane:18100
+    tenant_id: tenant-0
+    listeners_outside: server://127.0.0.1:10000,    admin://127.0.0.1:19901,    plane://127.0.0.1:18230,      grpc://127.0.0.1:18100
+    listeners_inside:  server://envoy-1.38.1:10000, admin://envoy-1.38.1:9901,  plane://xds-envoy-plane:8000, grpc://xds-envoy-plane:18100
 
   locality:
     region: us-west
@@ -59,12 +55,37 @@ static_resources:
         socket_address:
           address: 0.0.0.0
           port_value: 10000
+
       filter_chains:
-        - filters:
+        # - filter_chain_match:
+        #    transport_protocol: tls
+        - transport_socket:
+            name: envoy.transport_sockets.tls
+            typed_config:
+              "@type": type.googleapis.com/envoy.extensions.transport_sockets.tls.v3.DownstreamTlsContext
+              common_tls_context:
+                tls_certificates:
+                - certificate_chain:
+                    filename: "/etc/envoy/certs/server.crt"
+                  private_key:
+                    filename: "/etc/envoy/certs/server.key"
+                alpn_protocols:
+                  - h2
+                  - http/1.1
+          filters:
             - name: envoy.filters.network.http_connection_manager
               typed_config:
                 "@type": type.googleapis.com/envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager
                 stat_prefix: bootstrap
+
+                access_log:
+                  - name: envoy.access_loggers.stdout
+                    typed_config:
+                      "@type": type.googleapis.com/envoy.extensions.access_loggers.stream.v3.StdoutAccessLog
+                      log_format:
+                        text_format: |
+                          [%START_TIME%] "%REQ(:METHOD)% %REQ(X-ENVOY-ORIGINAL-PATH?:PATH)% %PROTOCOL%" %RESPONSE_CODE% TX:%BYTES_SENT% RX:%BYTES_RECEIVED% %DURATION%ms "%REQ(X-FORWARDED-FOR)%" "%REQ(:AUTHORITY)%" "%UPSTREAM_HOST%"
+
                 route_config:
                   name: bootstrap_route
                   virtual_hosts:
@@ -108,6 +129,65 @@ static_resources:
                     typed_config:
                       "@type": type.googleapis.com/envoy.extensions.filters.http.router.v3.Router
 
+        # - filter_chain_match:
+        #     transport_protocol: raw_buffer
+        #   filters:
+        #     - name: envoy.filters.network.http_connection_manager
+        #       typed_config:
+        #         "@type": type.googleapis.com/envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager
+        #         stat_prefix: bootstrap
+
+        #         access_log:
+        #           - name: envoy.access_loggers.stdout
+        #             typed_config:
+        #               "@type": type.googleapis.com/envoy.extensions.access_loggers.stream.v3.StdoutAccessLog
+        #               log_format:
+        #                 text_format: |
+        #                   [%START_TIME%] "%REQ(:METHOD)% %REQ(X-ENVOY-ORIGINAL-PATH?:PATH)% %PROTOCOL%" %RESPONSE_CODE% TX:%BYTES_SENT% RX:%BYTES_RECEIVED% %DURATION%ms "%REQ(X-FORWARDED-FOR)%" "%REQ(:AUTHORITY)%" "%UPSTREAM_HOST%"
+
+        #         route_config:
+        #           name: bootstrap_route
+        #           virtual_hosts:
+        #             - name: default
+        #               domains: ["*"]
+        #               routes:
+        #                 - match:
+        #                     path: "/favicon.ico"
+        #                   direct_response:
+        #                     status: 200
+        #                     body:
+        #                       inline_bytes: "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"
+        #                   response_headers_to_add:
+        #                     - header:
+        #                         key: content-type
+        #                         value: image/x-icon
+        #                 - match:
+        #                     prefix: "/"
+        #                   direct_response:
+        #                     status: 200
+        #                     body:
+        #                       inline_string: |
+        #                         <!DOCTYPE html>
+        #                         <html>
+        #                         <head>
+        #                           <meta charset="utf-8"/>
+        #                           <title>xDS Control plane</title>
+        #                         </head>
+        #                           <body style="font-family: sans-serif; text-align: center; padding-top: 50px;">
+        #                             <h1>Waiting for xDS...</h1>
+        #                             <p>Control plane not ready yet.</p>
+        #                           </body>
+        #                         </html>
+        #                   response_headers_to_add:
+        #                     - header:
+        #                         key: content-type
+        #                         value: text/html; charset=UTF-8
+        #                       append_action: OVERWRITE_IF_EXISTS_OR_ADD
+        #         http_filters:
+        #           - name: envoy.filters.http.router
+        #             typed_config:
+        #               "@type": type.googleapis.com/envoy.extensions.filters.http.router.v3.Router
+
   clusters:
     - name: xds_cluster
       connect_timeout: 5s
@@ -131,8 +211,8 @@ static_resources:
 
 dynamic_resources:
   ads_config:
-    api_type: GRPC
-    # api_type: DELTA_GRPC
+    # api_type: GRPC
+    api_type: DELTA_GRPC
     # transport_api_version: V3
     grpc_services:
       - envoy_grpc:

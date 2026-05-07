@@ -11,14 +11,14 @@ networks:
       external: true
 
 services:
-  envoy-1.37.2:
-    container_name: envoy-1.37.2
-    image: chunhui2001/debian_13:envoy-1.37.2
-    platform: linux/amd64
-    hostname: envoy-1.37.2
+  envoy-1.38.0:
+    container_name: envoy-1.38.0
+    image: chunhui2001/debian_13:envoy-1.38.0_arm
+    platform: linux/arm64
+    hostname: envoy-1.38.0
     #mem_limit: 300m
-    #entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
-    entrypoint: ["envoy", "--concurrency", "4", "-c", "/etc/envoy/envoy.yaml", "--log-level", "info"]
+    entrypoint: ["/bin/bash", "-c", "while true; do echo 1 >/dev/null 2>/dev/null; sleep 1; done"]
+    #entrypoint: ["envoy", "-c", "/etc/envoy/envoy.yaml", "--log-level", "info"]
     ports:
       - 10000:10000 # envoy server bootstrap 端口
       - 19901:9901  # envoy server admin 端口
@@ -26,11 +26,7 @@ services:
       - 18990:18990 # listener binance stream 端口
       - 18111:18111 # listener zero4go 端口
       - 19200:19200 # listener zero4rs 端口
-      - 17601:17601 # listener grpc 端口
       - 16600:16600 # listener blog 端口
-      - 13111:13111 # verify contract 端口
-      - 19001:19001 # cdn.microee.com 端口
-      - 19011:19011 # minio 端口
     volumes:
       #- ./envoy-demo.yaml:/etc/envoy/envoy.yaml:ro
       - ./envoy-docker.yaml:/etc/envoy/envoy.yaml:ro
@@ -39,4 +35,4 @@ services:
     restart: always
     networks:
         br0:
-          ipv4_address: 172.16.197.157
+          ipv4_address: 172.16.197.158
